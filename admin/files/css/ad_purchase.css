@@ -1,0 +1,47 @@
+.con
+{
+	border: 1px solid #878787;
+	border-color: #DFDFDF;
+	background-color: #F5F5F5;
+	margin: 15px;
+	padding: 15px;
+	width: 500px;
+}
+.con UL
+{
+	list-style: square outside;
+	margin-right: 15px;
+	margin-left: 15px;
+	padding-left: 10px;
+}
+.con UL LI
+{
+	font-size: 14px;
+}
+.con UL LI STRONG
+{
+	margin-right: 5px;
+}
+FORM INPUT[type=textbox]
+{
+	width: 200px;
+}
+FORM .error
+{
+	border: 1px solid #FE0B0B;
+	background-color: #F7C9C9;
+}
+TEXTAREA
+{
+	width: 206px;
+	height: 100px;
+}
+P.info
+{
+	border: 1px solid #A3A3A3;
+	width: 600px;
+	padding: 15px;
+	margin: 50px auto 0;
+	background-color: #EFEFEF;
+	font-size: 16px;
+}

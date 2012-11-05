@@ -1,0 +1,63 @@
+
+
+/* Prettify */
+pre,code.smaller{
+	font-size:12px;
+margin-bottom: 10px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+padding-bottom: 8px;
+padding-left: 8px;
+padding-right: 8px;
+padding-top: 8px;
+font-family: Consolas, monospace;
+}
+
+.prettyprint{
+	background:#333;
+}
+
+.str{
+	color:#da7460;
+}
+
+.kwd{
+	color:#93c763;
+}
+
+.com{
+	color:#66747b;
+}
+
+.typ{
+	color:#678cb1;
+}
+
+.lit{
+	color:#facd22;
+}
+
+.pun{
+	color:#f1f2f3;
+}
+
+.pln{
+	color:#f1f2f3;
+}
+
+.tag{
+	color:#8ac763;
+}
+
+.atn{
+	color:#e0e2e4;
+}
+
+.atv{
+	color:#da7460;
+}
+
+.dec{
+	color:purple;
+}

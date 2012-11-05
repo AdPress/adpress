@@ -1,0 +1,977 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: AdPress\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-02-03 11:02+0100\n"
+"PO-Revision-Date: 2012-02-03 11:12+0100\n"
+"Last-Translator: Abid Omar <omar.abid2006@gmail.com>\n"
+"Language-Team: Abid Omar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_c;__ngettext\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../admin/admin.php:383
+msgid "AdPress"
+msgstr ""
+
+#: ../admin/admin.php:391
+msgid "New Requests "
+msgstr ""
+
+#: ../admin/admin.php:398
+msgid "New Campaign"
+msgstr ""
+
+#: ../admin/admin.php:405
+#: ../admin/admin.php:438
+#: ../admin/pages/campaigns.php:10
+msgid "Campaigns"
+msgstr ""
+
+#: ../admin/admin.php:412
+msgid "Settings"
+msgstr ""
+
+#: ../admin/admin.php:439
+msgid "You can find here all the campaigns you have added."
+msgstr ""
+
+#: ../admin/admin.php:440
+msgid "<strong>More</strong> Displays additional information about the campaign."
+msgstr ""
+
+#: ../admin/admin.php:441
+msgid "<strong>Activate/Deactivate</strong> Enable or disable the campaign."
+msgstr ""
+
+#: ../admin/admin.php:442
+msgid "<strong>Edit</strong> Edit the campaign settings."
+msgstr ""
+
+#: ../admin/admin.php:443
+msgid "<strong>Remove</strong> Completely remove the campaign from the database."
+msgstr ""
+
+#: ../admin/admin.php:447
+msgid "Active Campaign"
+msgstr ""
+
+#: ../admin/admin.php:448
+msgid "When a campaign is active, buyers can see it and purchase an ad. If you make a campaign inactive, its settings will be kept but it won't be accessible for buyers."
+msgstr ""
+
+#: ../admin/admin.php:449
+msgid "When a buyer purchase an Ad, the campaign can no longer be disabled, edited or removed. It turns to a locked state. To unlock the campaign, free all the ad spots it has."
+msgstr ""
+
+#: ../admin/admin.php:455
+#: ../admin/admin.php:456
+#: ../admin/pages/add_campaign.php:61
+msgid "Campaign Details"
+msgstr ""
+
+#: ../admin/admin.php:457
+msgid "<strong>Campaign Name</strong> Enter a descriptive name (eg. SideBar Ad, BlogRoll...)"
+msgstr ""
+
+#: ../admin/admin.php:458
+msgid "<strong>Campaign Description</strong> Put some details about the Campaign, Contract type, or Payment"
+msgstr ""
+
+#: ../admin/admin.php:459
+msgid "<strong>State</strong> Set to active if you want this campaign to be visible to buyers"
+msgstr ""
+
+#: ../admin/admin.php:463
+msgid "Ad Desginer"
+msgstr ""
+
+#: ../admin/admin.php:464
+msgid "The Ad Designer allows you to select an Ad type and customize how they'll display to the user"
+msgstr ""
+
+#: ../admin/admin.php:465
+#: ../admin/admin.php:479
+#: ../admin/admin.php:571
+#: ../admin/admin.php:572
+#: ../admin/admin.php:677
+#: ../admin/forms.php:127
+msgid "Image Ad"
+msgstr ""
+
+#: ../admin/admin.php:466
+msgid "<strong>Image Size</strong> Enter the image size in pixels"
+msgstr ""
+
+#: ../admin/admin.php:467
+msgid "<strong>Columns Number</strong> Enter how many columns you want to have. This will depend on your theme and also how you want to display the Ads"
+msgstr ""
+
+#: ../admin/admin.php:468
+#: ../admin/admin.php:471
+msgid "<strong>Ads Number</strong> The number of Ads to display (and also available to purchase)"
+msgstr ""
+
+#: ../admin/admin.php:469
+#: ../admin/admin.php:481
+#: ../admin/admin.php:593
+#: ../admin/admin.php:594
+#: ../admin/admin.php:685
+#: ../admin/forms.php:128
+msgid "Link Ad"
+msgstr ""
+
+#: ../admin/admin.php:470
+msgid "<strong>Link Length</strong> The maximum number of characters the anchor can have"
+msgstr ""
+
+#: ../admin/admin.php:472
+msgid "Ad Preview"
+msgstr ""
+
+#: ../admin/admin.php:473
+msgid "After settings the Ad settings, click the \"Preview\" button. This will display how your ads will look like. This is especially useful if you are using an Image Ad, and multiple columns."
+msgstr ""
+
+#: ../admin/admin.php:477
+#: ../admin/pages/add_campaign.php:183
+msgid "Ad CTA"
+msgstr ""
+
+#: ../admin/admin.php:478
+msgid "When you have available Ad Spots (not sold yet), you can fill one with a call to action. It's a typical Ad that redirects the user to a landing page where they find more information about your advertising on your website. By default, Ad CTA is disabled. Click the Ad CTA checkbox to enable it, and enter your Ad information."
+msgstr ""
+
+#: ../admin/admin.php:480
+msgid "Upload or select an image with the WordPress Media Uploder, and then specify your target URL. When the campaign is active, and there are available spots, the visitors will see this image. The image dimensions should match your campaign ad size."
+msgstr ""
+
+#: ../admin/admin.php:482
+msgid "The same thing for the link Ad, with the difference that you'll enter text instead of an image."
+msgstr ""
+
+#: ../admin/admin.php:487
+msgid "Contract Details"
+msgstr ""
+
+#: ../admin/admin.php:488
+#: ../admin/pages/add_campaign.php:233
+msgid "Contract Type"
+msgstr ""
+
+#: ../admin/admin.php:489
+msgid "AdPress supports three contract types. You should specify the type of contract, and also the price."
+msgstr ""
+
+#: ../admin/admin.php:490
+msgid "<strong>Clicks</strong> The Ad will expire after the afore mentioned number of clicks"
+msgstr ""
+
+#: ../admin/admin.php:491
+msgid "<strong>PageViews</strong> The Ad will expire after the afore mentioned number of views"
+msgstr ""
+
+#: ../admin/admin.php:492
+msgid "<strong>Duration</strong> The Ad will expire after the afore mentioned number of days"
+msgstr ""
+
+#: ../admin/admin.php:493
+#: ../admin/pages/add_campaign.php:296
+msgid "Price"
+msgstr ""
+
+#: ../admin/admin.php:494
+msgid "This is the full price that the purchase gets to pay."
+msgstr ""
+
+#: ../admin/admin.php:500
+#: ../admin/pages/ads_requests.php:8
+msgid "Ads Requests"
+msgstr ""
+
+#: ../admin/admin.php:501
+msgid "The first part of the page displays the pending Ad Requests. When a buyer purchase an Ad, and you are not allowing automatic approval, the Ad must be approved from this Dashboard to get running. The panel displays the following information"
+msgstr ""
+
+#: ../admin/admin.php:502
+#: ../admin/admin.php:515
+msgid "<strong>Id</strong> Each Ad has a unique number in the whole system."
+msgstr ""
+
+#: ../admin/admin.php:503
+#: ../admin/admin.php:516
+msgid "<strong>Campaign</strong> The Campaign name the Ad belongs to"
+msgstr ""
+
+#: ../admin/admin.php:504
+#: ../admin/admin.php:517
+msgid "<strong>Client</strong> The user that purchased the Ad"
+msgstr ""
+
+#: ../admin/admin.php:505
+msgid "<strong>Requested Ad</strong> The time the request was sent"
+msgstr ""
+
+#: ../admin/admin.php:506
+msgid "Actions"
+msgstr ""
+
+#: ../admin/admin.php:507
+msgid "<strong>Approve</strong> Approve the Ad"
+msgstr ""
+
+#: ../admin/admin.php:508
+msgid "<strong>Reject</strong> Reject the Ad"
+msgstr ""
+
+#: ../admin/admin.php:509
+msgid "<strong>More</strong> The Ad parameters that the user entered (URL, Image, Link, Message) and also the PayPal transaction infomation if PayPal is enabled."
+msgstr ""
+
+#: ../admin/admin.php:513
+#: ../admin/pages/ads_requests.php:20
+msgid "Running Ads"
+msgstr ""
+
+#: ../admin/admin.php:514
+msgid "Displays the currently running Ads"
+msgstr ""
+
+#: ../admin/admin.php:518
+msgid "<strong>Expire</strong> The remaining clicks, views or days after which the campaign expire."
+msgstr ""
+
+#: ../admin/admin.php:519
+msgid "Stats"
+msgstr ""
+
+#: ../admin/admin.php:520
+msgid "Displays the Ad statics"
+msgstr ""
+
+#: ../admin/admin.php:531
+#: ../admin/admin.php:532
+msgid "General Settings"
+msgstr ""
+
+#: ../admin/admin.php:533
+msgid "<strong>Currency</strong> USD by default. If you are using PayPal to process the payments, make sure you use a currency supported by PayPal."
+msgstr ""
+
+#: ../admin/admin.php:534
+msgid "<strong>Time Format</strong> Refer the <a href=\"http://php.net/manual/en/function.date.php\">PHP Manual</a> to know how the formatting works."
+msgstr ""
+
+#: ../admin/admin.php:535
+msgid "<strong>Admin Bar</strong> Displays a Menu in the WordPress Admin bar. It also notifies when you have new Ad requests."
+msgstr ""
+
+#: ../admin/admin.php:536
+msgid "<strong>Debugging Mode</strong> Enable Errors and variable logging. Enable this if you are tracking a bug or problem."
+msgstr ""
+
+#: ../admin/admin.php:540
+#: ../admin/admin.php:541
+msgid "Client Access"
+msgstr ""
+
+#: ../admin/admin.php:542
+msgid "To purchase Ads, the users must first register in your WordPress Blog. When they are registered, they get assigned a role. (By default, it's subscriber. You should set the role which will have a access the client area. As such, only a particular group can purchase Ads."
+msgstr ""
+
+#: ../admin/admin.php:543
+msgid "<strong>Client Role</strong> Displays all the role in your WordPress setup."
+msgstr ""
+
+#: ../admin/admin.php:544
+msgid "<strong>Auto Approve</strong> Disable Ads moderation. Purchased Ads will automatically run."
+msgstr ""
+
+#: ../admin/admin.php:545
+msgid "<strong>Client Message</strong> Enable the client to enter a message when purchasing the form."
+msgstr ""
+
+#: ../admin/admin.php:549
+#: ../admin/admin.php:550
+msgid "PayPal Settings"
+msgstr ""
+
+#: ../admin/admin.php:551
+msgid "Using the PayPal integration (PayPal ExpressCheckout), Advertisers can pay directly without your intervention when purchasing an Ad. AdPress makes the setup easy to use. You just need to enter your PayPal merchant account information, and set few settings."
+msgstr ""
+
+#: ../admin/admin.php:552
+msgid "Express Checkout"
+msgstr ""
+
+#: ../admin/admin.php:554
+msgid "SandBox mode"
+msgstr ""
+
+#: ../admin/admin.php:555
+msgid "If you are new to PayPal Express Checkout, please sign up for their <a href=\"https://developer.paypal.com\">Sandbox test suite</a> and get used to how PayPal works. PayPal has got a sandbox mode, which is a virtual platform similar to the one running PayPal. Its purpose is to make tests and see how it works before trying in real life. By checking this box, you enable the Sandbox mode."
+msgstr ""
+
+#: ../admin/admin.php:556
+msgid "Refunds"
+msgstr ""
+
+#: ../admin/admin.php:557
+msgid "AdPress supports refunds. When a purchaser make a purchase and it gets rejected (or cancels it before running), it makes sense to refund the payment. If refunds are enabled, rejecting the Ad will automatically issue the refund."
+msgstr ""
+
+#: ../admin/admin.php:561
+#: ../admin/admin.php:562
+#: ../admin/admin.php:615
+#: ../admin/admin.php:616
+msgid "Purchase History"
+msgstr ""
+
+#: ../admin/admin.php:563
+msgid "AdPress can record all the ad purchases. History is enabled by default. The history is accessible through the \"History\" tab."
+msgstr ""
+
+#: ../admin/admin.php:564
+msgid "Removing History"
+msgstr ""
+
+#: ../admin/admin.php:565
+msgid "History can consume a huge amount of space in your database after some time. It can be useful to empty the cache to free some space in your database."
+msgstr ""
+
+#: ../admin/admin.php:573
+msgid "You can customize fully how you ads look like. For example, you can add a border to your images Ads. You can also change or add some text or HTML code."
+msgstr ""
+
+#: ../admin/admin.php:577
+#: ../admin/admin.php:578
+#: ../admin/admin.php:599
+#: ../admin/admin.php:600
+msgid "HTML Code"
+msgstr ""
+
+#: ../admin/admin.php:579
+#: ../admin/admin.php:601
+msgid "This is the HTML code for each Ad spot. There some variables that the plug-in fills automatically."
+msgstr ""
+
+#: ../admin/admin.php:580
+#: ../admin/admin.php:602
+msgid "<strong>@url</strong> The Ad target URL."
+msgstr ""
+
+#: ../admin/admin.php:581
+msgid "<strong>@image_src</strong> The image URL."
+msgstr ""
+
+#: ../admin/admin.php:585
+#: ../admin/admin.php:586
+#: ../admin/admin.php:607
+#: ../admin/admin.php:608
+msgid "CSS Style"
+msgstr ""
+
+#: ../admin/admin.php:587
+msgid "The CSS styles added here will be loaded in every page on your blog. They should be targeted for your Ad Widget. For that purpose, AdPress makes use of the <em>image-campaign</em> class. All your styles should be nested beneath this class to avoid conflicts with other CSS rules."
+msgstr ""
+
+#: ../admin/admin.php:595
+msgid "You can customize fully how you link ads look like. For example, you can change how your Ads links look like (color, font...). You can also change or add some text or HTML code."
+msgstr ""
+
+#: ../admin/admin.php:603
+msgid "<strong>@link_text</strong> The link text."
+msgstr ""
+
+#: ../admin/admin.php:609
+msgid "The CSS styles added here will be loaded in every page on your blog. They should be targeted for your Ad Widget. For that purpose, AdPress makes use of the <em>link-campaign</em> class. All your styles should be nested beneath this class to avoid conflicts with other CSS rules."
+msgstr ""
+
+#: ../admin/admin.php:617
+msgid "You find here the history of all Ad purchases and requests. Each Ad request, purchase and expiration (also rejection or cancelation) is recorded. You can clear the History from the General Settings Panel."
+msgstr ""
+
+#: ../admin/admin.php:623
+#: ../admin/admin.php:624
+msgid "Export"
+msgstr ""
+
+#: ../admin/admin.php:625
+msgid "Use this option to export your settings and data to a back-up file. After clicking the \"Export\" button, a message will appear and asks you to download the back-up file. Download this file and store it in a safe location."
+msgstr ""
+
+#: ../admin/admin.php:627
+msgid "<strong>Settings Data</strong> Export only your current settings parameters"
+msgstr ""
+
+#: ../admin/admin.php:628
+msgid "<strong>Campaign Data</strong> Export all campaigns and ads (running or pending)"
+msgstr ""
+
+#: ../admin/admin.php:629
+msgid "<strong>Settings Data</strong> Export the purchase history"
+msgstr ""
+
+#: ../admin/admin.php:634
+#: ../admin/admin.php:635
+msgid "Import"
+msgstr ""
+
+#: ../admin/admin.php:636
+msgid "Warning"
+msgstr ""
+
+#: ../admin/admin.php:637
+msgid "This function will erase all your current data. It doesn't do a merge. Your settings, campaign or history data will be fully replaced. Make sure you do a back-up of your current configuration and data before doing an import."
+msgstr ""
+
+#: ../admin/admin.php:638
+msgid "Back-up file"
+msgstr ""
+
+#: ../admin/admin.php:639
+msgid "Your back-up file should contain the data you are looking to import. For example, if you want to import history data, the back-up file must have this data."
+msgstr ""
+
+#: ../admin/admin.php:640
+msgid "Select items"
+msgstr ""
+
+#: ../admin/admin.php:641
+msgid "You can have a full back-up data, but only import one or a couple of items. For example, if you want to import plug-in settings, just check the settings data box. Your campaign and history data won't be changed."
+msgstr ""
+
+#: ../admin/admin.php:646
+msgid "Reset Plug-in"
+msgstr ""
+
+#: ../admin/admin.php:647
+msgid "Reset the plug-in"
+msgstr ""
+
+#: ../admin/admin.php:648
+msgid "You may find it useful to reset your plug-in settings. You can pick which elements to reset and others to preserve."
+msgstr ""
+
+#: ../admin/admin.php:650
+msgid "<strong>Settings</strong> Reset the default plug-in settings"
+msgstr ""
+
+#: ../admin/admin.php:651
+msgid "<strong>Campaign Data</strong> Remove all campaigns and ads"
+msgstr ""
+
+#: ../admin/admin.php:652
+msgid "<strong>History Data</strong> Remove all the history"
+msgstr ""
+
+#: ../admin/admin.php:661
+#: ../admin/admin.php:662
+#: ../admin/pages/client/available.php:7
+msgid "Available Ads"
+msgstr ""
+
+#: ../admin/admin.php:663
+msgid "You find here all campaigns with Ads available for purchase. Each campaign has a description and set of settings."
+msgstr ""
+
+#: ../admin/admin.php:669
+msgid "Purchased Ads"
+msgstr ""
+
+#: ../admin/admin.php:670
+msgid "Purchased and Requested Ads"
+msgstr ""
+
+#: ../admin/admin.php:671
+msgid "You find here all the Ads requests and purchases you made."
+msgstr ""
+
+#: ../admin/admin.php:678
+msgid "Uploading an image"
+msgstr ""
+
+#: ../admin/admin.php:679
+msgid "The plug-in uses the WordPress Media Uploader to upload your image. Make sure you select the right size (Full Size) before inserting the image."
+msgstr ""
+
+#: ../admin/admin.php:680
+#: ../admin/admin.php:688
+msgid "Target URL"
+msgstr ""
+
+#: ../admin/admin.php:681
+#: ../admin/admin.php:689
+msgid "Put the target URL that you want visitors to reach. This shouldn't be a shorttened URL. AdPress already provides analytics for your Ads."
+msgstr ""
+
+#: ../admin/admin.php:686
+msgid "Link Text"
+msgstr ""
+
+#: ../admin/admin.php:687
+msgid "This is the text that will appear for your link. The length of the link text is limited to a certain number of characters mentioned above in the Ad Spot Details."
+msgstr ""
+
+#: ../admin/admin.php:693
+#: ../admin/admin.php:694
+msgid "Client Message"
+msgstr ""
+
+#: ../admin/admin.php:695
+msgid "You can enter a message to the website administrator. He'll get the message when reviewing your Ad request."
+msgstr ""
+
+#: ../admin/admin.php:696
+msgid "<em>This option is not always available.</em>"
+msgstr ""
+
+#: ../admin/admin.php:700
+msgid "Payment Process"
+msgstr ""
+
+#: ../admin/admin.php:701
+msgid "No Payment gateway"
+msgstr ""
+
+#: ../admin/admin.php:702
+msgid "If there is no payment gateway available, then you should contact the website Admin and make the payment manually."
+msgstr ""
+
+#: ../admin/admin.php:703
+msgid "PayPal Payment"
+msgstr ""
+
+#: ../admin/admin.php:704
+msgid "If PayPal is enabled, you'll be redirected to the PayPal login page to make the payment. Once you complete the payment on the PayPal website, you'll be redirected back to the payment page and complete the purchase."
+msgstr ""
+
+#: ../admin/admin.php:710
+#: ../admin/admin.php:711
+msgid "Ad Stats"
+msgstr ""
+
+#: ../admin/admin.php:712
+msgid "This page provides detailed stats about your Ad."
+msgstr ""
+
+#: ../admin/admin.php:716
+#: ../admin/admin.php:717
+msgid "Stats Chart"
+msgstr ""
+
+#: ../admin/admin.php:718
+msgid "The Stats chart displays the last 30 days views and clicks."
+msgstr ""
+
+#: ../admin/admin.php:722
+#: ../admin/admin.php:723
+msgid "Averages"
+msgstr ""
+
+#: ../admin/admin.php:724
+msgid "Calculates the average daily views, clicks and click-through-rate"
+msgstr ""
+
+#: ../admin/admin.php:728
+#: ../admin/admin.php:729
+msgid "Complete Stats"
+msgstr ""
+
+#: ../admin/admin.php:730
+msgid "This provides complete day to day stats of the Ad since it started running"
+msgstr ""
+
+#: ../admin/forms.php:126
+msgid "General"
+msgstr ""
+
+#: ../admin/forms.php:129
+msgid "History"
+msgstr ""
+
+#: ../admin/forms.php:130
+msgid "Import/Export"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:10
+msgid "Add Campaign"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:11
+msgid "Add new Campaign"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:49
+msgid "Save Campaign"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:50
+msgid "Edit Campaign"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:67
+msgid "Campaign Name"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:79
+msgid "Campaign Description"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:91
+msgid "Campaign State"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:111
+msgid "Ad Type"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:118
+msgid "Image"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:123
+msgid "Link"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:129
+msgid "Image Size"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:146
+msgid "Columns Number"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:159
+msgid "Maximum link length"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:171
+msgid "Ads number"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:227
+msgid "Contract details"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:241
+msgid "Per Clicks"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:246
+msgid "Per Pageviews"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:251
+#: ../admin/pages/add_campaign.php:283
+msgid "Duration"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:257
+msgid "Clicks Number"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:270
+msgid "Pageviews Number"
+msgstr ""
+
+#: ../admin/pages/add_campaign.php:326
+msgid "Preview"
+msgstr ""
+
+#: ../admin/pages/add_campaign_post.php:77
+msgid "<p>You can return to the <a href=\"admin.php?page=adpress-campaigns\">Campaigns page</a> or <a href=\"admin.php?page=adpress-addcampaign\">add another Campaign</a>.</p>"
+msgstr ""
+
+#: ../admin/pages/campaigns.php:10
+msgid "Add New"
+msgstr ""
+
+#: ../admin/pages/dashboard.php:13
+#: ../admin/pages/dashboard.php:14
+#: ../admin/pages/dashboard.php:24
+#: ../admin/pages/dashboard.php:28
+msgid "Say Hello"
+msgstr ""
+
+#: ../admin/pages/client/purchases.php:8
+msgid "My Purchases"
+msgstr ""
+
+#: ../admin/pages/client/purchases.php:8
+msgid "Purchase Ads"
+msgstr ""
+
+#: ../inc/ad.php:423
+msgid "Refund issued"
+msgstr ""
+
+#: ../inc/ad.php:423
+msgid "A refund was issued"
+msgstr ""
+
+#: ../inc/ad.php:426
+msgid "Error issuing refund"
+msgstr ""
+
+#: ../inc/ad.php:426
+msgid "There was an error while trying to issue the refund. Please Contact the Administrator to issue the refund manually.wp-adpress"
+msgstr ""
+
+#: ../inc/history.php:188
+#: ../inc/history.php:202
+#: ../inc/views/ads_requests_view.php:56
+#: ../inc/views/ads_requests_view.php:186
+#: ../inc/views/campaigns_view.php:53
+#: ../inc/views/campaigns_view.php:63
+#: ../inc/views/purchases_view.php:56
+msgid "Id"
+msgstr ""
+
+#: ../inc/history.php:189
+#: ../inc/history.php:203
+msgid "Ad"
+msgstr ""
+
+#: ../inc/history.php:190
+#: ../inc/history.php:204
+#: ../inc/views/ads_requests_view.php:57
+#: ../inc/views/ads_requests_view.php:187
+#: ../inc/views/campaigns_view.php:54
+#: ../inc/views/campaigns_view.php:64
+#: ../inc/views/purchases_view.php:57
+msgid "Campaign"
+msgstr ""
+
+#: ../inc/history.php:191
+#: ../inc/history.php:205
+msgid "Approved at"
+msgstr ""
+
+#: ../inc/history.php:192
+#: ../inc/history.php:206
+msgid "Expired at"
+msgstr ""
+
+#: ../inc/history.php:193
+#: ../inc/history.php:207
+msgid "Buyer"
+msgstr ""
+
+#: ../inc/history.php:232
+#: ../inc/views/ads_requests_view.php:85
+#: ../inc/views/campaigns_view.php:84
+msgid "More"
+msgstr ""
+
+#: ../inc/history.php:257
+#: ../inc/views/ad_purchase_view.php:121
+#: ../inc/views/available_view.php:69
+#: ../inc/views/campaigns_view.php:163
+msgid "Max. Link length"
+msgstr ""
+
+#: ../inc/history.php:265
+#: ../inc/views/ad_purchase_view.php:130
+#: ../inc/views/ad_view.php:134
+#: ../inc/views/available_view.php:78
+#: ../inc/views/campaigns_view.php:172
+msgid "Clicks"
+msgstr ""
+
+#: ../inc/history.php:268
+#: ../inc/views/ad_purchase_view.php:133
+#: ../inc/views/available_view.php:81
+#: ../inc/views/campaigns_view.php:175
+msgid "Pageviews"
+msgstr ""
+
+#: ../inc/history.php:271
+#: ../inc/views/ad_purchase_view.php:136
+#: ../inc/views/available_view.php:84
+#: ../inc/views/campaigns_view.php:178
+msgid "days"
+msgstr ""
+
+#: ../inc/widget.php:22
+msgid "AdPress Advertising Widget"
+msgstr ""
+
+#: ../inc/widget.php:32
+msgid "Our Sponsors"
+msgstr ""
+
+#: ../inc/views/ads_requests_view.php:58
+#: ../inc/views/ads_requests_view.php:188
+msgid "Client"
+msgstr ""
+
+#: ../inc/views/ads_requests_view.php:59
+#: ../inc/views/purchases_view.php:59
+msgid "Requested at"
+msgstr ""
+
+#: ../inc/views/ads_requests_view.php:60
+msgid "Action"
+msgstr ""
+
+#: ../inc/views/ads_requests_view.php:83
+msgid "Approve"
+msgstr ""
+
+#: ../inc/views/ads_requests_view.php:84
+msgid "Reject"
+msgstr ""
+
+#: ../inc/views/ads_requests_view.php:101
+#: ../inc/views/ads_requests_view.php:110
+#: ../inc/views/campaigns_view.php:141
+#: ../inc/views/purchases_view.php:94
+msgid "Yes"
+msgstr ""
+
+#: ../inc/views/ads_requests_view.php:102
+#: ../inc/views/ads_requests_view.php:111
+#: ../inc/views/campaigns_view.php:141
+#: ../inc/views/purchases_view.php:95
+msgid "No"
+msgstr ""
+
+#: ../inc/views/ads_requests_view.php:124
+#: ../inc/views/ads_requests_view.php:128
+msgid "URL"
+msgstr ""
+
+#: ../inc/views/ads_requests_view.php:132
+#: ../inc/views/ad_purchase_view.php:88
+msgid "Message"
+msgstr ""
+
+#: ../inc/views/ads_requests_view.php:189
+msgid "Aprroved at"
+msgstr ""
+
+#: ../inc/views/ads_requests_view.php:190
+msgid "Expire"
+msgstr ""
+
+#: ../inc/views/ad_purchase_view.php:29
+msgid "No Ads available"
+msgstr ""
+
+#: ../inc/views/ad_purchase_view.php:32
+msgid "No Ad are available for the moment"
+msgstr ""
+
+#: ../inc/views/ad_purchase_view.php:73
+msgid "Purchase with PayPal"
+msgstr ""
+
+#: ../inc/views/ad_purchase_view.php:75
+#: ../inc/views/available_view.php:45
+msgid "Purchase"
+msgstr ""
+
+#: ../inc/views/ad_purchase_view.php:94
+msgid "Put a message to the Admin"
+msgstr ""
+
+#: ../inc/views/ad_purchase_view.php:111
+msgid "Ad Spot Details"
+msgstr ""
+
+#: ../inc/views/ad_purchase_view.php:118
+#: ../inc/views/available_view.php:66
+#: ../inc/views/campaigns_view.php:160
+msgid "Columns number"
+msgstr ""
+
+#: ../inc/views/ad_purchase_view.php:167
+#: ../inc/views/ad_purchase_view.php:195
+msgid "Destination URL"
+msgstr ""
+
+#: ../inc/views/ad_purchase_view.php:187
+#: ../inc/views/ad_purchase_view.php:190
+msgid "Upload Image"
+msgstr ""
+
+#: ../inc/views/ad_purchase_view.php:260
+msgid "Your request is sent"
+msgstr ""
+
+#: ../inc/views/ad_purchase_view.php:263
+msgid "An Administrator may need to check your request before going live."
+msgstr ""
+
+#: ../inc/views/ad_purchase_view.php:266
+msgid "You can now <a href=\"admin.php?page=adpress-client\">purchase more Ads</a> or <a href=\"admin.php?page=adpress-purchases\">check your requests status</a>."
+msgstr ""
+
+#: ../inc/views/ad_view.php:111
+#: ../inc/views/ad_view.php:149
+msgid "Last Month Stats"
+msgstr ""
+
+#: ../inc/views/ad_view.php:133
+#: ../inc/views/ad_view.php:151
+msgid "Views"
+msgstr ""
+
+#: ../inc/views/ad_view.php:135
+#: ../inc/views/ad_view.php:151
+msgid "CTR"
+msgstr ""
+
+#: ../inc/views/ad_view.php:151
+msgid "Day"
+msgstr ""
+
+#: ../inc/views/ad_view.php:151
+msgid "Hits"
+msgstr ""
+
+#: ../inc/views/available_view.php:50
+msgid "There are no available spots for this campaign."
+msgstr ""
+
+#: ../inc/views/campaigns_view.php:55
+#: ../inc/views/campaigns_view.php:65
+msgid "Description"
+msgstr ""
+
+#: ../inc/views/campaigns_view.php:113
+#: ../inc/views/campaigns_view.php:117
+msgid "Deactivate"
+msgstr ""
+
+#: ../inc/views/campaigns_view.php:115
+msgid "Activate"
+msgstr ""
+
+#: ../inc/views/campaigns_view.php:128
+#: ../inc/views/campaigns_view.php:130
+msgid "Edit"
+msgstr ""
+
+#: ../inc/views/campaigns_view.php:141
+#: ../inc/views/campaigns_view.php:143
+msgid "Remove"
+msgstr ""
+
+#: ../inc/views/campaigns_view.php:141
+#: ../inc/views/purchases_view.php:94
+msgid "Are you sure?"
+msgstr ""
+
+#: ../inc/views/purchases_view.php:58
+msgid "Status"
+msgstr ""
+
+#: ../inc/views/purchases_view.php:85
+msgid "Cancel"
+msgstr ""
+

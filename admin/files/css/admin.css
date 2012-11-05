@@ -1,0 +1,101 @@
+/*Document   : admin
+Created on : Nov 18, 2011, 3:36:20 PM
+Author     : Abid Omar
+Description:
+Purpose of the stylesheet follows.
+
+
+Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+
+
+Tables CSS
+
+ID Column*/
+.wp-list-table .id-column
+{
+	width: 2.2em;
+}
+.wp-list-table .check-column
+{
+	padding: 3px 7px !important;
+}
+.wp-list-table .plugin-title
+{
+	width: 420px;
+}
+/*More Button*/
+.expand
+{
+	display: none;
+}
+.expand UL
+{
+	list-style: square inside;
+	float: left;
+	width: 200px;
+}
+.expand LI P
+{
+	padding-left: 15px;
+}
+.expand UL LI SPAN
+{
+	font-weight: bold;
+	margin-right: 7px;
+}
+.expand UL.next
+{
+	float: left;
+}
+/*Info box*/
+P.info
+{
+	border: 1px solid #DEDEDE;
+	padding: 12px;
+	margin: 12px;
+	background-color: #F0F0F0;
+}
+TABLE TR
+{
+	height: 28px;
+	vertical-align: middle;
+}
+/* PHP/Short Code */
+#adpress table tbody P.dis-code
+{
+    border-color: #454A53;
+    background-color: #454A53 !important;
+    color: white;
+    display: block;
+    padding: 7px;
+    font-size: 11px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    border-radius: 2px;
+    margin-top: 1px;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+}
+#adpress table tbody P.dis-code SPAN.push_1
+{
+    padding-left: 20px;
+    background-color: #454A53 !important;
+}
+#adpress table tbody P.dis-code SPAN.push_2
+{
+    padding-left: 40px;
+    background-color: #454A53 !important;
+}
+#adpress table tbody P.dis-code SPAN.number
+{
+    color: #FACD22;
+    background-color: #454A53 !important;
+}
+
+#adpress table tbody P.dis-code SPAN.if
+{
+    color: #93C763;
+    background-color: #454A53 !important;
+}
+

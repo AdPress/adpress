@@ -1,0 +1,65 @@
+.campaign
+{
+	border: 1px solid #878787;
+	border-color: #DFDFDF;
+	background-color: #F5F5F5;
+	width: 500px;
+}
+.campaign .header
+{
+	border-bottom: 1px solid #DFDFDF;
+	margin-bottom: 20px;
+}
+H3
+{
+	font-weight: normal;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+H3 SPAN
+{
+	font-weight: bold;
+}
+.campaign .con
+{
+	color: #020202;
+	font-size: 16px;
+        padding: 7px 15px;
+}
+.campaign H4
+{
+	margin-bottom: 4px;
+}
+.campaign_info
+{
+	float: left;
+	list-style: square inside;
+	margin-right: 15px;
+	margin-left: 15px;
+}
+.campaign_info LI
+{
+}
+.campaign_info LI SPAN
+{
+	font-weight: bold;
+	margin-right: 5px;
+}
+.info
+{
+	padding: 15px 8px;
+	max-width: 500px;
+	font-size: 14px;
+}
+.info.available
+{
+	background-color: #8AEFB2;
+}
+.info.notavailable
+{
+	background-color: #E76969;
+}
+.info A
+{
+	margin-left: 20px;
+}

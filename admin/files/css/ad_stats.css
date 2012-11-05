@@ -1,0 +1,57 @@
+#fore-front
+{
+}
+#chart
+{
+	float: left;
+}
+#chart .visualize
+{
+	margin-top: 10px;
+}
+#ex-chart
+{
+    width: 700px;
+    height: 300px;
+    float: left;
+}
+#avg
+{
+	float: left;
+	margin-left: 30px;
+	width: 190px;
+        height: 300px;
+	margin-top: 20px;
+}
+#avg H3
+{
+	padding-left: 15px;
+}
+#avg UL
+{
+	margin-left: 15px;
+}
+#avg UL LI
+{
+	font-size: 13px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	margin: 0;
+}
+#stats-table
+{
+	height: 120px;
+	width: 920px;
+	margin-top: 20px;
+}
+#stats-table CAPTION
+{
+	display: none;
+}
+#stats-table THEAD
+{
+}
+#stats-table TBODY TR TD
+{
+	vertical-align: middle;
+}

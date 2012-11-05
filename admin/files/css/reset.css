@@ -1,0 +1,568 @@
+@import url(../fonts/fonts.css);
+
+#adpress {
+    font-family: 'Cuprum', Calibri, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+/*
+{{ Typography }}
+*/
+#adpress h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cuprum', Calibri !important;
+    font-weight: normal;
+}
+
+#adpress h1 {
+    font-size: 24px;
+}
+
+#adpress h2 {
+    font-size: 22px;
+}
+
+#adpress h3 {
+    font-size: 20px;
+}
+
+#adpress h4 {
+    font-size: 18px;
+}
+
+#adpress h5 {
+    font-size: 16px;
+}
+
+#adpress h6 {
+    font-size: 14px;
+}
+
+#adpress div {
+    font-family: 'Cuprum', Calibri;
+}
+
+#adpress p {
+    font-family: 'Cuprum', Calibri;
+}
+
+/*
+{{ Wrapper }}
+*/
+#wpwrap {
+    background-image: url(../img/bodyBg.jpg);
+    background-repeat: repeat;
+}
+
+#adpress.wrap {
+    margin: 24px auto 0;
+    width: 980px;
+}
+
+/*
+{{ Tabs }}
+*/
+#adpress .nav-tab-wrapper {
+    border: none;
+}
+
+#adpress .nav-tab-wrapper .nav-tab {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    font-family: 'Cuprum' !important;
+    font-size: 22px;
+    margin: 0;
+    border-right: none;
+    background: #EFEFEF url(../img/c-header-bg.png) repeat-x;
+    border-bottom: 1px solid #DFDFDF;
+}
+
+#adpress .nav-tab-wrapper .nav-tab:last-child {
+    border-right: 1px solid #DFDFDF;
+}
+
+#adpress .nav-tab-wrapper .nav-tab-active {
+    background-color: white;
+    background-image: none;
+    border-bottom: none;
+}
+
+/*
+{{ Buttons }}
+*/
+#adpress A.button-primary {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    font-size: 10px !important;
+    font-weight: bold;
+    text-shadow: none;
+    text-transform: uppercase;
+    padding: 5px 14px 6px 14px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 12px;
+    background: url(../img/pBtn.png) repeat-x 0 0;
+    border: 1px solid #4F5A68;
+    color: white;
+}
+
+#adpress A.button-primary:hover {
+    background-position: 0 -25px;
+}
+
+#adpress A.button-primary:active {
+    background-position: 0 -50px;
+}
+
+#adpress A.button-primary.green {
+    background: url(../img/greenBtn.png) repeat-x 0 0;
+    border: 1px solid #418D4F;
+}
+
+#adpress A.button-primary.green:hover {
+    background-position: 0 -25px;
+}
+
+#adpress A.button-primary.green:active {
+    background-position: 0 -50px;
+}
+
+#adpress A.button-primary.black {
+    background: url(../img/blackBtn.png) repeat-x 0 0;
+    border: 1px solid #353535;
+}
+
+#adpress A.button-primary.black:hover {
+    background-position: 0 -25px;
+}
+
+#adpress A.button-primary.black:active {
+    background-position: 0 -50px;
+}
+
+#adpress A.button-primary.sea {
+    background: url(../img/seaBtn.png) repeat-x 0 0;
+    border: 1px solid #306873;
+}
+
+#adpress A.button-primary.sea:hover {
+    background-position: 0 -25px;
+}
+
+#adpress A.button-primary.sea:active {
+    background-position: 0 -50px;
+}
+
+#adpress A.button-primary.red {
+    background: url(../img/greenBtn.png) repeat-x 0 0;
+    border: 1px solid #9D342A;
+}
+
+#adpress A.button-primary.red:hover {
+    background-position: 0 -25px;
+}
+
+#adpress A.button-primary.red:active {
+    background-position: 0 -50px;
+}
+
+#adpress A.button-primary.blue {
+    background: url(../img/blueBtn.png) repeat-x 0 0;
+    border: 1px solid #3581C1;
+}
+
+#adpress A.button-primary.blue:hover {
+    background-position: 0 -25px;
+}
+
+#adpress A.button-primary.blue:active {
+    background-position: 0 -50px;
+}
+
+
+#adpress A.button-secondary {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    font-size: 11px !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 7px 14px 8px 14px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 12px;
+    border: 1px solid #D5D5D5;
+    color: #525252;
+}
+
+#adpress A.button-secondary:hover {
+    border-color: #C9C9C9;
+}
+
+#adpress INPUT.button-primary {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    font-size: 10px !important;
+    font-weight: bold;
+    text-shadow: none;
+    text-transform: uppercase;
+    padding: 5px 14px 6px 14px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 12px;
+    background: url(../img/pBtn.png) repeat-x 0 0;
+    border: 1px solid #4F5A68;
+    color: white;
+}
+
+#adpress INPUT.button-primary:hover {
+    background-position: 0 -25px;
+}
+
+#adpress INPUT.button-primary:active {
+    background-position: 0 -50px;
+}
+
+#adpress INPUT.button-secondary {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    font-size: 11px !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 7px 14px 8px 14px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 12px;
+    border: 1px solid #D5D5D5;
+    color: #525252;
+}
+
+#adpress INPUT.button-secondary:hover {
+    border-color: #C9C9C9;
+}
+
+/*
+{{ Tables }}
+*/
+
+#adpress table {
+
+}
+
+#adpress table thead {
+
+}
+
+#adpress table thead tr {
+
+}
+
+#adpress table thead th {
+    font-family: 'Cuprum', Calibri;
+    font-size: 16px;
+}
+
+#adpress table thead th.id-column {
+    font-family: 'Cuprum', Calibri;
+    font-size: 16px;
+    width: 1px;
+}
+
+#adpress table tfoot {
+
+}
+
+#adpress table tfoot tr {
+
+}
+
+#adpress table tfoot th {
+    font-family: 'Cuprum', Calibri;
+    font-size: 16px;
+}
+
+#adpress table tfoot th.id-column {
+    font-family: 'Cuprum', Calibri;
+    font-size: 16px;
+    width: 1px;
+}
+
+#adpress table tbody {
+
+}
+
+#adpress table tbody tr {
+
+}
+
+#adpress table tbody.highlight_rows>tr:hover * {
+    background-color: #feffd9;
+}
+
+
+#adpress table tbody th.check-column {
+    font-family: 'Cuprum', Calibri;
+    font-size: 16px;
+}
+
+#adpress table tbody th.id-column {
+    font-family: 'Cuprum', Calibri;
+    font-size: 16px;
+    vertical-align: middle;
+    width: 1px;
+}
+
+#adpress table tbody td {
+    font-family: 'Cuprum', Calibri;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+#adpress table tbody td.buttons {
+    vertical-align: top;
+}
+
+#adpress table.withbuttons tr {
+    height: 36px;
+}
+
+#adpress table tbody td p {
+    font-family: 'Cuprum', Calibri;
+    font-size: 14px;
+}
+
+/*
+{{ Info Table }}
+*/
+
+#adpress table.info-table {
+    margin: 0;
+    float: left;
+}
+
+#adpress table.info-table tbody {
+
+}
+
+#adpress table.info-table tbody tr {
+    margin: 0;
+    padding: 0;
+}
+
+#adpress table.info-table tbody tr td {
+    border: none;
+    padding: 8px 10px;
+    vertical-align: middle;
+    margin: 0;
+    border-spacing: 0;
+}
+
+#adpress table.info-table tbody tr td.title {
+    font-size: 14px;
+    color: #B55D5C;
+    vertical-align: top;
+}
+
+/*
+{{ Form Table }}
+*/
+
+#adpress table.form-table {
+    margin: 8px 11px;
+}
+
+#adpress table.form-table tbody {
+
+}
+
+#adpress table.form-table tbody tr {
+
+}
+
+#adpress table.form-table tbody tr td {
+
+}
+
+#adpress table.form-table tbody tr td.title {
+
+}
+
+/*
+{{ Forms }}
+*/
+
+#adpress input {
+    border: 1px solid #D5D5D5;
+}
+
+#adpress textarea {
+    border: 1px solid #D5D5D5;
+}
+
+#adpress select {
+    border: 1px solid #D5D5D5;
+}
+
+#adpress label {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-table th {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*
+{{ Blocks }}
+*/
+#adpress .c-block {
+    background-color: #FAFAFA;
+    margin-top: 0px;
+    border: 1px solid #D5D5D5;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#adpress .c-block .c-head {
+    background: #EFEFEF url(../img/c-header-bg.png) repeat-x;
+    height: 38px;
+    border-bottom: 1px solid #D5D5D5;
+    position: relative;
+}
+
+#adpress .c-block .c-head h3 {
+    padding: 9px 12px 9px 35px;
+    margin: 0px;
+}
+
+#adpress .c-block .c-head .toolbar {
+    float: left;
+    margin: 0;
+    padding: 0;
+    height: 39px;
+}
+
+#adpress .c-block .c-head .toolbar li {
+    display: inline-block;
+    height: 31px;
+    margin: 0;
+    padding: 9px 0;
+}
+
+#adpress .c-block P {
+    padding: 7px 15px;
+    font-size: 14px;
+}
+
+/*
+{{ ICONS }}
+*/
+#adpress .icon32 {
+
+    background-repeat: no-repeat;
+}
+
+#adpress-icon-campaigns {
+    background-image: url(../img/icons/campaigns.png);
+}
+
+#adpress-icon-access {
+    background-image: url(../img/icons/access.png);
+}
+
+#adpress-icon-addcampaign {
+    background-image: url(../img/icons/addcampaign.png);
+}
+
+#adpress-icon-campaignsaved {
+    background-image: url(../img/icons/campaignsaved.png);
+}
+
+#adpress-icon-history {
+    background-image: url(../img/icons/history.png);
+}
+
+#adpress-icon-campaign_details {
+    background-image: url(../img/icons/campaign_details.png);
+    background-repeat: no-repeat;
+    background-position: 12px 50%;
+}
+
+#adpress-icon-ad_designer {
+    background-image: url(../img/icons/ad_designer.png);
+    background-repeat: no-repeat;
+    background-position: 12px 50%;
+}
+
+#adpress-icon-contract_details {
+    background-image: url(../img/icons/contract_details.png);
+    background-repeat: no-repeat;
+    background-position: 12px 50%;
+}
+
+#adpress-icon-ad_preview {
+    background-image: url(../img/icons/ad_preview.png);
+    background-repeat: no-repeat;
+    background-position: 12px 50%;
+}
+
+#adpress-icon-adsrequests {
+    background-image: url(../img/icons/adsrequests.png);
+}
+
+#adpress-icon-runningads {
+    background-image: url(../img/icons/runningads.png);
+}
+
+#adpress-icon-available {
+    background-image: url(../img/icons/available.png);
+}
+
+#adpress-icon-purchase {
+    background-image: url(../img/icons/purchase.png);
+}
+
+#adpress-icon-purchase_loader {
+    background-image: url(../img/icons/loader.gif);
+    background-repeat: no-repeat;
+    background-position: 12px 50%;
+}
+
+#adpress-icon-request_sent {
+    background-image: url(../img/icons/sent.png);
+    background-repeat: no-repeat;
+    background-position: 12px 50%;
+}
+
+#adpress-icon-flag {
+    background-image: url(../img/icons/flag.png);
+    background-repeat: no-repeat;
+    background-position: 12px 50%;
+}
+
+#adpress-icon-debug {
+    background-image: url(../img/icons/debug.png);
+    background-repeat: no-repeat;
+    background-position: 12px 50%;
+}
+
+#adpress-icon-purchases {
+    background-image: url(../img/icons/purchases.png);
+}
+
+/*Info box*/
+P.info
+{
+	border: 1px solid #DEDEDE;
+	padding: 12px;
+	margin: 12px;
+	background-color: #F0F0F0;
+}
+
+#adminmenuback { z-index: 0 !important; }
