@@ -4,7 +4,7 @@
  * AdPress - WordPress Ads Management Plug-in
  *
  * @author Abid Omar
- * @version 3.1
+ * @version 0.9
  * @package Main
  */
 /*
