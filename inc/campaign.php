@@ -496,7 +496,7 @@ if (!class_exists('wp_adpress_campaign')) {
 
         /**
          * Renders a link CTA spot
-         * @pararm integer $available
+         * @param $available string
          * @return string
          */
         private function link_cta_spot($available)
@@ -557,10 +557,12 @@ if (!class_exists('wp_adpress_campaign')) {
 
         /**
          * Display the campaign Ads
-         * @param bool $return
+         *
+         * @param $return bool
+         * @param $style string
          * @return string $html
          */
-        public function display($return = false)
+        public function display($return = false, $style = '')
         {
             // Display the Ads
             $to_display = $this->to_display();
@@ -568,14 +570,14 @@ if (!class_exists('wp_adpress_campaign')) {
             switch ($this->ad_definition['type']) {
                 case 'image':
                     $width = $this->ad_definition['columns'] * ($this->ad_definition['size']['width'] * 1.1);
-                    $html .= '<ul id="campaign-' . $this->id . '" class="image-campaign" style="width:' . $width . 'px;">';
+                    $html .= '<ul id="campaign-' . $this->id . '" class="image-campaign ' . get_style_el($style, 'list_class') . '" style="width:' . $width . 'px;">';
                     break;
                 case 'flash':
                     $width = $this->ad_definition['columns'] * ($this->ad_definition['size']['width'] * 1.1);
-                    $html .= '<ul id="campaign-' . $this->id . '" class="flash-campaign" style="width:' . $width . 'px;">';
+                    $html .= '<ul id="campaign-' . $this->id . '" class="flash-campaign ' . get_style_el($style, 'list_class') . '" style="width:' . $width . 'px;">';
                     break;
                 case 'link':
-                    $html .= '<ul id="campaign-' . $this->id . '" class="link-campaign">';
+                    $html .= '<ul id="campaign-' . $this->id . '" class="link-campaign ' . get_style_el($style, 'list_class') . '">';
                     break;
             }
             if (!empty($to_display)) {
@@ -593,7 +595,7 @@ if (!class_exists('wp_adpress_campaign')) {
             // Closes the list
             $html .= '</ul>';
 
-            // Print or Retrun the output
+            // Print or Return the output
             if ($return) {
                 return $html;
             } else {
@@ -622,8 +624,7 @@ if (!class_exists('wp_adpress_campaign')) {
                 if ($remaining < 0) {
                     $remaining = 0;
                 }
-                switch ($this->ad_definition['type'])
-                {
+                switch ($this->ad_definition['type']) {
                     case 'image':
                         return $this->image_cta_spot($remaining);
                         break;
