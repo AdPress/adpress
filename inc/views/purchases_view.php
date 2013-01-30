@@ -86,10 +86,19 @@ if (!class_exists('wp_adpress_purchases')) {
                 $html .= '<td class="plugin-title">' . $campaign->settings['name'] . '</td>
                     <td class="plugin-title">' . $ad->status . '</td>
                     <td class="plugin-title">' . date($settings['time_format'], $ad->time) . '</td>
-                    <td class="plugin-title buttons">
-                        ' . $this->stats_button($ad->id) . ' <a href="#" class="button-secondary more" id="cc' . $ad->id . $blog_id . '" class="button-secondary" tog_text="Cancel">' . __('Cancel', 'wp-adpress') . '</a>
-                    </td>
+                    <td class="plugin-title buttons">'
+                    . $this->stats_button($ad->id)
+                    . ' <a href="#" class="button-secondary more" id="cc' . $ad->id . $blog_id . '" class="button-secondary" tog_text="Cancel">' . __('Cancel', 'wp-adpress') . '</a>'
+                    . ' <a href="#" class="button-secondary more" id="c' . $ad->id . '">' . __('More', 'wp-adpress') . '</a>'
+                    . '</td>
                 </tr>
+                <tr class="expand c' . $ad->id . '">
+                        <th></th>
+                        <td>' . wp_adpress_ads_requests::more_info($ad, $campaign) . '</td>
+                        <td>' . wp_adpress_ads_requests::transaction_info($ad) . '</td>
+                            <td></td>
+                        <td></td>
+                    </tr>
                 <tr class="expand cc' . $ad->id . $blog_id . '">
                         <th></th>
                         <td></td>';
@@ -98,7 +107,7 @@ if (!class_exists('wp_adpress_purchases')) {
                 }
                 $html .= '<td></td><td></td>
                         <td class="buttons">' . __('Are you sure?', 'wp-adpress') . $this->cancel_button($ad->id) .
-                        '<a href="#" class="button-secondary less" id="cc' . $ad->id . $blog_id . '" class="button-secondary">' . __('No', 'wp-adpress') . '</a></td>
+                    '<a href="#" class="button-secondary less" id="cc' . $ad->id . $blog_id . '" class="button-secondary">' . __('No', 'wp-adpress') . '</a></td>
                 </tr>';
                 $i++;
             }
@@ -120,7 +129,7 @@ if (!class_exists('wp_adpress_purchases')) {
         {
             global $blog_id;
             if ($this->mu) {
-                $html = '  <a href="admin.php?page=adpress-purchases&cmd=cancel&id=' . $id . '&blogid='.$blog_id.'" class="button-secondary">' . __('Yes', 'wp-adpress') . '</a>  ';
+                $html = '  <a href="admin.php?page=adpress-purchases&cmd=cancel&id=' . $id . '&blogid=' . $blog_id . '" class="button-secondary">' . __('Yes', 'wp-adpress') . '</a>  ';
             } else {
                 $html = '  <a href="admin.php?page=adpress-purchases&cmd=cancel&id=' . $id . '" class="button-secondary">' . __('Yes', 'wp-adpress') . '</a>  ';
             }
