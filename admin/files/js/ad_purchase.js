@@ -104,8 +104,8 @@
         });
         // Validate Destination URL
         self.el.destination_url.filter(':visible').each(function () {
-            var filter = /http:\/\/[A-Za-z0-9\.-]{3,}\.[A-Za-z]{2}/;
-            if (filter.test($(this).val())) {
+            //var filter = /http:\/\/[A-Za-z0-9\.-]{3,}\.[A-Za-z]{2}/;
+            if ($(this).val() != '') {
                 $(this).removeClass('error');
             } else {
                 $(this).addClass('error');
