@@ -68,11 +68,13 @@ if (!class_exists('wp_adpress_roles')) {
          */
         private function metabox_user()
         {
-            add_action('show_user_profile', array(&$this, 'display_metabox'));
-            add_action('edit_user_profile', array(&$this, 'display_metabox'));
+            if (current_user_can('manage_options')) {
+                add_action('show_user_profile', array(&$this, 'display_metabox'));
+                add_action('edit_user_profile', array(&$this, 'display_metabox'));
 
-            add_action('personal_options_update', array(&$this, 'update_metabox'));
-            add_action('edit_user_profile_update', array(&$this, 'update_metabox'));
+                add_action('personal_options_update', array(&$this, 'update_metabox'));
+                add_action('edit_user_profile_update', array(&$this, 'update_metabox'));
+            }
         }
 
         /**
@@ -340,8 +342,7 @@ form;
                     global $current_user;
                     $wp_query->set('author', $current_user->ID);
                 }
-            }
-            else if (strpos($_SERVER['REQUEST_URI'], '/wp-admin/media-upload.php')) {
+            } else if (strpos($_SERVER['REQUEST_URI'], '/wp-admin/media-upload.php')) {
                 if (current_user_can('remove_upload_files')) {
                     global $current_user;
                     $wp_query->set('author', $current_user->ID);
