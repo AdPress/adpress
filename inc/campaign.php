@@ -318,10 +318,9 @@ if (!class_exists('wp_adpress_campaign')) {
          */
         public function is_editable()
         {
-            // Check for running Ads
-            // TODO: Use a different function
-            $a_array = $this->list_ads_availability();
-            if (in_array('running', $a_array)) {
+            $running = $this->list_ads('running');
+            $waiting = $this->list_ads('waiting');
+            if (count($running) > 0 || count($waiting) > 0) {
                 return false;
             } else {
                 return true;
