@@ -445,9 +445,9 @@ if (!class_exists('wp_adpress_ad')) {
         private function get_url()
         {
             if (get_option('permalink_structure') != '') {
-                $url = site_url() . '/adpress/' . $this->id;
+                $url = home_url() . '/adpress/' . $this->id;
             } else {
-                $url = site_url() . '?adpress=' . $this->id;
+                $url = home_url() . '?adpress=' . $this->id;
             }
             return $url;
         }
