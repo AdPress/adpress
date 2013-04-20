@@ -161,7 +161,7 @@ if (!class_exists('wp_adpress_forms')) {
             }
 
             foreach ($roles as $key => $value) {
-                if ($val[$key] === 'on') {
+                if (isset($val[$key]) && $val[$key] === 'on') {
                     echo '<input type="checkbox" name="' . $param[1] . '[' . $param[0] . '][' . $key . ']" id="' . $param[0] . '[' . $key . ']" checked />  ' . $value . '<br />';
                 } else {
                     echo '<input type="checkbox" name="' . $param[1] . '[' . $param[0] . '][' . $key . ']" id="' . $param[0] . '[' . $key . ']" />  ' . $value . '<br />';
