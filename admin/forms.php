@@ -154,7 +154,7 @@ if (!class_exists('wp_adpress_forms')) {
             $roles = $wp_roles->get_names();
             unset($roles['administrator']);
             // Generate HTML code
-            if ($val['all'] === 'on') {
+            if (isset($val['all']) && $val['all'] === 'on') {
                 echo '<input type="checkbox" name="' . $param[1] . '[' . $param[0] . '][all]" id="' . $param[0] . '[all]" checked/>  All<br />';
             } else {
                 echo '<input type="checkbox" name="' . $param[1] . '[' . $param[0] . '][all]" id="' . $param[0] . '[all]" />  All<br />';

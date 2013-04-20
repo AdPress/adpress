@@ -7,60 +7,59 @@ if (!class_exists('wp_adpress_roles')) {
          *
          * @var boolean
          */
-        private $all;
+        static $all;
 
         /**
          * An array with the roles which have the required permissions
          *
          * @var array
          */
-        private $roles;
+        static $roles;
 
         /**
          * An array with the user names which have the required permissions
          *
          * @var array
          */
-        private $users;
+        static $users;
 
         function __construct()
         {
-            // Set the allowed entities
-            $this->set_entities();
+            // Quit the roles class if front-end
+            if (!is_admin()) {
+                return;
+            }
 
             // Create the MetaBox user view
             $this->metabox_user();
-
-            // Set the user access permission
-            $this->set_permissions();
-
-            // Media Library Filter
-            $this->media_filter();
         }
 
 
         /**
          * Set the permission entities
          */
-        private function set_entities()
+        static function set_entities()
         {
             $settings = get_option('adpress_settings');
-            $roles = $settings['client_roles'];
+            if (isset($settings['client_roles'])) {
+                $roles = $settings['client_roles'];
+            } else {
+                $roles = array();
+            }
 
             // ALL Rule
             if (isset($roles['all']) && $roles['all'] === 'on') {
-                $this->all = true;
+                self::$all = true;
             } else {
-                $this->all = false;
+                self::$all = false;
             }
 
             // Roles Rule
-            $this->roles = $roles;
-            unset($this->roles['all']);
+            self::$roles = $roles;
+            unset(self::$roles['all']);
 
             // Users Rule
-            $this->users = get_users(array('meta_key' => 'adpress_client', 'meta_value' => true, 'fields' => 'ID'));
-
+            self::$users = get_users(array('meta_key' => 'adpress_client', 'meta_value' => true, 'fields' => 'ID'));
         }
 
         /**
@@ -121,24 +120,26 @@ form;
         /**
          * Set the Menu and Pages access permissions
          */
-        private function set_permissions()
+        static function set_permissions()
         {
-            $this->set_all_permissions();
-            if (!$this->all) {
-                $this->set_roles_permissions();
-                $this->set_users_permissions();
+            // Set the allowed entities
+            self::set_entities();
+            self::set_all_permissions();
+            if (!self::$all) {
+                self::set_roles_permissions();
+                self::set_users_permissions();
             }
         }
 
         /**
          * Set the permissions for ALL users
          */
-        private function set_all_permissions()
+        static function set_all_permissions()
         {
             $users = get_users();
             foreach ($users as $user) {
                 $user = new WP_User($user->ID);
-                if ($this->all) {
+                if (self::$all) {
                     $user->add_cap('adpress_client_menu');
                 } else {
                     $user->remove_cap('adpress_client_menu');
@@ -149,7 +150,7 @@ form;
         /**
          * Set the permissions for Roles
          */
-        private function set_roles_permissions()
+        static function set_roles_permissions()
         {
             global $wp_roles;
             $roles = $wp_roles->get_names();
@@ -157,8 +158,8 @@ form;
                 $role = get_role($role_id);
                 $role->remove_cap('adpress_client_menu');
             }
-            if (!empty($this->roles)) {
-                foreach ($this->roles as $role_id => $role_state) {
+            if (!empty(self::$roles)) {
+                foreach (self::$roles as $role_id => $role_state) {
                     $role = get_role($role_id);
                     $role->add_cap('adpress_client_menu');
                 }
@@ -168,15 +169,15 @@ form;
         /**
          * Set the permissions for specific Users
          */
-        private function set_users_permissions()
+        static function set_users_permissions()
         {
             $users = get_users();
             foreach ($users as $user) {
                 $user = new WP_User($user->ID);
                 $user->remove_cap('adpress_client_menu');
             }
-            if (!empty($this->users)) {
-                foreach ($this->users as $user_id) {
+            if (!empty(self::$users)) {
+                foreach (self::$users as $user_id) {
                     $user = new WP_User($user_id);
                     $user->add_cap('adpress_client_menu');
                 }
@@ -186,33 +187,33 @@ form;
         /**
          * Restrict Media Access
          */
-        private function media_filter()
+        static function media_filter()
         {
-            // Apply the media filter for currenct AdPress Clients
+            // Apply the media filter for current AdPress Clients
             $roles = self::filter_roles(array('adpress_client_menu'), array('upload_files'));
             $users = self::filter_users(array('adpress_client_menu'), array('upload_files'));
-            $this->roles_add_cap($roles, 'upload_files');
-            $this->roles_add_cap($roles, 'remove_upload_files');
-            $this->users_add_cap($users, 'upload_files');
-            $this->users_add_cap($users, 'remove_upload_files');
+            self::roles_add_cap($roles, 'upload_files');
+            self::roles_add_cap($roles, 'remove_upload_files');
+            self::users_add_cap($users, 'upload_files');
+            self::users_add_cap($users, 'remove_upload_files');
 
             // Restrict Media Library access
-            add_filter('parse_query', array(&$this, 'restrict_media_library'));
+            add_filter('parse_query', 'wp_adpress_roles::restrict_media_library');
 
             // For cleaning purposes
             $clean_roles = self::filter_roles(array('remove_upload_files'), array('adpress_client_menu'));
             $clean_users = self::filter_users(array('remove_upload_files'), array('adpress_client_menu'));
-            $this->roles_remove_cap($clean_roles, 'upload_files');
-            $this->roles_remove_cap($clean_roles, 'remove_upload_files');
-            $this->users_remove_cap($clean_users, 'upload_files');
-            $this->users_remove_cap($clean_users, 'remove_upload_files');
+            self::roles_remove_cap($clean_roles, 'upload_files');
+            self::roles_remove_cap($clean_roles, 'remove_upload_files');
+            self::users_remove_cap($clean_users, 'upload_files');
+            self::users_remove_cap($clean_users, 'remove_upload_files');
         }
 
         /**
          * @param $roles
          * @param $cap
          */
-        private function roles_add_cap($roles, $cap)
+        static function roles_add_cap($roles, $cap)
         {
             foreach ($roles as $role) {
                 $role = get_role($role);
@@ -224,7 +225,7 @@ form;
          * @param $users
          * @param $cap
          */
-        private function users_add_cap($users, $cap)
+        static function users_add_cap($users, $cap)
         {
             foreach ($users as $user) {
                 $user = new WP_User($user);
@@ -236,7 +237,7 @@ form;
          * @param $roles
          * @param $cap
          */
-        private function roles_remove_cap($roles, $cap)
+        static function roles_remove_cap($roles, $cap)
         {
             foreach ($roles as $role) {
                 $role = get_role($role);
@@ -248,7 +249,7 @@ form;
          * @param $users
          * @param $cap
          */
-        private function users_remove_cap($users, $cap)
+        static function users_remove_cap($users, $cap)
         {
             foreach ($users as $user) {
                 $user = new WP_User($user);
@@ -335,7 +336,7 @@ form;
         /**
          * @param $wp_query
          */
-        public function restrict_media_library($wp_query)
+        static function restrict_media_library($wp_query)
         {
             if (strpos($_SERVER['REQUEST_URI'], '/wp-admin/upload.php')) {
                 if (current_user_can('remove_upload_files')) {
