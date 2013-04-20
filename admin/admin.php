@@ -317,6 +317,7 @@ if (!class_exists('wp_adpress_admin')) {
             add_settings_field('time_format', 'Time Format', 'wp_adpress_forms::textbox', 'adpress_settings_form_general', 'general_section', array('time_format', 'adpress_settings'));
             add_settings_field('adminbar', 'Admin Bar', 'wp_adpress_forms::checkbox', 'adpress_settings_form_general', 'general_section', array('adminbar', 'adpress_settings'));
             add_settings_field('debug_mode', 'Debugging Mode', 'wp_adpress_forms::checkbox', 'adpress_settings_form_general', 'general_section', array('debug_mode', 'adpress_settings'));
+            add_settings_field('smart_rewrite', 'Smart Rewrite', 'wp_adpress_forms::checkbox', 'adpress_settings_form_general', 'general_section', array('smart_rewrite', 'adpress_settings'));
             // -- Client Settings
             add_settings_section('client_access', 'Client Access', 'wp_adpress_forms::description', 'adpress_settings_form_client', 'Client Access');
             add_settings_field('client_roles', 'Client Roles', 'wp_adpress_forms::roles_check', 'adpress_settings_form_client', 'client_access', array('client_roles', 'adpress_settings'));
@@ -539,7 +540,8 @@ if (!class_exists('wp_adpress_admin')) {
                                         '<li>' . __('<strong>Currency</strong> USD by default. If you are using PayPal to process the payments, make sure you use a currency supported by PayPal.', 'wp-adpress') . '</li>' .
                                         '<li>' . __('<strong>Time Format</strong> Refer the <a href="http://php.net/manual/en/function.date.php">PHP Manual</a> to know how the formatting works.', 'wp-adpress') . '</li>' .
                                         '<li>' . __('<strong>Admin Bar</strong> Displays a Menu in the WordPress Admin bar. It also notifies when you have new Ad requests.', 'wp-adpress') . '</li>' .
-                                        '<li>' . __('<strong>Debugging Mode</strong> Enable Errors and variable logging. Enable this if you are tracking a bug or problem.', 'wp-adpress') . '</li>'
+                                        '<li>' . __('<strong>Debugging Mode</strong> Enable Errors and variable logging. Enable this if you are tracking a bug or problem.', 'wp-adpress') . '</li>' .
+                                        '<li>' . __('<strong>Smart Rewrite</strong> Enable Smart permalinks format http://site.com/adpress/xx for Ad links.', 'wp-adpress') . '</li>'
                                 ));
                                 $current_screen->add_help_tab(array(
                                     'id' => 'general_help_tab2',

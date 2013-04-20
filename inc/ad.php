@@ -444,7 +444,8 @@ if (!class_exists('wp_adpress_ad')) {
          */
         private function get_url()
         {
-            if (get_option('permalink_structure') != '') {
+            $settings = get_option('adpress_settings');
+            if (get_option('permalink_structure') != '' && isset($settings['smart_rewrite'])) {
                 $url = home_url() . '/adpress/' . $this->id;
             } else {
                 $url = home_url() . '?adpress=' . $this->id;

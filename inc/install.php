@@ -65,6 +65,7 @@ if (!class_exists('wp_adpress_install')) {
         static $defaults = array(
             'currency' => 'USD',
             'adminbar' => 'on',
+            'smart_rewrite' => '',
             'client_role' => 'administrator',
             'client_transfer_role' => 'administrator',
             'client_old_role' => '',
