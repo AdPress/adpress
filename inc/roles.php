@@ -32,6 +32,9 @@ if (!class_exists('wp_adpress_roles')) {
 
             // Create the MetaBox user view
             $this->metabox_user();
+
+            // Make sure the Administrator can access the client dashboard
+            $this->admin_privilege();
         }
 
 
@@ -115,6 +118,17 @@ form;
                 $checked = false;
             }
             update_user_meta($user_id, 'adpress_client', $checked);
+        }
+
+        /**
+         * Make sure the Administrator can access the client dashboard
+         */
+        private function admin_privilege()
+        {
+            if (current_user_can('manage_options')) {
+                $user = wp_get_current_user();
+                $user->add_cap('adpress_client_menu');
+            }
         }
 
         /**
