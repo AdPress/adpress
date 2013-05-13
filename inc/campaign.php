@@ -356,7 +356,7 @@ if (!class_exists('wp_adpress_campaign')) {
                 // Purchase/Request Time
                 $new_ad->time = time();
                 // Approval Status
-                if (isset($settings['auto_approve'])) {
+                if (isset($settings['auto_approve']) || current_user_can('manage_options')) {
                     $new_ad->status = 'running';
                 } else {
                     $new_ad->status = $status;

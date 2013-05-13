@@ -21,7 +21,7 @@ if (isset($_POST['submit_purchase'])) {
     $settings = get_option('adpress_settings');
     $paypal = isset($settings['paypal']);
     // Create redirect URL
-    if ($paypal) {
+    if ($paypal && !current_user_can('manage_options')) {
         // Create PayPal Payment link
         $gateway = array(
             'username' => $settings['paypal_username'],
