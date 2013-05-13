@@ -610,19 +610,27 @@ if (!class_exists('wp_adpress_campaign')) {
         private function display_cta()
         {
             if (isset($this->ad_definition['cta_url'])) {
+                // Get the number of ads to display
                 if (isset($this->ad_definition['rotation'])) {
                     $display = $this->ad_definition['rotation'];
                 } else {
                     $display = $this->ad_definition['number'];
                 }
-                if (isset($this->ad_definition['cta_fill'])) {
-                    $remaining = $display - count($this->list_ads('running'));
-                } else {
+
+                // Get the number of the remaining spots
+                $remaining = $display - count($this->list_ads('running'));
+
+                // If no spots remain, quit
+                if ($remaining < 1) {
+                    return;
+                }
+
+                // If the CTA fill is not enabled, just put one CTA Ad
+                if (!isset($this->ad_definition['cta_fill']) && $remaining > 0) {
                     $remaining = 1;
                 }
-                if ($remaining < 0) {
-                    $remaining = 0;
-                }
+
+                // Display the CTA Ad
                 switch ($this->ad_definition['type']) {
                     case 'image':
                         return $this->image_cta_spot($remaining);
