@@ -149,7 +149,7 @@
             var ad_height = parseInt(self.el.textboxes.ad_height.filter(':visible').val(), 10),
                 ad_width = parseInt(self.el.textboxes.ad_width.filter(':visible').val(), 10),
                 columns_number = parseInt(self.el.textboxes.columns_number.filter(':visible').val(), 10);
-            console.info(columns_number);
+
             // Create the Boxes
             create_boxes(ads_number);
             // Set The container Width
