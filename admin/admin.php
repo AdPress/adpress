@@ -204,16 +204,12 @@ if (!class_exists('wp_adpress_admin')) {
                     break;
                 case $adpress_page_addcampaign:
                     wp_enqueue_script('wp_adpress_addesigner', ADPRESS_URLPATH . 'admin/files/js/ad_designer.js');
-                    wp_enqueue_script('media-upload');
-                    wp_enqueue_script('thickbox');
-                    wp_enqueue_script('my-upload');
+                    wp_enqueue_media();
                     break;
                 case $adpress_page_purchase:
                     wp_enqueue_script('wp_adpress_redirect', ADPRESS_URLPATH . 'admin/files/js/redirect.js');
                     wp_enqueue_script('wp_adpress_ad_purchase', ADPRESS_URLPATH . 'admin/files/js/ad_purchase.js');
-                    wp_enqueue_script('media-upload');
-                    wp_enqueue_script('thickbox');
-                    wp_enqueue_script('my-upload');
+                    wp_enqueue_media();
                     break;
                 case $adpress_page_paypal:
                     wp_enqueue_script('wp_adpress_redirect', ADPRESS_URLPATH . 'admin/files/js/redirect.js');

@@ -35,7 +35,7 @@
     AdPurchase.prototype.events = function () {
         var self = this;
         this.el.upload.button.click(function () {
-            tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
+            wp.media.editor.open(this);
             return false;
         });
         this.el.submit.click(function () {
@@ -53,6 +53,7 @@
      */
     AdPurchase.prototype.wordpress_hijack = function () {
         var self = this;
+
         window.send_to_editor = function (container) {
             if (self.el.upload.field.length > 0) {
                 var imgurl = jQuery('img', container).attr('src');
@@ -65,8 +66,6 @@
                 self.el.flash.textbox.val(flashurl);
                 self.el.flash.field.addClass('ready');
             }
-            tb_remove();
-
         };
     };
     /**

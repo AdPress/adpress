@@ -104,11 +104,11 @@
             self.el.cta.slider.toggle();
         });
         this.el.cta.img_btn.click(function (e) {
-            tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
+            wp.media.editor.open(this);
             e.preventDefault();
         });
         this.el.cta.banner_btn.click(function (e) {
-            tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
+            wp.media.editor.open(this);
             e.preventDefault();
         });
         /* Ad Rotation Toggle */
@@ -189,11 +189,9 @@
             if (self.el.cta.img_url.filter(':visible').length) {
                 var imgurl = jQuery('img', container).attr('src');
                 save_url(imgurl, self.el.cta.img_url, self.el.cta.img_input);
-                tb_remove();
             } else if (self.el.cta.banner_url.filter(':visible').length) {
                 var swfurl = $(container).attr('href');
                 save_url(swfurl, self.el.cta.banner_url, self.el.cta.banner_input);
-                tb_remove();
             }
         };
         // Save URL and displays it
