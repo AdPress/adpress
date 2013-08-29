@@ -103,7 +103,7 @@ if (!class_exists('wp_adpress')) {
             /*
              * 10. Usage Tracking
              */
-            add_action('admin_init', 'usage_tracking');
+            add_action('admin_init', array(&$this, 'usage_tracking'));
         }
 
         /**
@@ -423,7 +423,7 @@ if (!class_exists('wp_adpress')) {
          * Usage Tracking
          *
          */
-        function usage_tracking() {
+        public function usage_tracking() {
             // PressTrends Account API Key
             $api_key = 'c1le7evp66kcn23g12rn9px0iuwchgysu13j';
             $auth    = '';
