@@ -264,7 +264,6 @@ if (!class_exists('wp_adpress_admin')) {
                 case $adpress_page_addcampaign:
                     wp_enqueue_style('wp_adpress_reset', ADPRESS_URLPATH . 'admin/files/css/reset.css');
                     wp_enqueue_style('wp_adpress_ad_designer', ADPRESS_URLPATH . 'admin/files/css/ad_designer.css');
-                    wp_enqueue_style('thickbox');
                     break;
                 case $adpress_page_available:
                     wp_enqueue_style('wp_adpress_reset', ADPRESS_URLPATH . 'admin/files/css/reset.css');
@@ -281,7 +280,6 @@ if (!class_exists('wp_adpress_admin')) {
                 case $adpress_page_purchase:
                     wp_enqueue_style('wp_adpress_reset', ADPRESS_URLPATH . 'admin/files/css/reset.css');
                     wp_enqueue_style('wp_adpress_ad_purchase', ADPRESS_URLPATH . 'admin/files/css/ad_purchase.css');
-                    wp_enqueue_style('thickbox');
                     break;
                 case $adpress_page_settings:
                     wp_enqueue_style('wp_adpress_reset', ADPRESS_URLPATH . 'admin/files/css/reset.css');
@@ -349,6 +347,12 @@ if (!class_exists('wp_adpress_admin')) {
             add_settings_section('flash_ad_section', 'Flash Ad', 'wp_adpress_forms::description', 'adpress_flash_ad_form');
             add_settings_field('ad_loop', 'HTML Code', 'wp_adpress_forms::textarea', 'adpress_flash_ad_form', 'flash_ad_section', array('ad_loop', 'adpress_flash_settings'));
             add_settings_field('ad_css', 'CSS Style', 'wp_adpress_forms::textarea', 'adpress_flash_ad_form', 'flash_ad_section', array('ad_css', 'adpress_flash_settings'));
+
+            // License Settings
+            register_setting('adpress_license_settings', 'adpress_license_settings', 'wp_adpress_forms::validate');
+            add_settings_section('license_section', 'License', 'wp_adpress_forms::description', 'adpress_license_form');
+            add_settings_field('license_username', 'Username', 'wp_adpress_forms::textbox', 'adpress_license_form', 'license_section', array('license_username', 'adpress_license_settings'));
+            add_settings_field('license_key', 'License Key', 'wp_adpress_forms::textbox', 'adpress_license_form', 'license_section', array('license_key', 'adpress_license_settings'));
 
         }
 

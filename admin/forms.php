@@ -182,7 +182,8 @@ if (!class_exists('wp_adpress_forms')) {
                 'link_ad' => __('Link Ad', 'wp-adpress'),
                 'flash_ad' => __('Flash Ad', 'wp-adpress'),
                 'history' => __('History', 'wp-adpress'),
-                'import' => __('Import/Export', 'wp-adpress')
+                'import' => __('Import/Export', 'wp-adpress'),
+                'license' => __('License', 'wp-adpress')
             );
             return $tabs;
         }

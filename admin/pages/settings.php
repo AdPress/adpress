@@ -13,6 +13,9 @@ if (isset($_GET['action'])) {
                 wp_adpress::display_notice('History Deleted', '<p>History Removed</p>', 'adpress-icon-request_sent');
             }
             break;
+        case 'license_save':
+            echo 'license saved';
+            break;
     }
 }
 /*

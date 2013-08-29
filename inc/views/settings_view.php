@@ -72,6 +72,9 @@ if (!class_exists('wp_adpress_settings')) {
                 case 'import':
                     self::import();
                     break;
+                case 'license':
+                    self::license();
+                    break;
             }
         }
 
@@ -83,19 +86,19 @@ if (!class_exists('wp_adpress_settings')) {
             ?>
         <form action="options.php" method="POST">
             <?php settings_fields('adpress_settings'); ?>
-            <div class="c-block" style="width: 565px;">
+            <div class="c-block" style="width: 650px;">
                 <div class="c-head">
                     <?php do_settings_sections('adpress_settings_form_general'); ?>
                 </div>
-                <div class="c-block" style="width: 565px;">
+                <div class="c-block" style="width: 650px;">
                     <div class="c-head">
                         <?php do_settings_sections('adpress_settings_form_client'); ?>
                     </div>
-                    <div class="c-block" style="width: 565px;">
+                    <div class="c-block" style="width: 650px;">
                         <div class="c-head">
                             <?php do_settings_sections('adpress_settings_form_paypal'); ?>
                         </div>
-                        <div class="c-block" style="width: 565px;">
+                        <div class="c-block" style="width: 650px;">
                             <div class="c-head">
                                 <?php do_settings_sections('adpress_settings_form_history'); ?>
                             </div>
@@ -193,6 +196,26 @@ if (!class_exists('wp_adpress_settings')) {
         static function import()
         {
             wp_adpress_import::display_page();
+        }
+
+        static function license()
+        {
+            ?>
+        <form action="options.php" method="POST">
+            <?php settings_fields('adpress_license_settings'); ?>
+            <div class="c-block" style="width: 650px;">
+                <div class="c-head">
+                    <?php do_settings_sections('adpress_license_form'); ?>
+                </div>
+                <input type="hidden" name="_wp_http_referer"
+                       value="<?php echo admin_url('admin.php?page=adpress-settings&tab=license&action=license_save'); ?>"/>
+
+                <p class="submit">
+                    <input name="Submit" type="submit" class="button-primary"
+                           value="<?php esc_attr_e('Save Changes'); ?>"/>
+                </p>
+        </form>
+        <?php
         }
     }
 }

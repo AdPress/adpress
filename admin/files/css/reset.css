@@ -409,6 +409,9 @@
 #adpress input {
     border: 1px solid #D5D5D5;
 }
+#adpress input[type="text"], #adpress input[type="password"] {
+    width: 200px;
+}
 
 #adpress textarea {
     border: 1px solid #D5D5D5;
