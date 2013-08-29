@@ -19,11 +19,26 @@ if (isset($_GET['action'])) {
     }
 }
 /*
+ * Check that user roles settings are changed
+ * @return bool
+ */
+function wp_adpress_roles_changed()
+{
+    if (!isset($_GET['tab']) || $_GET['tab'] === 'general') {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/*
  * Settings Updated
  */
 if (isset($_GET['settings-updated'])) {
-    wp_adpress_roles::set_permissions();
-    wp_adpress_roles::media_filter();
+    if (wp_adpress_roles_changed()) {
+        wp_adpress_roles::set_permissions();
+        wp_adpress_roles::media_filter();
+    }
 }
 ?>
 <div class="wrap" id="adpress">
