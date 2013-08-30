@@ -104,6 +104,11 @@ if (!class_exists('wp_adpress')) {
              * 10. Usage Tracking
              */
             add_action('admin_init', array(&$this, 'usage_tracking'));
+
+            /*
+             * 11. Display notices
+             */
+            add_action('admin_notices', array(&$this, 'display_notifications'));
         }
 
         /**
@@ -377,6 +382,7 @@ if (!class_exists('wp_adpress')) {
 
         /**
          * Dump any variable to the screen
+         *
          * @param mixed $var Any variable to dump
          * @return string HTML Code
          */
@@ -396,6 +402,44 @@ if (!class_exists('wp_adpress')) {
                 echo $html;
             }
             return $html;
+        }
+
+        /**
+         * Displays a notification in all of the plugin pages
+         *
+         * @param $id string notification unique identifier
+         * @param $title string title of notification
+         * @param $content string content of notification
+         * @param $type string warning|error
+         */
+        static function add_notification($id, $title, $content, $type)
+        {
+            $notifications = get_option('adpress_notifications');
+
+            $notification = array(
+                'id' => $id,
+                'title' => $title,
+                'content' => $content,
+                'type' => $type,
+            );
+
+            $notifications[$id] = $notification;
+
+            update_option('adpress_notifications', $notifications);
+        }
+
+        /**
+         * Removes a notification
+         *
+         * @param $id string notification unique identifier
+         */
+        static function remove_notification($id)
+        {
+            $notifications = get_option('adpress_notifications');
+
+            unset($notifications[$id]);
+
+            update_option('adpress_notifications', $notifications);
         }
 
         /**
@@ -423,55 +467,86 @@ if (!class_exists('wp_adpress')) {
          * Usage Tracking
          *
          */
-        public function usage_tracking() {
+        public function usage_tracking()
+        {
             // PressTrends Account API Key
             $api_key = 'c1le7evp66kcn23g12rn9px0iuwchgysu13j';
-            $auth    = '';
+            $auth = '';
             // Start of Metrics
             global $wpdb;
-            $data = get_transient( 'presstrends_cache_data' );
-            if ( !$data || $data == '' ) {
+            $data = get_transient('presstrends_cache_data');
+            if (!$data || $data == '') {
                 $api_base = 'http://api.presstrends.io/index.php/api/pluginsites/update/auth/';
-                $url      = $api_base . $auth . '/api/' . $api_key . '/';
-                $count_posts    = wp_count_posts();
-                $count_pages    = wp_count_posts( 'page' );
+                $url = $api_base . $auth . '/api/' . $api_key . '/';
+                $count_posts = wp_count_posts();
+                $count_pages = wp_count_posts('page');
                 $comments_count = wp_count_comments();
-                if ( function_exists( 'wp_get_theme' ) ) {
+                if (function_exists('wp_get_theme')) {
                     $theme_data = wp_get_theme();
-                    $theme_name = urlencode( $theme_data->Name );
+                    $theme_name = urlencode($theme_data->Name);
                 } else {
-                    $theme_data = get_theme_data( get_stylesheet_directory() . '/style.css' );
+                    $theme_data = get_theme_data(get_stylesheet_directory() . '/style.css');
                     $theme_name = $theme_data['Name'];
                 }
                 $plugin_name = '&';
-                foreach ( get_plugins() as $plugin_info ) {
+                foreach (get_plugins() as $plugin_info) {
                     $plugin_name .= $plugin_info['Name'] . '&';
                 }
                 // CHANGE __FILE__ PATH IF LOCATED OUTSIDE MAIN PLUGIN FILE
-                $plugin_data         = get_plugin_data( __FILE__ );
-                $posts_with_comments = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->posts WHERE post_type='post' AND comment_count > 0" );
-                $data                = array(
-                    'url'             => stripslashes( str_replace( array( 'http://', '/', ':' ), '', site_url() ) ),
-                    'posts'           => $count_posts->publish,
-                    'pages'           => $count_pages->publish,
-                    'comments'        => $comments_count->total_comments,
-                    'approved'        => $comments_count->approved,
-                    'spam'            => $comments_count->spam,
-                    'pingbacks'       => $wpdb->get_var( "SELECT COUNT(comment_ID) FROM $wpdb->comments WHERE comment_type = 'pingback'" ),
-                    'post_conversion' => ( $count_posts->publish > 0 && $posts_with_comments > 0 ) ? number_format( ( $posts_with_comments / $count_posts->publish ) * 100, 0, '.', '' ) : 0,
-                    'theme_version'   => $plugin_data['Version'],
-                    'theme_name'      => $theme_name,
-                    'site_name'       => str_replace( ' ', '', get_bloginfo( 'name' ) ),
-                    'plugins'         => count( get_option( 'active_plugins' ) ),
-                    'plugin'          => urlencode( $plugin_name ),
-                    'wpversion'       => get_bloginfo( 'version' ),
+                $plugin_data = get_plugin_data(__FILE__);
+                $posts_with_comments = $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->posts WHERE post_type='post' AND comment_count > 0");
+                $data = array(
+                    'url' => stripslashes(str_replace(array('http://', '/', ':'), '', site_url())),
+                    'posts' => $count_posts->publish,
+                    'pages' => $count_pages->publish,
+                    'comments' => $comments_count->total_comments,
+                    'approved' => $comments_count->approved,
+                    'spam' => $comments_count->spam,
+                    'pingbacks' => $wpdb->get_var("SELECT COUNT(comment_ID) FROM $wpdb->comments WHERE comment_type = 'pingback'"),
+                    'post_conversion' => ($count_posts->publish > 0 && $posts_with_comments > 0) ? number_format(($posts_with_comments / $count_posts->publish) * 100, 0, '.', '') : 0,
+                    'theme_version' => $plugin_data['Version'],
+                    'theme_name' => $theme_name,
+                    'site_name' => str_replace(' ', '', get_bloginfo('name')),
+                    'plugins' => count(get_option('active_plugins')),
+                    'plugin' => urlencode($plugin_name),
+                    'wpversion' => get_bloginfo('version'),
                 );
-                foreach ( $data as $k => $v ) {
+                foreach ($data as $k => $v) {
                     $url .= $k . '/' . $v . '/';
                 }
-                wp_remote_get( $url );
-                set_transient( 'presstrends_cache_data', $data, 60 * 60 * 24 );
+                wp_remote_get($url);
+                set_transient('presstrends_cache_data', $data, 60 * 60 * 24);
             }
+        }
+
+        /**
+         * Display notifications in the AdPress notification system
+         */
+        public function display_notifications()
+        {
+            $notifications = get_option('adpress_notifications');
+            if (!is_array($notifications)) {
+                return;
+            }
+
+            if (empty($notifications)) {
+                return;
+            }
+
+            foreach ($notifications as $notification) {
+                $this->display_notification($notification);
+            }
+        }
+
+        /**
+         * @param $notification
+         */
+        private function display_notification($notification)
+        {
+            echo '<div class="notification ' . $notification['type'] . '">
+                  <h3>' . $notification['title'] . '</h3>
+                  <p>' . $notification['content'] . '</p>
+                  </div>';
         }
 
     }
@@ -492,4 +567,5 @@ function display_campaign($id)
         $campaign->display();
     }
 }
+
 ?>
