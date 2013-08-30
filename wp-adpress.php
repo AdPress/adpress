@@ -185,6 +185,7 @@ if (!class_exists('wp_adpress')) {
             require_once('inc/mu.php');
             require_once('inc/roles.php');
             require_once('inc/integration.php');
+            require_once('inc/license.php');
         }
 
         /**

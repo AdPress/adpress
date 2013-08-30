@@ -14,7 +14,13 @@ if (isset($_GET['action'])) {
             }
             break;
         case 'license_save':
-            echo 'license saved';
+            $options = get_option('adpress_license_settings');
+            $validity = wp_adpress_license::check_license($options['license_username'], $options['license_key']);
+            if ($validity) {
+                wp_adpress::remove_notification('license_validity');
+            } else {
+                wp_adpress::add_notification('license_validity', 'AdPress License is not valid', 'Your AdPress username and license key are not valid. Please check them again.', 'error');
+            }
             break;
     }
 }
