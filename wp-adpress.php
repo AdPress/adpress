@@ -218,6 +218,12 @@ if (!class_exists('wp_adpress')) {
             if (get_option('adpress_install', false) === false) {
                 $this->install();
             }
+
+            // Check if the license settings are entered
+            $license = get_option('adpress_license_settings');
+            if (!isset($license['license_username']) || $license['license_username'] === '') {
+                wp_adpress::add_notification('license_missing', 'AdPress License', 'Please enter AdPress license details to enable all of the plugin features', 'updated');
+            }
         }
 
         /**

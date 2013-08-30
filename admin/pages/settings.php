@@ -15,6 +15,12 @@ if (isset($_GET['action'])) {
             break;
         case 'license_save':
             $options = get_option('adpress_license_settings');
+            if (!isset($options['license_username']) || $options['license_username'] === '') {
+                wp_adpress::add_notification('license_missing', 'AdPress License', 'Please enter AdPress license details to enable all of the plugin features', 'updated');
+                wp_adpress::remove_notification('license_validity');
+                break;
+            }
+            wp_adpress::remove_notification('license_missing');
             $validity = wp_adpress_license::check_license($options['license_username'], $options['license_key']);
             if ($validity) {
                 wp_adpress::remove_notification('license_validity');
