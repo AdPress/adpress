@@ -152,7 +152,13 @@ if (!class_exists('wp_adpress_campaigns_view')) {
          */
         private function edit_button($campaign)
         {
-            if ($campaign->is_editable()) {
+            $settings = get_option('adpress_settings');
+            if (isset($settings['campaign_edit'])) {
+                $edit = true;
+            } else {
+                $edit = false;
+            }
+            if ($campaign->is_editable() || $edit) {
                 $html = '<a href="admin.php?page=adpress-inccampaign&cmd=edit&cid=' . $campaign->id . '">' . __('Edit', 'wp-adpress') . '</a>';
             } else {
                 $html = __('Edit', 'wp-adpress');

@@ -16,7 +16,7 @@ if (isset($_GET['action'])) {
         case 'license_save':
             $options = get_option('adpress_license_settings');
             if (!isset($options['license_username']) || $options['license_username'] === '') {
-                wp_adpress::add_notification('license_missing', 'AdPress License', 'Please enter AdPress license details to enable all of the plugin features', 'updated');
+                wp_adpress::add_notification('license_missing', 'AdPress License', 'Please enter <a href="admin.php?page=adpress-settings&tab=license">AdPress license</a> details to enable all of the plugin features and automatic updates.', 'updated');
                 wp_adpress::remove_notification('license_validity');
                 break;
             }
@@ -25,7 +25,7 @@ if (isset($_GET['action'])) {
             if ($validity) {
                 wp_adpress::remove_notification('license_validity');
             } else {
-                wp_adpress::add_notification('license_validity', 'AdPress License is not valid', 'Your AdPress username and license key are not valid. Please check them again.', 'error');
+                wp_adpress::add_notification('license_validity', 'AdPress License is not valid', 'Your AdPress username and license key are not valid. Please check your <a href="admin.php?page=adpress-settings&tab=license">license information</a>.', 'error');
             }
             break;
     }

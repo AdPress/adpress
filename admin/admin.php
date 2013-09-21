@@ -312,6 +312,7 @@ if (!class_exists('wp_adpress_admin')) {
             add_settings_field('adminbar', 'Admin Bar', 'wp_adpress_forms::checkbox', 'adpress_settings_form_general', 'general_section', array('adminbar', 'adpress_settings'));
             add_settings_field('debug_mode', 'Debugging Mode', 'wp_adpress_forms::checkbox', 'adpress_settings_form_general', 'general_section', array('debug_mode', 'adpress_settings'));
             add_settings_field('smart_rewrite', 'Smart Rewrite', 'wp_adpress_forms::checkbox', 'adpress_settings_form_general', 'general_section', array('smart_rewrite', 'adpress_settings'));
+            add_settings_field('campaign_edit', 'Edit Active Campaigns', 'wp_adpress_forms::checkbox', 'adpress_settings_form_general', 'general_section', array('campaign_edit', 'adpress_settings'));
             // -- Client Settings
             add_settings_section('client_access', 'Client Access', 'wp_adpress_forms::description', 'adpress_settings_form_client', 'Client Access');
             add_settings_field('client_roles', 'Client Roles', 'wp_adpress_forms::roles_check', 'adpress_settings_form_client', 'client_access', array('client_roles', 'adpress_settings'));
