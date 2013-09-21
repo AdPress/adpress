@@ -35,8 +35,17 @@ if (!class_exists('wp_adpress_license')) {
         static function check_license($username, $license_key)
         {
             $request = wp_remote_get('http://marketplace.envato.com/api/edge/omarabid/6q1tgwuobif35kcdu58uyk1lyd4ejzqj/verify-purchase:' . $license_key . '.json');
+
+            // Check that the response is valid
+            if (is_wp_error($request)) {
+                return false;
+            }
+
+            // Decode the response
             $result = json_decode($request['body'], ARRAY_A);
-            if ($result['verify-purchase']) {
+
+            // Check the license
+            if (isset($result['verify-purchase'])) {
                 $buyer = $result['verify-purchase']['buyer'];
                 if (strtolower($buyer) === strtolower($username)) {
                     return true;
