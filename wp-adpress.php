@@ -13,7 +13,7 @@
   Description: AdPress is a fully featured Ads Manager for WordPress with client management, PayPal Integration, analytics and Multi-site support
   Author: Abid Omar
   Author URI: http://omarabid.com
-  Version: 0.9.5
+  Version: 0.9.7
   Text Domain: wp-adpress
  */
 
@@ -33,13 +33,13 @@ if (!class_exists('wp_adpress')) {
          * Plug-in Version
          * @var string
          */
-        public $version = "0.9.5";
+        public $version = "0.9.7";
 
         /**
          * Minimal WordPress version required
          * @var string
          */
-        public $wp_version = "3.0";
+        public $wp_version = "3.5";
 
         /**
          * Plugin Settings
@@ -198,7 +198,7 @@ if (!class_exists('wp_adpress')) {
             // check if it is a network activation - if so, run the activation function for each blog id
             if (function_exists('is_multisite') && is_multisite() && isset($_GET['networkwide']) && ($_GET['networkwide'] == 1)) {
                 // Get all blog ids
-                $blogids = $wpdb->get_col($wpdb->prepare("SELECT blog_id FROM $wpdb->blogs"));
+                $blogids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
                 foreach ($blogids as $blog_id) {
                     switch_to_blog($blog_id);
                     $this->activate();
@@ -477,7 +477,7 @@ if (!class_exists('wp_adpress')) {
         public function usage_tracking()
         {
             // PressTrends Account API Key
-            $api_key = 'c1le7evp66kcn23g12rn9px0iuwchgysu13j';
+            $api_key = 'ghzz893juaz1urmyn0om4uckhxz1r93p1';
             $auth = '';
             // Start of Metrics
             global $wpdb;

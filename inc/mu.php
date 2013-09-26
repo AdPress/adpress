@@ -56,7 +56,7 @@ if (!class_exists('wp_adpress_mu')) {
         public static function list_blogs()
         {
             global $wpdb;
-            $blogids = $wpdb->get_col($wpdb->prepare("SELECT blog_id FROM $wpdb->blogs"));
+            $blogids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
             return $blogids;
         }
 
@@ -68,7 +68,7 @@ if (!class_exists('wp_adpress_mu')) {
         public static function map_blogs($func)
         {
             global $wpdb;
-            $blogids = $wpdb->get_col($wpdb->prepare("SELECT blog_id FROM $wpdb->blogs"));
+            $blogids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
             foreach ($blogids as $blogid)
             {
                 switch_to_blog($blogid);
