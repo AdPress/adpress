@@ -550,10 +550,12 @@ if (!class_exists('wp_adpress')) {
          */
         private function display_notification($notification)
         {
+            /*
             echo '<div class="notification ' . $notification['type'] . '">
                   <h3>' . $notification['title'] . '</h3>
                   <p>' . $notification['content'] . '</p>
                   </div>';
+            */
         }
 
     }
