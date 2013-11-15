@@ -45,4 +45,4 @@ if (isset($_GET['action'])) {
 } else {
     wp_adpress::display_message('Purchase Ad', 'Invalid Call', '<p>You cannot call this page directly.</p>', 'adpress-icon-purchase', 'adpress-icon-flag');
 }
-?>
+

@@ -577,4 +577,4 @@ function display_campaign($id)
     }
 }
 
-?>
+

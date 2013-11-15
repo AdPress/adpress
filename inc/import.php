@@ -193,12 +193,16 @@ if (!class_exists('wp_adpress_import')) {
                 self::process_action($_GET['action']);
             } elseif (isset($_POST['action'])) {
                 self::process_action($_POST['action']);
-            }
+			}
 
+			if (isset($_SERVER['REQUEST_URI'])) {
+				$url = $_SERVER['REQUEST_URI'];
+			} else {
+				$url = '';
+			}
 
-            $url = $_SERVER['SCRIPT_URI'];
-            $message = self::$message;
-            print <<<html
+			$message = self::$message;
+			print <<<html
 $message
 <div class="c-block" style="width: 565px;">
             <div class="c-head">
@@ -264,4 +268,4 @@ html;
         }
     }
 }
-?>
+

@@ -19,4 +19,4 @@ if ($valid === 'yes') {
 } else {
     wp_adpress::display_message('Purchase Ad', 'Request not valid', '<p>This request is no longer valid, please restart the purchase again.</p>', 'adpress-icon-purchase', 'adpress-icon-flag');
 }
-?>
+

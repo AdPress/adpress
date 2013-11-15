@@ -75,4 +75,4 @@ if (isset($_POST['submit_purchase'])) {
         wp_adpress::display_message('Purchase Ad', 'Campaign not found', '<p>Campaign was not found or is not available.</p>', 'adpress-icon-purchase', 'adpress-icon-flag');
     }
 }
-?>
+

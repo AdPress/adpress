@@ -86,9 +86,11 @@ if (!class_exists('wp_adpress_forms')) {
 
         static function button($param)
         {
+
+
             $value = $param['value'];
             $action = $param['action'];
-            echo '<a href="' . $_SERVER['SCRIPT_URI'] . '&action=' . $action . '" class="button-secondary">' . $value . '</a>';
+            echo '<a href="' . $_SERVER['REQUEST_URI'] . '&action=' . $action . '" class="button-secondary">' . $value . '</a>';
         }
 
         /**
@@ -200,4 +202,4 @@ if (!class_exists('wp_adpress_forms')) {
 
     }
 }
-?>
+

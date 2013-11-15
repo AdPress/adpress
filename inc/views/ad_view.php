@@ -188,4 +188,4 @@ if (!class_exists('wp_adpress_adview')) {
 
     }
 }
-?>
+
