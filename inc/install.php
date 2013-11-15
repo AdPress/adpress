@@ -70,8 +70,8 @@ if (!class_exists('wp_adpress_install')) {
             'client_transfer_role' => 'administrator',
             'client_old_role' => '',
             'client_roles' => array('all' => 'on'),
-            'paypal' => 'on',
-            'paypal_refund' => 'on',
+            'paypal' => '',
+            'paypal_refund' => '',
             'time_format' => 'Y-m-d h:i',
             'history' => 'on'
         );
