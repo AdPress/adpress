@@ -150,7 +150,7 @@ if (!class_exists('wp_adpress_install')) {
 	<a href="@url" target="_blank">@link_text</a>
 </li>',
             'ad_css' => '
-=.link-campaign
+.link-campaign
 {
 
 }
