@@ -415,6 +415,7 @@
 
 #adpress textarea {
     border: 1px solid #D5D5D5;
+	font-family: Consolas, monaco, monospace;
 }
 
 #adpress select {
