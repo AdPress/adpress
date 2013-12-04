@@ -567,6 +567,9 @@
     background-image: url(../img/icons/purchases.png);
 }
 
+#adpress-icon-addons {
+    background-image: url(../img/icons/addons.png);
+}
 /*Info box*/
 P.info
 {
