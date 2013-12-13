@@ -23,6 +23,7 @@
 
 #adpress h2 {
     font-size: 22px;
+    display: block;
 }
 
 #adpress h3 {
@@ -66,15 +67,17 @@
 {{ Tabs }}
 */
 #adpress .nav-tab-wrapper {
-    border: none;
-}
-
+    border: none; 
+    padding: 0;
+} 
+ 
 #adpress .nav-tab-wrapper .nav-tab {
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
     font-family: 'Cuprum' !important;
     font-size: 22px;
+	font-weight: normal;
     margin: 0;
     border-right: none;
     background: #EFEFEF url(../img/c-header-bg.png) repeat-x;
@@ -111,6 +114,8 @@
     background: url(../img/pBtn.png) repeat-x 0 0;
     border: 1px solid #4F5A68;
     color: white;
+	height: auto;
+	width: auto;
 }
 
 #adpress A.button-primary:hover {
@@ -202,6 +207,8 @@
     line-height: 12px;
     border: 1px solid #D5D5D5;
     color: #525252;
+	height: auto;
+	width: auto;
 }
 
 #adpress A.button-secondary:hover {
@@ -225,6 +232,8 @@
     background: url(../img/pBtn.png) repeat-x 0 0;
     border: 1px solid #4F5A68;
     color: white;
+	height: auto;
+	width: auto;
 }
 
 #adpress INPUT.button-primary:hover {
@@ -250,6 +259,8 @@
     line-height: 12px;
     border: 1px solid #D5D5D5;
     color: #525252;
+	height: auto;
+	width: auto;
 }
 
 #adpress INPUT.button-secondary:hover {
@@ -423,7 +434,9 @@
 }
 
 #adpress label {
-    font-family: Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
 }
 
 .form-table th {
@@ -478,6 +491,18 @@
 #adpress .icon32 {
 
     background-repeat: no-repeat;
+    
+ 
+    display: block;
+
+    height: 32px;
+
+    width: 40px;
+
+    float: left;
+
+    margin-bottom: 0px; margin-left: 0px; margin-right: 8px; margin-top: 7px;
+
 }
 
 #adpress-icon-campaigns {
