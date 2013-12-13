@@ -3,6 +3,21 @@
 if (!defined('ABSPATH')) {
    die('-1');
 }
+
+
+if (isset($_GET['action']) && $_GET['action'] === 'deactivate') {
+   $id = $_GET['id'];
+   $addons=	apply_filters('adpress_addons', array());
+
+   foreach ($addons as $addon) {
+	  if ($addon['id'] === $id) {
+		 $plugin = array($addon['basename']);
+	  }
+   }
+   deactivate_plugins($plugin);
+}
+
+
 if(!class_exists('WP_List_Table')){
    require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
 }
@@ -54,7 +69,10 @@ class wp_adpress_addons_table extends WP_List_Table {
    }
 
    function column_col_name($item) {
-	  return '<strong>' . $item['title'] . '</strong>';
+	  $actions = array(
+		 'deactivate'      => sprintf('<a href="?page=%s&action=%s&id=%s">Deactivate</a>',$_REQUEST['page'],'deactivate',$item['id']),
+	  );
+	  return sprintf('%1$s %2$s', $item['title'], $this->row_actions($actions) );
    }	  
    function column_col_description($item) {
 	  return $item['description'];   
