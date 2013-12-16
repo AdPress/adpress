@@ -72,6 +72,9 @@ class wp_adpress_addons_table extends WP_List_Table {
 	  $actions = array(
 		 'deactivate'      => sprintf('<a href="?page=%s&action=%s&id=%s">Deactivate</a>',$_REQUEST['page'],'deactivate',$item['id']),
 	  );
+	  if (isset($item['settings'])) {
+$actions['settings'] = sprintf('<a href="?page=%s">Settings</a>', $item['settings']);
+	  }
 	  return sprintf('%1$s %2$s', $item['title'], $this->row_actions($actions) );
    }	  
    function column_col_description($item) {

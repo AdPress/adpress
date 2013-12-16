@@ -18,7 +18,7 @@ if (!class_exists('wp_adpress_admin')) {
             /*
             * 1. Admin Menu
             */
-            add_action('admin_menu', array(&$this, 'admin_menu'));
+            add_action('admin_menu', array(&$this, 'admin_menu'), 10);
 
             /*
             * 2. Load Scripts and Styles
