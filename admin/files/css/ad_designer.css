@@ -3,7 +3,7 @@ FORM {
 }
 
 /*Form Style*/
-#addcampaign-form .c-block {
+#adpress #addcampaign-form .c-block {
     width: 550px;
 }
 #addcampaign-form .form-table INPUT {
@@ -41,12 +41,13 @@ FORM {
 }
 
 /*Ad Designer Style*/
-#ad_preview {
+#adpress #ad_preview {
     float: right;
     min-width: 350px;
     height: 100%;
     margin-left: 0px;
     background-color: #F2F2F2;
+	width: auto;
 }
 
 #ad_preview H3 {
