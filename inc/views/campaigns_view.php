@@ -95,8 +95,12 @@ if (!class_exists('wp_adpress_campaigns_view')) {
                             </div>
                         </td>
                         <td>
-                        <a href="#" class="button-primary blue more" tog_text="PHP Code" id="phpcode' . $campaign->id . '">PHP Code</a> <a href="#" class="button-primary sea more" tog_text="Short Code" id="shortcode' . $campaign->id . '">Short Code</a>
-                        </td>
+						<a href="#" class="button-primary blue more" tog_text="PHP Code" id="phpcode' . $campaign->id . '">PHP Code</a> 
+						<a href="#" class="button-primary sea more" tog_text="Short Code" id="shortcode' . $campaign->id . '">Short Code</a> 
+						'.
+apply_filters('adpress_campaigns_btns', '', $campaign->id)
+						.'
+ 						</td>
                     </tr>
                     <tr class="expand c' . $campaign->id . '" >
                         <th></th>
@@ -127,8 +131,11 @@ if (!class_exists('wp_adpress_campaigns_view')) {
                         </td>
                         <td></td>
                         <td></td>
-                    </tr>';
-            }
+						</tr>
+						 ' .
+						apply_filters('adpress_campaigns_expand', '', $campaign->id);
+						;
+           }
             return $html;
         }
 
