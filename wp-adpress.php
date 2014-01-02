@@ -253,8 +253,10 @@ if (!class_exists('wp_adpress')) {
 	   */
 	  public function install()
 	  {
-		 $setup = new wp_adpress_install();
-		 return $setup;
+		 if (class_exists('wp_adpress_install')) {
+			$setup = new wp_adpress_install();
+			return $setup;
+		 }
 	  }
 
 	  /**
@@ -265,8 +267,10 @@ if (!class_exists('wp_adpress')) {
 	  public static function uninstall()
 	  {
 		 require_once('inc/install.php');
-		 $setup = new wp_adpress_uninstall();
-		 return $setup;
+		 if (class_exists('wp_adpress_uninstall')) {
+			$setup = new wp_adpress_uninstall();
+			return $setup;
+		 }
 	  }
 
 	  /**
@@ -466,11 +470,11 @@ if (!class_exists('wp_adpress')) {
 		 new wp_adpress_roles();
 
 		 // Admin Panel
-		 if (is_admin()) {
+		 if (is_admin() && class_exists('wp_adpress_admin')) {
 			new wp_adpress_admin();
 		 }
 		 // Super Admin Panel (for WP-MU)
-		 if (is_admin() && is_super_admin() && function_exists('is_multisite') && is_multisite()) {
+		 if (is_admin() && is_super_admin() && function_exists('is_multisite') && is_multisite() && class_exists('wp_adpress_muadmin')) {
 			new wp_adpress_muadmin();
 		 }
 	  }
@@ -568,7 +572,9 @@ if (!class_exists('wp_adpress')) {
 }
 
 // Create a new instance of the main class
-$wpadpress = new wp_adpress();
+if (class_exists('wp_adpress')) {
+   $wpadpress = new wp_adpress();
+}
 
 /**
  * ShortHand function
