@@ -49,6 +49,7 @@ if (!class_exists('wp_adpress')) {
 
 	  function __construct()
 	  {
+
 		 /*
 		  * 1. Check Plug-in requirements
 		  */
@@ -109,6 +110,11 @@ if (!class_exists('wp_adpress')) {
 		  * 11. Display notices
 		  */
 		 add_action('admin_notices', array(&$this, 'display_notifications'));
+		 /*
+		  * 12. Media Access (TODO: should be moved from here)
+		  */
+		 add_action('pre_get_posts', 'wp_adpress_roles::restrict_ajax_library');
+		 add_action('parse_query', 'wp_adpress_roles::restrict_media_library');
 	  }
 
 	  /**
