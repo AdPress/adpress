@@ -70,11 +70,28 @@ if (!class_exists('wp_adpress_install')) {
             'client_transfer_role' => 'administrator',
             'client_old_role' => '',
             'client_roles' => array('all' => 'on'),
-            'paypal' => '',
-            'paypal_refund' => '',
             'time_format' => 'Y-m-d h:i',
             'history' => 'on'
         );
+
+		/**
+		 * List of installed gateways
+		 * @var array
+		 */
+		static $installed_gateways = array(
+			'manual' => 'Manual',
+			'paypal' => 'PayPal',
+		);
+
+		/**
+		 * Array of active gateways
+		 * @var array
+		 */
+		static $active_gateways = array(
+		   'manual' => 'on',
+		);
+
+		static $default_gateway = 'paypal';
 
         /**
          * Image Ad Default Settings
@@ -181,15 +198,24 @@ if (!class_exists('wp_adpress_install')) {
             */
             self::$defaults['client_role'] = __('administrator');
             self::$defaults['client_transfer_role'] = __('administrator');
-            add_option('adpress_settings', self::$defaults);
-            add_option('adpress_image_settings', self::$img_defaults);
-            add_option('adpress_flash_settings', self::$flash_defaults);
-            add_option('adpress_link_settings', self::$link_defaults);
+            update_option('adpress_settings', self::$defaults);
+            update_option('adpress_image_settings', self::$img_defaults);
+            update_option('adpress_flash_settings', self::$flash_defaults);
+            update_option('adpress_link_settings', self::$link_defaults);
+
+			// Gateways Settings
+			$adpress_settings = array (
+				'active' => self::$active_gateways,
+				'default' => self::$default_gateway,
+			);
+			update_option('adpress_gateways', self::$installed_gateways);
+			update_option('adpress_gateways_settings', $adpress_settings);
+
 
             /*
             * Set the install option
             */
-            add_option('adpress_install', 'installed');
+            update_option('adpress_install', 'installed');
 
             /*
             * Update the user roles

@@ -192,6 +192,12 @@ if (!class_exists('wp_adpress')) {
 		 require_once('inc/roles.php');
 		 require_once('inc/integration.php');
 		 require_once('inc/license.php');
+
+		 /*
+		  * Required Add-ons
+		  */
+		 require_once('inc/addons/manual.php');
+		 require_once('inc/addons/paypal.php');
 	  }
 
 	  /**

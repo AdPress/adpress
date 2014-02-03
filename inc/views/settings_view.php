@@ -57,6 +57,9 @@ if (!class_exists('wp_adpress_settings')) {
                 default:
                     self::general_page();
                     break;
+				case 'gateways':
+				   self::gateways_page();
+				   break;
                 case 'image_ad':
                     self::image_ad_page();
                     break;
@@ -112,7 +115,26 @@ if (!class_exists('wp_adpress_settings')) {
         </form>
         <?php
         }
+		/**
+		 * Gateways page
+		 */
+		static function gateways_page()
+		{
+?>
+<form action="options.php" method="POST">
+<?php settings_fields('adpress_gateways_settings'); ?>
 
+            <div class="c-block" style="width: 650px;">
+                <div class="c-head">
+                    <?php do_settings_sections('adpress_gateways_form_general'); ?>
+                </div>
+                             <p class="submit">
+                                <input name="Submit" type="submit" class="button-primary"
+                                       value="<?php esc_attr_e('Save Changes'); ?>"/>
+                            </p>
+</form>
+<?php
+		}
         /**
          * Image Ad Page
          */
