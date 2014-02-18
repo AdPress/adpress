@@ -133,6 +133,19 @@ if (!class_exists('wp_adpress_settings')) {
                                        value="<?php esc_attr_e('Save Changes'); ?>"/>
                             </p>
 </form>
+<form action="options.php" method="POST">
+<?php settings_fields('adpress_gateway_paypal_settings'); ?>
+
+            <div class="c-block" style="width: 650px;">
+                <div class="c-head">
+                    <?php do_settings_sections('adpress_gateway_paypal_form_general'); ?>
+                </div>
+                             <p class="submit">
+                                <input name="Submit" type="submit" class="button-primary"
+                                       value="<?php esc_attr_e('Save Changes'); ?>"/>
+                            </p>
+</form>
+
 <?php
 		}
         /**
