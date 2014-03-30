@@ -96,7 +96,8 @@ if (!class_exists('wp_adpress_paypal')) {
                 'method' => 'POST',
                 'body' => $body,
                 'timeout' => 60,
-                'sslverify' => apply_filters('https_local_ssl_verify', false)
+                'sslverify' => apply_filters('https_local_ssl_verify', false),
+                'httpversion' => '1.1',
             );
 
             // Make the HTTP request
@@ -137,7 +138,9 @@ if (!class_exists('wp_adpress_paypal')) {
                 'method' => 'POST',
                 'body' => $body,
                 'timeout' => 60,
-                'sslverify' => false
+                'sslverify' => apply_filters('https_local_ssl_verify', false),
+                'httpversion' => '1.1',
+
             );
             $response = wp_remote_post($this->server, $request);
             wp_adpress::display_log($response);
@@ -171,7 +174,9 @@ if (!class_exists('wp_adpress_paypal')) {
                 'method' => 'POST',
                 'body' => $body,
                 'timeout' => 60,
-                'sslverify' => apply_filters('https_local_ssl_verify', false)
+                'sslverify' => apply_filters('https_local_ssl_verify', false),
+                'httpversion' => '1.1',
+
             );
 
             $response = wp_remote_post($this->server, $request);
