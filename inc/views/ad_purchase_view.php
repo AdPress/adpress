@@ -248,6 +248,7 @@ if (!class_exists('wp_adpress_adpurchase')) {
             $current_user = wp_get_current_user();
             global $pid;
             $pid = $current_user->ID;
+
             /*
             * Get the purchase details
             */

@@ -66,3 +66,19 @@ if (!class_exists('wp_adpress_payment')) {
     }
 }
 
+/**
+ * Inserts payment
+ * @since 0.98
+ * @param array $payment_data
+ * @return bool true if payment inserted, false otherwise
+ */
+function wp_adpress_insert_payment ($payment_data = array()) {
+
+	if (empty($payment_data)) {
+		return false;
+	}
+
+	// Set the correct time zone
+	date_default_timezone_set( wp_adpress_get_timezone_id() );
+
+}
