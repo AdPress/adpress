@@ -17,6 +17,7 @@ function manual_register_addon($addons)
 	  'author' => 'Abid Omar',
 	  'version' => '1.0',
 	  'basename' => plugin_basename(__FILE__),
+      'required' => true,
    );
    array_push($addons, $addon);
 
