@@ -62,6 +62,7 @@ if (!class_exists('wp_adpress_admin')) {
             global $adpress_page_ad;
 			global $adpress_page_paypal;
 			global $adpress_page_register_ad;
+			global $adpress_page_payments;
 			global $adpress_page_addons;
 
 			/*
@@ -84,9 +85,13 @@ if (!class_exists('wp_adpress_admin')) {
                 $adpress_page_settings = add_submenu_page('adpress-campaigns', 'AdPress | Settings', 'Settings', 'manage_options', 'adpress-settings', array(&$this, 'menu_router'));
                 add_action("load-$adpress_page_settings", array(&$this, 'help'));
 
+				$adpress_page_payments = add_submenu_page('adpress-campaigns', 'AdPress | Payments History', 'Payments History', 'manage_options', 'adpress-payments', array(&$this, 'menu_router'));
+				add_action("load-$adpress_page_payments", array(&$this, 'help'));
+
                 $adpress_page_addons = add_submenu_page('adpress-campaigns', 'AdPress | Add-ons', 'Add-ons', 'manage_options', 'adpress-addons', array(&$this, 'menu_router'));
                 add_action("load-$adpress_page_addons", array(&$this, 'help'));
             }
+
             /*
             * Client View
             */
@@ -126,6 +131,7 @@ if (!class_exists('wp_adpress_admin')) {
             global $adpress_page_addcampaign;
             global $adpress_page_adsrequests;
             global $adpress_page_settings;
+			global $adpress_page_payments;
             global $adpress_page_available;
             global $adpress_page_purchases;
             global $adpress_page_purchase;
@@ -155,6 +161,9 @@ if (!class_exists('wp_adpress_admin')) {
                 case $adpress_page_settings:
                     require_once('pages/settings.php');
                     break;
+				case $adpress_page_payments:
+					require_once('pages/payments.php');
+					break;
 				case $adpress_page_addons:
 				   require_once('pages/addons.php');
 				   break;
@@ -200,6 +209,7 @@ if (!class_exists('wp_adpress_admin')) {
             global $adpress_page_addcampaign;
             global $adpress_page_adsrequests;
             global $adpress_page_settings;
+			global $adpress_page_payments;
             global $adpress_page_available;
             global $adpress_page_purchases;
             global $adpress_page_purchase;
@@ -231,6 +241,8 @@ if (!class_exists('wp_adpress_admin')) {
                     wp_enqueue_script('wp_adpress_settings', ADPRESS_URLPATH . 'admin/files/js/settings.js');
                     wp_enqueue_script('wp_adpress_admin', ADPRESS_URLPATH . 'admin/files/js/admin.js');
                     break;
+				case $adpress_page_payments:
+					break;
 				case $adpress_page_addons:
 				   break;
                 case $adpress_page_ad:
@@ -260,6 +272,7 @@ if (!class_exists('wp_adpress_admin')) {
             global $adpress_page_addcampaign;
             global $adpress_page_adsrequests;
             global $adpress_page_settings;
+			global $adpress_page_payments;
             global $adpress_page_available;
             global $adpress_page_purchases;
             global $adpress_page_purchase;
@@ -297,6 +310,9 @@ if (!class_exists('wp_adpress_admin')) {
                     wp_enqueue_style('wp_adpress_reset', ADPRESS_URLPATH . 'admin/files/css/reset.css');
                     wp_enqueue_style('wp_adpress_settings', ADPRESS_URLPATH . 'admin/files/css/settings.css');
                     break;
+				case $adpress_page_payments:
+                    wp_enqueue_style('wp_adpress_reset', ADPRESS_URLPATH . 'admin/files/css/reset.css');
+					break;
                 case $adpress_page_addons:
                     wp_enqueue_style('wp_adpress_reset', ADPRESS_URLPATH . 'admin/files/css/reset.css');
                     wp_enqueue_style('wp_adpress_settings', ADPRESS_URLPATH . 'admin/files/css/settings.css');
@@ -458,6 +474,7 @@ if (!class_exists('wp_adpress_admin')) {
             global $adpress_page_addcampaign;
             global $adpress_page_adsrequests;
             global $adpress_page_settings;
+			global $adpress_page_payments;
 			global $adpress_page_addons;
             global $adpress_page_available;
             global $adpress_page_purchases;
@@ -691,6 +708,14 @@ if (!class_exists('wp_adpress_admin')) {
                                 break;
                         }
 						break;
+						case $adpress_page_payments:
+						   $current_screen->add_help_tab(array(
+							  'id' => 'adpress_page_payments',
+							  'title' => __('Payments', 'wp-adpress'),
+							  'content' => '<h2>' . __('Payments', 'wp-adpress') . '</h2>' .
+							  '<p>' . __('Help Text', 'wp-adpress') . '</p>'
+						   ));
+							break;
 						case $adpress_page_addons:
 						   $current_screen->add_help_tab(array(
 							  'id' => 'adpress_page_addons',
@@ -698,7 +723,6 @@ if (!class_exists('wp_adpress_admin')) {
 							  'content' => '<h2>' . __('Add-ons', 'wp-adpress') . '</h2>' .
 							  '<p>' . __('Help Text', 'wp-adpress') . '</p>'
 						   ));
-
 						   break;
 						case $adpress_page_available:
 						   $current_screen->add_help_tab(array(
