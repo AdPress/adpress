@@ -29,7 +29,7 @@ function wp_adpress_payment_post_type() {
 		'all_items' 		=> __( 'All Payments', 'edd' ),
 		'view_item' 		=> __( 'View Payment', 'edd' ),
 		'search_items' 		=> __( 'Search Payments', 'edd' ),
-		'not_found' 		=>  __( 'No Payments found', 'edd' ),
+		'not_found' 		=> __( 'No Payments found', 'edd' ),
 		'not_found_in_trash'=> __( 'No Payments found in Trash', 'edd' ),
 		'parent_item_colon' => '',
 		'menu_name' 		=> __( 'Payment History', 'edd' ),
@@ -38,9 +38,9 @@ function wp_adpress_payment_post_type() {
 	// Post Type args
 	$payment_args = array(
 		'labels' 			=> apply_filters( 'wp_adpress_payment_labels', $payment_labels ),
-		'public' 			=> false,
-		'query_var' 		=> false,
-		'rewrite' 			=> false,
+		'public' 			=> true,
+		'query_var' 		=> true,
+		'rewrite' 			=> true,
 		'map_meta_cap'      => true,
 		'supports' 			=> array( 'title' ),
 		'can_export'		=> true,

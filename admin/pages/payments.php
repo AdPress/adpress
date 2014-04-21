@@ -25,10 +25,9 @@ $payments_table->prepare_items();
 
 <div class="wrap">
         <h2><?php _e( 'Payment History', 'edd' ); ?></h2>
-        <?php do_action( 'edd_payments_page_top' ); ?>
-        <form id="edd-payments-filter" method="get" action="<?php echo admin_url( 'edit.php?post_type=download&page=edd-payment-history' ); ?>">
-            <input type="hidden" name="post_type" value="download" />
-            <input type="hidden" name="page" value="edd-payment-history" />
+        <?php do_action( 'wp_adpress_payments_page_top' ); ?>
+        <form id="edd-payments-filter" method="get" action="<?php echo admin_url( 'admin.php?page=adpress-payments' ); ?>">
+            <input type="hidden" name="page" value="adpress-payments" />
 
             <?php $payments_table->views() ?>
 
@@ -36,5 +35,5 @@ $payments_table->prepare_items();
             
             <?php $payments_table->display() ?>
         </form>
-        <?php do_action( 'edd_payments_page_bottom' ); ?>
+        <?php do_action( 'wp_adpress_payments_page_bottom' ); ?>
     </div>
