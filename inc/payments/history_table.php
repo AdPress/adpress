@@ -201,13 +201,13 @@ class wp_adpress_Payment_History_Table extends WP_List_Table {
     public function get_columns() {
         $columns = array(
             'cb'        => '<input type="checkbox" />', //Render a checkbox instead of text
-            'ID'     	=> __( 'ID', 'edd' ),
-            'email'  	=> __( 'Email', 'edd' ),
-            'details'  	=> __( 'Details', 'edd' ),
-            'amount'  	=> __( 'Amount', 'edd' ),
-            'date'  	=> __( 'Date', 'edd' ),
-            'user'  	=> __( 'User', 'edd' ),
-            'status'  	=> __( 'Status', 'edd' ),
+            'ID'     	=> __( 'ID', 'wp-adpress' ),
+            'email'  	=> __( 'Email', 'wp-adpress' ),
+            'details'  	=> __( 'Details', 'wp-adpress' ),
+            'amount'  	=> __( 'Amount', 'wp-adpress' ),
+            'date'  	=> __( 'Date', 'wp-adpress' ),
+            'user'  	=> __( 'User', 'wp-adpress' ),
+            'status'  	=> __( 'Status', 'wp-adpress' ),
         );
 
         return apply_filters( 'wp_adpress_payments_table_columns', $columns );
@@ -245,7 +245,7 @@ class wp_adpress_Payment_History_Table extends WP_List_Table {
     public function column_default( $payment, $column_name ) {
 
         $ID = $payment->ID;
-        //var_dump( $payment );
+
         switch ( $column_name ) {
         case 'amount' :
             $value   = intval( get_post_meta( $ID, '_wpad_payment_total', true ) );
@@ -258,7 +258,7 @@ class wp_adpress_Payment_History_Table extends WP_List_Table {
             $value   = wp_adpress_get_payment_status( $payment, true );
             break;
         case 'details' :
-            $value = '<a href="' . add_query_arg( 'id', $payment->ID, admin_url( 'edit.php?post_type=download&page=edd-payment-history&view=view-order-details' ) ) . '">' . __( 'View Order Details', 'edd' ) . '</a>';
+            $value = '<a href="' . add_query_arg( 'id', $payment->ID, admin_url( 'admin.php?page=adpress-payments&view=view-order-details' ) ) . '">' . __( 'View Order Details', 'wp-adpress' ) . '</a>';
             break;
         default:
             $value = isset( $payment->$column_name ) ? $payment->$column_name : '';
@@ -282,7 +282,7 @@ class wp_adpress_Payment_History_Table extends WP_List_Table {
 
         $row_actions = array();
 
-        $row_actions['edit'] = '<a href="' . add_query_arg( array( 'view' => 'view-order-details', 'id' => $payment->ID, 'action' => 'edit' ), $this->base_url ) . '">' . __( 'Edit', 'wp-adpress' ) . '</a>';
+        $row_actions['edit'] = '<a href="' . add_query_arg( array( 'view' => 'view-order-details', 'id' => $payment->ID, 'action' => 'edit' ), $this->base_url ) . '">' . __( 'View', 'wp-adpress' ) . '</a>';
 
         $row_actions['delete'] = '<a href="' . wp_nonce_url( add_query_arg( array( 'action' => 'delete', 'payment' => $payment->ID ), $this->base_url ), 'wp_adpress_payment_nonce') . '">' . __( 'Delete', 'wp-adpress' ) . '</a>';
 
@@ -364,18 +364,22 @@ class wp_adpress_Payment_History_Table extends WP_List_Table {
      * @return void
      */
     public function process_bulk_action() {
+		// Get the Ids
         $ids    = isset( $_GET['payment'] ) ? $_GET['payment'] : false;
+		
+		// Set the action
         $action = $this->current_action();
 
-        if ( ! is_array( $ids ) )
+        if ( ! is_array( $ids ) ) {
             $ids = array( $ids );
+		}
 
 
-        if( empty( $action ) )
+        if( empty( $action ) ) {
             return;
+		}
 
         foreach ( $ids as $id ) {
-            // Detect when a bulk action is being triggered...
             if ( 'delete' === $this->current_action() ) {
                 wp_adpress_delete_payment( $id );
             }
@@ -416,16 +420,6 @@ class wp_adpress_Payment_History_Table extends WP_List_Table {
             $args['s'] = urldecode( $_GET['s'] );
         }
 
-        /*
-        if ( ! empty( $_GET['start-date'] ) ) {
-            $args['start-date'] = urldecode( $_GET['start-date'] );
-        }
-
-        if ( ! empty( $_GET['end-date'] ) ) {
-            $args['end-date'] = urldecode( $_GET['end-date'] );
-        }
-         */
-
 
         $query = new WP_Query( $args );
         $this->total_count = intval( $query->found_posts );
@@ -455,10 +449,9 @@ class wp_adpress_Payment_History_Table extends WP_List_Table {
      * @return array $payment_data Array of all the data for the payments
      */
     public function payments_data() {
-        $payments_data = array();
 
+		// Query Parameters
         $page = isset( $_GET['paged'] ) ? $_GET['paged'] : 1;
-
         $per_page       = $this->per_page;
         $orderby 		= isset( $_GET['orderby'] )     ? $_GET['orderby']                           : 'ID';
         $order 			= isset( $_GET['order'] )       ? $_GET['order']                             : 'DESC';
@@ -466,21 +459,18 @@ class wp_adpress_Payment_History_Table extends WP_List_Table {
         $order_class 	= strtolower( $order_inverse );
         $user_email		= isset( $_GET['user'] )        ? $_GET['user']                              : null;
         $status 		= isset( $_GET['status'] )      ? $_GET['status']                            : 'any';
-        $meta_key		= isset( $_GET['meta_key'] )    ? $_GET['meta_key']                          : null;
-        //$year 			= isset( $_GET['year'] )        ? $_GET['year']                              : null;
-        //$month 			= isset( $_GET['m'] )           ? $_GET['m']                                 : null;
-        //$day 			= isset( $_GET['day'] )         ? $_GET['day']                               : null;
         $search         = isset( $_GET['s'] )           ? sanitize_text_field( $_GET['s'] )          : null;
-        //$start_date     = isset( $_GET['start-date'] )  ? sanitize_text_field( $_GET['start-date'] ) : null;
-        //$end_date       = isset( $_GET['end-date'] )    ? sanitize_text_field( $_GET['end-date'] )   : $start_date;
-
+		
+		// Fetch the user ID
         $user = get_user_by( 'email', $user_email );
 		if ($user) {
-		$user_id = $user->ID;
+			$user_id = $user->ID;
 		} else {
 			$user_id = 0;
 		}
+	
 
+		// Query Args Array
         $args = array(
             'post_type' => 'wp_adpress_payments',
             'posts_per_page' => $per_page,
@@ -492,31 +482,9 @@ class wp_adpress_Payment_History_Table extends WP_List_Table {
             's' => $search,
         );
 
+		// Return the Query posts
         $query = new WP_Query( $args );
- 
-        /*
-        $args = array(
-            'output'   => 'payments',
-            'number'   => $per_page,
-            'page'     => isset( $_GET['paged'] ) ? $_GET['paged'] : null,
-            'orderby'  => $orderby,
-            'order'    => $order,
-            'user'     => $user,
-            'status'   => $status,
-            'meta_key' => $meta_key,
-            'year'	   => $year,
-            'month'    => $month,
-            'day' 	   => $day,
-            's'        => $search,
-            'start_date' => $start_date,
-            'end_date'   => $end_date,
-        );
-
-        $p_query  = new EDD_Payments_Query( $args );
-        */
-
         return $query->posts;
-
     }
 
     /**

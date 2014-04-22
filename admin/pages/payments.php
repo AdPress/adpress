@@ -13,9 +13,17 @@ if (!defined('ABSPATH')) {
     die('-1');
 }
 
+
+
+if ( isset( $_GET['view'] ) && 'view-order-details' == $_GET['view'] ) {
+
+    require_once( ADPRESS_ABSPATH . 'admin/pages/payments/view-order-details.php' );
+
+} else {
+
 // Load WP_List_Table if not loaded
 if ( ! class_exists( 'WP_List_Table' ) ) {
-    require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
+    require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
 }
 
 // Initialize the history table
@@ -37,3 +45,6 @@ $payments_table->prepare_items();
         </form>
         <?php do_action( 'wp_adpress_payments_page_bottom' ); ?>
     </div>
+<?php
+}
+?>

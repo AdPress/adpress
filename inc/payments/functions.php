@@ -4,7 +4,6 @@
  *
  * @package     Includes
  * @subpackage  Payments
- * @copyright   Copyright (c) 2014, Abid Omar
  * @since       1.0.0
  */
 
@@ -110,6 +109,7 @@ function wp_adpress_insert_payment( $payment_data = array() ) {
 		}
 
 		update_post_meta( $payment, '_wpad_payment_meta',         $payment_meta );
+		update_post_meta( $payment, '_wpad_payment_user_info',	  $payment_data['user_info'] );
 		update_post_meta( $payment, '_wpad_payment_user_id',      $payment_data['user_info']['id'] );
 		update_post_meta( $payment, '_wpad_payment_user_email',   $payment_data['user_email'] );
 		//update_post_meta( $payment, '_wpad_payment_user_ip',      edd_get_ip() );
