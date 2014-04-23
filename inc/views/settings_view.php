@@ -97,13 +97,13 @@ if (!class_exists('wp_adpress_settings')) {
 					<div class="c-head">
 						<?php do_settings_sections('adpress_settings_form_client'); ?>
 					</div>
-					<div class="c-block" style="width: 650px;">
-						<div class="c-head">
-							<?php do_settings_sections('adpress_settings_form_paypal'); ?>
-						</div>
 						<div class="c-block" style="width: 650px;">
 							<div class="c-head">
 								<?php do_settings_sections('adpress_settings_form_history'); ?>
+							</div>
+						<div class="c-block" style="width: 650px;">
+							<div class="c-head">
+								<?php do_settings_sections('adpress_settings_form_payments'); ?>
 							</div>
 							<input type="hidden" name="_wp_http_referer"
 								   value="<?php echo admin_url('admin.php?page=adpress-settings'); ?>"/>

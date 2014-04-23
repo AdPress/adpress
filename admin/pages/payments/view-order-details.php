@@ -59,7 +59,7 @@ if (!$user_info) {
 	
 										<div class="admin-box-inside">
 											<p>
-												<span class="label"><?php _e( 'Status:', 'edd' ); ?></span>
+												<span class="label"><?php _e( 'Status:', 'wp-adpress' ); ?></span>
 												<select name="edd-payment-status" class="medium-text">
 													<?php foreach( wp_adpress_get_payment_statuses() as $key => $status ) : ?>
 														<option value="<?php esc_attr_e( $key ); ?>"<?php selected( wp_adpress_get_payment_status( $item, true ), $status ); ?>><?php esc_html_e( $status ); ?></option>
@@ -70,16 +70,16 @@ if (!$user_info) {
 	
 										<div class="admin-box-inside">
 											<p>
-												<span class="label"><?php _e( 'Date:', 'edd' ); ?></span>
-												<input type="text" name="edd-payment-date" value="<?php esc_attr_e( date( 'm/d/Y', $payment_date ) ); ?>" class="medium-text edd_datepicker"/>
+												<span class="label"><?php _e( 'Date:', 'wp-adpress' ); ?></span>
+												<input type="text" name="edd-payment-date" value="<?php esc_attr_e( date( 'm/d/Y', $payment_date ) ); ?>" class="medium-text"/>
 											</p>
 										</div>
 	
 										<div class="admin-box-inside">
 											<p>
 												<span class="label"><?php _e( 'Time:', 'wp-adpress' ); ?></span>
-												<input type="number" step="1" max="24" name="wpad-payment-time-hour" value="<?php esc_attr_e( date_i18n( 'H', $payment_date ) ); ?>" class="small-text"/>
-												<input type="number" step="1" max="59" name="wpad-payment-time-min" value="<?php esc_attr_e( date( 'i', $payment_date ) ); ?>" class="small-text"/>
+												<input type="number" step="1" max="24" name="wpad-payment-time-hour" value="<?php esc_attr_e( date_i18n( 'H', $payment_date ) ); ?>" class="medium-text"/>
+												<input type="number" step="1" max="59" name="wpad-payment-time-min" value="<?php esc_attr_e( date( 'i', $payment_date ) ); ?>" class="medium-text"/>
 											</p>
 										</div>
 	
@@ -119,21 +119,42 @@ hidden for the moment
 	
 									<div class="column-container">
 										<div class="column">
-											<strong><?php _e( 'Name:', 'wp-adpress' ); ?></strong>&nbsp;
+											<strong><?php _e( 'Name:', 'wp-adpress' ); ?></strong>
 											<input type="text" name="payment-user-name" value="<?php esc_attr_e( $user_info['first_name'] . ' ' . $user_info['last_name'] ); ?>" class="medium-text"/>
 										</div>
 										<div class="column">
-											<strong><?php _e( 'Email:', 'wp-adpress' ); ?></strong>&nbsp;
+											<strong><?php _e( 'Email:', 'wp-adpress' ); ?></strong>
 											<input type="email" name="payment-user-email" value="<?php esc_attr_e( get_post_meta( $payment_id, '_wpad_payment_user_email', true ) ); ?>" class="medium-text"/>
 										</div>
 										<div class="column">
-											<strong><?php _e( 'User ID:', 'wp-adpress' ); ?></strong>&nbsp;
+											<strong><?php _e( 'User ID:', 'wp-adpress' ); ?></strong>
 											<input type="number" step="1" min="-1" name="payment-user-id" value="<?php esc_attr_e( wp_adpress_get_payment_user_id( $payment_id ) ); ?>" class="small-text"/>
+										</div>
+										<div class="column-clear">
 										</div>
 									</div>
 	
 								</div><!-- /.inside -->
 							</div><!-- /#customer-details -->
+
+							<div id="ad-details" class="postbox">
+								<h3 class="hndle">
+									<span><?php _e( 'Ad Details', 'wp-adpress' ); ?></span>
+								</h3>
+								<div class="inside clearfix">
+	
+									<div class="column-container">
+										<div class="column">
+											<strong><?php _e( 'Ad ID:', 'wp-adpress' ); ?></strong>
+											<input type="text" name="payment-user-adid" value="<?php esc_attr_e( get_post_meta( $payment_id, '_wpad_payment_ad', true ) ); ?>" class="medium-text"/>
+										</div>
+										<div class="column-clear">
+										</div>
+									</div>
+
+	
+								</div><!-- /.inside -->
+							</div><!-- /#ad-details -->
 
 							<div id="payment-details" class="postbox">
 								<h3 class="hndle">
@@ -141,22 +162,24 @@ hidden for the moment
 								</h3>
 								<div class="inside clearfix">
 	
-									<div class="column-container">
+									<div class="column-container">	
 										<div class="column">
-											<strong><?php _e( 'Price:', 'wp-adpress' ); ?></strong>&nbsp;
+											<strong><?php _e( 'Price:', 'wp-adpress' ); ?></strong>
 											<input type="text" name="payment-user-price" value="<?php esc_attr_e( get_post_meta( $payment_id, '_wpad_payment_total', true ) ); ?>" class="medium-text"/>
 										</div>
 										<div class="column">
-											<strong><?php _e( 'Purchase Key:', 'wp-adpress' ); ?></strong>&nbsp;
+											<strong><?php _e( 'Purchase Key:', 'wp-adpress' ); ?></strong>
 											<input type="text" name="payment-user-purchase-key" value="<?php esc_attr_e( get_post_meta( $payment_id, '_wpad_payment_purchase_key', true ) ); ?>" class="medium-text"/>
 										</div>
 										<div class="column">
-											<strong><?php _e( 'Gateway:', 'wp-adpress' ); ?></strong>&nbsp;
+											<strong><?php _e( 'Gateway:', 'wp-adpress' ); ?></strong>
 											<input type="text" name="payment-user-gateway" value="" class="medium-text"/>
 										</div>
 										<div class="column">
-											<strong><?php _e( 'Mode:', 'wp-adpress' ); ?></strong>&nbsp;
+											<strong><?php _e( 'Mode:', 'wp-adpress' ); ?></strong>
 											<input type="text" name="payment-user-mode" value="" class="medium-text"/>
+										</div>
+										<div class="column-clear">
 										</div>
 									</div>
 	

@@ -1,34 +1,36 @@
 <?php
 // Don't load directly
 if (!defined('ABSPATH')) {
-    die('-1');
+	die('-1');
 }
 /*
  * Catch Actions
  */
 if (isset($_GET['action'])) {
-    switch ($_GET['action']) {
-        case 'del_history':
-            if (wp_adpress_history::empty_history()) {
-                wp_adpress::display_notice('History Deleted', '<p>History Removed</p>', 'adpress-icon-request_sent');
-            }
-            break;
-        case 'license_save':
-            $options = get_option('adpress_license_settings');
-            if (!isset($options['license_username']) || $options['license_username'] === '') {
-                wp_adpress::add_notification('license_missing', 'AdPress License', 'Please enter <a href="admin.php?page=adpress-settings&tab=license">AdPress license</a> details to enable all of the plugin features and automatic updates.', 'updated');
-                wp_adpress::remove_notification('license_validity');
-                break;
-            }
-            wp_adpress::remove_notification('license_missing');
-            $validity = wp_adpress_license::check_license($options['license_username'], $options['license_key']);
-            if ($validity) {
-                wp_adpress::remove_notification('license_validity');
-            } else {
-                wp_adpress::add_notification('license_validity', 'AdPress License is not valid', 'Your AdPress username and license key are not valid. Please check your <a href="admin.php?page=adpress-settings&tab=license">license information</a>.', 'error');
-            }
-            break;
-    }
+	switch ($_GET['action']) {
+	case 'del_payments_log':
+		break;
+	case 'del_history':
+		if (wp_adpress_history::empty_history()) {
+			wp_adpress::display_notice('History Deleted', '<p>History Removed</p>', 'adpress-icon-request_sent');
+		}
+		break;
+	case 'license_save':
+		$options = get_option('adpress_license_settings');
+		if (!isset($options['license_username']) || $options['license_username'] === '') {
+			wp_adpress::add_notification('license_missing', 'AdPress License', 'Please enter <a href="admin.php?page=adpress-settings&tab=license">AdPress license</a> details to enable all of the plugin features and automatic updates.', 'updated');
+			wp_adpress::remove_notification('license_validity');
+			break;
+		}
+		wp_adpress::remove_notification('license_missing');
+		$validity = wp_adpress_license::check_license($options['license_username'], $options['license_key']);
+		if ($validity) {
+			wp_adpress::remove_notification('license_validity');
+		} else {
+			wp_adpress::add_notification('license_validity', 'AdPress License is not valid', 'Your AdPress username and license key are not valid. Please check your <a href="admin.php?page=adpress-settings&tab=license">license information</a>.', 'error');
+		}
+		break;
+	}
 }
 /*
  * Check that user roles settings are changed
@@ -36,31 +38,31 @@ if (isset($_GET['action'])) {
  */
 function wp_adpress_roles_changed()
 {
-    if (!isset($_GET['tab']) || $_GET['tab'] === 'general') {
-        return true;
-    } else {
-        return false;
-    }
+	if (!isset($_GET['tab']) || $_GET['tab'] === 'general') {
+		return true;
+	} else {
+		return false;
+	}
 }
 
 /*
  * Settings Updated
  */
 if (isset($_GET['settings-updated'])) {
-    if (wp_adpress_roles_changed()) {
-        wp_adpress_roles::set_permissions();
-        wp_adpress_roles::media_filter();
-    }
+	if (wp_adpress_roles_changed()) {
+		wp_adpress_roles::set_permissions();
+		wp_adpress_roles::media_filter();
+	}
 }
 ?>
 <div class="wrap" id="adpress">
-    <h2 class="nav-tab-wrapper">
-        <?php
-        wp_adpress_settings::render_tabs();
-        ?>
-    </h2>
-    <?php
-    wp_adpress_settings::render_pages();
-    ?>
+	<h2 class="nav-tab-wrapper">
+<?php
+wp_adpress_settings::render_tabs();
+?>
+	</h2>
+<?php
+wp_adpress_settings::render_pages();
+?>
 
 </div>

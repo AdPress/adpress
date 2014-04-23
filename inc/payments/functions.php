@@ -98,23 +98,18 @@ function wp_adpress_insert_payment( $payment_data = array() ) {
 
 
 	if ( $payment ) {
-		$payment_meta = array(
-			'currency'     => $payment_data['currency'],
-			'downloads'    => serialize( $payment_data['ads'] ),
-			'user_info'    => serialize( $payment_data['user_info'] ),
-		);
 
 		if( ! $payment_data['price'] ) {
 			$payment_data['price'] = 0;
 		}
 
-		update_post_meta( $payment, '_wpad_payment_meta',         $payment_meta );
 		update_post_meta( $payment, '_wpad_payment_user_info',	  $payment_data['user_info'] );
 		update_post_meta( $payment, '_wpad_payment_user_id',      $payment_data['user_info']['id'] );
 		update_post_meta( $payment, '_wpad_payment_user_email',   $payment_data['user_email'] );
-		//update_post_meta( $payment, '_wpad_payment_user_ip',      edd_get_ip() );
+		update_post_meta( $payment, '_wpad_payment_user_ip',      wp_adpress_get_ip() );
 		update_post_meta( $payment, '_wpad_payment_purchase_key', $payment_data['purchase_key'] );
 		update_post_meta( $payment, '_wpad_payment_total',        $payment_data['price'] );
+		update_post_meta( $payment, '_wpad_payment_ad',        $payment_data['ad'] );
 		//update_post_meta( $payment, '_wpad_payment_mode',         $mode );
 		//update_post_meta( $payment, '_wpad_payment_gateway',      $gateway );
 

@@ -312,6 +312,7 @@ if (!class_exists('wp_adpress_admin')) {
                     break;
 				case $adpress_page_payments:
                     wp_enqueue_style('wp_adpress_reset', ADPRESS_URLPATH . 'admin/files/css/reset.css');
+				    wp_enqueue_style('wp_adpress_payments', ADPRESS_URLPATH . 'admin/files/css/payments.css');
 					break;
                 case $adpress_page_addons:
                     wp_enqueue_style('wp_adpress_reset', ADPRESS_URLPATH . 'admin/files/css/reset.css');
@@ -344,6 +345,7 @@ if (!class_exists('wp_adpress_admin')) {
             add_settings_field('adminbar', 'Admin Bar', 'wp_adpress_forms::checkbox', 'adpress_settings_form_general', 'general_section', array('adminbar', 'adpress_settings'));
             add_settings_field('debug_mode', 'Debugging Mode', 'wp_adpress_forms::checkbox', 'adpress_settings_form_general', 'general_section', array('debug_mode', 'adpress_settings'));
             add_settings_field('smart_rewrite', 'Smart Rewrite', 'wp_adpress_forms::checkbox', 'adpress_settings_form_general', 'general_section', array('smart_rewrite', 'adpress_settings'));
+			add_settings_field('sandbox_mode', 'Sandbox Mode', 'wp_adpress_forms::checkbox', 'adpress_settings_form_general', 'general_section', array('sandbox_mode', 'adpress_settings'));
             add_settings_field('campaign_edit', 'Edit Active Campaigns', 'wp_adpress_forms::checkbox', 'adpress_settings_form_general', 'general_section', array('campaign_edit', 'adpress_settings'));
             // -- Client Settings
             add_settings_section('client_access', 'Client Access', 'wp_adpress_forms::description', 'adpress_settings_form_client', 'Client Access');
@@ -362,6 +364,10 @@ if (!class_exists('wp_adpress_admin')) {
             add_settings_section('history_section', 'Purchase History', 'wp_adpress_forms::description', 'adpress_settings_form_history', 'History Settings');
             add_settings_field('history', 'Enable History', 'wp_adpress_forms::checkbox', 'adpress_settings_form_history', 'history_section', array('history', 'adpress_settings'));
             add_settings_field('history_reset', 'Delete History', 'wp_adpress_forms::button', 'adpress_settings_form_history', 'history_section', array('value' => 'Remove History', 'action' => 'del_history'));
+            // -- Payments Log 
+            add_settings_section('payments_section', 'Payments Log', 'wp_adpress_forms::description', 'adpress_settings_form_payments', 'Payments Log Settings');
+            add_settings_field('payments_log_enabled', 'Enable Logging', 'wp_adpress_forms::checkbox', 'adpress_settings_form_payments', 'payments_section', array('payments_log_enabled', 'adpress_settings'));
+            add_settings_field('payments_log_delete', 'Delete Log', 'wp_adpress_forms::button', 'adpress_settings_form_payments', 'payments_section', array('value' => 'Remove Log', 'action' => 'del_payments_log'));
 
 			// Gateways
 			register_setting('adpress_gateways_settings', 'adpress_gateways_settings', 'wp_adpress_forms::validate');
