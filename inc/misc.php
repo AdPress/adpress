@@ -49,3 +49,25 @@ function wp_adpress_get_timezone_id() {
 	// fallback
 	return 'UTC';
 }
+
+
+/**
+ * Get User IP
+ *
+ * Returns the IP address of the current visitor
+ *
+ * @since 1.0.0
+ * @return string $ip User's IP address
+ */
+function wp_adpress_get_ip() {
+	if ( ! empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {
+		//check ip from share internet
+		$ip = $_SERVER['HTTP_CLIENT_IP'];
+	} elseif ( ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
+		//to check ip is pass from proxy
+		$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+	} else {
+		$ip = $_SERVER['REMOTE_ADDR'];
+	}
+	return apply_filters( 'wp_adpress_get_ip', $ip );
+}
