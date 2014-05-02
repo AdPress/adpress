@@ -26,6 +26,8 @@ function wp_adpress_get_payments( $args = array() ) {
 
 }
 
+/*
+ * TODO: to remove
 //add_action('init', 'temp_func');
 
 function temp_func() {
@@ -48,6 +50,7 @@ function temp_func() {
 	wp_adpress_insert_payment ( $payment_data );
 	//    }
 }
+ */
 
 /**
  * Insert Payment
@@ -118,7 +121,6 @@ function wp_adpress_insert_payment( $payment_data = array() ) {
 
 	// return false if no payment is inserted
 	return false;
-
 }
 
 /**
@@ -233,4 +235,24 @@ function wp_adpress_get_payment_user_id ( $payment_id ) {
 	}
 
 	return apply_filters( 'wp_adpress_payment_user_id', $user_id );
+}
+
+/**
+ * Return User info
+ *
+ * @param integer $payment_id Payment ID
+ * @return array User Info
+ */
+function wp_adpress_get_payment_meta_user_info( $payment_id ) {
+	return;
+}
+
+/**
+ * Return Ad Details
+ *
+ * @param integer $payemnt_id Payment ID
+ * @return array Ad Details
+ */
+function wp_adpress_get_payment_meta_ad_details( $payment_id ) {
+	return;
 }

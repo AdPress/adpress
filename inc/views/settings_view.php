@@ -136,7 +136,7 @@ if (!class_exists('wp_adpress_settings')) {
 <?php
 			// Loop through the gateways and display the
 			// Settings for each gateway
-			$gateways = get_option('adpress_gateways');
+			$gateways = get_option('adpress_gateways', array());
 			foreach ($gateways as $gateway=>$title) {
 ?>
 <form action="options.php" method="POST">

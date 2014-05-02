@@ -36,6 +36,7 @@ if (!class_exists('wp_adpress_install')) {
         private $ads_table_sql = '
         CREATE TABLE %table_name% (
             id INT(3) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+			post_id INT(5) NOT NULL,
             campaign_id INT(3) NOT NULL,
             ad_settings TEXT,
             ad_stats TEXT,

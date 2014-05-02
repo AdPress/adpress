@@ -294,6 +294,7 @@ if (!class_exists('wp_adpress_adpurchase')) {
             $currency = $settings['currency']; 
 
             $result = $campaign->register_ad($param);
+
             if ($result) {
                 // Payment Data
                 $current_user = wp_get_current_user();

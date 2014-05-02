@@ -74,8 +74,8 @@ if (!class_exists('wp_adpress_forms')) {
 	   * @param array $param
 	   */
 	  static function list_checkbox($param) {
-		 $gateways = get_option($param[0]);
-		 if (isset($param[2])) {
+		 $gateways = get_option($param[0], array());
+		 if (isset($param[2]) && isset($settings[$param[2]])) {
 			$settings = get_option($param[1]);
 			$active = $settings[$param[2]];
 		 }  else {
