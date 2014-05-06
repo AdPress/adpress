@@ -169,12 +169,6 @@ if (!class_exists('wp_adpress_ad')) {
 			global $wpdb;
 			//TODO: check that the data is valid
 
-			// Insert a new Ad Log
-			$post = array(
-				'post_type' => 'wp_adpress_ads',
-			);
-			$post_id = wp_insert_post( $post, true);
-            update_option('ttp',  $post_id );
 
 
 			/* Ad data */
@@ -204,19 +198,13 @@ if (!class_exists('wp_adpress_ad')) {
 			// Insert Ad to DB
 			$result = $wpdb->insert( wp_adpress_ads::ads_table(), $data, $format );
 
-			// Insert Ad Data to Post Type
-			update_post_meta( $post_id, 'ad_data_id', $data['id'] );
-			update_post_meta( $post_id, 'ad_data_campaign_id', $data['campaign_id'] );
-			update_post_meta( $post_id, 'ad_data_settings', $data['settings'] );
-			update_post_meta( $post_id, 'ad_data_status', $data['status'] );
-			update_post_meta( $post_id, 'ad_data_stats', $data['ad_stats'] );
-			update_post_meta( $post_id, 'ad_data_user_id', $data['user_id'] );
-			update_post_meta( $post_id, 'ad_data_time', $data['time'] );
+			$this->insert_postid( $data );
 
 			/* Set the Class state */
 			if ($result !== false) {
 				$this->state = 'set';
 			}
+
 			return $result;
 		}
 
@@ -232,6 +220,7 @@ if (!class_exists('wp_adpress_ad')) {
 			/* Ad data */
 			$data = array(
 				'campaign_id' => $this->campaign_id,
+				'post_id' => $this->post_id,
 				'ad_settings' => serialize($this->param),
 				'status' => $this->status,
 				'ad_stats' => serialize($this->stats),
@@ -253,6 +242,28 @@ if (!class_exists('wp_adpress_ad')) {
 			// Update Ad to DB
 			$result = $wpdb->update(wp_adpress_ads::ads_table(), $data, $row, $format);
 
+			if (isset($this->post_id)) {
+				$this->update_postid($data);
+			} else {
+				$this->insert_postid($data);
+			}
+
+			return $result;
+		}
+
+		public function insert_postid($data) {
+			// Insert a new Ad Log
+			$post = array(
+				'post_type' => 'wp_adpress_ads',
+			);
+			$post_id = wp_insert_post( $post, true);
+
+			$this->post_id = $post_id;
+
+			$this->update_postid($data);
+		}
+
+		public function update_postid($data) {
 			// Update Ad to Post Type
 			update_post_meta( $this->post_id, 'ad_data_campaign_id', $data['campaign_id'] );
 			update_post_meta( $this->post_id, 'ad_data_settings', $data['ad_settings'] );
@@ -260,7 +271,6 @@ if (!class_exists('wp_adpress_ad')) {
 			update_post_meta( $this->post_id, 'ad_data_stats', $data['ad_stats'] );
 			update_post_meta( $this->post_id, 'ad_data_user_id', $data['user_id'] );
 			update_post_meta( $this->post_id, 'ad_data_time', $data['time'] );
-			return $result;
 		}
 
 		/**
@@ -439,6 +449,7 @@ if (!class_exists('wp_adpress_ad')) {
 			);
 			$this->user_id = null;
 			$this->time = null;
+			$this->post_id = null;
 		}
 
 		/**
@@ -519,88 +530,88 @@ if (!class_exists('wp_adpress_ad')) {
 				break;
 			}
 			return $ad_loop;
-		}
+			}
 
-	}
-}
+			}
+			}
 
-if (!class_exists('wp_adpress_ads')) {
-	/**
-	 * Ads Class
-	 */
-	class wp_adpress_ads
-	{
+			if (!class_exists('wp_adpress_ads')) {
+				/**
+				 * Ads Class
+				 */
+				class wp_adpress_ads
+				{
 
-		/**
-		 * Return the name of the campaigns table
-		 * @return string
-		 */
-		static function campaigns_table()
-		{
-			global $wpdb;
-			return $wpdb->prefix . 'adpress_campaigns';
-		}
+					/**
+					 * Return the name of the campaigns table
+					 * @return string
+					 */
+					static function campaigns_table()
+					{
+						global $wpdb;
+						return $wpdb->prefix . 'adpress_campaigns';
+			}
 
-		/**
-		 * Return the name of the campaigns table
-		 * @return string
-		 */
-		static function ads_table()
-		{
-			global $wpdb;
-			return $wpdb->prefix . 'adpress_ads';
-		}
+			/**
+			 * Return the name of the campaigns table
+			 * @return string
+			 */
+			static function ads_table()
+			{
+				global $wpdb;
+				return $wpdb->prefix . 'adpress_ads';
+			}
 
-		/*
-		 * Generate a new Ad id
-		 * @return integer
-		 */
+			/*
+			 * Generate a new Ad id
+			 * @return integer
+			 */
 
-		static function new_ad_id()
-		{
-			global $wpdb;
-			$max_id = $wpdb->get_var('SELECT MAX(id) FROM ' . self::ads_table() . ' WHERE id is not null;');
-			if ($max_id === NULL) {
-				return 1;
+			static function new_ad_id()
+			{
+				global $wpdb;
+				$max_id = $wpdb->get_var('SELECT MAX(id) FROM ' . self::ads_table() . ' WHERE id is not null;');
+				if ($max_id === NULL) {
+					return 1;
 			}
 			$new_id = (int)$max_id + 1;
 			return $new_id;
-		}
+			}
 
-		/**
-		 * Verify that an Ad ID exists
-		 * @param integer $id
-		 * @return boolean
-		 */
-		static function id_exists($id)
-		{
-			global $wpdb;
-			$result = $wpdb->get_var('SELECT * FROM ' . self::ads_table() . ' WHERE id=' . $id . ';');
-			if ($result === NULL) {
-				return false;
+			/**
+			 * Verify that an Ad ID exists
+			 * @param integer $id
+			 * @return boolean
+			 */
+			static function id_exists($id)
+			{
+				global $wpdb;
+				$result = $wpdb->get_var('SELECT * FROM ' . self::ads_table() . ' WHERE id=' . $id . ';');
+				if ($result === NULL) {
+					return false;
 			} else {
 				return true;
 			}
-		}
+			}
 
-		/**
-		 * Return an array of ids or Ads objects
-		 *
-		 * @global object $wpdb;
-		 * @param string $status Ad status
-		 * @param string $output Ads output type (ids/objects)
-		 * @return array
-		 */
-		static function list_ads($status = 'all', $output = 'object')
-		{
-			global $wpdb;
-			switch ($status) {
-			case 'all':
-				$query = 'SELECT id FROM ' . self::ads_table() . ';';
-				break;
-			default:
-				$query = 'SELECT id FROM ' . self::ads_table() . ' WHERE status="' . $status . '";';
-				break;
+			/**
+			 * Return an array of ids or Ads objects
+			 *
+			 * @global object $wpdb;
+			 * @param string $status Ad status
+			 * @param string $output Ads output type (ids/objects)
+			 * @return array
+			 */
+			static function list_ads($status = 'all', $output = 'object')
+			{
+				global $wpdb;
+				switch ($status) {
+				case 'all':
+					$query = 'SELECT id FROM ' . self::ads_table() . ';';
+					break;
+				default:
+					$query = 'SELECT id FROM ' . self::ads_table() . ' WHERE status="' . $status . '";';
+					break;
 			}
 			$arr = array();
 			$result = $wpdb->get_col($query);
@@ -611,82 +622,82 @@ if (!class_exists('wp_adpress_ads')) {
 			case 'object':
 				for ($i = 0; $i < count($result); $i++) {
 					$arr[] = new wp_adpress_ad((int)$result[$i]);
-				}
-				break;
+			}
+			break;
 			}
 			return $arr;
-		}
+			}
 
-		/**
-		 * List purchased ads for a user
-		 * @param integer $user_id
-		 * @return array Array of Ads objects
-		 */
-		static function list_user_ads($user_id)
-		{
-			global $wpdb;
-			$query = 'SELECT id FROM ' . self::ads_table() . ' WHERE user_id=' . $user_id . ';';
-			$result = $wpdb->get_col($query);
-			$arr = array();
-			for ($i = 0; $i < count($result); $i++) {
-				$arr[] = new wp_adpress_ad((int)$result[$i]);
+			/**
+			 * List purchased ads for a user
+			 * @param integer $user_id
+			 * @return array Array of Ads objects
+			 */
+			static function list_user_ads($user_id)
+			{
+				global $wpdb;
+				$query = 'SELECT id FROM ' . self::ads_table() . ' WHERE user_id=' . $user_id . ';';
+				$result = $wpdb->get_col($query);
+				$arr = array();
+				for ($i = 0; $i < count($result); $i++) {
+					$arr[] = new wp_adpress_ad((int)$result[$i]);
 			}
 			return $arr;
-		}
+			}
 
-		/**
-		 * Executes an Ad command
-		 * @param string $cmd
-		 * @param integer $id
-		 */
-		static function command($cmd, $id)
-		{
-			$ad = new wp_adpress_ad($id);
-			switch ($cmd) {
-			case 'approve':
-				if ($ad->status === 'waiting') {
-					$ad->approve();
-				}
-				break;
+			/**
+			 * Executes an Ad command
+			 * @param string $cmd
+			 * @param integer $id
+			 */
+			static function command($cmd, $id)
+			{
+				$ad = new wp_adpress_ad($id);
+				switch ($cmd) {
+				case 'approve':
+					if ($ad->status === 'waiting') {
+						$ad->approve();
+			}
+			break;
 			case 'reject':
 				if ($ad->status === 'waiting') {
 					$ad->reject();
-				}
-				break;
+			}
+			break;
 			case 'cancel':
 				$ad->cancel();
 				break;
 			}
 			$ad->save();
-		}
+			}
 
-		static function load_data($id)
-		{
-			$ad = new wp_adpress_ad($id);
-			$hits = array();
-			$views = array();
-			foreach ($ad->stats['hits'] as $key => $value) {
-				$time = strtotime($key);
-				$hits[$time] = $value;
+			static function load_data($id)
+			{
+				$ad = new wp_adpress_ad($id);
+				$hits = array();
+				$views = array();
+				foreach ($ad->stats['hits'] as $key => $value) {
+					$time = strtotime($key);
+					$hits[$time] = $value;
 			}
 			foreach ($ad->stats['views'] as $key => $value) {
 				$time = strtotime($key);
 				$views[$time] = $value;
 			}
 			return array('hits' => $hits, 'views' => $views);
-		}
+			}
 
-		/**
-		 * Remove all ads from the database.
-		 * @static
-		 * @return mixed
-		 */
-		static function empty_ads()
-		{
-			global $wpdb;
-			$query = $wpdb->query('TRUNCATE TABLE ' . self::ads_table() . ';');
-			return $query;
-		}
+			/**
+			 * Remove all ads from the database.
+			 * @static
+			 * @return mixed
+			 */
+			static function empty_ads()
+			{
+				global $wpdb;
+				$query = $wpdb->query('TRUNCATE TABLE ' . self::ads_table() . ';');
+				return $query;
+			}
 
-	}
-}
+			}
+			}

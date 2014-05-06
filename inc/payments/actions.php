@@ -38,5 +38,9 @@ function wp_adpress_complete_purchase( $payment_id, $new_status, $old_status ) {
 
 	do_action( 'wp_adpress_pre_complete_purchase', $payment_id );
 
+    if ( is_array($user_info) && is_array($ad_details) ) {
+
+    }
+
 	do_action( 'wp_adpress_complete_purchase', $payment_id );
 }
