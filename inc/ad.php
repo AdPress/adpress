@@ -25,13 +25,6 @@ if (!class_exists('wp_adpress_ad')) {
 	 */
 	class wp_adpress_ad
 	{
-
-		/**
-		 * Post ID
-		 * @var integer
-		 */
-		public $post_id;
-
 		/**
 		 * Campaign ID
 		 * @var integer
@@ -133,7 +126,6 @@ if (!class_exists('wp_adpress_ad')) {
 			$query = "SELECT * FROM " . wp_adpress_ads::ads_table() . " WHERE id=" . $this->id . ";";
 			$result = $wpdb->get_row($query, ARRAY_A);
 			if ($result != false) {
-				$this->post_id = $result['post_id'];
 				$this->campaign_id = $result['campaign_id'];
 				$this->param = unserialize($result['ad_settings']);
 				$this->status = $result['status'];
@@ -169,18 +161,10 @@ if (!class_exists('wp_adpress_ad')) {
 			global $wpdb;
 			//TODO: check that the data is valid
 
-			// Insert a new Ad Log
-			$post = array(
-				'post_type' => 'wp_adpress_ads',
-			);
-			$post_id = wp_insert_post( $post, true);
-            update_option('ttp',  $post_id );
-
 
 			/* Ad data */
 			$data = array(
 				'id' => $this->id,
-				'post_id' => $post_id,
 				'campaign_id' => $this->campaign_id,
 				'ad_settings' => serialize($this->param),
 				'status' => $this->status,
@@ -193,7 +177,6 @@ if (!class_exists('wp_adpress_ad')) {
 			$format = array(
 				'%d',
 				'%d',
-				'%d',
 				'%s',
 				'%s',
 				'%s',
@@ -203,15 +186,6 @@ if (!class_exists('wp_adpress_ad')) {
 
 			// Insert Ad to DB
 			$result = $wpdb->insert( wp_adpress_ads::ads_table(), $data, $format );
-
-			// Insert Ad Data to Post Type
-			update_post_meta( $post_id, 'ad_data_id', $data['id'] );
-			update_post_meta( $post_id, 'ad_data_campaign_id', $data['campaign_id'] );
-			update_post_meta( $post_id, 'ad_data_settings', $data['settings'] );
-			update_post_meta( $post_id, 'ad_data_status', $data['status'] );
-			update_post_meta( $post_id, 'ad_data_stats', $data['ad_stats'] );
-			update_post_meta( $post_id, 'ad_data_user_id', $data['user_id'] );
-			update_post_meta( $post_id, 'ad_data_time', $data['time'] );
 
 			/* Set the Class state */
 			if ($result !== false) {
@@ -253,13 +227,6 @@ if (!class_exists('wp_adpress_ad')) {
 			// Update Ad to DB
 			$result = $wpdb->update(wp_adpress_ads::ads_table(), $data, $row, $format);
 
-			// Update Ad to Post Type
-			update_post_meta( $this->post_id, 'ad_data_campaign_id', $data['campaign_id'] );
-			update_post_meta( $this->post_id, 'ad_data_settings', $data['ad_settings'] );
-			update_post_meta( $this->post_id, 'ad_data_status', $data['status'] );
-			update_post_meta( $this->post_id, 'ad_data_stats', $data['ad_stats'] );
-			update_post_meta( $this->post_id, 'ad_data_user_id', $data['user_id'] );
-			update_post_meta( $this->post_id, 'ad_data_time', $data['time'] );
 			return $result;
 		}
 
