@@ -256,6 +256,9 @@ if (!class_exists('wp_adpress')) {
 		if (!isset($license['license_username']) || $license['license_username'] === '') {
 			wp_adpress::add_notification('license_missing', 'AdPress License', 'Please enter AdPress license details to enable all of the plugin features', 'updated');
 		}
+
+		// Activate the Welcome Page redirection
+		set_transient( 'wpad_activation_redirect', true, 30 );
 	}
 
 	/**

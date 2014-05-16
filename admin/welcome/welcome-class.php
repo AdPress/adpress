@@ -146,23 +146,23 @@ class wp_adpress_welcome {
         global $edd_options;
 
         // Bail if no activation redirect
-        if ( ! get_transient( '_edd_activation_redirect' ) )
+        if ( ! get_transient( 'wpad_activation_redirect' ) ) {
             return;
+        }
 
         // Delete the redirect transient
-        delete_transient( '_edd_activation_redirect' );
+        delete_transient( 'wpad_activation_redirect' );
 
         // Bail if activating from network, or bulk
-        if ( is_network_admin() || isset( $_GET['activate-multi'] ) )
+        if ( is_network_admin() || isset( $_GET['activate-multi'] ) ) {
             return;
-
-        $upgrade = get_option( 'edd_version_upgraded_from' );
-
-        if( ! $upgrade ) { // First time install
-            wp_safe_redirect( admin_url( 'index.php?page=edd-getting-started' ) ); exit;
-        } else { // Update
-            wp_safe_redirect( admin_url( 'index.php?page=edd-about' ) ); exit;
         }
+
+        // Redirect to the About Page
+        wp_safe_redirect( admin_url( 'index.php?page=wpadpress-about' ) );
+
+        // Exit PHP process
+        exit;
     }
 }
 new wp_adpress_welcome();
