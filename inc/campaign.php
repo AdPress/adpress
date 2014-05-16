@@ -367,6 +367,7 @@ if (!class_exists('wp_adpress_campaign')) {
                     $time = $days * 24 * 60 * 60;
                     wp_schedule_single_event(time() + $time, 'adpress_unregister_ad', array($new_ad->id));
                 }
+
                 $new_ad->save();
                 // Remove all set options
                 //

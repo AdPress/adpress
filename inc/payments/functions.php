@@ -28,24 +28,24 @@ function wp_adpress_get_payments( $args = array() ) {
 
 /*
  * TODO: to remove
-//add_action('init', 'temp_func');
+ //add_action('init', 'temp_func');
 
-function temp_func() {
-	//    for ($i = 0; $i < 50; $i++) {
-	$payment_data = array(
-		'price' => 25,
-		//'date' => date('now'),
-		'user_email' => 'test@test.com',
-		'purchase_key' => 'AB54DFC7',
-		'currency' => 'USD',
-		'ads' => array (),
+ function temp_func() {
+	 //    for ($i = 0; $i < 50; $i++) {
+	 $payment_data = array(
+		 'price' => 25,
+		 //'date' => date('now'),
+		 'user_email' => 'test@test.com',
+		 'purchase_key' => 'AB54DFC7',
+		 'currency' => 'USD',
+		 'ads' => array (),
 		'user_info' => array( 'first_name' => 'Abid', 'last_name' => 'Omar', 'id' => ''),
 		'status' => 'publish',
 		'gateway' => 'PayPal',
 	);
-	global $wp_rewrite;
-	if (!$wp_rewrite) {
-		$wp_rewrite = new WP_Rewrite();
+	 global $wp_rewrite;
+	 if (!$wp_rewrite) {
+		 $wp_rewrite = new WP_Rewrite();
 	}
 	wp_adpress_insert_payment ( $payment_data );
 	//    }
@@ -68,6 +68,7 @@ function wp_adpress_insert_payment( $payment_data = array() ) {
 	 * 'purchase_key' => '',
 	 * 'currency' => '',
 	 * 'ads' => array (),
+	 * 'ad' => 'array ( 'cid' => $cid, 'param' => $param )',
 	 * 'user_info' => array( 'first_name' => '', 'last_name' => '', 'id' => ''),
 	 * 'status' => '',
 	 * 'gateway' => '',
