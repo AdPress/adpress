@@ -10,7 +10,7 @@
 /*
   Plugin Name: AdPress | Ads Manager
   Plugin URI: http://wpadpress.com
-  Description: AdPress is a fully featured Ads Manager for WordPress with client management, PayPal Integration, analytics and Multi-site support
+  Description: AdPress is a fully featured Ads Manager for WordPress with client management, PayPal Integration, analytics and Multi-site support.
   Author: Abid Omar
   Author URI: http://omarabid.com
   Version: 0.9.9
