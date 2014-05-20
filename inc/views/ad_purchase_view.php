@@ -302,7 +302,7 @@ if (!class_exists('wp_adpress_adpurchase')) {
                 $payment_data = array(
                     'price' => $campaign->ad_definition['price'],
                     'user_email' => $current_user->user_email,
-                    'purchase_key' => '',
+                    'purchase_key' => 'UUUX',
                     'currency' => $currency,
                     'user_info' => array(
                         'first_name' => $current_user->user_firstname,
@@ -310,10 +310,9 @@ if (!class_exists('wp_adpress_adpurchase')) {
                         'id' => $current_user->ID,	
                     ),
                     'status' => 'publish',
-                    'ad' => $result,
+                    'ad_id' => $result,
                     'ads' => array(),
                     'gateway' => $gateway,
-                    'mode' => $mode,
                 );
 
                 // Insert a new payment
@@ -323,6 +322,7 @@ if (!class_exists('wp_adpress_adpurchase')) {
 
                 // Update transient option
                 update_option('adpress_temp_valid_' . $pid, 'no');
+
                 // show response
                 self::display_response();
             } else {

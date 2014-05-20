@@ -248,7 +248,7 @@ class wp_adpress_Payment_History_Table extends WP_List_Table {
 
         switch ( $column_name ) {
         case 'amount' :
-            $value   = intval( get_post_meta( $ID, '_wpad_payment_total', true ) );
+            $value   = intval( get_post_meta( $ID, 'wpad_payment_total', true ) );
             break;
         case 'date' :
             $date    = strtotime( $payment->post_date );
@@ -278,7 +278,7 @@ class wp_adpress_Payment_History_Table extends WP_List_Table {
      */
     public function column_email( $payment ) {
 
-		$user_email = get_post_meta( $payment->ID, '_wpad_payment_user_email', true );
+		$user_email = get_post_meta( $payment->ID, 'wpad_payment_user_email', true );
 
         $row_actions = array();
 
@@ -325,7 +325,7 @@ class wp_adpress_Payment_History_Table extends WP_List_Table {
 
         $user_id = wp_adpress_get_payment_user_id( $payment->ID );
 
-		$user_email = get_post_meta( $payment->ID, '_wpad_payment_user_email', true );
+		$user_email = get_post_meta( $payment->ID, 'wpad_payment_user_email', true );
 
         if ( $user_id && $user_id > 0 ) {
             $user = get_userdata( $user_id ) ;

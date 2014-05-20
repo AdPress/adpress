@@ -207,7 +207,6 @@ if (!class_exists('wp_adpress_ad')) {
             /* Ad data */
             $data = array(
                 'campaign_id' => $this->campaign_id,
-                'post_id' => $this->post_id,
                 'ad_settings' => serialize($this->param),
                 'status' => $this->status,
                 'ad_stats' => serialize($this->stats),
