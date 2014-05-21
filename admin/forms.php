@@ -83,21 +83,24 @@ if (!class_exists('wp_adpress_forms')) {
 		 * Renders a list checkbox
 		 * @param array $param
 		 */
-		static function list_checkbox($param) {
-			$gateways = get_option($param[0], array());
-			if (isset($param[2]) && isset($settings[$param[2]])) {
-				$settings = get_option($param[1]);
-				$active = $settings[$param[2]];
-			}  else {
-				$active = get_option($param[1]);
+		static function list_gateways( ) {
+			// All available Gateways
+			$gateways = wp_adpress_get_payment_gateways(); 
+
+			// Enable Gateways
+			$settings = get_option( 'adpress_gateways_settings' );
+			if ( isset( $settings['active'] ) ) {
+				$active = $settings['active'];
+			} else {
+				$active = array();
 			}
 
 			echo '<ul>';
-			foreach ($gateways as $gateway_id => $gateway_name) {
-				if (array_key_exists($gateway_id, $active) && $active[$gateway_id] === 'on') {
-					echo '<li><input type="checkbox" id="'.$gateway_id.'" name="'.$param[1].'['.$param[2].']['.$gateway_id.']" checked/> <label for="'.$gateway_id.'">'. $gateway_name . '</label></li>';
+			foreach ($gateways as $gateway) {
+				if (array_key_exists($gateway['id'], $active) && $active[$gateway['id']] == 'on') {
+					echo '<li><input type="checkbox" id="'.$gateway['id'].'" name="adpress_gateways_settings[active]['.$gateway['id'].']" checked/> <label for="'.$gateway['id'].'">'. $gateway['short_label'] . '</label></li>';
 				} else {
-					echo '<li><input type="checkbox" id="'.$gateway_id.'" name="'.$param[1].'['.$param[2].']['.$gateway_id.']" /> <label for="'.$gateway_id.'">'. $gateway_name . '</label></li>';
+					echo '<li><input type="checkbox" id="'.$gateway['id'].'" name="adpress_gateways_settings[active]['.$gateway['id'].']" /> <label for="'.$gateway['id'].'">'. $gateway['short_label'] . '</label></li>';
 
 				}
 			}
@@ -125,6 +128,26 @@ if (!class_exists('wp_adpress_forms')) {
 				}
 			}
 			echo '</select>';
+		}
+
+		static function select_default_gateway() {
+			$list = wp_adpress_get_payment_gateways();
+			$settings = get_option( 'adpress_gateways_settings' );
+			if ( isset( $settings['default'] ) ) {
+				$default = $settings['default'];
+			} else {
+				$default = 'manual';
+			}
+			echo '<select id="" name="adpress_gateways_settings[default]">';
+			foreach ($list as $gateway) {
+				if ($gateway['id'] == $default) {
+					echo '<option id="" value="'.$gateway['id'].'" selected="selected">'.$gateway['short_label'].'</option>';
+				} else {
+					echo '<option id="" value="'.$gateway['id'].'">'.$gateway['short_label'].'</option>';
+				}
+			}
+			echo '</select>';
+
 		}
 
 		/**

@@ -372,12 +372,8 @@ if (!class_exists('wp_adpress_admin')) {
 			// Gateways
 			register_setting('adpress_gateways_settings', 'adpress_gateways_settings', 'wp_adpress_forms::validate');
 			add_settings_section('gateways_general_section', 'General Settings', 'wp_adpress_forms::description', 'adpress_gateways_form_general');
-			add_settings_field('installed_gateways', 'Payment Gateways', 'wp_adpress_forms::list_checkbox', 'adpress_gateways_form_general','gateways_general_section' , array('adpress_gateways', 'adpress_gateways_settings', 'active'));
-			add_settings_field('default_gateway', 'Default Gateway', 'wp_adpress_forms::list_select', 'adpress_gateways_form_general','gateways_general_section' , array('adpress_gateways', 'adpress_gateways_settings', 'default'));
-
-			// -- Manual Payment
-			add_settings_section('gateways_manual_section', 'Manual Payment', 'wp_adpress_forms::description', 'adpress_gateways_form_manual');
-			add_settings_field('test', 'Test field', 'wp_adpress_forms::textbox', 'adpress_gateways_form_manual', 'gateways_manual_section', array('aa', 'bb'));			
+			add_settings_field('installed_gateways', 'Payment Gateways', 'wp_adpress_forms::list_gateways', 'adpress_gateways_form_general','gateways_general_section' );
+			add_settings_field('default_gateway', 'Default Gateway', 'wp_adpress_forms::select_default_gateway', 'adpress_gateways_form_general','gateways_general_section' );
 
             // Image Ad
             register_setting('adpress_image_settings', 'adpress_image_settings', 'wp_adpress_forms::validate');
