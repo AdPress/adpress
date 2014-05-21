@@ -5,7 +5,7 @@
  * @package     Includes 
  * @subpackage  Functions
  * @copyright   Copyright (c) 2014, Abid Omar 
- * @since       0.98 
+ * @since       0.9.8 
  */
 
 // Don't load directly

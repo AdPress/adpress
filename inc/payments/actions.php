@@ -33,14 +33,18 @@ function wp_adpress_complete_purchase( $payment_id, $new_status, $old_status ) {
 	}
 
 
-	$user_info = wp_adpress_get_payment_meta_user_info( $payment_id );	// User Info
-	$ad_details = wp_adppress_get_payemnt_ad_details( $payment_id );	// Ad Details
+	$user_info = wp_adpress_get_payment_user_info( $payment_id );	// User Info
+	$ad_details = wp_adppress_get_payment_ad_details( $payment_id );	// Ad Details
+	$settings = get_option( 'adpress_settings' );
 
 	do_action( 'wp_adpress_pre_complete_purchase', $payment_id );
 
-    if ( is_array($user_info) && is_array($ad_details) ) {
-
-    }
+	if ( is_array($user_info) && is_array($ad_details) ) {
+		// Register the Ad
+		wp_adpress_register_ad( $ad_details, $user_info );
+		// Payment History logging
+		//wp_adpress_insert_payment( $payment_data );
+	}
 
 	do_action( 'wp_adpress_complete_purchase', $payment_id );
 }

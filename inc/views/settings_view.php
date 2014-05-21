@@ -136,15 +136,15 @@ if (!class_exists('wp_adpress_settings')) {
 <?php
 			// Loop through the gateways and display the
 			// Settings for each gateway
-			$gateways = get_option('adpress_gateways', array());
-			foreach ($gateways as $gateway=>$title) {
+			$gateways = wp_adpress_get_payment_gateways();
+			foreach ($gateways as $gateway) {
 ?>
 <form action="options.php" method="POST">
-<?php settings_fields('adpress_gateway_'.$gateway.'_settings'); ?>
+<?php settings_fields('adpress_gateway_' . $gateway['settings_id'] . '_settings'); ?>
 
 			<div class="c-block" style="width: 650px;">
 				<div class="c-head">
-					<?php do_settings_sections('adpress_gateway_'.$gateway.'_form_general'); ?>
+					<?php do_settings_sections('adpress_gateway_' . $gateway['settings_id'] . '_form_general'); ?>
 				</div>
 							 <p class="submit">
 								<input name="Submit" type="submit" class="button-primary"

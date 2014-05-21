@@ -208,10 +208,22 @@ if (!class_exists('wp_adpress')) {
 		require_once('inc/license.php');
 
 		/*
+		 * Gateways Functionality
+		 */
+		require_once( 'inc/gateways/functions.php' );
+		require_once( 'inc/gateways/actions.php' );
+
+		/*
 		 * Payments Functionality
 		 */
-		require_once('inc/payments/functions.php');
-		require_once('inc/payments/history_table.php');
+		require_once( 'inc/payments/actions.php' );
+		require_once( 'inc/payments/functions.php' );
+		require_once( 'inc/payments/history_table.php' );
+
+		/*
+		 * Checkout Functionality
+		 */
+		require_once( 'inc/checkout/functions.php' );
 
 		/*
 		 * Required Add-ons

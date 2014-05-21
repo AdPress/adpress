@@ -24,12 +24,25 @@ function paypal_register_addon($addons)
    return $addons;
 }
 
+// Register the gateway
+add_filter( 'wpad_payment_gateways', 'wpad_paypal_gateway_hook' );
+function wpad_paypal_gateway_hook( $gateways ) {
+	$gateways['paypal'] = array(
+		'id' => 'paypal',
+		'settings_id' => 'paypal',
+		'short_label' => __( 'PayPal', 'wp-adpress' ),
+		'admin_label' => __( 'PayPal Standard', 'wp-adpress' ),
+		'checkout_label' => __( 'PayPal Standard', 'wp-adpress' ),
+	);	
+
+	return $gateways;
+}
+
 // Register Settings
 add_action('admin_init', 'paypal_gateway_settings');
 function paypal_gateway_settings() {
    register_setting('adpress_gateway_paypal_settings', 'adpress_gateway_paypal_settings', 'wp_adpress_forms::validate');
    add_settings_section('gateway_paypal_general_section', 'PayPal Settings', 'wp_adpress_forms::description', 'adpress_gateway_paypal_form_general');		
-   add_settings_field('email', 'PayPal Email', 'wp_adpress_forms::textbox', 'adpress_gateway_paypal_form_general', 'gateway_paypal_general_section', array('email', 'adpress_gateway_paypal_settings'));
-   add_settings_field('sandbox', 'Sandbox Mode', 'wp_adpress_forms::checkbox', 'adpress_gateway_paypal_form_general', 'gateway_paypal_general_section', array('checkbox', 'adpress_gateway_paypal_settings'));
+   add_settings_field('email', 'PayPal Email', 'wp_adpress_forms::textbox', 'adpress_gateway_paypal_form_general', 'gateway_paypal_general_section', array('email', 'adpress_gateway_paypal_settings')); 
    add_settings_field('ipn', 'Disable IPN', 'wp_adpress_forms::checkbox', 'adpress_gateway_paypal_form_general', 'gateway_paypal_general_section', array('ipn', 'adpress_gateway_paypal_settings'));
 }

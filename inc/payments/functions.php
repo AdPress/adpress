@@ -28,8 +28,7 @@ function wp_adpress_insert_payment( $payment_data = array() ) {
 	 * 'user_email' => '',
 	 * 'purchase_key' => '',
 	 * 'currency' => '',
-	 * 'ads' => array (),
-	 * 'ad' => 'array ( 'cid' => $cid, 'param' => $param )',
+	 * 'ad' => 'array ( 'cid' => $cid, 'post' => $param )',
 	 * 'ad_id' => 0,
 	 * 'user_info' => array( 'first_name' => '', 'last_name' => '', 'id' => ''),
 	 * 'status' => '',
@@ -83,7 +82,6 @@ function wp_adpress_insert_payment( $payment_data = array() ) {
 		update_post_meta( $payment, 'wpad_payment_purchase_key', $payment_data['purchase_key'] );
 		update_post_meta( $payment, 'wpad_payment_total',        $payment_data['price'] );
 		update_post_meta( $payment, 'wpad_payment_ad',           $payment_data['ad'] );
-		update_post_meta( $payment, 'wpad_payment_ad_id',        $payment_data['ad_id'] );
 		update_post_meta( $payment, 'wpad_payment_mode',         $mode );
 		update_post_meta( $payment, 'wpad_payment_gateway',      $payment_data['gateway'] );
 
@@ -256,24 +254,4 @@ function wp_adpress_get_gateway_label ( $gateway ) {
 	$label = apply_filters ( 'wp_adpress_gateway_label', $label, $gateway );
 
 	return $label;
-}
-
-/**
- * Return User info
- *
- * @param integer $payment_id Payment ID
- * @return array User Info
- */
-function wp_adpress_get_payment_meta_user_info( $payment_id ) {
-	return;
-}
-
-/**
- * Return Ad Details
- *
- * @param integer $payemnt_id Payment ID
- * @return array Ad Details
- */
-function wp_adpress_get_payment_meta_ad_details( $payment_id ) {
-	return;
 }

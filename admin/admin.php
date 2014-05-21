@@ -365,9 +365,9 @@ if (!class_exists('wp_adpress_admin')) {
             add_settings_field('history', 'Enable History', 'wp_adpress_forms::checkbox', 'adpress_settings_form_history', 'history_section', array('history', 'adpress_settings'));
             add_settings_field('history_reset', 'Delete History', 'wp_adpress_forms::button', 'adpress_settings_form_history', 'history_section', array('value' => 'Remove History', 'action' => 'del_history'));
             // -- Payments Log 
-            add_settings_section('payments_section', 'Payments Log', 'wp_adpress_forms::description', 'adpress_settings_form_payments', 'Payments Log Settings');
-            add_settings_field('payments_log_enabled', 'Enable Logging', 'wp_adpress_forms::checkbox', 'adpress_settings_form_payments', 'payments_section', array('payments_log_enabled', 'adpress_settings'));
-            add_settings_field('payments_log_delete', 'Delete Log', 'wp_adpress_forms::button', 'adpress_settings_form_payments', 'payments_section', array('value' => 'Remove Log', 'action' => 'del_payments_log'));
+            //add_settings_section('payments_section', 'Payments Log', 'wp_adpress_forms::description', 'adpress_settings_form_payments', 'Payments Log Settings');
+            //add_settings_field('payments_log_enabled', 'Enable Logging', 'wp_adpress_forms::checkbox', 'adpress_settings_form_payments', 'payments_section', array('payments_log_enabled', 'adpress_settings'));
+            //add_settings_field('payments_log_delete', 'Delete Log', 'wp_adpress_forms::button', 'adpress_settings_form_payments', 'payments_section', array('value' => 'Remove Log', 'action' => 'del_payments_log'));
 
 			// Gateways
 			register_setting('adpress_gateways_settings', 'adpress_gateways_settings', 'wp_adpress_forms::validate');
