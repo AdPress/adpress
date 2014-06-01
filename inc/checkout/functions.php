@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
  * @return bool
  */
 function wp_adpress_register_ad( $ad_details, $user_info ) {
-    if ( is_array( $ad_details ) ) {
+    if ( !is_array( $ad_details ) || !is_array( $user_info ) ) {
         return;
     }
 

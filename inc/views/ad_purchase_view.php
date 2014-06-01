@@ -294,14 +294,17 @@ if (!class_exists('wp_adpress_adpurchase')) {
 					'last_name' => $current_user->user_lastname,
 					'id' => $current_user->ID,	
 				),
-				'status' => 'publish',
+				'status' => 'pending',
 				//'ad_id' => $result,
 				'ad' => array( 'cid' => $cid, 'post' => $param ),
 				'gateway' => $gateway,
 			);
 
 			// Insert a new payment
-			wp_adpress_insert_payment( $payment_data );
+			$payment_id = wp_adpress_insert_payment( $payment_data );
+
+			// Update payment status
+			//wp_adpress_update_payment_status( $payment_id, 'publish' ); 
 
 			// show response
 			self::display_response();

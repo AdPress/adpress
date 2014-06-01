@@ -149,16 +149,16 @@ No Requests
             switch ($campaign->ad_definition['type']) {
                 case 'image':
                     $html .= '<tr><td class="title">' . __('Image', 'wp-adpress') . '</td><td>';
-                    $html .= '<img src="' . $ad->param['image_link'] . '"></td></tr>';
+                    $html .= '<img src="' . $ad->param['destination_val'] . '"></td></tr>';
                     $html .= '<tr><td class="title">' . __('URL', 'wp-adpress') . '</td><td><a href="' . $ad->param['url'] . '">' . $ad->param['url'] . '</a></td></tr>';
                     break;
                 case 'flash':
                     $html .= '<tr><td class="title">' . __('Banner', 'wp-adpress') . '</td></tr>';
-                    $html .= '<embed src="' . $ad->param['flash_link'] . '"></td></tr>';
+                    $html .= '<embed src="' . $ad->param['destination_val'] . '"></td></tr>';
                     $html .= '<tr><td class="title">' . __('URL', 'wp-adpress') . '</td><td><a href="' . $ad->param['url'] . '">' . $ad->param['url'] . '</a></td></tr>';
                     break;
                 case 'link':
-                    $html .= '<tr><td class="title">' . __('Link Text', 'wp-adpress') . '</td><td>' . $ad->param['link_text'] . '</td></tr>';
+                    $html .= '<tr><td class="title">' . __('Link Text', 'wp-adpress') . '</td><td>' . $ad->param['destination_val'] . '</td></tr>';
                     $html .= '<tr><td class="title">' . __('URL', 'wp-adpress') . '</td><td><a href="' . $ad->param['url'] . '">' . $ad->param['url'] . '</a></td></tr>';
                     break;
             }

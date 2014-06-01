@@ -471,13 +471,13 @@ if (!class_exists('wp_adpress_ad')) {
                 $image_settings = get_option('adpress_image_settings');
                 $ad_loop = $image_settings['ad_loop'];
                 $ad_loop = str_replace('@url', $this->get_url(), $ad_loop);
-                $ad_loop = str_replace('@image_src', $this->param['image_link'], $ad_loop);
+                $ad_loop = str_replace('@image_src', $this->param['destination_val'], $ad_loop);
                 break;
             case 'flash':
                 $flash_settings = get_option('adpress_flash_settings');
                 $ad_loop = $flash_settings['ad_loop'];
                 $ad_loop = str_replace('@url', $this->get_url(), $ad_loop);
-                $ad_loop = str_replace('@swf_src', $this->param['flash_link'], $ad_loop);
+                $ad_loop = str_replace('@swf_src', $this->param['destination_val'], $ad_loop);
                 $ad_loop = str_replace('@banner_height', $this->ad_definition['size']['height'] . 'px', $ad_loop);
                 $ad_loop = str_replace('@banner_width', $this->ad_definition['size']['width'] . 'px', $ad_loop);
                 break;
@@ -485,7 +485,7 @@ if (!class_exists('wp_adpress_ad')) {
                 $link_settings = get_option('adpress_link_settings');
                 $ad_loop = $link_settings['ad_loop'];
                 $ad_loop = str_replace('@url', $this->get_url(), $ad_loop);
-                $ad_loop = str_replace('@link_text', $this->param['link_text'], $ad_loop);
+                $ad_loop = str_replace('@link_text', $this->param['destination_val'], $ad_loop);
                 break;
             }
             return $ad_loop;

@@ -392,7 +392,7 @@ if (!class_exists('wp_adpress_campaign')) {
                     $width = $this->ad_definition['columns'] * ($this->ad_definition['size']['width'] * 1.1);
                     $html .= '<ul id="campaign-' . $this->id . '" class="image-campaign" style="width:' . $width . 'px;">';
                     foreach ($ads as $ad) {
-                        $html .= $this->image_ad_spot($ad->id, $ad->param['image_link']);
+                        $html .= $this->image_ad_spot($ad->id, $ad->param['destination_val']);
                         // Record the view
                         $ad->record_view();
                         $ad->save();
@@ -406,7 +406,7 @@ if (!class_exists('wp_adpress_campaign')) {
                     $width = $this->ad_definition['columns'] * ($this->ad_definition['size']['width'] * 1.1);
                     $html .= '<ul id="campaign-' . $this->id . '" class="flash-campaign" style="width:' . $width . 'px;">';
                     foreach ($ads as $ad) {
-                        $html .= $this->flash_ad_spot($ad->id, $ad->param['flash_link']);
+                        $html .= $this->flash_ad_spot($ad->id, $ad->param['destination_val']);
                         // Record the view
                         $ad->record_view();
                         $ad->save();
@@ -420,7 +420,7 @@ if (!class_exists('wp_adpress_campaign')) {
                 case 'link':
                     $html .= '<ul id="campaign-' . $this->id . '" class="link-campaign">';
                     foreach ($ads as $ad) {
-                        $html .= $this->link_ad_spot($ad->id, $ad->param['link_text']);
+                        $html .= $this->link_ad_spot($ad->id, $ad->param['destination_val']);
                         // Record the view
                         $ad->record_view();
                         $ad->save();
