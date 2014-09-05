@@ -207,11 +207,12 @@ if (!class_exists('wp_adpress')) {
 		require_once('inc/integration.php');
 		require_once('inc/license.php');
 
+
 		/*
-		 * Gateways Functionality
+		 * Checkout Functionality
 		 */
-		require_once( 'inc/gateways/functions.php' );
-		require_once( 'inc/gateways/actions.php' );
+		require_once( 'inc/checkout/functions.php' );
+        require_once( 'inc/checkout/template.php' );
 
 		/*
 		 * Payments Functionality
@@ -221,9 +222,10 @@ if (!class_exists('wp_adpress')) {
 		require_once( 'inc/payments/history_table.php' );
 
 		/*
-		 * Checkout Functionality
+		 * Gateways Functionality
 		 */
-		require_once( 'inc/checkout/functions.php' );
+		require_once( 'inc/gateways/functions.php' );
+		require_once( 'inc/gateways/actions.php' );
 
 		/*
 		 * Required Add-ons

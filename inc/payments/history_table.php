@@ -177,6 +177,7 @@ class wp_adpress_Payment_History_Table extends WP_List_Table {
 
         $current        = isset( $_GET['status'] ) ? $_GET['status'] : '';
         $total_count    = '&nbsp;<span class="count">(' . $this->total_count    . ')</span>';
+		$pending_count  = '&nbsp;<span class="count">(' . $this->pending_count . ')</span>';
         $complete_count = '&nbsp;<span class="count">(' . $this->complete_count . ')</span>';
         $refunded_count = '&nbsp;<span class="count">(' . $this->refunded_count . ')</span>';
         $failed_count   = '&nbsp;<span class="count">(' . $this->failed_count   . ')</span>';
@@ -184,6 +185,7 @@ class wp_adpress_Payment_History_Table extends WP_List_Table {
         $views = array(
             'all'		=> sprintf( '<a href="%s"%s>%s</a>', remove_query_arg( array( 'status', 'paged' ) ), $current === 'all' || $current == '' ? ' class="current"' : '', __('All', 'wp-adpress') . $total_count ),
             'publish'	=> sprintf( '<a href="%s"%s>%s</a>', add_query_arg( array( 'status' => 'publish', 'paged' => FALSE ) ), $current === 'publish' ? ' class="current"' : '', __('Completed', 'wp-adpress') . $complete_count ),
+            'pending'	=> sprintf( '<a href="%s"%s>%s</a>', add_query_arg( array( 'status' => 'pending', 'paged' => FALSE ) ), $current === 'pending' ? ' class="current"' : '', __('Pending', 'wp-adpress') . $pending_count ),
             'refunded'	=> sprintf( '<a href="%s"%s>%s</a>', add_query_arg( array( 'status' => 'refunded', 'paged' => FALSE ) ), $current === 'refunded' ? ' class="current"' : '', __('Refunded', 'wp-adpress') . $refunded_count ),
             'failed'	=> sprintf( '<a href="%s"%s>%s</a>', add_query_arg( array( 'status' => 'failed', 'paged' => FALSE ) ), $current === 'failed' ? ' class="current"' : '', __('Failed', 'wp-adpress') . $failed_count ),
         );
@@ -429,6 +431,11 @@ class wp_adpress_Payment_History_Table extends WP_List_Table {
         $query = new WP_Query( $args );
         $this->complete_count = intval( $query->found_posts );
 
+        // Published payments count
+        $args['post_status'] = array( 'pending' );
+        $query = new WP_Query( $args );
+        $this->pending_count = intval( $query->found_posts );
+
         // Refunded payments count
         $args['post_status'] = array( 'refunded' );
         $query = new WP_Query( $args );
@@ -510,6 +517,9 @@ class wp_adpress_Payment_History_Table extends WP_List_Table {
         case 'publish':
             $total_items = $this->complete_count;
             break;
+		case 'pending':
+			$total_items = $this->pending_count;
+			break;
         case 'refunded':
             $total_items = $this->refunded_count;
             break;

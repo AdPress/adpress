@@ -63,6 +63,8 @@ if (!class_exists('wp_adpress_adpurchase')) {
 				</p>
 				</form>
 				</div>';
+
+				//$this->html = wp_adpress_checkout_form();
 		}
 
 		private function render_purchase_button()

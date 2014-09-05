@@ -19,7 +19,10 @@ if (!defined('ABSPATH')) {
  * @return string
  */
 function wp_adpress_checkout_form() {
-
+	$html = '<div class="wrap" id="adpress" style="width:600px;">';
+	$html .= wp_adpress_checkout_header();
+	$html .= '</div>';
+	return $html;
 }
 
 /**
@@ -29,7 +32,8 @@ function wp_adpress_checkout_form() {
  * @return string
  */
 function wp_adpress_checkout_header() {
-
+	$html = '<div id="adpress-icon-purchase" class="icon32"><br></div><h2>Purchase Ad</h2>';
+	return $html;
 }
 
 /**
@@ -39,7 +43,8 @@ function wp_adpress_checkout_header() {
  * @return string
  */
 function wp_adpress_checkout_user_details() {
-
+	$html = '';
+	return $html;
 }
 
 /**
@@ -49,7 +54,8 @@ function wp_adpress_checkout_user_details() {
  * @return string
  */
 function wp_adpress_checkout_ad_details() {
-
+	$html = '';
+	return $html;
 }
 
 /**
@@ -59,7 +65,8 @@ function wp_adpress_checkout_ad_details() {
  * @return string
  */
 function wp_adpress_checkout_ad_form() {
-
+	$html = '';
+	return $html;
 }
 
 /**
@@ -69,7 +76,8 @@ function wp_adpress_checkout_ad_form() {
  * @return string
  */
 function wp_adpress_gateways_form() {
-
+	$html = '';
+	return $html;
 }
 
 /**
@@ -79,5 +87,6 @@ function wp_adpress_gateways_form() {
  * @return string
  */
 function wp_adpress_submit() {
-
+	$html = '';
+	return $html;
 }

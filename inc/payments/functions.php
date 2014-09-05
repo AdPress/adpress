@@ -192,6 +192,7 @@ function wp_adpress_get_payment_status( $payment, $return_label = false ) {
 function wp_adpress_get_payment_statuses() {
 	$payment_statuses = array(
 		'publish'   => __( 'Complete', 'wp-adpress' ),
+		'pending' => __( 'Pending', 'wp-adpress' ),
 		'refunded'  => __( 'Refunded', 'wp-adpress' ),
 		'failed'    => __( 'Failed', 'wp-adpress' ),
 	);
