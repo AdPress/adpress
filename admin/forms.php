@@ -267,7 +267,7 @@ if (!class_exists('wp_adpress_forms')) {
 				'import' => __('Import/Export', 'wp-adpress'),
 				'license' => __('License', 'wp-adpress'),
 			);
-			return $tabs;
+			return apply_filters( 'wp_adpress_admin_settings_tabs', $tabs );
 		}
 
 		/**

@@ -14,9 +14,11 @@ if (!class_exists('wp_adpress_adpurchase')) {
 
 		private $campaign;
 		private $html;
+		private $cid;
 
 		function __construct($cid)
 		{
+			$this->cid = $cid;
 			$this->campaign = new wp_adpress_campaign($cid);
 			/* Step 1: Check that there is an available campaign */
 			if (!$this->is_available()) {
@@ -50,6 +52,7 @@ if (!class_exists('wp_adpress_adpurchase')) {
 
 		private function render_html()
 		{
+		/*	
 			$this->html = '
 				<div class="wrap" id="adpress" style="width:600px;">
 				<div id="adpress-icon-purchase" class="icon32"><br></div><h2>Purchase Ad</h2>
@@ -63,8 +66,9 @@ if (!class_exists('wp_adpress_adpurchase')) {
 				</p>
 				</form>
 				</div>';
+		 */
 
-				//$this->html = wp_adpress_checkout_form();
+				$this->html = wp_adpress_checkout_form( $this->cid );
 		}
 
 		private function render_purchase_button()

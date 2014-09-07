@@ -71,3 +71,17 @@ function wp_adpress_get_ip() {
 	}
 	return apply_filters( 'wp_adpress_get_ip', $ip );
 }
+
+/**
+ * Get the currency set in AdPress settings 
+ * 
+ *
+ * @since 1.0.0
+ * @return string 
+ */
+function wp_adpress_get_currency() {
+	$settings = get_option( 'adpress_settings' );
+	$currency = $settings['currency'];
+
+	return apply_filters( 'wp_adpress_settings_currency', $currency );
+}
