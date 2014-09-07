@@ -261,13 +261,18 @@ function wp_adpress_checkout_addon_form( $cid ) {
  */
 function wp_adpress_checkout_gateways( $cid ) {
 	$gateways = wp_adpress_get_active_payment_gateways();
+	$default_id = wp_adpress_get_default_payment_gateway_id();
 	$html = '<div class="c-block">';
 	$html .= '<div class="c-head"><h3>Payment Gateway</h3></div>';
 	$html .= '<table class="form-table">';
 
 	foreach( $gateways as $gateway ) {
 		$html .= '<tr><td>';
-		$html .= '<input name="gateway" type="radio" id="' . $gateway['id'] . '" />  <label for="' . $gateway['id'] . '">' . $gateway['checkout_label'] . '</label>';
+			if ( $gateway['id'] === $default_id ) {
+		$html .= '<input name="gateway" type="radio" id="' . $gateway['id'] . '" checked/>  <label for="' . $gateway['id'] . '">' . $gateway['checkout_label'] . '</label>';
+			} else {
+$html .= '<input name="gateway" type="radio" id="' . $gateway['id'] . '" />  <label for="' . $gateway['id'] . '">' . $gateway['checkout_label'] . '</label>';
+			}
 		$html .= '</td></tr>';
 	}
 

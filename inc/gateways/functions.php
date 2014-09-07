@@ -70,12 +70,25 @@ function wp_adpress_get_active_payment_gateways() {
 }
 
 /**
- * Returnthe default payment gateway
+ * Return the default payment id 
  *
  * @since 1.0.0
- * @return array $gateway Gateway metadata
+ * @return int $gateway Gateway id 
  */
-function wp_adpress_get_default_payment_gateway() {
+function wp_adpress_get_default_payment_gateway_id() {
+	$gateways_settings = get_option( 'adpress_gateways_settings', array( 'active', 'default' ) );
+	$default_id = $gateways_settings['default'];
+
+	return apply_filters( 'wp_adpress_default_payment_gateway_id', $default_id );
+}
+
+/**
+ * Get payment gateway metadata
+ *
+ * @since 1.0.0
+ * @return array|mixed $gateway Gateway metadata
+ */
+function wp_adpress_get_payment_gateway( $id ) {
 	/*
 	 * Gateway Structure
 	 *
@@ -86,9 +99,14 @@ function wp_adpress_get_default_payment_gateway() {
 	 *  'checkout_label' => __( 'Manual Payment', 'wp-adpress' ),
 	 * );
 	 */
-	$default = '';
 
-	return apply_filters( 'wp_adpress_default_payment_gateway', $default );
+	$gateways = wp_adpress_get_payment_gateways();
+
+	foreach( $gateways as $gateway ) {
+		if ( $gateway['id'] === $id ) {
+			return $gateway;
+		}
+	}
+
+	return false;
 }
-
-
