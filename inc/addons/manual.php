@@ -23,27 +23,27 @@ function wpad_manual_register_addon($addons) {
 	return $addons;
 }
 
-// Register the gateway
-add_filter( 'wpad_payment_gateways', 'wpad_manual_gateway_hook' );
-function wpad_manual_gateway_hook( $gateways ) {
-	$gateways['manual'] = array(
+class WPAD_Payment_Gateway_Manual extends WPAD_Payment_Gateway {
+	public $settings = array(
 		'id' => 'manual',
 		'settings_id' => 'manual',
-		'short_label' => __( 'Manual', 'wp-adpress' ),
-		'admin_label' => __( 'Manual Payment', 'wp-adpress' ),
-		'checkout_label' => __( 'Manual Payment', 'wp-adpress' ),
-	);	
+		'short_label' => 'Manual',
+		'admin_label' => 'Manual Payment',
+		'checkout_label' => 'Manual Payment',
+	);		
 
-	return $gateways;
+	public function setup_settings_form() {
+		register_setting('adpress_gateway_manual_settings', 'adpress_gateway_manual_settings', 'wp_adpress_forms::validate');
+		add_settings_section('gateway_manual_general_section', 'Manual Settings', 'wp_adpress_forms::description', 'adpress_gateway_manual_form_general');	
+		add_settings_field('label', 'No Settings Required', 'wp_adpress_forms::label', 'adpress_gateway_manual_form_general', 'gateway_manual_general_section');
+	}	
+
+	public function process() {
+
+	}
 }
 
-// Register Settings
-add_action('admin_init', 'wpad_manual_gateway_settings');
-function wpad_manual_gateway_settings() {
-	register_setting('adpress_gateway_manual_settings', 'adpress_gateway_manual_settings', 'wp_adpress_forms::validate');
-	add_settings_section('gateway_manual_general_section', 'Manual Settings', 'wp_adpress_forms::description', 'adpress_gateway_manual_form_general');	
-	add_settings_field('label', 'No Settings Required', 'wp_adpress_forms::label', 'adpress_gateway_manual_form_general', 'gateway_manual_general_section');
-}
+WPAD_Payment_Gateways::init_gateway( 'manual', 'WPAD_Payment_Gateway_Manual' );
 
 /**
  * Process the Purchase Data and Record the Transaction

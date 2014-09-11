@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) {
  * @return string
  */
 function wp_adpress_checkout_form( $cid ) {
-	$html = '<form>';
+	$html = '<form method="post" id="purchase-form">';
 	$html .= '<div class="wrap" id="adpress" style="width:600px;">';
 	$html .= wp_adpress_checkout_header( $cid );
 	$html .= wp_adpress_checkout_user_details( $cid );
@@ -289,7 +289,9 @@ $html .= '<input name="gateway" type="radio" id="' . $gateway['id'] . '" />  <la
  * @return string
  */
 function wp_adpress_checkout_submit( $cid ) {
-	$html = '';
+	$html = '<input type="hidden" name="destination_val" id="destination_val" value=""/>';
+	$html .= '<input type="hidden" name="cid" id="cid" value="' . $cid . '"/>';
+	$html .= '<input type="submit" name="submit_purchase" id="submit_purchase" class="button-primary" value="' . __('Purchase', 'wp-adpress') . '"/>';
 
 	return apply_filters( 'wp_adpress_checkout_submit', $html, $cid );
 }

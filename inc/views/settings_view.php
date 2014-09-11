@@ -132,22 +132,9 @@ if (!class_exists('wp_adpress_settings')) {
 <?php
 			// Loop through the gateways and display the
 			// Settings for each gateway
-			$gateways = wp_adpress_get_payment_gateways();
+			$gateways = WPAD_Payment_Gateways::get_gateways();
 			foreach ($gateways as $gateway) {
-?>
-<form action="options.php" method="POST">
-<?php settings_fields('adpress_gateway_' . $gateway['settings_id'] . '_settings'); ?>
-
-			<div class="c-block" style="width: 650px;">
-				<div class="c-head">
-					<?php do_settings_sections('adpress_gateway_' . $gateway['settings_id'] . '_form_general'); ?>
-				</div>
-							 <p class="submit">
-								<input name="Submit" type="submit" class="button-primary"
-									   value="<?php esc_attr_e('Save Changes'); ?>"/>
-							</p>
-</form>
-<?php
+				$gateway->setup_form();
 			}
 ?>
 

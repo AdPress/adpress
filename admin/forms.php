@@ -80,6 +80,23 @@ if (!class_exists('wp_adpress_forms')) {
 		}
 
 		/**
+		 * Renders a collection of Radio Boxes
+		 * @param $param array
+		 */
+		static function radiobox( $param ) {
+			$settings = get_option( $param[ 1 ] );
+			$selected = ( isset( $settings[ $param[ 0 ] ] ) ? $settings [ $param [ 0 ] ] : '' );
+			$options = $param[ 2 ];
+			foreach ( $options as $option_id=>$option_label ) {
+				if ( $option_id === $selected ) {
+					echo ' <input type="radio" id="' . $param[0] . $option_id . '" name="' . $param[1] . '[' . $param[0] . ']" value="' . $option_id . '" checked/> <label for="' . $param[0] . $option_id . '">' . $option_label . ' </label>'; 
+				} else {
+					echo ' <input type="radio" id="' . $param[0] . $option_id . '" name="' . $param[1] . '[' . $param[0] . ']" value="' . $option_id . '" /> <label for="' . $param[0] . $option_id . '">' . $option_label . ' </label>'; 
+				}
+			}
+		}
+
+		/**
 		 * Renders a list checkbox
 		 * @param array $param
 		 */
