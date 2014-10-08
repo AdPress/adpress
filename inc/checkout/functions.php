@@ -79,3 +79,78 @@ function wp_adpress_get_payment_ad_details( $payment_id ) {
 
 	return $ad_details;
 }
+
+/**
+ * Get the URL of the Success page
+ *
+ * @since 1.0.0
+ * @param array $query_args Extra query args to add to the URI
+ * @return mixed Full URL to the success page, if present | null if it doesn't exist
+ */
+function wp_adpress_get_success_page_uri( $query_args = array() ) {
+
+}
+
+/**
+ * Send To Success Page
+ *
+ * Sends the user to the succes page.
+ *
+ * @param array $query_args Extra args to add to the URI
+ * @access      public
+ * @since       1.0.0
+ * @return      void
+*/
+function wp_adpress_send_to_success_page( $query_args = array() ) {
+
+}
+
+/**
+ * Get the URL of the Failre page
+ *
+ * @since 1.0.0
+ * @param array $query_args Extra query args to add to the URI
+ * @return mixed Full URL to the failure page, if present | null if it doesn't exist
+ */
+function wp_adpress_get_failure_page_uri( $query_args = array() ) {
+
+}
+
+/**
+ * Send To Failure Page
+ *
+ * Sends the user to the failure page.
+ *
+ * @param array $query_args Extra args to add to the URI
+ * @access      public
+ * @since       1.0.0
+ * @return      void
+*/
+function wp_adpress_send_to_failure_page( $query_args = array() ) {
+
+}
+
+/**
+ * Get the URL of the Checkout page
+ *
+ * @since 1.0.0
+ * @param array $query_args Extra query args to add to the URI
+ * @return mixed Full URL to the checkout page, if present | null if it doesn't exist
+ */
+function wp_adpress_get_checkout_page_uri( $query_args = array() ) {
+
+}
+
+/**
+ * Send To Checkout Page
+ *
+ * Sends the user to the failure page.
+ *
+ * @param array $query_args Extra args to add to the URI
+ * @access      public
+ * @since       1.0.0
+ * @return      void
+*/
+function wp_adpress_send_to_checkout_page( $query_args = array() ) {
+
+}

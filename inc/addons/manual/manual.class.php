@@ -27,8 +27,14 @@ if ( class_exists( 'WPAD_Payment_Gateway' ) ) {
 
 		public function process() {
 			// Payment Processed
-			var_dump( $this );
-			//
+			$id = wp_adpress_update_payment_status( $this->log_id, 'publish' );		
+			
+			// Redirect user to the success page
+			if ( $id === $this->log_id ) {
+				wp_adpress_send_to_success_page();
+			} else {
+				wp_adpress_send_to_checkout_page();
+			}
 			
 			exit;
 		}
