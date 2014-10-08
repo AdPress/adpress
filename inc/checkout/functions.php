@@ -43,7 +43,8 @@ function wp_adpress_get_payment_user_info( $payment_id ) {
 	 * $user_info = array(
 	 *  'user_id' => '',
 	 *  'user_email' => '',
-	 *  'user_info' => '',
+	 *  'user_info' => array(
+	 *  ),
 	 * );
 	 */
 	$user_info = array();
