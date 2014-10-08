@@ -94,7 +94,7 @@ class wp_adpress_Payment_History_Table extends WP_List_Table {
      * Total number of abandoned payments
      *
      * @var int
-     * @since 1.6
+     * @since 1.0.0
      */
     public $abandoned_count;
 
@@ -443,7 +443,7 @@ class wp_adpress_Payment_History_Table extends WP_List_Table {
 
         // Failed payments count
         $args['post_status'] = array( 'failed' );
-        $query = new WP_Query( $args );
+        $query = new WP_Query( $args );	
         $this->failed_count  = intval( $query->found_posts );
 
     }

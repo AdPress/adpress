@@ -10,7 +10,7 @@
 
 // Don't load directly
 if (!defined('ABSPATH')) {
-    die('-1');
+	die('-1');
 }
 
 /**
@@ -39,13 +39,32 @@ function wp_adpress_payment_post_type() {
 	// Post Type args
 	$payment_args = array(
 		'labels' 			=> apply_filters( 'wp_adpress_payment_labels', $payment_labels ),
-		'public' 			=> false,
+		'public' 			=> true,
 		'query_var' 		=> true,
 		'rewrite' 			=> true,
 		'map_meta_cap'      => true,
 		'supports' 			=> array( 'title' ),
 		'can_export'		=> true,
 	);
+
+	// Post Type Statuses
+	register_post_status( 'refunded', array(
+		'label'                     => _x( 'Refunded', 'Refunded payment status', 'wp-adpress' ),
+		'public'                    => true,
+		'exclude_from_search'       => false,
+		'show_in_admin_all_list'    => true,
+		'show_in_admin_status_list' => true,
+		'label_count'               => _n_noop( 'Refunded <span class="count">(%s)</span>', 'Refunded <span class="count">(%s)</span>', 'wp-adpress' )
+	) );
+
+	register_post_status( 'failed', array(
+		'label'                     => _x( 'Failed', 'Failed payment status', 'wp-adpress' ),
+		'public'                    => true,
+		'exclude_from_search'       => false,
+		'show_in_admin_all_list'    => true,
+		'show_in_admin_status_list' => true,
+		'label_count'               => _n_noop( 'Failed <span class="count">(%s)</span>', 'Failed <span class="count">(%s)</span>', 'wp-adpress' )
+	)  );
 
 	// Register the post type
 	register_post_type( 'wp_adpress_payments', $payment_args );
