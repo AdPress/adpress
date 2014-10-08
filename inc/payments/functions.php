@@ -98,7 +98,7 @@ function wp_adpress_insert_payment( $payment_data = array() ) {
  * @since 1.0.0
  * @param int $payment_id Payment ID
  * @param string $new_status New Payment Status (default: publish)
- * @return void
+ * @return mixed Returns the payment id if the update is successful and False otherwise
  */
 function wp_adpress_update_payment_status( $payment_id, $new_status = 'publish' ) {
 	// completed = complete = publish
@@ -111,7 +111,7 @@ function wp_adpress_update_payment_status( $payment_id, $new_status = 'publish' 
 
 	// Post not returned successfully
 	if ( is_wp_error( $payment ) || !is_object( $payment ) ) {
-		return;
+		return false;
 	}
 
 	// Old Status of the payment
@@ -119,7 +119,7 @@ function wp_adpress_update_payment_status( $payment_id, $new_status = 'publish' 
 
 	// Don't permit status changes that aren't changes
 	if ( $old_status === $new_status ) {
-		return; 	
+		return false; 	
 	}
 
 	// Do action before payment status change
@@ -131,6 +131,9 @@ function wp_adpress_update_payment_status( $payment_id, $new_status = 'publish' 
 
 	// Do action after payment status change
 	do_action( 'wp_adpress_update_payment_status', $payment_id, $new_status, $old_status );
+
+	// Return the entry id for successful changes
+	return $payment_id;
 }
 
 /**
