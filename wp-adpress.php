@@ -211,6 +211,7 @@ if (!class_exists('wp_adpress')) {
             /*
              * Checkout Functionality
              */
+            require_once( 'inc/checkout/actions.php' );
             require_once( 'inc/checkout/functions.php' );
             require_once( 'inc/checkout/template.php' );
 
@@ -232,8 +233,8 @@ if (!class_exists('wp_adpress')) {
             /*
              * Required Add-ons
              */
-            require_once('inc/addons/manual.php');
-            require_once('inc/addons/paypal.php');
+            require_once('inc/addons/manual/addon.php');
+            require_once('inc/addons/paypal/addon.php');
         }
 
         /**
