@@ -26,6 +26,14 @@ abstract class WPAD_Payment_Gateway
 	public $settings;
 
 	/**
+ 	 * Purchase Log entry ID
+	 *
+	 * @access public
+	 * @var int
+	 */
+	public $log_id;
+
+	/**
 	 * Purchase Log Object
 	 *
 	 * @access public
@@ -95,6 +103,38 @@ abstract class WPAD_Payment_Gateway
 							</p>
 </form>
 <?php
+	}
+
+	/**
+	 * Set the Purchase Log with the Ad Details and User Details
+	 *
+	 * @param array $ad_details
+	 * @param array $user_details
+	 *
+	 * @access public
+	 *
+	 * @return array 
+	 */
+	public function set_purchase_log( $ad_details, $user_details ) {
+		$this->ad_details = $ad_details;
+		$this->user_details = $user_details;	
+
+		$campaign = new wp_adpress_campaign( $ad_details['cid'] );
+
+		$payment_data = array(
+			'price' => $campaign->ad_definition['price'],
+			'date' => current_time( 'timestamp' ),
+			'user_email' => $user_details['user_email'],
+			'purchase_key' => '',
+			'currency' => wp_adpress_get_currency(),
+			'ad' => $ad_details,
+			'ad_id' => NULL,
+			'user_info' => array( 'first_name' => $user_details['user_info']['first_name'], 'last_name' => $user_details['user_info']['last_name'], 'id' => $user_details['user_info']['id'] ),
+			'gateway' => $this->settings['id'],
+		);
+
+		$this->log_id = wp_adpress_insert_payment( $payment_data );
+		$this->purchase_log = get_post( $this->log_id, 'OBJECT' );
 	}
 
 	abstract public function setup_settings_form();
