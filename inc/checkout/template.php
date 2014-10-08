@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) {
  * @return string
  */
 function wp_adpress_checkout_form( $cid ) {
-	$html = '<form method="post" id="purchase-form">';
+	$html = '<form method="post" action="admin.php?page=adpress-submit_checkout" id="purchase-form">';
 	$html .= '<div class="wrap" id="adpress" style="width:600px;">';
 	$html .= wp_adpress_checkout_header( $cid );
 	$html .= wp_adpress_checkout_user_details( $cid );
@@ -257,6 +257,7 @@ function wp_adpress_checkout_addon_form( $cid ) {
  * Renders the payment gateways
  *
  * @since 1.0.0
+ * @param int $cid Campaing Id
  * @return string
  */
 function wp_adpress_checkout_gateways( $cid ) {
@@ -269,9 +270,9 @@ function wp_adpress_checkout_gateways( $cid ) {
 	foreach( $gateways as $gateway ) {
 		$html .= '<tr><td>';
 			if ( $gateway['id'] === $default_id ) {
-		$html .= '<input name="gateway" type="radio" id="' . $gateway['id'] . '" checked/>  <label for="' . $gateway['id'] . '">' . $gateway['checkout_label'] . '</label>';
+		$html .= '<input name="gateway" type="radio" value="' . $gateway['id'] . '" id="' . $gateway['id'] . '" checked/>  <label for="' . $gateway['id'] . '">' . $gateway['checkout_label'] . '</label>';
 			} else {
-$html .= '<input name="gateway" type="radio" id="' . $gateway['id'] . '" />  <label for="' . $gateway['id'] . '">' . $gateway['checkout_label'] . '</label>';
+$html .= '<input name="gateway" type="radio" value="' . $gateway['id'] . '" id="' . $gateway['id'] . '" />  <label for="' . $gateway['id'] . '">' . $gateway['checkout_label'] . '</label>';
 			}
 		$html .= '</td></tr>';
 	}
@@ -286,11 +287,13 @@ $html .= '<input name="gateway" type="radio" id="' . $gateway['id'] . '" />  <la
  * Renders the submit button
  *
  * @since 1.0.0
+ * @param int $cid Campaing Id
  * @return string
  */
 function wp_adpress_checkout_submit( $cid ) {
 	$html = '<input type="hidden" name="destination_val" id="destination_val" value=""/>';
 	$html .= '<input type="hidden" name="cid" id="cid" value="' . $cid . '"/>';
+	$html .= '<input type="hidden" name="submit_checkout" value="on" />';
 	$html .= '<input type="submit" name="submit_purchase" id="submit_purchase" class="button-primary" value="' . __('Purchase', 'wp-adpress') . '"/>';
 
 	return apply_filters( 'wp_adpress_checkout_submit', $html, $cid );
