@@ -161,4 +161,26 @@ abstract class WPAD_Payment_Gateway
 	public function get_button_html() {
 		return false;
 	}
+
+	
+	/**
+	 * get_option function.
+	 *
+	 * Gets an option from the settings API, using defaults if necessary to prevent undefined notices.
+	 *
+	 * @param string $option_name
+	 * @param mixed $default_value
+	 * @return string The value specified for the option or a default value for the option
+	 */
+	public function get_option( $option_name, $default_value = '' ) {
+		$settings = get_option( 'adpress_gateway_' . $this->settings['id'] . '_settings', array() );
+
+		if ( isset( $settings[$option_name] ) ) {
+			$option = $settings[$option_name];
+		} else {
+			$option = $default_value;
+		}
+		
+		return $option;
+	}
 }
