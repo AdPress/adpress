@@ -10,7 +10,7 @@
 
 // Don't load directly
 if (!defined('ABSPATH')) {
-    die('-1');
+	die('-1');
 }
 
 /**
@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) {
  * @return string $time_zone the time zone id
  */
 function wp_adpress_get_timezone_id() {
-// if site timezone string exists, return it
+	// if site timezone string exists, return it
 	if ( $timezone = get_option( 'timezone_string' ) ) {
 		return $timezone;
 	}
@@ -49,7 +49,6 @@ function wp_adpress_get_timezone_id() {
 	// fallback
 	return 'UTC';
 }
-
 
 /**
  * Get User IP
@@ -84,4 +83,14 @@ function wp_adpress_get_currency() {
 	$currency = $settings['currency'];
 
 	return apply_filters( 'wp_adpress_settings_currency', $currency );
+}
+
+/**
+ * Kill WordPress Execution
+ *
+ * @since 1.0.0
+ * @return void
+ */
+function wp_adpress_die() {
+	exit;
 }
