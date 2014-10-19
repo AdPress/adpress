@@ -172,7 +172,7 @@ function wp_adpress_checkout_ad_form_link( $cid ) {
  * @return string
  */
 function wp_adpress_checkout_ad_form_image( $cid ) {
-	$camapign = new wp_adpress_camapign( $cid );
+	$camapign = new wp_adpress_campaign( $cid );
 	$html = '
 					<div class="c-block">                    
 					<div class="c-head">

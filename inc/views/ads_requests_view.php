@@ -150,16 +150,16 @@ No Requests
                 case 'image':
                     $html .= '<tr><td class="title">' . __('Image', 'wp-adpress') . '</td><td>';
                     $html .= '<img src="' . $ad->param['destination_val'] . '"></td></tr>';
-                    $html .= '<tr><td class="title">' . __('URL', 'wp-adpress') . '</td><td><a href="' . $ad->param['url'] . '">' . $ad->param['url'] . '</a></td></tr>';
+                    $html .= '<tr><td class="title">' . __('URL', 'wp-adpress') . '</td><td><a href="' . $ad->param['destination_url'] . '">' . $ad->param['destination_url'] . '</a></td></tr>';
                     break;
                 case 'flash':
                     $html .= '<tr><td class="title">' . __('Banner', 'wp-adpress') . '</td></tr>';
                     $html .= '<embed src="' . $ad->param['destination_val'] . '"></td></tr>';
-                    $html .= '<tr><td class="title">' . __('URL', 'wp-adpress') . '</td><td><a href="' . $ad->param['url'] . '">' . $ad->param['url'] . '</a></td></tr>';
+                    $html .= '<tr><td class="title">' . __('URL', 'wp-adpress') . '</td><td><a href="' . $ad->param['destination_url'] . '">' . $ad->param['destination_url'] . '</a></td></tr>';
                     break;
                 case 'link':
                     $html .= '<tr><td class="title">' . __('Link Text', 'wp-adpress') . '</td><td>' . $ad->param['destination_val'] . '</td></tr>';
-                    $html .= '<tr><td class="title">' . __('URL', 'wp-adpress') . '</td><td><a href="' . $ad->param['url'] . '">' . $ad->param['url'] . '</a></td></tr>';
+                    $html .= '<tr><td class="title">' . __('URL', 'wp-adpress') . '</td><td><a href="' . $ad->param['destination_url'] . '">' . $ad->param['destination_url'] . '</a></td></tr>';
                     break;
             }
             if (isset($ad->param['client_message'])) {
