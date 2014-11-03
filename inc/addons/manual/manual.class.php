@@ -11,6 +11,11 @@ if ( class_exists( 'WPAD_Payment_Gateway' ) ) {
 	 * @since 1.0.0
 	 */
 	class WPAD_Payment_Gateway_Manual extends WPAD_Payment_Gateway {
+		/**
+		 * Gateway Settings
+		 *
+		 * @var array
+		 */
 		public $settings = array(
 			'id' => 'manual',
 			'settings_id' => 'manual',
@@ -19,6 +24,16 @@ if ( class_exists( 'WPAD_Payment_Gateway' ) ) {
 			'checkout_label' => 'Manual Payment',
 		);	
 
+		/**
+         * Constructor for the gateway.
+         *
+         * @access public
+         * @return void
+         */
+        public function __construct() {
+            parent::__construct();
+        }
+
 		public function setup_settings_form() {
 			register_setting('adpress_gateway_manual_settings', 'adpress_gateway_manual_settings', 'wp_adpress_forms::validate');
 			add_settings_section('gateway_manual_general_section', 'Manual Settings', 'wp_adpress_forms::description', 'adpress_gateway_manual_form_general');	
@@ -26,17 +41,15 @@ if ( class_exists( 'WPAD_Payment_Gateway' ) ) {
 		}	
 
 		public function process() {
-			// Payment Processed
+			// Payment Processed		
 			$id = wp_adpress_update_payment_status( $this->log_id, 'publish' );		
 			
 			// Redirect user to the success page
-			if ( $id === $this->log_id ) {
-				wp_adpress_send_to_success_page();
+			if ( $id === $this->log_id ) {	
+				wp_adpress_send_to_success_page( array( 'pid' => $id ) );
 			} else {
-				wp_adpress_send_to_checkout_page();
-			}
-			
-			exit;
+				wp_adpress_send_to_failure_page( array( 'pid' => $id ) );
+			}	
 		}
 	}
 }
