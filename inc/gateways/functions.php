@@ -110,3 +110,12 @@ function wp_adpress_get_payment_gateway( $id ) {
 
 	return false;
 }
+
+/**
+ * Generates a random key
+ *
+ * @return string
+ */
+function wp_adpress_generate_purchase_key() {
+	return wp_generate_password( 14, false, false );
+}
