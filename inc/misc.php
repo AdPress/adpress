@@ -86,6 +86,22 @@ function wp_adpress_get_currency() {
 }
 
 /**
+ * Return True if Sandbox mode is enabled
+ *
+ * @since 1.0.0
+ * @return bool
+ */
+function wp_adpress_sandbox_mode() {
+	$settings = get_option( 'adpress_settings' );	
+
+	if ( isset( $settings['sandbox_mode'] ) ) {
+		return true;
+	}
+
+	return false;
+}
+
+/**
  * Kill WordPress Execution
  *
  * @since 1.0.0
