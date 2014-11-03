@@ -125,7 +125,7 @@ abstract class WPAD_Payment_Gateway
 			'price' => $campaign->ad_definition['price'],
 			'date' => current_time( 'timestamp' ),
 			'user_email' => $user_details['user_email'],
-			'purchase_key' => '',
+			'purchase_key' => wp_adpress_generate_purchase_key(),
 			'currency' => wp_adpress_get_currency(),
 			'ad' => $ad_details,
 			'ad_id' => NULL,

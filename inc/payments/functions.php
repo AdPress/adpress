@@ -253,6 +253,9 @@ function wp_adpress_get_gateway_label ( $gateway ) {
 
 	if ( is_array ( $gateway ) ) {
 		$label = current( $gateway );
+	} else {
+		$gateway = wp_adpress_get_payment_gateway( $gateway );
+		$label = $gateway['admin_label'];
 	}	
 
 	$label = apply_filters ( 'wp_adpress_gateway_label', $label, $gateway );
