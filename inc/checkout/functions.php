@@ -187,3 +187,75 @@ function wp_adpress_send_to_checkout_page( $query_args = array() ) {
 
 	wp_adpress_die();
 }
+
+/**
+ * Get the URL of the Cancel page
+ *
+ * @since 1.0.0
+ * @param array $query_args Extra query args to add to the URI
+ * @return mixed Full URL to the cancel page, if present | null if it doesn't exist
+ */
+function wp_adpress_get_cancel_page_uri( $query_args = array() ) {
+	$uri = admin_url( 'admin.php?page=adpress-checkout-cancel' );
+
+	if ( !empty( $query_args ) ) {
+		$query_args = wp_parse_args( $query_args );
+		$uri = add_query_arg( $query_args, $uri );
+	}
+
+	return apply_filters( 'wp_adpress_get_cancel_page_uri', $uri );	
+}
+
+/**
+ * Send To Cancel Page
+ *
+ * Sends the user to the cancel page.
+ *
+ * @param array $query_args Extra args to add to the URI
+ * @access      public
+ * @since       1.0.0
+ * @return      void
+ */
+function wp_adpress_send_to_cancel_page( $query_args = array() ) {
+	$redirect = wp_adpress_get_cancel_page_uri( $query_args );
+
+	wp_redirect( apply_filters( 'wp_adpress_send_to_cancel_page', $redirect, $query_args ) );
+
+	wp_adpress_die();
+}
+
+/**
+ * Get the URL of the Notify page
+ *
+ * @since 1.0.0
+ * @param array $query_args Extra query args to add to the URI
+ * @return mixed Full URL to the notify page, if present | null if it doesn't exist
+ */
+function wp_adpress_get_notify_page_uri( $query_args = array() ) {
+	$uri = site_url( '?wpad-callback=notify' );
+
+	if ( !empty( $query_args ) ) {
+		$query_args = wp_parse_args( $query_args );
+		$uri = add_query_arg( $query_args, $uri );
+	}
+
+	return apply_filters( 'wp_adpress_get_notify_page_uri', $uri );	
+}
+
+/**
+ * Send To Notify Page
+ *
+ * Sends the user to the notify page.
+ *
+ * @param array $query_args Extra args to add to the URI
+ * @access      public
+ * @since       1.0.0
+ * @return      void
+ */
+function wp_adpress_send_to_notify_page( $query_args = array() ) {
+	$redirect = wp_adpress_get_notify_page_uri( $query_args );
+
+	wp_redirect( apply_filters( 'wp_adpress_send_to_notify_page', $redirect, $query_args ) );
+
+	wp_adpress_die();
+}
