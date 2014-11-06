@@ -147,7 +147,7 @@ function wp_adpress_get_failure_page_uri( $query_args = array() ) {
 function wp_adpress_send_to_failure_page( $query_args = array() ) {
 	$redirect = wp_adpress_get_failure_page_uri( $query_args );
 
-	wp_redirect( apply_filters( 'wp_adpress_send_to_failure_page', $redirect, $args ) );
+	wp_redirect( apply_filters( 'wp_adpress_send_to_failure_page', $redirect, $query_args ) );
 
 	wp_adpress_die();
 }
@@ -256,6 +256,42 @@ function wp_adpress_send_to_notify_page( $query_args = array() ) {
 	$redirect = wp_adpress_get_notify_page_uri( $query_args );
 
 	wp_redirect( apply_filters( 'wp_adpress_send_to_notify_page', $redirect, $query_args ) );
+
+	wp_adpress_die();
+}
+
+/**
+ * Get the URL of the Custom page
+ *
+ * @since 1.0.0
+ * @param array $query_args Extra query args to add to the URI
+ * @return mixed Full URL to the custom page, if present | null if it doesn't exist
+ */
+function wp_adpress_get_custom_page_uri( $query_args = array() ) {
+	$uri = site_url( '?wpad-callback=custom' );
+
+	if ( !empty( $query_args ) ) {
+		$query_args = wp_parse_args( $query_args );
+		$uri = add_query_arg( $query_args, $uri );
+	}
+
+	return apply_filters( 'wp_adpress_get_custom_page_uri', $uri );	
+}
+
+/**
+ * Send To Custom Page
+ *
+ * Sends the user to the custom page.
+ *
+ * @param array $query_args Extra args to add to the URI
+ * @access      public
+ * @since       1.0.0
+ * @return      void
+ */
+function wp_adpress_send_to_custom_page( $query_args = array() ) {
+	$redirect = wp_adpress_get_custom_page_uri( $query_args );
+
+	wp_redirect( apply_filters( 'wp_adpress_send_to_custom_page', $redirect, $query_args ) );
 
 	wp_adpress_die();
 }

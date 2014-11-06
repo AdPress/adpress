@@ -51,7 +51,7 @@ add_action( 'admin_menu', function() {
 }, 100 );
 
 if ( isset( $_POST['submit_checkout'] ) ) {
-	add_action( 'plugins_loaded', function() {
+	add_action( 'wp_loaded', function() {
 		do_action( 'wp_adpress_submit_checkout' );
 	}, 200 );
 }

@@ -101,6 +101,7 @@ function wp_adpress_insert_payment( $payment_data = array() ) {
  * @return mixed Returns the payment id if the update is successful and False otherwise
  */
 function wp_adpress_update_payment_status( $payment_id, $new_status = 'publish' ) {
+	global $post;
 	// completed = complete = publish
 	if ( $new_status == 'completed' || $new_status == 'complete' ) {
 		$new_status = 'publish';
