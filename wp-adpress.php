@@ -4,7 +4,7 @@
  * AdPress - WordPress Ads Management Plug-in
  *
  * @author Abid Omar
- * @version 0.9
+ * @version 1.0
  * @package Main
  */
 /*
@@ -13,7 +13,7 @@
   Description: AdPress is a fully featured Ads Manager for WordPress with client management, PayPal Integration, analytics and Multi-site support.
   Author: Abid Omar
   Author URI: http://omarabid.com
-  Version: 0.9.9
+  Version: 1.0.0
   Text Domain: wp-adpress
  */
 
@@ -35,13 +35,13 @@ if (!class_exists('wp_adpress')) {
          * Plug-in Version
          * @var string
          */
-        public $version = "0.9.9";
+        public $version = "1.0.0";
 
         /**
          * Minimal WordPress version required
          * @var string
          */
-        public $wp_version = "3.8";
+        public $wp_version = "4.0";
 
         /**
          * Plugin Settings
