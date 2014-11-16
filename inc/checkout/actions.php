@@ -46,9 +46,11 @@ function wp_adpress_action_submit_checkout() {
 
 add_action( 'wp_adpress_submit_checkout', 'wp_adpress_action_submit_checkout', 100, 1 );
 
-add_action( 'admin_menu', function() {
+add_action( 'admin_menu', 'admin_menu_submit_checkout', 100 );
+
+function admin_menu_submit_checkout() {
 	add_submenu_page( NULL, 'adpress-submit_checkout', 'adpress-submit_checkout', 'manage_options', 'adpress-submit_checkout');
-}, 100 );
+}
 
 if ( isset( $_POST['submit_checkout'] ) ) {
 	add_action( 'wp_loaded', function() {
