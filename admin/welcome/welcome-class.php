@@ -31,6 +31,8 @@ class wp_adpress_welcome {
         add_action( 'admin_menu', array( $this, 'admin_menus') );
         add_action( 'admin_head', array( $this, 'admin_head' ) );
         add_action( 'admin_init', array( $this, 'init'    ) );
+        add_action('admin_print_scripts', array(&$this, 'load_scripts'));
+        add_action('admin_print_styles', array(&$this, 'load_styles'));
     }
 
     /**
@@ -41,10 +43,18 @@ class wp_adpress_welcome {
      * @return void
      */
     public function admin_menus() {
+        // New Features Page
+        add_dashboard_page(
+            __( 'New Features', 'wp-adpress' ),
+            __( 'New Features', 'wp-adpress' ),
+            'manage_options',
+            'wpadpress-new',
+            array( $this, 'new_screen' )
+        );
         // About Page
         add_dashboard_page(
-            __( 'Welcome to AdPress', 'wp-adpress' ),
-            __( 'Welcome to AdPress', 'wp-adpress' ),
+            __( 'About AdPress', 'wp-adpress' ),
+            __( 'About AdPress', 'wp-adpress' ),
             'manage_options',
             'wpadpress-about',
             array( $this, 'about_screen' )
@@ -60,6 +70,36 @@ class wp_adpress_welcome {
         );
     }
 
+    public function load_scripts() {
+        global $current_screen;
+
+        switch( $current_screen->id ) {
+        case 'dashboard_page_wpadpress-new':
+            break;
+        case 'dashboard_page_wpadpress-start':
+            break;
+        case 'dashboard_page_wpadpress-about':
+            break;
+        }
+
+    }
+
+    public function load_styles() {
+        global $current_screen;
+
+        switch( $current_screen->id ) {
+        case 'dashboard_page_wpadpress-new':
+            wp_enqueue_style( 'wp_adpress_welcome', ADPRESS_URLPATH . 'admin/welcome/assets/css/style.css' );
+            break;
+        case 'dashboard_page_wpadpress-start':
+            wp_enqueue_style( 'wp_adpress_welcome', ADPRESS_URLPATH . 'admin/welcome/assets/css/style.css' );
+            break;
+        case 'dashboard_page_wpadpress-about':
+            wp_enqueue_style( 'wp_adpress_welcome', ADPRESS_URLPATH . 'admin/welcome/assets/css/style.css' );
+            break;
+        }
+    }
+
     /**
      * Hide the Tabs from the menu
      *
@@ -68,6 +108,7 @@ class wp_adpress_welcome {
      * @return void
      */
     public function admin_head() {
+        remove_submenu_page( 'index.php', 'wpadpress-new' );
         remove_submenu_page( 'index.php', 'wpadpress-about' );
         remove_submenu_page( 'index.php', 'wpadpress-start' );
     }
@@ -80,7 +121,7 @@ class wp_adpress_welcome {
      * @return void
      */
     public function tabs() {
-        include_once('page-tabs.php');
+        include_once( 'tpl/page-tabs.php' );
     }
 
     /**
@@ -91,7 +132,7 @@ class wp_adpress_welcome {
      * @return void
      */
     public function page_header() {
-        include_once('page-header.php');
+        include_once( 'tpl/page-header.php' );
     }
 
     /**
@@ -102,7 +143,7 @@ class wp_adpress_welcome {
      * @return void
      */
     public function page_footer() {
-        include_once('page-footer.php');
+        include_once( 'tpl/page-footer.php' );
     }
 
     /**
@@ -115,7 +156,7 @@ class wp_adpress_welcome {
     public function about_screen() {
         $this->page_header();
         $this->tabs();
-        require_once('about-page.php');
+        require_once( 'pages/about-page.php' );
         $this->page_footer();
     }
 
@@ -129,10 +170,23 @@ class wp_adpress_welcome {
     public function getting_started_screen() {
         $this->page_header();
         $this->tabs();
-        require_once('start-page.php');
+        require_once( 'pages/start-page.php' );
         $this->page_footer();
     }
 
+    /**
+     * Render New Features Screen
+     *
+     * @access public
+     * @since 1.0.0
+     * @return void
+     */
+    public function new_screen() {
+        $this->page_header();
+        $this->tabs();
+        require_once( 'pages/new-page.php' );
+        $this->page_footer();
+    }
     /**
      * Sends user to the Welcome page on first activation of EDD as well as each
      * time EDD is upgraded to a new version
@@ -159,7 +213,7 @@ class wp_adpress_welcome {
         }
 
         // Redirect to the About Page
-        wp_safe_redirect( admin_url( 'index.php?page=wpadpress-about' ) );
+        wp_safe_redirect( admin_url( 'index.php?page=wpadpress-new' ) );
 
         // Exit PHP process
         exit;

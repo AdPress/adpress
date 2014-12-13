@@ -1,0 +1,29 @@
+.changelog {
+
+}
+
+.changelog .float-container {
+
+}
+
+.changelog .float-container .float-right {
+	width: 450px;
+	float: right;
+}
+
+.changelog .float-container .float-left {
+	width: 450px;
+	float: left;
+}
+
+.changelog .float-container .float-clear {
+	clear: both;
+}
+
+.changelog P {
+
+}
+
+.changelog P.centered {
+	text-align: center;
+}
