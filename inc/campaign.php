@@ -595,6 +595,9 @@ if (!class_exists('wp_adpress_campaign')) {
             // Closes the list
             $html .= '</ul>';
 
+			// Apply any possible filters
+			$html = apply_filters( 'wp_adpress_campaign_display_ads', $html, $this );
+
             // Print or Return the output
             if ($return) {
                 return $html;
@@ -659,6 +662,7 @@ if (!class_exists('wp_adpress_campaign')) {
                 $display = $this->ad_definition['number'];
             }
             $number = $this->ad_definition['number'];
+			
             $to_display = array();
             switch (true) {
                 // Something is wrong
@@ -667,7 +671,7 @@ if (!class_exists('wp_adpress_campaign')) {
                     return false;
                     break;
                 // Ad Rotation
-                case ($display <= $number):
+                case ($display <= $number):	
                     $running = $this->list_ads('running');
                     foreach ($running as $ad) {
                         $to_display[] = $ad->id;

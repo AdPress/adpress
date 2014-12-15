@@ -11,6 +11,7 @@ $result = false;
 /**
  * === Settings ===
  */
+
 if (isset($_POST['campaign_state'])) {
     $state = 'active';
 } else {
@@ -81,6 +82,12 @@ if (isset($_POST['ad_rotation'])) {
 } else {
     $ad_definition['rotation'] = null;
 }
+
+// Campaign Meta
+if ( isset( $_POST['campaign_meta'] ) ) {
+	$ad_definition['campaign_meta'] = serialize( $_POST['campaign_meta'] );
+}
+
 /**
  * Create a new Campaign object
  */

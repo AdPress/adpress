@@ -36,8 +36,18 @@ FORM {
     border-left: 6px solid #454A53;
 }
 
+#addcampaign-form .form-table.push_1 TBODY TR {
+	padding-left: 15px;    
+	display: block;
+	width: 500px;
+}
+
 #addcampaign-form .form-table.push_1 INPUT[type=textbox]{
     width: 215px;
+}
+
+#cta_image_url {
+	line-height: 29px;
 }
 
 /*Ad Designer Style*/
