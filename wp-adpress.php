@@ -160,7 +160,9 @@ if (!class_exists('wp_adpress')) {
             /* [F:/dev/devpress/wp-content/plugins/adpress/] */
             define('ADPRESS_ABSPATH', trailingslashit(str_replace("\\", "/", WP_PLUGIN_DIR . '/' . plugin_basename(dirname(__FILE__)))));
             /* [http://localhost/devpress/wp-content/plugins/adpress/] */
-            define('ADPRESS_URLPATH', trailingslashit(WP_PLUGIN_URL . '/' . plugin_basename(dirname(__FILE__))));
+            $url_path =  trailingslashit(WP_PLUGIN_URL . '/' . plugin_basename(dirname(__FILE__)));
+            $url_path = str_replace( 'http:', '', $url_path );
+            define('ADPRESS_URLPATH', $url_path );
             /* [http://localhost/devpress/wp-admin/] */
             define('ADPRESS_ADMINPATH', get_admin_url());
         }
