@@ -52,8 +52,11 @@ function admin_menu_submit_checkout() {
 	add_submenu_page( NULL, 'adpress-submit_checkout', 'adpress-submit_checkout', 'manage_options', 'adpress-submit_checkout');
 }
 
-if ( isset( $_POST['submit_checkout'] ) ) {
-	add_action( 'wp_loaded', function() {
+function wp_adpress_submit_checkout_fn()
+{
 		do_action( 'wp_adpress_submit_checkout' );
-	}, 200 );
+}
+
+if ( isset( $_POST['submit_checkout'] ) ) {
+	add_action( 'wp_loaded', 'wp_adpress_submit_checkout_fn' , 200 );
 }
