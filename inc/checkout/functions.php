@@ -95,7 +95,7 @@ function wp_adpress_get_success_page_uri( $query_args = array() ) {
 		$uri = add_query_arg( $query_args, $uri );
 	}
 
-	return apply_filters( 'wp_adpress_get_success_page_uri', $uri );	
+	return apply_filters( 'wp_adpress_get_success_page_uri', $uri, $query_args );	
 }
 
 /**
@@ -131,7 +131,7 @@ function wp_adpress_get_failure_page_uri( $query_args = array() ) {
 		$uri = add_query_arg( $query_args, $uri );
 	}
 
-	return apply_filters( 'wp_adpress_get_failure_page_uri', $uri );
+	return apply_filters( 'wp_adpress_get_failure_page_uri', $uri, $query_args );
 }
 
 /**
@@ -167,13 +167,13 @@ function wp_adpress_get_checkout_page_uri( $query_args = array() ) {
 		$uri = add_query_arg( $query_args, $uri );
 	}
 
-	return apply_filters( 'wp_adpress_get_checkout_page_uri', $uri );
+	return apply_filters( 'wp_adpress_get_checkout_page_uri', $uri, $query_args );
 }
 
 /**
  * Send To Checkout Page
  *
- * Sends the user to the failure page.
+ * Sends the user to the Checkout page.
  *
  * @param array $query_args Extra args to add to the URI
  * @access      public
@@ -203,7 +203,7 @@ function wp_adpress_get_cancel_page_uri( $query_args = array() ) {
 		$uri = add_query_arg( $query_args, $uri );
 	}
 
-	return apply_filters( 'wp_adpress_get_cancel_page_uri', $uri );	
+	return apply_filters( 'wp_adpress_get_cancel_page_uri', $uri, $query_args );	
 }
 
 /**
@@ -239,7 +239,7 @@ function wp_adpress_get_notify_page_uri( $query_args = array() ) {
 		$uri = add_query_arg( $query_args, $uri );
 	}
 
-	return apply_filters( 'wp_adpress_get_notify_page_uri', $uri );	
+	return apply_filters( 'wp_adpress_get_notify_page_uri', $uri, $query_args );	
 }
 
 /**
@@ -275,7 +275,7 @@ function wp_adpress_get_custom_page_uri( $query_args = array() ) {
 		$uri = add_query_arg( $query_args, $uri );
 	}
 
-	return apply_filters( 'wp_adpress_get_custom_page_uri', $uri );	
+	return apply_filters( 'wp_adpress_get_custom_page_uri', $uri, $query_args );	
 }
 
 /**

@@ -11,6 +11,7 @@ if (isset($_POST['new_campaign'])) {
 	$save_button = __('Add Campaign', 'wp-adpress');
 	$title = __('Add new Campaign', 'wp-adpress');
 	$campaign = false;
+
 	/*
 	 * Checks if we are changing an existing campaign
 	 */
@@ -68,6 +69,7 @@ if (isset($_POST['new_campaign'])) {
 		$title = __('Edit Campaign', 'wp-adpress');
 		$hidden_keys = '<input type="hidden" name="edit_campaign" value="' . $campaign->id . '" />';
 	}
+	
 ?>
 
 
@@ -90,7 +92,7 @@ if (isset($_POST['new_campaign'])) {
 						</th>
 						<td>
 						<input type="textbox" name="campaign_name" id="campaign_name" value="<?php
-	if (isset($campaign)) {
+	if ( $campaign ) {
 		echo $campaign->settings['name'];
 	}
 ?>" class="string"/>
@@ -102,7 +104,7 @@ if (isset($_POST['new_campaign'])) {
 						</th>
 						<td>
 						<textarea name="campaign_description" id="campaign_description"><?php
-	if (isset($campaign)) {
+	if ( $campaign ) {
 		echo $campaign->settings['description'];
 	}
 ?></textarea>
@@ -244,7 +246,7 @@ if (isset($_POST['new_campaign'])) {
 						</th>
 						<td>
 						<input type="textbox" name="ads_number" id="ads_number" class="integer text-number" value="<?php
-	if (isset($campaign)) {
+	if ( $campaign ) {
 		echo $campaign->ad_definition['number'];
 	}
 ?>"/>
@@ -428,7 +430,7 @@ if (isset($_POST['new_campaign'])) {
 						</th>
 						<td>
 						<input type="textbox" name="contract_price" id="contract_price" class="integer text-number" value="<?php
-	if (isset($campaign)) {
+	if ( $campaign ) {
 		echo $campaign->ad_definition['price'];
 	}
 	?>"/> <?php

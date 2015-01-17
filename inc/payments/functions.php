@@ -84,6 +84,7 @@ function wp_adpress_insert_payment( $payment_data = array() ) {
 		update_post_meta( $payment, 'wpad_payment_ad',           $payment_data['ad'] );
 		update_post_meta( $payment, 'wpad_payment_mode',         $mode );
 		update_post_meta( $payment, 'wpad_payment_gateway',      $payment_data['gateway'] );
+		update_post_meta( $payment, 'wpad_payment_currency',	 wp_adpress_get_currency() );
 
 		return $payment; // return the ID
 	}
@@ -170,7 +171,7 @@ function wp_adpress_get_payment_status( $payment, $return_label = false ) {
 	// Get all AdPress statuses
 	$statuses = wp_adpress_get_payment_statuses();
 	if ( ! is_array( $statuses ) || empty( $statuses ) ) {
-	 	return false;
+		return false;
 	}
 
 	if ( array_key_exists( $payment->post_status, $statuses ) ) {
@@ -224,6 +225,35 @@ function wp_adpress_get_payment_user_id ( $payment_id ) {
 	}
 
 	return apply_filters( 'wp_adpress_payment_user_id', $user_id );
+}
+
+
+/**
+ * Get campaign and ad details associated with a payment
+ *
+ * @since 1.0.2
+ * @param int $payment_id Payment ID
+ * @return array
+ */
+function wp_adpress_get_payment_details( $payment_id )
+{
+	$gateway_id = get_post_meta( $payment_id, 'wpad_payment_gateway', true );
+	$gateway = wp_adpress_get_payment_gateway( $gateway_id );
+
+	$price = get_post_meta( $payment_id, 'wpad_payment_total', true );
+	$currency = get_post_meta( $payment_id, 'wpad_payment_currency', true );
+	$ad_id = get_post_meta( $payment_id, 'wpad_payment_ad', true );
+	$campaign = new wp_adpress_campaign( $ad_id['cid'] );
+	$campaign = (array) $campaign;	
+
+	$details = array(
+		'gateway' => $gateway,
+		'price' => $price,
+		'currency' => $currency,
+		'campaign' => $campaign,
+	);
+
+	return $details;
 }
 
 /**
