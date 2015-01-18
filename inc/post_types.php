@@ -66,6 +66,15 @@ function wp_adpress_payment_post_type() {
 		'label_count'               => _n_noop( 'Failed <span class="count">(%s)</span>', 'Failed <span class="count">(%s)</span>', 'wp-adpress' )
 	)  );
 
+register_post_status( 'cancelled', array(
+		'label'                     => _x( 'Cancelled', 'Cancelled payment status', 'wp-adpress' ),
+		'public'                    => true,
+		'exclude_from_search'       => false,
+		'show_in_admin_all_list'    => true,
+		'show_in_admin_status_list' => true,
+		'label_count'               => _n_noop( 'Cancelled <span class="count">(%s)</span>', 'Cancelled <span class="count">(%s)</span>', 'wp-adpress' )
+	)  );
+
 	// Register the post type
 	register_post_type( 'wp_adpress_payments', $payment_args );
 }

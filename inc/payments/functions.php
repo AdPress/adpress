@@ -200,6 +200,7 @@ function wp_adpress_get_payment_statuses() {
 		'pending' => __( 'Pending', 'wp-adpress' ),
 		'refunded'  => __( 'Refunded', 'wp-adpress' ),
 		'failed'    => __( 'Failed', 'wp-adpress' ),
+		'cancelled' => __( 'Cancelled', 'wp-adpress' ),
 	);
 
 	// Filter for extending payment statuses
