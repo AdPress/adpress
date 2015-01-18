@@ -111,6 +111,8 @@ function wp_adpress_get_success_page_uri( $query_args = array() ) {
 function wp_adpress_send_to_success_page( $query_args = array() ) {
 	$redirect = wp_adpress_get_success_page_uri( $query_args );
 
+	do_action( 'wp_adpress_redirect_to_success_page', $query_args );
+
 	wp_redirect( apply_filters( 'wp_adpress_send_to_success_page', $redirect, $query_args ) );
 
 	wp_adpress_die();
@@ -146,6 +148,8 @@ function wp_adpress_get_failure_page_uri( $query_args = array() ) {
  */
 function wp_adpress_send_to_failure_page( $query_args = array() ) {
 	$redirect = wp_adpress_get_failure_page_uri( $query_args );
+
+	do_action( 'wp_adpress_redirect_to_failure_page', $query_args );
 
 	wp_redirect( apply_filters( 'wp_adpress_send_to_failure_page', $redirect, $query_args ) );
 
@@ -183,6 +187,8 @@ function wp_adpress_get_checkout_page_uri( $query_args = array() ) {
 function wp_adpress_send_to_checkout_page( $query_args = array() ) {
 	$redirect = wp_adpress_get_checkout_page_uri( $query_args );
 
+	do_action( 'wp_adpress_redirect_to_checkout_page', $query_args );
+
 	wp_redirect( apply_filters( 'wp_adpress_send_to_checkout_page', $redirect, $args ) );
 
 	wp_adpress_die();
@@ -218,6 +224,8 @@ function wp_adpress_get_cancel_page_uri( $query_args = array() ) {
  */
 function wp_adpress_send_to_cancel_page( $query_args = array() ) {
 	$redirect = wp_adpress_get_cancel_page_uri( $query_args );
+
+	do_action( 'wp_adpress_redirect_to_cancel_page', $query_args );
 
 	wp_redirect( apply_filters( 'wp_adpress_send_to_cancel_page', $redirect, $query_args ) );
 
@@ -255,6 +263,8 @@ function wp_adpress_get_notify_page_uri( $query_args = array() ) {
 function wp_adpress_send_to_notify_page( $query_args = array() ) {
 	$redirect = wp_adpress_get_notify_page_uri( $query_args );
 
+	do_action( 'wp_adpress_redirect_to_notify_page', $query_args );
+
 	wp_redirect( apply_filters( 'wp_adpress_send_to_notify_page', $redirect, $query_args ) );
 
 	wp_adpress_die();
@@ -290,6 +300,8 @@ function wp_adpress_get_custom_page_uri( $query_args = array() ) {
  */
 function wp_adpress_send_to_custom_page( $query_args = array() ) {
 	$redirect = wp_adpress_get_custom_page_uri( $query_args );
+
+	do_action( 'wp_adpress_redirect_to_custom_page', $query_args );
 
 	wp_redirect( apply_filters( 'wp_adpress_send_to_custom_page', $redirect, $query_args ) );
 
