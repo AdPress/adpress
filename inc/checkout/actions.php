@@ -39,7 +39,7 @@ function wp_adpress_action_submit_checkout() {
 		),	
 	);
 	$user_details = array(
-		'user_email' => $user_email,	
+		'user_email' => $user_email,
 		'user_info' => array(
 			'first_name' => $user_firstname,
 			'last_name' => $user_lastname,
@@ -57,13 +57,22 @@ function wp_adpress_action_submit_checkout() {
 add_action( 'wp_adpress_submit_checkout', 'wp_adpress_action_submit_checkout', 100, 1 );
 
 function wp_adpress_cancel_purchase( $query_args = array() )
-{
+{	
 	if ( isset( $query_args['pid'] ) ) {
 		$pid = $query_args['pid'];
 		wp_adpress_update_payment_status( $pid, 'cancelled' );
+	}
+}
+add_action( 'wp_adpress_redirected_to_cancel_page', 'wp_adpress_cancel_purchase', 100, 1 );
+
+function wp_adpress_failed_purchase( $query_args = array() )
+{	
+	if ( isset( $query_args['pid'] ) ) {
+		$pid = $query_args['pid'];
+		wp_adpress_update_payment_status( $pid, 'failed' );
 	}	
 }
-add_action( 'wp_adpress_redirect_to_cancel_page', 'wp_adpress_cancel_purchase', 100, 1 );
+add_action( 'wp_adpress_redirected_to_failure_page', 'wp_adpress_failed_purchase', 100, 1 );
 
 add_action( 'admin_menu', 'admin_menu_submit_checkout', 100 );
 
@@ -78,4 +87,40 @@ function wp_adpress_submit_checkout_fn()
 
 if ( isset( $_POST['submit_checkout'] ) ) {
 	add_action( 'wp_loaded', 'wp_adpress_submit_checkout_fn' , 200 );
+}
+
+add_action( 'template_redirect', 'wp_adpress_checkout_redirect_process' );
+function wp_adpress_checkout_redirect_process()
+{
+	$current_id = get_the_ID();
+
+	$checkout_page_id = url_to_postid( wp_adpress_get_checkout_page_uri() );
+	$success_page_id = url_to_postid( wp_adpress_get_success_page_uri() );
+	$cancel_page_id = url_to_postid( wp_adpress_get_cancel_page_uri() );
+	$failure_page_id = url_to_postid( wp_adpress_get_failure_page_uri() );
+	$notify_page_id = url_to_postid( wp_adpress_get_notify_page_uri() );
+	$custom_page_id = url_to_postid( wp_adpress_get_custom_page_uri() );
+
+	$query_args = $_GET;
+
+	switch( $current_id ) {
+	case $checkout_page_id:
+		do_action( 'wp_adpress_redirected_to_checkout_page', $query_args );
+		break;
+	case $success_page_id:
+		do_action( 'wp_adpress_redirected_to_success_page', $query_args );
+		break;
+	case $cancel_page_id:
+		do_action( 'wp_adpress_redirected_to_cancel_page', $query_args );
+		break;
+	case $failure_page_id:
+		do_action( 'wp_adpress_redirected_to_failure_page', $query_args );
+		break;
+	case $notify_page_id:
+		do_action( 'wp_adpress_redirected_to_notify_page', $query_args );
+		break;
+	case $custom_page_id:
+		do_action( 'wp_adpress_redirected_to_custom_page', $query_args );
+		break;
+	}
 }
