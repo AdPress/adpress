@@ -35,9 +35,9 @@ if ( class_exists( 'WPAD_Payment_Gateway' ) ) {
 		 * @return void
 		 */
 		public function __construct() {
-			parent::__construct();
+			parent::__construct(); 
 
-			$this->listen_ipn();
+            add_action( 'wp_loaded', array( &$this, 'listen_ipn' ) );  
 		}
 
 		/**
@@ -68,9 +68,9 @@ if ( class_exists( 'WPAD_Payment_Gateway' ) ) {
 				'cmd'           => '_cart',
 				'upload'        => '1',
 				'business'      => $this->get_option( 'email' ), 
-				'return'        => wp_adpress_get_success_page_uri( array( 'pid' => $this->log_id ) ),
-				'cancel_return' => wp_adpress_get_cancel_page_uri( array( 'pid' => $this->log_id ) ), 
-				'notify_url'    => wp_adpress_get_notify_page_uri( array( 'wpad-gateway' => 'paypal-standard' ) ),
+				'return'        => wp_adpress_get_success_page_uri( array( 'pid' => $this->log_id, 'wpad-gateway' => 'paypal-standard', 'wpad-callback' => 'custom' ) ),
+				'cancel_return' => wp_adpress_get_cancel_page_uri( array( 'pid' => $this->log_id, 'wpad-gateway' => 'paypal-standard' ) ), 
+				'notify_url'    => wp_adpress_get_notify_page_uri( array( 'pid' => $this->log_id, 'wpad-gateway' => 'paypal-standard' ) ),
 				'no_shipping'   => '1',
 				'item_name_1'   => $campaign->settings['name'],
 				'quantity_1'    => '1',
@@ -144,7 +144,7 @@ if ( class_exists( 'WPAD_Payment_Gateway' ) ) {
 		 * @since 1.0 
 		 * @return void
 		 */
-		public function listen_ipn() {
+		public function listen_ipn() { 
 			if ( isset( $_GET['wpad-callback'] ) && $_GET['wpad-callback'] == 'notify' && isset( $_GET['wpad-gateway'] ) && $_GET['wpad-gateway'] == 'paypal-standard' ) {
 				$this->process_ipn();	
 				wp_adpress_die();

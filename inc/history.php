@@ -224,14 +224,19 @@ if (!class_exists('wp_adpress_history')) {
             $rows = self::new_history_id();
             for ($i = 1; $i < $rows; $i++) {
                 $history = new wp_adpress_history($i);
-                $user_info = get_userdata($history->ad->user_id);
+if ( $history->ad->user_id == 0 ) {
+					$user_html = 'Guest';
+				} else {
+					$user_info = get_userdata($history->ad->user_id);
+					$user_html = '<a href="user-edit.php?user_id=' . $user_info->ID . '">' . $user_info->user_login . '</a>';
+				}
                 $html .= '<tr class="active">';
                 $html .= '<th scope="row" class="check-column" style="padding: 3px 7px !important;">' . $history->id . '</th>';
                 $html .= '<th scope="row" class="check-column" >' . $history->ad_id . '</th>';
                 $html .= '<td class="plugin-title">' . $history->campaign->settings['name'] . '</td>';
                 $html .= '<td class="plugin-title">' . $history->approved_at . '</td>';
                 $html .= '<td class="plugin-title">' . $history->expired_at . '</td>';
-                $html .= '<td class="plugin-title"><a href="user-edit.php?user_id=' . $user_info->ID . '">' . $user_info->user_login . '</a></td>';
+                $html .= '<td class="plugin-title">' . $user_html . '</td>';
                 $html .= '<td class="plugin-title buttons"><a href="#" class="button-secondary more" id="c' . $history->id . '">' . __('More', 'wp-adpress') . '</a></td>';
                 $html .= '</tr>';
                 $html .= '<tr class="expand c' . $history->id . '">';
