@@ -171,7 +171,7 @@ abstract class WPAD_Payment_Gateway
 	 * @return string The value specified for the option or a default value for the option
 	 */
 	public function get_option( $option_name, $default_value = '' ) {
-		$settings = get_option( 'adpress_gateway_' . self::$settings['id'] . '_settings', array() );
+		$settings = get_option( 'adpress_gateway_' . $this->params['id'] . '_settings', array() );
 
 		if ( isset( $settings[$option_name] ) ) {
 			$option = $settings[$option_name];
