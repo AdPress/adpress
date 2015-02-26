@@ -38,6 +38,21 @@ if (!class_exists('wp_adpress_forms')) {
 		}
 
 		/**
+		 * Renders a Range Element 
+		 * @param string $id Option name
+		 */
+		static function rangebox($param)
+		{
+			$settings = get_option($param[1]);
+			if (isset($settings[$param[0]])) {
+				$val = $settings[$param[0]];
+			} else {
+				$val = '';
+			}
+			echo '<input type="range" name="' . $param[1] . '[' . $param[0] . ']" id="' . $param[0] . '" value="' . $val . '" /> <output for="' . $param[0] . '">20</output>%';
+		}
+
+		/**
 		 * Renders a label
 		 *
 		 * @param string
@@ -113,6 +128,7 @@ if (!class_exists('wp_adpress_forms')) {
 			}
 
 			echo '<ul>';
+		
 			foreach ($gateways as $gateway) {
 				if (array_key_exists($gateway['id'], $active) && $active[$gateway['id']] == 'on') {
 					echo '<li><input type="checkbox" id="'.$gateway['id'].'" name="adpress_gateways_settings[active]['.$gateway['id'].']" checked/> <label for="'.$gateway['id'].'">'. $gateway['short_label'] . '</label></li>';
@@ -282,7 +298,7 @@ if (!class_exists('wp_adpress_forms')) {
 				'flash_ad' => __('Flash Ad', 'wp-adpress'),
 				'history' => __('History', 'wp-adpress'),
 				'import' => __('Import/Export', 'wp-adpress'),
-				'license' => __('License', 'wp-adpress'),
+				//'license' => __('License', 'wp-adpress'),
 			);
 			return apply_filters( 'wp_adpress_admin_settings_tabs', $tabs );
 		}
