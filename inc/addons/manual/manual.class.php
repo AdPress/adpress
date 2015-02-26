@@ -16,13 +16,13 @@ if ( class_exists( 'WPAD_Payment_Gateway' ) ) {
 		 *
 		 * @var array
 		 */
-		public $settings = array(
+		public static $settings = array(
 			'id' => 'manual',
 			'settings_id' => 'manual',
 			'short_label' => 'Manual',
 			'admin_label' => 'Manual Payment',
 			'checkout_label' => 'Manual Payment',
-		);	
+		);
 
 		/**
 		 * Constructor for the gateway.
