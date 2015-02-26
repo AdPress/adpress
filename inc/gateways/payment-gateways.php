@@ -61,7 +61,7 @@ final class WPAD_Payment_Gateways {
 		self::initialize_gateways();
 
 		// Handles Callbacks attached to Gateways		
-		if ( isset( $_REQUEST['payment_gateway'] ) && isset( $_REQUEST['payment_gateway_callback'] ) && self::is_registered( $_REQUEST['payment_gateway'] ) ) {	
+		if ( isset( $_REQUEST['wpad-gateway'] ) && isset( $_REQUEST['wpad-callback'] ) && self::is_registered( $_REQUEST['wpad-gateway'] ) ) {
 			add_action( 'init', array( 'WPAD_Payment_Gateways', 'action_process_callbacks' ) );
 		}
 	}
@@ -118,11 +118,9 @@ final class WPAD_Payment_Gateways {
 	 * @return void
 	 */
 	public static function action_process_callbacks() {
-		$gateway = self::get( $_REQUEST['payment_gateway'] );
-		$function_name = "callback_{$_REQUEST['payment_gateway_callback']}";
+		$gateway = self::get( $_REQUEST['wpad-gateway'] );
+		$function_name = "callback_{$_REQUEST['wpad-callback']}";
 		$callback = array( $gateway, $function_name );
-		var_dump( $gateway );
-		exit;
 		if ( is_callable( $callback ) ) {
 			$gateway->$function_name();
 		}
