@@ -10,15 +10,15 @@ if ( class_exists( 'WPAD_Payment_Gateway' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	class WPAD_Payment_Gateway_PayPal_Standard extends WPAD_Payment_Gateway {
+	class WPAD_Payment_Gateway_Paypal extends WPAD_Payment_Gateway {
 		/**
 		 * Gateway Settings
 		 *
 		 * @var array
 		 */
-		public $settings = array(
-			'id' => 'paypal_standard',
-			'settings_id' => 'paypal_standard',
+		public static $settings = array(
+			'id' => 'paypal',
+			'settings_id' => 'paypal',
 			'short_label' => 'PayPal Standard',
 			'admin_label' => 'PayPal Standard',
 			'checkout_label' => 'PayPal Standard',
@@ -47,10 +47,10 @@ if ( class_exists( 'WPAD_Payment_Gateway' ) ) {
 		 * @since 1.0.0
 		 */
 		public function setup_settings_form() {
-			register_setting('adpress_gateway_paypal_standard_settings', 'adpress_gateway_paypal_standard_settings', 'wp_adpress_forms::validate');
-			add_settings_section('gateway_paypal_standard_general_section', 'PayPal Settings', 'wp_adpress_forms::description', 'adpress_gateway_paypal_standard_form_general');		
-			add_settings_field('email', 'PayPal Email', 'wp_adpress_forms::textbox', 'adpress_gateway_paypal_standard_form_general', 'gateway_paypal_standard_general_section', array('email', 'adpress_gateway_paypal_standard_settings')); 
-			add_settings_field('ipn', 'Disable IPN', 'wp_adpress_forms::checkbox', 'adpress_gateway_paypal_standard_form_general', 'gateway_paypal_standard_general_section', array('ipn', 'adpress_gateway_paypal_standard_settings'));
+			register_setting('adpress_gateway_paypal_settings', 'adpress_gateway_paypal_settings', 'wp_adpress_forms::validate');
+			add_settings_section('gateway_paypal_general_section', 'PayPal Settings', 'wp_adpress_forms::description', 'adpress_gateway_paypal_form_general');		
+			add_settings_field('email', 'PayPal Email', 'wp_adpress_forms::textbox', 'adpress_gateway_paypal_form_general', 'gateway_paypal_general_section', array('email', 'adpress_gateway_paypal_settings')); 
+			add_settings_field('ipn', 'Disable IPN', 'wp_adpress_forms::checkbox', 'adpress_gateway_paypal_form_general', 'gateway_paypal_general_section', array('ipn', 'adpress_gateway_paypal_settings'));
 		}
 
 		/**
@@ -83,7 +83,7 @@ if ( class_exists( 'WPAD_Payment_Gateway' ) ) {
 				'custom'        => $this->log_id,
 			);
 
-			$args = apply_filters( 'wp_adpress_paypal_standard_args', $args );
+			$args = apply_filters( 'wp_adpress_paypal_args', $args );
 
 			return $args;
 		}

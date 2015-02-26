@@ -28,11 +28,18 @@ function wp_adpress_get_payment_gateways() {
 	 *  'admin_label' => __( 'Manual Payment', 'wp-adpress' ),
 	 *  'checkout_label' => __( 'Manual Payment', 'wp-adpress' ),
 	 * );
-	 */
+	 */	
+	$g_data = array();
+	$gateways = apply_filters( 'wpad_payment_gateways', array() );
+	
+	foreach( $gateways as $gateway_id ) {
+		if ( $gateway_id ) {
+			$gateway = 'WPAD_Payment_Gateway_' . ucfirst( $gateway_id );
+			$g_data[$gateway_id] = $gateway::$settings;	
+		}
+	}
 
-	$gateways = array();
-
-	return apply_filters( 'wpad_payment_gateways', $gateways );
+	return $g_data;
 }
 
 /**

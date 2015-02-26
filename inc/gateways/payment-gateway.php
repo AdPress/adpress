@@ -23,7 +23,9 @@ abstract class WPAD_Payment_Gateway
 	 * @access public
 	 * @var string
 	 */
-	public $settings;
+	public static $settings;
+
+	public $params;
 
 	/**
  	 * Purchase Log entry ID
@@ -64,18 +66,14 @@ abstract class WPAD_Payment_Gateway
 	 * @access public
 	 * @return WPAD_Payment_Gateway
 	 */
-	public function __construct() {
-		// Register Gateway		
-		add_filter( 'wpad_payment_gateways', array( &$this, 'register_gateway' ) );
+	public function __construct() {	
+
+		// because php is weird
+		$gateway_class = get_class( $this );
+		$this->params = $gateway_class::$settings;	
 
 		// Register Gateway settings
 		add_action( 'admin_init', array( &$this, 'setup_settings_form' ) ); 
-	}
-
-	public function register_gateway( $gateways ) {
-		$gateways[$this->settings['id']] = $this->settings;
-
-		return $gateways;
 	}
 
 	/**
@@ -91,11 +89,11 @@ abstract class WPAD_Payment_Gateway
 	public function setup_form() {
 ?>
 <form action="options.php" method="POST">
-<?php settings_fields('adpress_gateway_' . $this->settings['id'] . '_settings'); ?>
+<?php settings_fields('adpress_gateway_' . $this->params['id'] . '_settings'); ?>
 
 			<div class="c-block" style="width: 650px;">
 				<div class="c-head">
-					<?php do_settings_sections('adpress_gateway_' . $this->settings['id'] . '_form_general'); ?>
+					<?php do_settings_sections('adpress_gateway_' . $this->params['id'] . '_form_general'); ?>
 				</div>
 							 <p class="submit">
 								<input name="Submit" type="submit" class="button-primary"
@@ -130,7 +128,7 @@ abstract class WPAD_Payment_Gateway
 			'ad' => $ad_details,
 			'ad_id' => NULL,
 			'user_info' => array( 'first_name' => $user_details['user_info']['first_name'], 'last_name' => $user_details['user_info']['last_name'], 'id' => $user_details['user_info']['id'] ),
-			'gateway' => $this->settings['id'],
+			'gateway' => $this->params['id'],
 		);
 
 		$this->log_id = wp_adpress_insert_payment( $payment_data );
@@ -173,7 +171,7 @@ abstract class WPAD_Payment_Gateway
 	 * @return string The value specified for the option or a default value for the option
 	 */
 	public function get_option( $option_name, $default_value = '' ) {
-		$settings = get_option( 'adpress_gateway_' . $this->settings['id'] . '_settings', array() );
+		$settings = get_option( 'adpress_gateway_' . self::$settings['id'] . '_settings', array() );
 
 		if ( isset( $settings[$option_name] ) ) {
 			$option = $settings[$option_name];
