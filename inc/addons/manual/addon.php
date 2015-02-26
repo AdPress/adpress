@@ -31,8 +31,17 @@ function wpad_manual_register_addon($addons) {
 	return $addons;
 }
 
+
+// Register the Gateway
+add_action( 'plugins_loaded', 'wpad_manual_register_gateway_fn', 100 );
+function wpad_manual_register_gateway_fn() {	
+	add_filter( 'wpad_payment_gateways', 'wpad_manual_register_gateway' );	
+}
+
+function wpad_manual_register_gateway( $gateways ) {
+	$gateways[] = 'manual';
+	return $gateways;	
+}
+
 // Load the Gateway Class
 require_once( 'manual.class.php' );
-
-// Initialize the Gateway
-WPAD_Payment_Gateways::init_gateway( 'manual', 'WPAD_Payment_Gateway_Manual' );

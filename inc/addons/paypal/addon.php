@@ -32,8 +32,16 @@ function paypal_register_addon( $addons )
 	return $addons;
 }
 
+// Register the Gateway
+add_action( 'plugins_loaded', 'wpad_paypal_register_gateway_fn', 100 );
+function wpad_paypal_register_gateway_fn() {	
+	add_filter( 'wpad_payment_gateways', 'wpad_paypal_register_gateway' );	
+}
+
+function wpad_paypal_register_gateway( $gateways ) {
+	$gateways[] = 'paypal';
+	return $gateways;	
+}
+
 // Load the Gateway Class
 require_once( 'paypal.class.php' );
-
-// Initialize the Gateway
-WPAD_Payment_Gateways::init_gateway( 'paypal_standard', 'WPAD_Payment_Gateway_PayPal_Standard' );
