@@ -109,6 +109,9 @@ if (!class_exists('wp_adpress_install')) {
 .image-campaign
 {
 	list-style: none;
+	display: flex;
+	flex-flow: row wrap;
+	margin: 0 auto;
 }
 .image-campaign li
 {

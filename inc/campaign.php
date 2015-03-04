@@ -569,12 +569,12 @@ if (!class_exists('wp_adpress_campaign')) {
             $html = '';
             switch ($this->ad_definition['type']) {
                 case 'image':
-                    $width = $this->ad_definition['columns'] * ($this->ad_definition['size']['width'] * 1.1);
-                    $html .= '<ul id="campaign-' . $this->id . '" class="image-campaign ' . get_style_el($style, 'list_class') . '" style="width:' . $width . 'px;">';
+                    $width = $this->ad_definition['columns'] * ($this->ad_definition['size']['width'] + 15);
+                    $html .= '<ul id="campaign-' . $this->id . '" class="image-campaign ' . get_style_el($style, 'list_class') . '" style="max-width:' . $width . 'px;">';
                     break;
                 case 'flash':
-                    $width = $this->ad_definition['columns'] * ($this->ad_definition['size']['width'] * 1.1);
-                    $html .= '<ul id="campaign-' . $this->id . '" class="flash-campaign ' . get_style_el($style, 'list_class') . '" style="width:' . $width . 'px;">';
+                    $width = $this->ad_definition['columns'] * ($this->ad_definition['size']['width'] + 15);
+                    $html .= '<ul id="campaign-' . $this->id . '" class="flash-campaign ' . get_style_el($style, 'list_class') . '" style="max-width:' . $width . 'px;">';
                     break;
                 case 'link':
                     $html .= '<ul id="campaign-' . $this->id . '" class="link-campaign ' . get_style_el($style, 'list_class') . '">';
