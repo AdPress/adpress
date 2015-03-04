@@ -233,6 +233,10 @@ if ( ! class_exists( 'wp_adpress' ) ) {
 			require_once( 'inc/gateways/actions.php' );
 			require_once( 'inc/gateways/payment-gateways.php' );
 			require_once( 'inc/gateways/payment-gateway.php' );
+			require_once( 'inc/gateways/php-merchant/gateways/paypal.php' );
+			require_once( 'inc/gateways/php-merchant/gateways/paypal-express-checkout.php' );
+			require_once( 'inc/gateways/php-merchant/gateways/paypal-digital-goods.php' );
+			require_once( 'inc/gateways/php-merchant/gateways/paypal-pro.php' );
 
 			/*
 			 * Required Add-ons
