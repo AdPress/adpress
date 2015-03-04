@@ -229,7 +229,7 @@ apply_filters('adpress_campaigns_btns', '', $campaign->id)
         private function php_code($id)
         {
             $html = '&lt;?php <br />
-            <span class="push_1"><span class="if">if</span> (function_exists(display_campaign)) {</span>
+            <span class="push_1"><span class="if">if</span> (function_exists("display_campaign")) {</span>
             <br />
             <span class="push_2">display_campaign(<span class="number">'.$id.'</span>);</span>
             <br />
@@ -247,5 +247,3 @@ apply_filters('adpress_campaigns_btns', '', $campaign->id)
 
     }
 }
-
-
