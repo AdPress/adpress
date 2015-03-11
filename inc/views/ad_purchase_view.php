@@ -25,7 +25,7 @@ if (!class_exists('wp_adpress_adpurchase')) {
 				$this->html = '
 					<div id="adpress" class="wrap" style="width:600px">
 					<div id="adpress-icon-purchase" class="icon32"><br></div>
-					<h2>Purchase Ad</h2>
+					<h2>' . __( 'Purchase Ad', 'wp-adpress' ) .'</h2>
 					<div class="c-block">
 					<div class="c-head">
 					<h3>' . __('No Ads available', 'wp-adpress') . '</h3>
@@ -51,23 +51,7 @@ if (!class_exists('wp_adpress_adpurchase')) {
 		}
 
 		private function render_html()
-		{
-		/*	
-			$this->html = '
-				<div class="wrap" id="adpress" style="width:600px;">
-				<div id="adpress-icon-purchase" class="icon32"><br></div><h2>Purchase Ad</h2>
-				<form method="post" id="purchase-form">
-				' . $this->render_ad_details() . $this->render_form() . $this->render_client_message() . '
-				<p class="submit">
-				<input type="hidden" name="destination_val" id="destination_val" value=""/>
-				<input type="hidden" name="cid" id="cid" value="' . $this->campaign->id . '"/>
-				<input type="hidden" name="price" id="price" value="' . $this->campaign->ad_definition['price'] . '" />
-				' . $this->render_purchase_button() . '
-				</p>
-				</form>
-				</div>';
-		 */
-
+		{	
 				$this->html = wp_adpress_checkout_form( $this->cid );
 		}
 

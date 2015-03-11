@@ -19,8 +19,8 @@ if ( class_exists( 'WPAD_Payment_Gateway' ) ) {
 		public static $settings = array(
 			'id' => 'paypal',
 			'settings_id' => 'paypal',
-			'short_label' => 'PayPal Standard',
-			'admin_label' => 'PayPal Standard',
+			'short_label' => 'PayPal Standard', 
+			'admin_label' => 'PayPal Standard', 
 			'checkout_label' => 'PayPal Standard',
 		);
 
@@ -36,6 +36,9 @@ if ( class_exists( 'WPAD_Payment_Gateway' ) ) {
 		 */
 		public function __construct() {
 			parent::__construct(); 
+			self::$settings['short_label'] = __( 'PayPal Standard', 'wp-adpress' );
+			self::$settings['admin_label'] = __( 'PayPal Standard', 'wp-adpress' );
+			self::$settings['checkout_label'] = __( 'PayPal Standard', 'wp-adpress' );
 
             add_action( 'wp_loaded', array( &$this, 'listen_ipn' ) );  
 		}
@@ -49,8 +52,8 @@ if ( class_exists( 'WPAD_Payment_Gateway' ) ) {
 		public function setup_settings_form() {
 			register_setting('adpress_gateway_paypal_settings', 'adpress_gateway_paypal_settings', 'wp_adpress_forms::validate');
 			add_settings_section('gateway_paypal_general_section', 'PayPal Settings', 'wp_adpress_forms::description', 'adpress_gateway_paypal_form_general');		
-			add_settings_field('email', 'PayPal Email', 'wp_adpress_forms::textbox', 'adpress_gateway_paypal_form_general', 'gateway_paypal_general_section', array('email', 'adpress_gateway_paypal_settings')); 
-			add_settings_field('ipn', 'Disable IPN', 'wp_adpress_forms::checkbox', 'adpress_gateway_paypal_form_general', 'gateway_paypal_general_section', array('ipn', 'adpress_gateway_paypal_settings'));
+			add_settings_field('email', __( 'PayPal Email', 'wp-adpress' ), 'wp_adpress_forms::textbox', 'adpress_gateway_paypal_form_general', 'gateway_paypal_general_section', array('email', 'adpress_gateway_paypal_settings')); 
+			add_settings_field('ipn', __( 'Disable IPN', 'wp-adpress' ), 'wp_adpress_forms::checkbox', 'adpress_gateway_paypal_form_general', 'gateway_paypal_general_section', array('ipn', 'adpress_gateway_paypal_settings'));
 		}
 
 		/**

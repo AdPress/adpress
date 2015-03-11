@@ -20,7 +20,7 @@ function paypal_register_addon( $addons )
 {
 	$addon = array(
 		'id' => 'paypal',
-		'title' => 'PayPal',
+		'title' => __( 'PayPal', 'wp-adpress' ),
 		'description' => __( 'PayPal', 'wp-adpress' ),
 		'author' => 'Abid Omar',
 		'version' => '1.0',

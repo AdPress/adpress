@@ -32,12 +32,15 @@ if ( class_exists( 'WPAD_Payment_Gateway' ) ) {
 		 */
 		public function __construct() {
 			parent::__construct();
+			self::$settings['short_label'] = __( 'Manual', 'wp-adpress' );
+			self::$settings['admin_label'] = __( 'Manual Payment', 'wp-adpress' );
+			self::$settings['checkout_label'] = __( 'Manual Payment', 'wp-adpress' );
 		}
 
 		public function setup_settings_form() {
 			register_setting('adpress_gateway_manual_settings', 'adpress_gateway_manual_settings', 'wp_adpress_forms::validate');
-			add_settings_section('gateway_manual_general_section', 'Manual Settings', 'wp_adpress_forms::description', 'adpress_gateway_manual_form_general');	 
-			add_settings_field('label', 'No Settings Required', 'wp_adpress_forms::label', 'adpress_gateway_manual_form_general', 'gateway_manual_general_section');
+			add_settings_section('gateway_manual_general_section', 'Manual Settings', 'wp_adpress_forms::description', 'adpress_gateway_manual_form_general');
+			add_settings_field('label', __( 'No Settings Required', 'wp-adpress' ), 'wp_adpress_forms::label', 'adpress_gateway_manual_form_general', 'gateway_manual_general_section');
 		}	
 
 		public function process() {

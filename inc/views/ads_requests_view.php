@@ -111,7 +111,7 @@ No Requests
 
 						</td>
 						<td></td><td></td>
-						<td class="buttons">Are you sure? ' . $this->approve_button($ad->id) . '
+						<td class="buttons">' . __( 'Are you sure? ', 'wp-adpress' ) . $this->approve_button($ad->id) . '
 						<a href="#" class="button-secondary less" id="ac' . $ad->id . '" class="button-secondary">' . __('No', 'wp-adpress') . '</a></td>
 					</tr>
 					<tr class="expand rc' . $ad->id . '">
@@ -120,7 +120,7 @@ No Requests
 
 						</td>
 						<td></td><td></td>
-						<td class="buttons">Are you sure? ' . $this->reject_button($ad->id) . '
+						<td class="buttons">' . __( 'Are you sure? ', 'wp-adpress' ) . $this->reject_button($ad->id) . '
 						<a href="#" class="button-secondary less" id="rc' . $ad->id . '" class="button-secondary">' . __('No', 'wp-adpress') . '</a></td>
 						</tr>';
 			}
@@ -270,7 +270,6 @@ No Ads Running
 				<tr class="expand c' . $ad->id . '">
 						<th></th>
 						<td>' . wp_adpress_ads_requests::more_info($ad, $campaign) . '</td>
-						<td>' . wp_adpress_ads_requests::transaction_info($ad) . '</td>
 							<td></td>
 						<td></td>
 				</tr>
