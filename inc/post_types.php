@@ -39,7 +39,7 @@ function wp_adpress_payment_post_type() {
 	// Post Type args
 	$payment_args = array(
 		'labels' 			=> apply_filters( 'wp_adpress_payment_labels', $payment_labels ),
-		'public' 			=> true,
+		'public' 			=> defined( 'WP_DEBUG' ) && WP_DEBUG,
 		'query_var' 		=> true,
 		'rewrite' 			=> true,
 		'map_meta_cap'      => true,
