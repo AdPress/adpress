@@ -222,7 +222,7 @@ class PHP_Merchant_Paypal_Express_Checkout extends PHP_Merchant_Paypal {
 		}
 
 		// BN Code
-		$request['BUTTONSOURCE'] = 'WPECOM_ECM';
+		$request['BUTTONSOURCE'] = 'WPADPRESS';	
 
 		return $request;
 	}
