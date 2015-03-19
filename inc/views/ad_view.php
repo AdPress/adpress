@@ -136,7 +136,7 @@ if (!class_exists('wp_adpress_adview')) {
         <ul>
             <li><strong>' . __('Views', 'wp-adpress') . '</strong> ' . $this->ad->avg('views') . '</li>
             <li><strong>' . __('Clicks', 'wp-adpress') . '</strong> ' . $this->ad->avg('hits') . '</li>
-            <li><strong>' . __('CTR', 'wp-adpress') . '</strong> ' . $this->ad->avg('ctr') . '</li>
+            <li><strong>' . __('CTR', 'wp-adpress') . '</strong> ' . $this->c_avg( $this->ad->total_hits(),$this->ad->total_views() ) . '</li>
         </ul>
     </div>
     <div style="clear:both"></div>
@@ -172,7 +172,7 @@ if (!class_exists('wp_adpress_adview')) {
             }
             $html .= '</tbody>';
             $html .= '<thead>';
-            $html .= '<tr><th>Total</th><th>' . $this->ad->total_views() . '</th><th>' . $this->ad->total_hits() . '</th><th>' . $this->ad->avg('ctr') . '</th></tr>';
+            $html .= '<tr><th>Total</th><th>' . $this->ad->total_views() . '</th><th>' . $this->ad->total_hits() . '</th><th>' . $this->c_avg( $this->ad->total_hits(),$this->ad->total_views() ) . '</th></tr>';
             $html .= '</thead>';
             $html .= '</table>';
             return $html;
