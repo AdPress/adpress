@@ -270,6 +270,13 @@ if (!class_exists('wp_adpress_ad')) {
          */
         public function record_view()
         {
+			/*
+			 * Check for Bots
+			 */
+			if(!empty($_SERVER['HTTP_USER_AGENT']) and preg_match('~(bot|crawl|slurp|spider|archiver|facebook|curl)~i', $_SERVER['HTTP_USER_AGENT'])){
+				return;
+			}
+
             /*
              * Record the view
              */
@@ -295,6 +302,13 @@ if (!class_exists('wp_adpress_ad')) {
          */
         public function record_hit()
         {
+			/*
+			 * Check for Bots
+			 */
+			if(!empty($_SERVER['HTTP_USER_AGENT']) and preg_match('~(bot|crawl|slurp|spider|archiver|facebook|curl)~i', $_SERVER['HTTP_USER_AGENT'])){
+				return;
+			}
+
             /*
              * Record the hit
              */
