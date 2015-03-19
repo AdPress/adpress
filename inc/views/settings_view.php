@@ -106,7 +106,7 @@ if (!class_exists('wp_adpress_settings')) {
 
 							<p class="submit">
 								<input name="Submit" type="submit" class="button-primary"
-									   value="<?php esc_attr_e('Save Changes'); ?>"/>
+									   value="<?php esc_attr_e( 'Save Changes', 'wp-adpress' ); ?>"/>
 							</p>
 		</form>
 <?php
@@ -126,7 +126,7 @@ if (!class_exists('wp_adpress_settings')) {
 				</div>
 							 <p class="submit">
 								<input name="Submit" type="submit" class="button-primary"
-									   value="<?php esc_attr_e('Save Changes'); ?>"/>
+									   value="<?php esc_attr_e( 'Save Changes', 'wp-adpress' ); ?>"/>
 							</p>
 </form>
 <?php
@@ -157,7 +157,7 @@ if (!class_exists('wp_adpress_settings')) {
 
 				<p class="submit">
 					<input name="Submit" type="submit" class="button-primary"
-						   value="<?php esc_attr_e('Save Changes'); ?>"/>
+						   value="<?php esc_attr_e( 'Save Changes', 'wp-adpress' ); ?>"/>
 				</p>
 		</form>
 <?php
@@ -180,7 +180,7 @@ if (!class_exists('wp_adpress_settings')) {
 
 				<p class="submit">
 					<input name="Submit" type="submit" class="button-primary"
-						   value="<?php esc_attr_e('Save Changes'); ?>"/>
+						   value="<?php esc_attr_e( 'Save Changes', 'wp-adpress' ); ?>"/>
 				</p>
 		</form>
 <?php
@@ -203,7 +203,7 @@ if (!class_exists('wp_adpress_settings')) {
 
 				<p class="submit">
 					<input name="Submit" type="submit" class="button-primary"
-						   value="<?php esc_attr_e('Save Changes'); ?>"/>
+						   value="<?php esc_attr_e( 'Save Changes', 'wp-adpress' ); ?>"/>
 				</p>
 		</form>
 <?php
@@ -239,7 +239,7 @@ if (!class_exists('wp_adpress_settings')) {
 
 				<p class="submit">
 					<input name="Submit" type="submit" class="button-primary"
-						   value="<?php esc_attr_e('Save Changes'); ?>"/>
+						   value="<?php esc_attr_e( 'Save Changes', 'wp-adpress' ); ?>"/>
 				</p>
 		</form>
 <?php

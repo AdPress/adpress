@@ -97,7 +97,7 @@ abstract class WPAD_Payment_Gateway
 				</div>
 							 <p class="submit">
 								<input name="Submit" type="submit" class="button-primary"
-									   value="<?php esc_attr_e('Save Changes'); ?>"/>
+									   value="<?php esc_attr_e( 'Save Changes', 'wp-adpress' ); ?>"/>
 							</p>
 </form>
 <?php

@@ -437,7 +437,7 @@ if (!class_exists('wp_adpress_ad')) {
                     wp_adpress::display_notice(__('Refund issued', 'wp-adpress'), '<p>' . __('A refund was issued', 'wp-adpress') . '</p>', 'adpress-icon-flag');
                     return true;
                 } else {
-                    wp_adpress::display_notice(__('Error issuing refund', 'wp-adpress'), '<p>' . __('There was an error while trying to issue the refund. Please Contact the Administrator to issue the refund manually.' . 'wp-adpress') . '</p>', 'adpress-icon-flag');
+                    wp_adpress::display_notice(__('Error issuing refund', 'wp-adpress'), '<p>' . __('There was an error while trying to issue the refund. Please Contact the Administrator to issue the refund manually.', 'wp-adpress') . '</p>', 'adpress-icon-flag');
                     return false;
                 }
             }

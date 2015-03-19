@@ -23,7 +23,7 @@ if (!class_exists('wp_adpress_available')) {
             if ($mu) {
                 $this->mu = true;
             }
-			$this->$view = '<p class="info">' . __( 'No active Campaigns', 'wp-adpress' ) . '</p>';
+			$this->view = '<p class="info">' . __( 'No active Campaigns', 'wp-adpress' ) . '</p>';
             $this->campaigns = wp_adpress_campaigns::list_campaigns('active');
             $this->count = count($this->campaigns);
             if ($this->count > 0) {

@@ -200,8 +200,8 @@ if (!class_exists('wp_adpress_install')) {
             /*
             * Set the Default Settings
             */
-            self::$defaults['client_role'] = __('administrator');
-            self::$defaults['client_transfer_role'] = __('administrator');
+            self::$defaults['client_role'] = __( 'administrator', 'wp-adpress' );
+            self::$defaults['client_transfer_role'] = __( 'administrator', 'wp-adpress' );
             update_option('adpress_settings', self::$defaults);
             update_option('adpress_image_settings', self::$img_defaults);
             update_option('adpress_flash_settings', self::$flash_defaults);

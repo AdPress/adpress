@@ -475,7 +475,7 @@ if (!class_exists('wp_adpress_admin')) {
             // Root Menu
             $wp_admin_bar->add_menu(array(
                 'id' => 'adpress_bar',
-                'title' => __('AdPress' . $waiting),
+                'title' => __('AdPress' . $waiting, 'wp-adpress' ),
                 'href' => 'admin.php?page=adpress-adsrequests',
                 'meta' => array('html' => '')
             ));
@@ -483,28 +483,28 @@ if (!class_exists('wp_adpress_admin')) {
             $wp_admin_bar->add_menu(array(
                 'parent' => 'adpress_bar',
                 'id' => 'adpress_new_requests',
-                'title' => __('New Requests ' . $waiting),
+                'title' => __('New Requests ' . $waiting, 'wp-adpress' ),
                 'href' => 'admin.php?page=adpress-adsrequests'
             ));
             // Add Campaign Menu
             $wp_admin_bar->add_menu(array(
                 'parent' => 'adpress_bar',
                 'id' => 'adpress_new_campaign',
-                'title' => __('New Campaign'),
+                'title' => __('New Campaign', 'wp-adpress' ),
                 'href' => 'admin.php?page=adpress-addcampaign'
             ));
             // Campaigns Menu
             $wp_admin_bar->add_menu(array(
                 'parent' => 'adpress_bar',
                 'id' => 'adpress_campaigns',
-                'title' => __('Campaigns'),
+                'title' => __('Campaigns', 'wp-adpress' ),
                 'href' => 'admin.php?page=adpress-campaigns'
             ));
             // Settings Menu
             $wp_admin_bar->add_menu(array(
                 'parent' => 'adpress_bar',
                 'id' => 'adpress_settings',
-                'title' => __('Settings'),
+                'title' => __('Settings', 'wp-adpress' ),
                 'href' => 'admin.php?page=adpress-settings'
             ));
         }

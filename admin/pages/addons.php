@@ -43,10 +43,10 @@ class wp_adpress_addons_table extends WP_List_Table {
 
 	function get_columns() {
 		return $columns= array(
-			'col_name'=>__('Name', 'wp-pal'),
-			'col_description'=>__('Description', 'wp-pal'),
-			'col_version'=>__('Version', 'wp-pal'),
-			'col_author' => __('Author', 'wp-pal'),
+			'col_name'=>__('Name', 'wp-adpress'),
+			'col_description'=>__('Description', 'wp-adpress'),
+			'col_version'=>__('Version', 'wp-adpress'),
+			'col_author' => __('Author', 'wp-adpress'),
 		);
 	}
 

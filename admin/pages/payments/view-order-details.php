@@ -69,14 +69,14 @@ if (!$user_info) {
 										<div class="admin-box-inside">
 											<p>
 												<span class="label"><?php _e( 'Date:', 'wp-adpress' ); ?></span>
-												<span class="value"><?php esc_attr_e( date( 'm/d/Y', $payment_date ) ); ?></span>
+												<span class="value"><?php echo esc_attr( date( 'm/d/Y', $payment_date ) ); ?></span>
 											</p>
 										</div>
 	
 										<div class="admin-box-inside">
 											<p>
 												<span class="label"><?php _e( 'Time:', 'wp-adpress' ); ?></span>
-												<span class="value"><?php esc_attr_e( date_i18n( 'H', $payment_date ) ); ?> : <?php esc_attr_e( date( 'i', $payment_date ) ); ?></span>
+												<span class="value"><?php echo esc_attr( date_i18n( 'H', $payment_date ) ); ?> : <?php esc_attr( date( 'i', $payment_date ) ); ?></span>
 											</p>
 										</div>
 	
@@ -103,15 +103,15 @@ if (!$user_info) {
 									<div class="column-container">
 										<div class="column">
 											<strong><?php _e( 'Name:', 'wp-adpress' ); ?></strong>
-											<span class="value"><?php esc_attr_e( $user_info['first_name'] . ' ' . $user_info['last_name'] ); ?></span>
+											<span class="value"><?php echo esc_attr( $user_info['first_name'] . ' ' . $user_info['last_name'] ); ?></span>
 										</div>
 										<div class="column">
 											<strong><?php _e( 'Email:', 'wp-adpress' ); ?></strong>
-											<span class="value"><?php esc_attr_e( get_post_meta( $payment_id, 'wpad_payment_user_email', true ) ); ?></span>
+											<span class="value"><?php echo esc_attr( get_post_meta( $payment_id, 'wpad_payment_user_email', true ) ); ?></span>
 										</div>
 										<div class="column">
 											<strong><?php _e( 'User ID:', 'wp-adpress' ); ?></strong>
-											<span class="value"><?php esc_attr_e( wp_adpress_get_payment_user_id( $payment_id ) ); ?></span>
+											<span class="value"><?php echo esc_attr( wp_adpress_get_payment_user_id( $payment_id ) ); ?></span>
 										</div>
 										<div class="column-clear">
 										</div>
@@ -129,7 +129,7 @@ if (!$user_info) {
 									<div class="column-container">
 										<div class="column">
 											<strong><?php _e( 'Ad ID:', 'wp-adpress' ); ?></strong>
-											<span class="value"><?php esc_attr_e( get_post_meta( $payment_id, 'wpad_payment_ad_id', true ) ); ?></span>
+											<span class="value"><?php echo esc_attr( get_post_meta( $payment_id, 'wpad_payment_ad_id', true ) ); ?></span>
 										</div>
 										<div class="column-clear">
 										</div>
@@ -148,19 +148,19 @@ if (!$user_info) {
 									<div class="column-container">	
 										<div class="column">
 											<strong><?php _e( 'Price:', 'wp-adpress' ); ?></strong>
-											<span class="value"><?php esc_attr_e( get_post_meta( $payment_id, 'wpad_payment_total', true ) ); ?></span>
+											<span class="value"><?php echo esc_attr( get_post_meta( $payment_id, 'wpad_payment_total', true ) ); ?></span>
 										</div>
 										<div class="column">
 											<strong><?php _e( 'Purchase Key:', 'wp-adpress' ); ?></strong>
-											<span class="value"><?php esc_attr_e( get_post_meta( $payment_id, 'wpad_payment_purchase_key', true ) ); ?></span>
+											<span class="value"><?php echo esc_attr( get_post_meta( $payment_id, 'wpad_payment_purchase_key', true ) ); ?></span>
 										</div>
 										<div class="column">
 											<strong><?php _e( 'Gateway:', 'wp-adpress' ); ?></strong>
-											<span class="value"><?php esc_attr_e( wp_adpress_get_gateway_label ( get_post_meta( $payment_id, 'wpad_payment_gateway', true ) ) ); ?></span>
+											<span class="value"><?php echo esc_attr( wp_adpress_get_gateway_label ( get_post_meta( $payment_id, 'wpad_payment_gateway', true ) ) ); ?></span>
 										</div>
 										<div class="column">
 											<strong><?php _e( 'Mode:', 'wp-adpress' ); ?></strong>
-											<span class="value"><?php esc_attr_e( wp_adpress_get_mode_label( get_post_meta( $payment_id, 'wpad_payment_mode', true ) ) ); ?></span>
+											<span class="value"><?php echo esc_attr( wp_adpress_get_mode_label( get_post_meta( $payment_id, 'wpad_payment_mode', true ) ) ); ?></span>
 										</div>
 										<div class="column-clear">
 										</div>

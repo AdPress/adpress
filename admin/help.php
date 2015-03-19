@@ -82,7 +82,7 @@ if (method_exists($current_screen, 'add_help_tab')) {
 		$current_screen->add_help_tab(array(
 			'id' => 'adpress_adsrequests_page_tab1',
 			'title' => __('Ads Requests', 'wp-adpress'),
-			'content' => '<p>' . __('The first part of the page displays the pending Ad Requests. When a buyer purchase an Ad, and you are not allowing automatic approval, the Ad must be approved from this Dashboard to get running. The panel displays the following information') . '</p>' .
+			'content' => '<p>' . __('The first part of the page displays the pending Ad Requests. When a buyer purchase an Ad, and you are not allowing automatic approval, the Ad must be approved from this Dashboard to get running. The panel displays the following information', 'wp-adpress' ) . '</p>' .
 			'<li>' . __('<strong>Id</strong> Each Ad has a unique number in the whole system.', 'wp-adpress') . '</li>' .
 			'<li>' . __('<strong>Campaign</strong> The Campaign name the Ad belongs to', 'wp-adpress') . '</li>' .
 			'<li>' . __('<strong>Client</strong> The user that purchased the Ad', 'wp-adpress') . '</li>' .
@@ -153,7 +153,7 @@ if (method_exists($current_screen, 'add_help_tab')) {
 		case 'image_ad':
 			$current_screen->add_help_tab(array(
 				'id' => 'image_help_tab1',
-				'title' => __('Image Ad'),
+				'title' => __('Image Ad', 'wp-adpress' ),
 				'content' => '<h2>' . __('Image Ad', 'wp-adpress') . '</h2>' .
 				'<p>' . __('You can customize fully how you ads look like. For example, you can add a border to your images Ads. You can also change or add some text or HTML code.', 'wp-adpress') . '</p>'
 			));
@@ -175,7 +175,7 @@ if (method_exists($current_screen, 'add_help_tab')) {
 		case 'link_ad':
 			$current_screen->add_help_tab(array(
 				'id' => 'image_help_tab1',
-				'title' => __('Link Ad'),
+				'title' => __('Link Ad', 'wp-adpress' ),
 				'content' => '<h2>' . __('Link Ad', 'wp-adpress') . '</h2>' .
 				'<p>' . __('You can customize fully how you link ads look like. For example, you can change how your Ads links look like (color, font...). You can also change or add some text or HTML code.', 'wp-adpress') . '</p>'
 			));
@@ -197,7 +197,7 @@ if (method_exists($current_screen, 'add_help_tab')) {
 		case 'history':
 			$current_screen->add_help_tab(array(
 				'id' => 'history_help_tab',
-				'title' => __('Purchase History'),
+				'title' => __('Purchase History', 'wp-adpress' ),
 				'content' => '<h2>' . __('Purchase History', 'wp-adpress') . '</h2>' .
 				'<p>' . __('You find here the history of all Ad purchases and requests. Each Ad request, purchase and expiration (also rejection or cancelation) is recorded. You can clear the History from the General Settings Panel.', 'wp-adpress') . '</p>',
 				));
@@ -205,7 +205,7 @@ if (method_exists($current_screen, 'add_help_tab')) {
 		case 'import':
 			$current_screen->add_help_tab(array(
 				'id' => 'history_help_export',
-				'title' => __('Export'),
+				'title' => __('Export', 'wp-adpress' ),
 				'content' => '<h2>' . __('Export', 'wp-adpress') . '</h2>' .
 				'<p>' . __('Use this option to export your settings and data to a back-up file. After clicking the "Export" button, a message will appear and asks you to download the back-up file. Download this file and store it in a safe location.', 'wp-adpress') . '</p>' .
 				'<ul>' .
@@ -216,7 +216,7 @@ if (method_exists($current_screen, 'add_help_tab')) {
 			));
 			$current_screen->add_help_tab(array(
 				'id' => 'history_help_import',
-				'title' => __('Import'),
+				'title' => __('Import', 'wp-adpress' ),
 				'content' => '<h2>' . __('Import', 'wp-adpress') . '</h2>' .
 				'<h3>' . __('Warning', 'wp-adpress') . '</h3>' .
 				'<p>' . __('This function will erase all your current data. It doesn\'t do a merge. Your settings, campaign or history data will be fully replaced. Make sure you do a back-up of your current configuration and data before doing an import.', 'wp-adpress') . '</p>' .
@@ -228,7 +228,7 @@ if (method_exists($current_screen, 'add_help_tab')) {
 			));
 			$current_screen->add_help_tab(array(
 				'id' => 'history_help_reset',
-				'title' => __('Reset Plug-in'),
+				'title' => __('Reset Plug-in', 'wp-adpress' ),
 				'content' => '<h2>' . __('Reset the plug-in', 'wp-adpress') . '</h2>' .
 				'<p>' . __('You may find it useful to reset your plug-in settings. You can pick which elements to reset and others to preserve.', 'wp-adpress') . '</p>' .
 				'<ul>' .
@@ -277,7 +277,7 @@ if (method_exists($current_screen, 'add_help_tab')) {
 			'id' => 'adpress_purchase_page_tab2',
 			'title' => __('Image Ad', 'wp-adpress'),
 			'content' => '<h2>' . __('Uploading an image', 'wp-adpress') . '</h2>' .
-			'<p>' . __('The plug-in uses the WordPress Media Uploader to upload your image. Make sure you select the right size (Full Size) before inserting the image.') . '</p>' .
+			'<p>' . __('The plug-in uses the WordPress Media Uploader to upload your image. Make sure you select the right size (Full Size) before inserting the image.', 'wp-adpress' ) . '</p>' .
 			'<h2>' . __('Target URL', 'wp-adpress') . '</h2>' .
 			'<p>' . __('Put the target URL that you want visitors to reach. This shouldn\'t be a shorttened URL. AdPress already provides analytics for your Ads.', 'wp-adpress') . '</p>'
 		));

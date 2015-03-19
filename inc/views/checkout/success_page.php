@@ -34,19 +34,19 @@ $payment_date = strtotime( $item->post_date );
 			<tbody>
 				<tr>
 					<td class="title"><?php _e( 'Price:', 'wp-adpress' ); ?></td>
-					<td><?php esc_attr_e( get_post_meta( $payment_id, 'wpad_payment_total', true ) ); ?> <?php echo wp_adpress_get_currency(); ?></td>
+					<td><?php echo esc_attr( get_post_meta( $payment_id, 'wpad_payment_total', true ) ); ?> <?php echo wp_adpress_get_currency(); ?></td>
 				</tr>
 				<tr>
 					<td class="title"><?php _e( 'Purchase Key:', 'wp-adpress' ); ?></td>
-					<td><?php esc_attr_e( get_post_meta( $payment_id, 'wpad_payment_purchase_key', true ) ); ?></td>
+					<td><?php echo esc_attr( get_post_meta( $payment_id, 'wpad_payment_purchase_key', true ) ); ?></td>
 				</tr>
 				<tr>
 					<td class="title"><?php _e( 'Gateway:', 'wp-adpress' ); ?></td>
-					<td><?php esc_attr_e( wp_adpress_get_gateway_label ( get_post_meta( $payment_id, 'wpad_payment_gateway', true ) ) ); ?></td>
+					<td><?php echo esc_attr( wp_adpress_get_gateway_label ( get_post_meta( $payment_id, 'wpad_payment_gateway', true ) ) ); ?></td>
 				</tr>
 				<tr>
 					<td class="title"><?php _e( 'Mode:', 'wp-adpress' ); ?></td>
-					<td><?php esc_attr_e( wp_adpress_get_mode_label( get_post_meta( $payment_id, 'wpad_payment_mode', true ) ) ); ?></td>
+					<td><?php echo esc_attr( wp_adpress_get_mode_label( get_post_meta( $payment_id, 'wpad_payment_mode', true ) ) ); ?></td>
 				</tr>
 			</tbody>
 		</table>
