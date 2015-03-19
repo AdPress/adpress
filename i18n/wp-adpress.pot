@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AdPress | Ads Manager 1.0.3\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wp-adpress\n"
-"POT-Creation-Date: 2015-03-11 20:38:13+00:00\n"
+"POT-Creation-Date: 2015-03-18 11:56:10+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1208,6 +1208,12 @@ msgstr ""
 
 #: inc/ad.php:440
 msgid "Error issuing refund"
+msgstr ""
+
+#: inc/ad.php:440
+msgid ""
+"There was an error while trying to issue the refund. Please Contact the "
+"Administrator to issue the refund manually."
 msgstr ""
 
 #: inc/addons/manual/addon.php:23
