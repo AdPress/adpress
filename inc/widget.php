@@ -19,7 +19,7 @@ if (!class_exists('AdPress_Widget')) {
         function __construct()
         {
             // widget actual processes
-            parent::__construct($id = 'adpress_widget', $name = get_class($this), $options = array('description' => __('AdPress Advertising Widget', 'wp-adpress')));
+            parent::__construct($id = 'adpress_widget', 'AdPress Widget', $options = array('description' => __('AdPress Advertising Widget', 'wp-adpress')));
         }
 
         /**
