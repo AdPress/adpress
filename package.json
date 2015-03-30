@@ -1,6 +1,6 @@
 {
 	"name": "adpress",
-	"version": "1.0.0",
+	"version": "1.0.3",
 	"private": true,
 	"devDependencies": {
 		"grunt": "~0.4.5",
@@ -10,6 +10,8 @@
 		"grunt-contrib-clean": "~0.5.0",
 		"grunt-contrib-compress": "~0.8.0",
 		"grunt-contrib-copy": "~0.5.0",	
+		"grunt-text-replace": "~0.4.0",		
+		"grunt-bump": "~0.3.0",		
 		"grunt-version": "~0.3.1",
 		"load-grunt-tasks": "~0.2.0"
 	}

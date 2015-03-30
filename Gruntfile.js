@@ -4,7 +4,7 @@ module.exports = function( grunt ) {
 	// Load multiple grunt tasks using globbing patterns
 	require('load-grunt-tasks')(grunt);
 
-	grunt.initConfig({
+	grunt.initConfig( {
 		pkg: grunt.file.readJSON('package.json'),
 
 		// project directories
@@ -114,6 +114,18 @@ module.exports = function( grunt ) {
 			}
 		},
 
+		// Update the Plugin Version
+		replace: {
+			version: {
+				src: [ 'wp-adpress.php' ],             // source files array (supports minimatch)
+				dest: 'build/<%= pkg.name %>/plugin/',             // destination directory or file
+				replacements: [{
+					from: '{{@version}}',                   // string replacement
+					to: '<%= pkg.version %>'
+				}]
+			}
+		},
+
 		//Compress build directory into <name>.zip 
 		compress: {
 			plugin: {
@@ -136,11 +148,28 @@ module.exports = function( grunt ) {
 				src: ['**/*', '!plugin/**'],
 				dest: '<%= pkg.name %>/'
 			}
+		},
+		bump: {
+			options: {
+				files: [ 'package.json' ],
+				updateConfigs: [],
+				commit: true,
+				commitMessage: 'Release v%VERSION%',
+				commitFiles: [ 'package.json' ],
+				createTag: true,
+				tagName: 'v%VERSION%',
+				tagMessage: 'Version %VERSION%',
+				push: false,
+				gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d',
+				globalReplace: false,
+				prereleaseName: false,
+				regExp: false
+			}
 		}
-	});	
+	} );	
 
 	// Register tasks
-	grunt.registerTask( 'default', ['makepot', 'potomo', 'clean', 'copy', 'compress'] );
+	grunt.registerTask( 'default', ['makepot', 'potomo', 'clean', 'copy', 'replace', 'compress'] );
 
 	grunt.registerTask( 'report', ['checktextdomain'] );
 };
