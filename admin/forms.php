@@ -23,6 +23,16 @@ if (!class_exists('wp_adpress_forms')) {
 		}
 
 		/**
+		 * Renders a Fields Separator
+		 *
+		 * @return void
+		 */
+		static function separator()
+		{
+			echo '';	
+		}
+
+		/**
 		 * Renders a textbox
 		 * @param string $id Option name
 		 */
@@ -49,7 +59,7 @@ if (!class_exists('wp_adpress_forms')) {
 			} else {
 				$val = '';
 			}
-			echo '<input type="range" name="' . $param[1] . '[' . $param[0] . ']" id="' . $param[0] . '" value="' . $val . '" /> <output for="' . $param[0] . '">20</output>%';
+			echo '<input type="range" name="' . $param[1] . '[' . $param[0] . ']" id="' . $param[0] . '" value="' . $val . '" /> <output id="'.$param[0].'_output" for="' . $param[0] . '">20</output>%';
 		}
 
 		/**
