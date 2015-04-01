@@ -22,7 +22,12 @@ function wp_adpress_action_submit_checkout() {
 	$current_user = wp_get_current_user();
 
 	if ( $current_user->ID == 0 ) {
-		list($user_firstname, $user_lastname) = explode(" ", $_POST['user_fullname']);
+        if ( strpos( $_POST['user_fullname'], ' ' ) ) {
+		list($user_firstname, $user_lastname) = explode( ' ', $_POST['user_fullname'] );
+        } else {
+            $user_firstname = $_POST['user_fullname'];
+            $user_lastname = '';
+        }
 		$user_email = $_POST['user_email'];
 	} else {
 		$user_email = $current_user->user_email;
