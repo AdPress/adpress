@@ -50,6 +50,8 @@ function wp_adpress_action_submit_checkout() {
 	// Set a new purchase log
 	$gateway->set_purchase_log( $ad_details, $user_details );
 
+    do_action( 'wp_adpress_set_redirect_urls', $ad_details, $user_details );
+
 	// Process the payment
 	$gateway->process();
 }

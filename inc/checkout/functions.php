@@ -29,6 +29,8 @@ function wp_adpress_register_ad( $ad_details, $user_info ) {
 
 	$ad_id = $campaign->register_ad( $ad_details['post'] );
 
+	do_action( 'wp_adpress_register_ad_complete', $ad_id, $user_info );
+
 	return $ad_id;
 }
 
