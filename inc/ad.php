@@ -241,6 +241,8 @@ if (!class_exists('wp_adpress_ad')) {
             $this->status = 'running';
             // Time approved
             $this->time = time();
+
+			do_action( 'wp_adpress_register_ad_accepted', $this->id );
         }
 
         /**
@@ -249,9 +251,11 @@ if (!class_exists('wp_adpress_ad')) {
         public function reject()
         {
             // issue a refund if applicable
-            $this->issue_refund();
+            //$this->issue_refund();
             // Unregister the Ad
-            $this->unregister_ad();
+            $this->unregister_ad( 'refused' );
+
+			do_action( 'wp_adpress_register_ad_refused', $this->id );
         }
 
         /**
@@ -260,9 +264,11 @@ if (!class_exists('wp_adpress_ad')) {
         public function cancel()
         {
             // issue a refund if applicable
-            $this->issue_refund();
+            //$this->issue_refund();
             // Unregister the Ad
-            $this->unregister_ad();
+            $this->unregister_ad( 'cancelled' );
+
+			do_action( 'wp_adpress_register_ad_cancelled', $this->id );
         }
 
         /**
@@ -292,7 +298,7 @@ if (!class_exists('wp_adpress_ad')) {
             if ($campaign->ad_definition['contract'] === 'pageviews') {
                 $views_limit = (int)$campaign->ad_definition['pageviews'];
                 if ($this->total_views() === $views_limit) {
-                    $this->unregister_ad();
+                    $this->unregister_ad( 'expired' );
                 }
             }
         }
@@ -324,7 +330,7 @@ if (!class_exists('wp_adpress_ad')) {
             if ($campaign->ad_definition['contract'] === 'clicks') {
                 $clicks_limit = (int)$campaign->ad_definition['clicks'];
                 if ($this->total_hits() === $clicks_limit + 1) {
-                    $this->unregister_ad();
+                    $this->unregister_ad( 'expired' );
                 }
             }
         }
@@ -406,7 +412,7 @@ if (!class_exists('wp_adpress_ad')) {
         /**
          * Unregister the Ad
          */
-        public function unregister_ad()
+        public function unregister_ad( $ref = null )
         {
             $settings = get_option('adpress_settings');
             // Record the history
@@ -423,6 +429,8 @@ if (!class_exists('wp_adpress_ad')) {
             $this->user_id = null;
             $this->time = null;
             $this->post_id = null;
+
+			do_action( 'wp_adpress_unregister_ad', $this->id, $ref );
         }
 
         /**

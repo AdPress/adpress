@@ -398,7 +398,7 @@ if ( ! class_exists( 'wp_adpress' ) ) {
 			if ( is_int( $id ) ) {
 				$id = (int) $id;
 				$ad = new wp_adpress_ad( $id );
-				$ad->unregister_ad();
+				$ad->unregister_ad( 'expired' );
 				$ad->save();
 			}
 		}
