@@ -343,13 +343,7 @@ if (!class_exists('wp_adpress_campaign')) {
             $current_user = wp_get_current_user();
             $available_ads = $this->list_ads('available');
             if (count($available_ads) > 0) {
-                $new_ad = $available_ads[0];
-                // Parameters
-                $temp_pp = get_option('adpress_temp_paypal_' . $pid);
-                if (isset($settings['paypal']) && isset($temp_pp)) {
-                    $param['paypal'] = $temp_pp;
-                    delete_option('adpress_temp_paypal_' . $pid);
-                }
+                $new_ad = $available_ads[0]; 
                 $new_ad->param = $param;
                 // User ID
                 $new_ad->user_id = $current_user->ID;
@@ -375,63 +369,6 @@ if (!class_exists('wp_adpress_campaign')) {
                 return $new_ad->id;
             }
             return false;
-        }
-
-        /**
-         * Display the campaign Ads
-         * @deprecated
-         * // TODO: Check for removal
-         */
-        public function display2()
-        {
-            $html = '';
-            $ads = $this->list_ads('running');
-            $available = count($this->list_ads('available'));
-            switch ($this->ad_definition['type']) {
-                case 'image':
-                    $width = $this->ad_definition['columns'] * ($this->ad_definition['size']['width'] * 1.1);
-                    $html .= '<ul id="campaign-' . $this->id . '" class="image-campaign" style="width:' . $width . 'px;">';
-                    foreach ($ads as $ad) {
-                        $html .= $this->image_ad_spot($ad->id, $ad->param['destination_val']);
-                        // Record the view
-                        $ad->record_view();
-                        $ad->save();
-                    }
-                    if (isset($this->ad_definition['cta_url']) && isset($this->ad_definition['cta_img']) && $available > 0) {
-                        $html .= $this->image_cta_spot($this->ad_definition['cta_url'], $this->ad_definition['cta_img'], $available);
-                    }
-                    $html .= '</ul>';
-                    break;
-                case 'flash':
-                    $width = $this->ad_definition['columns'] * ($this->ad_definition['size']['width'] * 1.1);
-                    $html .= '<ul id="campaign-' . $this->id . '" class="flash-campaign" style="width:' . $width . 'px;">';
-                    foreach ($ads as $ad) {
-                        $html .= $this->flash_ad_spot($ad->id, $ad->param['destination_val']);
-                        // Record the view
-                        $ad->record_view();
-                        $ad->save();
-                    }
-
-                    if (isset($this->ad_definition['cta_url']) && isset($this->ad_definition['cta_banner']) && $available > 0) {
-                        $html .= $this->flash_cta_spot($this->ad_definition['cta_url'], $this->ad_definition['cta_banner'], $available);
-                    }
-                    $html .= '</ul>';
-                    break;
-                case 'link':
-                    $html .= '<ul id="campaign-' . $this->id . '" class="link-campaign">';
-                    foreach ($ads as $ad) {
-                        $html .= $this->link_ad_spot($ad->id, $ad->param['destination_val']);
-                        // Record the view
-                        $ad->record_view();
-                        $ad->save();
-                    }
-                    if (isset($this->ad_definition['cta_url']) && isset($this->ad_definition['cta_text']) && $available > 0) {
-                        $html .= $this->link_ad_spot($this->ad_definition['cta_url'], $this->ad_definition['cta_text'], $available);
-                    }
-                    $html .= '</ul>';
-                    break;
-            }
-            echo $html;
         }
 
         /**
