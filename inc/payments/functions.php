@@ -82,6 +82,7 @@ function wp_adpress_insert_payment( $payment_data = array() ) {
 		update_post_meta( $payment, 'wpad_payment_purchase_key', $payment_data['purchase_key'] );
 		update_post_meta( $payment, 'wpad_payment_total',        $payment_data['price'] );
 		update_post_meta( $payment, 'wpad_payment_ad',           $payment_data['ad'] );
+		update_post_meta( $payment, 'wpad_payment_ad_id',        0 );
 		update_post_meta( $payment, 'wpad_payment_mode',         $mode );
 		update_post_meta( $payment, 'wpad_payment_gateway',      $payment_data['gateway'] );
 		update_post_meta( $payment, 'wpad_payment_currency',	 wp_adpress_get_currency() );

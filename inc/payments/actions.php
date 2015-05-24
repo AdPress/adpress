@@ -39,7 +39,8 @@ function wp_adpress_complete_purchase( $payment_id, $new_status, $old_status ) {
 	do_action( 'wp_adpress_pre_complete_purchase', $payment_id );
 
 	// Register the Ad
-	wp_adpress_register_ad( $ad_details, $user_info );
+	$ad_id = wp_adpress_register_ad( $ad_details, $user_info );
+	update_post_meta( $payment_id, 'wpad_payment_ad_id', $ad_id);
 
 	do_action( 'wp_adpress_complete_purchase', $payment_id );
 }

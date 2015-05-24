@@ -53,7 +53,7 @@ if (!class_exists('wp_adpress_ad')) {
          * Campaign Ad Definition
          * @var array
          */
-        private $ad_definition;
+        public $ad_definition;
 
         /**
          * Class State
