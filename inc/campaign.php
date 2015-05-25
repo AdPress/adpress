@@ -770,6 +770,16 @@ if (!class_exists('wp_adpress_campaigns')) {
             return $html;
         }
 
+		static function array_list_campaigns()
+		{
+			$html = array();
+			$active = self::list_campaigns('active');
+			foreach ($active as $campaign) {
+				$html[ $campaign->id ] = $campaign->settings['name'];	
+			}
+			return $html;
+		}
+
         /**
          * Remove all campaigns from the database
          *
