@@ -597,12 +597,6 @@ if ( ! class_exists( 'wp_adpress' ) ) {
 }
 
 // Create a new instance of the main class
-/*
-if (class_exists('wp_adpress')) {
-    $wpadpress = new wp_adpress();
-}
- */
-
 function WPAD() {
 	return wp_adpress::instance();
 }
