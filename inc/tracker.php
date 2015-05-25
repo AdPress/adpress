@@ -14,8 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 add_action( 'init', function() {
-WPAD_Tracker::send_tracking_data();
-}, 10 );
+	WPAD_Tracker::send_tracking_data();
+} );
 
 class WPAD_Tracker {
 
