@@ -1,0 +1,65 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "bf0d4591b0692191e462cdb99d04a551",
+    "packages": [
+        {
+            "name": "wpplex/wp-autoupdate",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wpplex/wp-autoupdate.git",
+                "reference": "e2f63fb2b59ab5d6550c8dacf1cc1cce74a1b735"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpplex/wp-autoupdate/zipball/e2f63fb2b59ab5d6550c8dacf1cc1cce74a1b735",
+                "reference": "e2f63fb2b59ab5d6550c8dacf1cc1cce74a1b735",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "wpplex\\WP_AutoUpdate\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Abid Omar",
+                    "email": "contact@omarabid.com",
+                    "homepage": "http://omarabid.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "Create your own self-hosted WordPress Plugin repository for pushing automatic updates.",
+            "homepage": "http://omarabid.com",
+            "keywords": [
+                "auto-update",
+                "wordpress"
+            ],
+            "time": "2015-05-01 17:06:40"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "wpplex/wp-autoupdate": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.3.2"
+    },
+    "platform-dev": []
+}

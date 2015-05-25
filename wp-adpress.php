@@ -116,11 +116,6 @@ if ( ! class_exists( 'wp_adpress' ) ) {
 			add_action( 'plugins_loaded', array( &$this, 'start' ) );
 
 			/*
-			 * 11. Usage Tracking
-			 */
-			add_action( 'admin_init', array( &$this, 'usage_tracking' ) );
-
-			/*
 			 * 12. Display notices
 			 */
 			add_action( 'admin_notices', array( &$this, 'display_notifications' ) );
@@ -130,6 +125,11 @@ if ( ! class_exists( 'wp_adpress' ) ) {
 			 */
 			add_action( 'pre_get_posts', 'wp_adpress_roles::restrict_ajax_library' );
 			add_action( 'parse_query', 'wp_adpress_roles::restrict_media_library' );
+
+            /*
+             * 14. AutoUpdates
+             */
+            add_action( 'init', array( &$this, 'auto_update' ) );
 		}
 
 		/**
@@ -173,6 +173,11 @@ if ( ! class_exists( 'wp_adpress' ) ) {
 		/** * Load required files for the plug-in
 		 */
 		private function load_dependencies() {
+            /*
+             * Composer Autoloader
+             */
+            require_once( 'vendor/autoload.php' );
+
 			/*
 			 * Admin Dependencies
 			 */
@@ -542,60 +547,19 @@ if ( ! class_exists( 'wp_adpress' ) ) {
 
 		}
 
-		/**
-		 * Usage Tracking
-		 *
-		 */
-		public function usage_tracking() {
-			// PressTrends Account API Key
-			$api_key = 'ghzz893juaz1urmyn0om4uckhxz1r93p1';
-			$auth    = '';
-			// Start of Metrics
-			global $wpdb;
-			$data = get_transient( 'presstrends_cache_data' );
-			if ( ! $data || $data == '' ) {
-				$api_base       = 'http://api.presstrends.io/index.php/api/pluginsites/update/auth/';
-				$url            = $api_base . $auth . '/api/' . $api_key . '/';
-				$count_posts    = wp_count_posts();
-				$count_pages    = wp_count_posts( 'page' );
-				$comments_count = wp_count_comments();
-				if ( function_exists( 'wp_get_theme' ) ) {
-					$theme_data = wp_get_theme();
-					$theme_name = urlencode( $theme_data->Name );
-				} else {
-					$theme_data = get_theme_data( get_stylesheet_directory() . '/style.css' );
-					$theme_name = $theme_data['Name'];
-				}
-				$plugin_name = '&';
-				foreach ( get_plugins() as $plugin_info ) {
-					$plugin_name .= $plugin_info['Name'] . '&';
-				}
-				// CHANGE __FILE__ PATH IF LOCATED OUTSIDE MAIN PLUGIN FILE
-				$plugin_data         = get_plugin_data( __FILE__ );
-				$posts_with_comments = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->posts WHERE post_type='post' AND comment_count > 0" );
-				$data                = array(
-					'url'             => stripslashes( str_replace( array( 'http://', '/', ':' ), '', site_url() ) ),
-					'posts'           => $count_posts->publish,
-					'pages'           => $count_pages->publish,
-					'comments'        => $comments_count->total_comments,
-					'approved'        => $comments_count->approved,
-					'spam'            => $comments_count->spam,
-					'pingbacks'       => $wpdb->get_var( "SELECT COUNT(comment_ID) FROM $wpdb->comments WHERE comment_type = 'pingback'" ),
-					'post_conversion' => ( $count_posts->publish > 0 && $posts_with_comments > 0 ) ? number_format( ( $posts_with_comments / $count_posts->publish ) * 100, 0, '.', '' ) : 0,
-					'theme_version'   => $plugin_data['Version'],
-					'theme_name'      => $theme_name,
-					'site_name'       => str_replace( ' ', '', get_bloginfo( 'name' ) ),
-					'plugins'         => count( get_option( 'active_plugins' ) ),
-					'plugin'          => urlencode( $plugin_name ),
-					'wpversion'       => get_bloginfo( 'version' ),
-				);
-				foreach ( $data as $k => $v ) {
-					$url .= $k . '/' . $v . '/';
-				}
-				wp_remote_get( $url );
-				set_transient( 'presstrends_cache_data', $data, 60 * 60 * 24 );
-			}
-		}
+        /**
+         * Initialize AutoUpdates
+         *
+         * @return void
+         */
+        public function auto_update() {
+            $plugin_current_version = '{{@version}}';
+            $plugin_remote_path = 'http://wpadpress.com/?update';	
+            $plugin_slug = plugin_basename( __FILE__ );;
+            $license_user = 'user';
+            $license_key = 'abcd';
+            new wpplex\WP_AutoUpdate\WP_AutoUpdate ( $plugin_current_version, $plugin_remote_path, $plugin_slug, $license_user, $license_key );	
+        }
 
 		/**
 		 * Display notifications in the AdPress notification system
