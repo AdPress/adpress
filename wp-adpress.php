@@ -555,9 +555,10 @@ if ( ! class_exists( 'wp_adpress' ) ) {
         public function auto_update() {
             $plugin_current_version = '{{@version}}';
             $plugin_remote_path = 'http://wpadpress.com/?update';	
-            $plugin_slug = plugin_basename( __FILE__ );;
-            $license_user = 'user';
-            $license_key = 'abcd';
+            $plugin_slug = plugin_basename( __FILE__ );
+            $license_settings = get_option( 'adpress_license_settings', array( 'license_username' => '', 'license_key' => '' ) );
+            $license_user = $license_settings['license_username'];
+            $license_key = $license_settings['license_key'];
             new wpplex\WP_AutoUpdate\WP_AutoUpdate ( $plugin_current_version, $plugin_remote_path, $plugin_slug, $license_user, $license_key );	
         }
 
