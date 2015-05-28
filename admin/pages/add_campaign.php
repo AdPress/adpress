@@ -18,7 +18,9 @@ if (isset($_POST['new_campaign'])) {
 	if (isset($_GET['cmd']) && $_GET['cmd'] === 'edit') {
 		$campaign = new wp_adpress_campaign((int)$_GET['cid']);
 		$campaign_id = (int)$_GET['cid'];
-		$campaign_meta = unserialize( $campaign->ad_definition['campaign_meta'] );
+		if ( isset( $campaign->ad_definition['campaign_meta'] ) ) {
+			$campaign_meta = unserialize( $campaign->ad_definition['campaign_meta'] );
+		}
 		
 		if ($campaign->state() === 'active') {
 			$checked = 'checked';
