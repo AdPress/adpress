@@ -1,7 +1,4 @@
-@import url(../fonts/fonts.css);
-
 #adpress {
-    font-family: 'Cuprum', Calibri, Arial, Helvetica, sans-serif;
     font-size: 12px;
     line-height: 20px;
     position: relative;
@@ -13,41 +10,7 @@
 {{ Typography }}
 */
 #adpress h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cuprum', Calibri !important;
     font-weight: normal;
-}
-
-#adpress h1 {
-    font-size: 24px;
-}
-
-#adpress h2 {
-    font-size: 22px;
-    display: block;
-}
-
-#adpress h3 {
-    font-size: 20px;
-}
-
-#adpress h4 {
-    font-size: 18px;
-}
-
-#adpress h5 {
-    font-size: 16px;
-}
-
-#adpress h6 {
-    font-size: 14px;
-}
-
-#adpress div {
-    font-family: 'Cuprum', Calibri;
-}
-
-#adpress p {
-    font-family: 'Cuprum', Calibri;
 }
 
 /*
@@ -64,68 +27,8 @@
 }
 
 /*
-{{ Tabs }}
-*/
-#adpress .nav-tab-wrapper {
-    border: none; 
-    padding: 0;
-} 
- 
-#adpress .nav-tab-wrapper .nav-tab {
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    border-radius: 0px;
-    font-family: 'Cuprum' !important;
-    font-size: 22px;
-	font-weight: normal;
-    margin: 0;
-    border-right: none;
-    background: #EFEFEF url(../img/c-header-bg.png) repeat-x;
-    border-bottom: 1px solid #DFDFDF;
-}
-
-#adpress .nav-tab-wrapper .nav-tab:last-child {
-    border-right: 1px solid #DFDFDF;
-}
-
-#adpress .nav-tab-wrapper .nav-tab-active {
-    background-color: white;
-    background-image: none;
-    border-bottom: none;
-}
-
-/*
 {{ Buttons }}
 */
-#adpress A.button-primary {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    border-radius: 0px;
-    font-size: 10px !important;
-    font-weight: bold;
-    text-shadow: none;
-    text-transform: uppercase;
-    padding: 5px 14px 6px 14px;
-    cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 12px;
-    background: url(../img/pBtn.png) repeat-x 0 0;
-    border: 1px solid #4F5A68;
-    color: white;
-	height: auto;
-	width: auto;
-}
-
-#adpress A.button-primary:hover {
-    background-position: 0 -25px;
-}
-
-#adpress A.button-primary:active {
-    background-position: 0 -50px;
-}
-
 #adpress A.button-primary.green {
     background: url(../img/greenBtn.png) repeat-x 0 0;
     border: 1px solid #418D4F;
@@ -191,82 +94,10 @@
     background-position: 0 -50px;
 }
 
-
-#adpress A.button-secondary {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    font-size: 11px !important;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 7px 14px 8px 14px;
-    cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 12px;
-    border: 1px solid #D5D5D5;
-    color: #525252;
-	height: auto;
-	width: auto;
+#adpress .button-primary, #adpress INPUT.button-primary {
+	height: 25px;
+	line-height: 25px;
 }
-
-#adpress A.button-secondary:hover {
-    border-color: #C9C9C9;
-}
-
-#adpress INPUT.button-primary {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    border-radius: 0px;
-    font-size: 10px !important;
-    font-weight: bold;
-    text-shadow: none;
-    text-transform: uppercase;
-    padding: 5px 14px 6px 14px;
-    cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 12px;
-    background: url(../img/pBtn.png) repeat-x 0 0;
-    border: 1px solid #4F5A68;
-    color: white;
-	height: auto;
-	width: auto;
-}
-
-#adpress INPUT.button-primary:hover {
-    background-position: 0 -25px;
-}
-
-#adpress INPUT.button-primary:active {
-    background-position: 0 -50px;
-}
-
-#adpress INPUT.button-secondary {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    font-size: 11px !important;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 7px 14px 8px 14px;
-    cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 12px;
-    border: 1px solid #D5D5D5;
-    color: #525252;
-	height: auto;
-	width: auto;
-}
-
-#adpress INPUT.button-secondary:hover {
-    border-color: #C9C9C9;
-}
-
 /*
 {{ Tables }}
 */
@@ -284,14 +115,14 @@
 }
 
 #adpress table thead th {
+	/*
     font-family: 'Cuprum', Calibri;
     font-size: 16px;
+	*/
 }
 
 #adpress table thead th.id-column {
-    font-family: 'Cuprum', Calibri;
-    font-size: 16px;
-    width: 1px;
+	
 }
 
 #adpress table tfoot {
@@ -303,14 +134,11 @@
 }
 
 #adpress table tfoot th {
-    font-family: 'Cuprum', Calibri;
-    font-size: 16px;
+	
 }
 
 #adpress table tfoot th.id-column {
-    font-family: 'Cuprum', Calibri;
-    font-size: 16px;
-    width: 1px;
+	
 }
 
 #adpress table tbody {
@@ -325,22 +153,12 @@
     background-color: #feffd9;
 }
 
-
-#adpress table tbody th.check-column {
-    font-family: 'Cuprum', Calibri;
-    font-size: 16px;
-}
-
 #adpress table tbody th.id-column {
-    font-family: 'Cuprum', Calibri;
-    font-size: 16px;
     vertical-align: middle;
     width: 1px;
 }
 
 #adpress table tbody td {
-    font-family: 'Cuprum', Calibri;
-    font-size: 14px;
     vertical-align: middle;
 }
 
@@ -350,11 +168,6 @@
 
 #adpress table.withbuttons tr {
     height: 36px;
-}
-
-#adpress table tbody td p {
-    font-family: 'Cuprum', Calibri;
-    font-size: 14px;
 }
 
 /*
@@ -417,9 +230,6 @@
 {{ Forms }}
 */
 
-#adpress input {
-    border: 1px solid #D5D5D5;
-}
 #adpress input[type="text"], #adpress input[type="password"] {
     width: 200px;
 }
@@ -434,13 +244,11 @@
 }
 
 #adpress label {
-	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	font-weight: normal;
 }
 
 .form-table th {
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 /*
@@ -455,7 +263,7 @@
 }
 
 #adpress .c-block .c-head {
-    background: #EFEFEF url(../img/c-header-bg.png) repeat-x;
+    /*background: #EFEFEF url(../img/c-header-bg.png) repeat-x;*/
     height: 38px;
     border-bottom: 1px solid #D5D5D5;
     position: relative;
@@ -481,7 +289,7 @@
 }
 
 #adpress .c-block P {
-    padding: 7px 15px;
+    padding: 15px;
     font-size: 14px;
 }
 
@@ -599,9 +407,7 @@
 /*Info box*/
 P.info
 {
-	border: 1px solid #DEDEDE;
 	padding: 12px;
-	margin: 12px;
 	background-color: #F0F0F0;
 }
 

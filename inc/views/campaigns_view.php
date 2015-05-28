@@ -80,7 +80,7 @@ if (!class_exists('wp_adpress_campaigns_view')) {
                 $html .= '
                 <tr class="' . $campaign->state() . '">
                      <th scope="row" class="id-column">' . $campaign->id . '</th>
-                        <td class="plugin-title" style="width:340px;">
+                        <td class="plugin-title" style="width:370px;">
                             <strong>' . $campaign->settings['name'] . '</strong>
                             <div class="row-actions-visible">
                                 <span><a href="#" class="more" id="c' . $campaign->id . '">' . __('More', 'wp-adpress') . '</a> | </span>
