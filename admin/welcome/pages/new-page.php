@@ -55,11 +55,3 @@
 
 
 </div>
-
-<div class="changelog">
-	<h3><?php _e( 'Advanced Checkout Add-on', 'wp-adpress' );?></h3>
-
-	<p><?php _e( 'We are also working on an Advanced Checkout Add-on to enable customers to checkout from the front site without having to login to the WordPress dashboard.', 'wp-adpress' );?></p>
-	<p><?php _e( 'Sign-Up to our newsletter to get notified when our latest add-ons are released.', 'wp-adpress' ); ?></p>
-
-</div>

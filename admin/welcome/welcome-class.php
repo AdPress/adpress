@@ -51,6 +51,7 @@ class wp_adpress_welcome {
             'wpadpress-new',
             array( $this, 'new_screen' )
         );
+
         // About Page
         add_dashboard_page(
             __( 'About AdPress', 'wp-adpress' ),
@@ -67,7 +68,16 @@ class wp_adpress_welcome {
             'manage_options',
             'wpadpress-start',
             array( $this, 'getting_started_screen' )
-        );
+		);
+
+		// Add-ons Page
+		add_dashboard_page(
+			__( 'Add-Ons', 'wp-adpress' ),
+			__( 'Add-Ons', 'wp-adpress' ),
+			'manage_options',
+			'wpadpress-addons',
+			array( $this, 'addons_screen' )
+		);
     }
 
     public function load_scripts() {
@@ -79,7 +89,9 @@ class wp_adpress_welcome {
         case 'dashboard_page_wpadpress-start':
             break;
         case 'dashboard_page_wpadpress-about':
-            break;
+			break;
+		case 'dashboard_page_wpadpress-addons':
+			break;
         }
 
     }
@@ -96,7 +108,10 @@ class wp_adpress_welcome {
             break;
         case 'dashboard_page_wpadpress-about':
             wp_enqueue_style( 'wp_adpress_welcome', ADPRESS_URLPATH . 'admin/welcome/assets/css/style.css' );
-            break;
+			break;
+		case 'dashboard_page_wpadpress-addons':
+			wp_enqueue_style( 'wp_adpress_welcome', ADPRESS_URLPATH . 'admin/welcome/assets/css/style.css' );
+			break;
         }
     }
 
@@ -110,7 +125,8 @@ class wp_adpress_welcome {
     public function admin_head() {
         remove_submenu_page( 'index.php', 'wpadpress-new' );
         remove_submenu_page( 'index.php', 'wpadpress-about' );
-        remove_submenu_page( 'index.php', 'wpadpress-start' );
+		remove_submenu_page( 'index.php', 'wpadpress-start' );
+		remove_submenu_page( 'index.php', 'wpadpress-addons' );
     }
 
     /**
@@ -187,6 +203,14 @@ class wp_adpress_welcome {
         require_once( 'pages/new-page.php' );
         $this->page_footer();
     }
+
+	public function addons_screen() {
+		$this->page_header();
+        $this->tabs();
+        require_once( 'pages/addons-page.php' );
+        $this->page_footer();
+	}
+
     /**
      * Sends user to the Welcome page on first activation of EDD as well as each
      * time EDD is upgraded to a new version

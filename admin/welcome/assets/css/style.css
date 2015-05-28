@@ -27,3 +27,11 @@
 .changelog P.centered {
 	text-align: center;
 }
+.addons {
+	margin: 20px;
+}
+
+.addons LI {
+	padding: 10px;
+	display: inline-block;
+}
