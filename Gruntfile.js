@@ -41,6 +41,7 @@ module.exports = function( grunt ) {
 			files: {
 				src: [
 					'**/*.php', // Include all files
+					
 					'!node_modules/**', // Exclude node_modules/
 					'!tests/**', // Exclude unit tests/
 					'!bin/**', // Exclude Bin/
@@ -105,6 +106,8 @@ module.exports = function( grunt ) {
 					'!.gitmodules',
 					'!README.md',
 					'!README.txt',
+					'!composer.json',
+					'!composer.lock'
 				],
 				dest: 'build/<%= pkg.name %>/plugin/'
 			},

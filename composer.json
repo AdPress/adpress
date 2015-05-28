@@ -1,0 +1,14 @@
+{
+    "name": "omarabid/wpad",
+    "type": "project",
+    "description": "WordPress Advertising Plugin",
+    "keywords": ["wordpress", "plugin", "advertising"],
+    "homepage": "http://wpadpress.com",
+    "license": "GPL-2.0+",	
+    "require": {
+        "php": ">=5.3.2",
+		"wpplex/wp-autoupdate": "dev-master"
+	},
+    "require-dev": { 
+    }
+}
