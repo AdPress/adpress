@@ -14,5 +14,5 @@ if (isset($_GET['blogid'])) {
 }
 ?>
 <div class="wrap" id="adpress">
-    <?php echo $view->view; ?>
+    <?php $view->generate_view(); ?>
 </div>

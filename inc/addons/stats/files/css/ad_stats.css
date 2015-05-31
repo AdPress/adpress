@@ -1,0 +1,9 @@
+#fore-front {
+	height: 500px;
+}
+#ex-chart {
+	height: 438px !important;
+}
+.highcharts-container {
+	background: url( ../img/sand.png );
+}
