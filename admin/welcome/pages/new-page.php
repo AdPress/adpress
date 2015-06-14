@@ -76,16 +76,16 @@
 			</div>
 			<div class="float-right">
 				<p class="centered">
-				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/paypal.png'; ?>" />
-				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/mastercard.png'; ?>" />
-				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/visa.png'; ?>" />
-				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/maestro.png'; ?>" />
+				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/new_page/gateways/paypal.png'; ?>" />
+				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/new_page/gateways/mastercard.png'; ?>" />
+				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/new_page/gateways/visa.png'; ?>" />
+				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/new_page/gateways/maestro.png'; ?>" />
 				</p>
 				<p class="centered">
-				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/american-express.png'; ?>" />
-				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/diners-club.png'; ?>" />
-				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/skrill-moneybookers.png'; ?>" />
-				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/webmoney.png'; ?>" />
+				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/new_page/gateways/american-express.png'; ?>" />
+				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/new_page/gateways/diners-club.png'; ?>" />
+				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/new_page/gateways/skrill-moneybookers.png'; ?>" />
+				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/new_page/gateways/webmoney.png'; ?>" />
 				</p>			
 			</div>
 			<div class="float-clear">
