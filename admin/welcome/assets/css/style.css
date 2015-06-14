@@ -27,6 +27,13 @@
 .changelog P.centered {
 	text-align: center;
 }
+
+.changelog IMG.float-img {
+	border: 1px solid black;
+	margin: 5px;
+	width: 400px;
+}
+
 .addons {
 	margin: 20px;
 }

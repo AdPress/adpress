@@ -15,7 +15,7 @@
 				<p><?php _e( 'You can sell your Ads by clicks, views or duration.', 'wp-adpress' );?></p>
 			</div>
 			<div class="float-right">
-				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/new_campaign.png'; ?>" />
+				<img class="float-img" src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/g_start/img_01.png'; ?>" />
 			</div>
 			<div class="float-clear">
 			</div>
@@ -37,7 +37,7 @@
 				<p><?php _e( 'Buyers can select their preferred payment from multiple payment gateways.', 'wp-adpress' );?></p>
 			</div>
 			<div class="float-right">
-				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/moderate_ads.png'; ?>" />
+				<img class="float-img" src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/g_start/img_02.png'; ?>" />
 			</div>
 			<div class="float-clear">
 			</div>
@@ -58,7 +58,7 @@
 				<p><?php _e( 'With <a href="http://codecanyon.net/item/powerad-adpress-addon/6592583">Power Ad</a>, you can integrate AdPress Ads using HTML and JavaScript code in any static or dynamic website.', 'wp-adpress' );?></p>
 			</div>
 			<div class="float-right">
-				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/easy_integration.png'; ?>" />
+				<img class="float-img" src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/g_start/img_03.png'; ?>" />
 			</div>
 			<div class="float-clear">
 			</div>

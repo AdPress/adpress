@@ -1,57 +1,95 @@
 <div class="changelog">
-	<h3><?php _e( 'Payments History', 'wp-adpress' );?></h3>
-	<div class="float-container">		
-		<div class="float-left">
-			<h4><?php _e( 'Payments History Log', 'wp-adpress' );?></h4>
-			<p><?php _e( 'AdPress now has a complete Payment History system so that you can easily see every purchase that has ever been made. You can also filter the purchases by their completion and complete or cancel payments received.', 'wp-adpress' );?></p>	
+	<div class="feature-section">
+		<h3><?php _e( 'Interface Redesign', 'wp-adpress' );?></h3>
+		<div class="float-container">		
+			<div class="float-left">
+				<h4><?php _e( 'A new and polished look', 'wp-adpress' );?></h4>
+				<p><?php _e( 'This new version introduces a redesign of the AdPress interface. AdPress is over 3 years old, and the interface didn\'t change since then. We thought it\'s high time to give it a new look. And now is the best time to push it.', 'wp-adpress' );?></p>	
+			</div>
+			<div class="float-right">
+				<img class="float-img" src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/new_page/img_01.png'; ?>" />
+			</div>
+			<div class="float-clear">
+			</div>
 		</div>
-<div class="float-right">
-			<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/payment_history.png'; ?>" />
+		<div class="float-container">		
+			<div class="float-left">
+				<h4><?php _e( 'Online Documentation', 'wp-adpress' );?></h4>
+				<p><?php _e( 'AdPress documentation is now available online through our <a href="http://wpadpress.com/documentation/">website</a>. A major overhaul to the documentation to the documentation, as well as documenting the new parts has been on-going in the last few weeks.', 'wp-adpress' );?></p>	
+			</div>
+			<div class="float-right">
+				<img class="float-img" src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/new_page/img_02.png'; ?>" />
+			</div>
+			<div class="float-clear">
+			</div>
 		</div>
-<div class="float-clear">
-</div>
 	</div>
-
 </div>
 
 <div class="changelog">
-	<h3><?php _e( 'Third-Party Gateways', 'wp-adpress' );?></h3>
-	<h4><?php _e( 'Support for additional gateways','wp-adpress' );?></h4>
-	<div class="float-container">
-		<div class="float-left">
-			<p><?php _e( 'Starting from version 1.0, AdPress supports additional payment gateways. By default, it comes with a Manual and PayPal Standard Payment gateways.', 'wp-adpress' );?></p>
-			<p><?php _e( 'You can enable one or more gateways at checkout and the user will be able to chose from the list of active gateways', 'wp-adpress' ); ?></p>
+	<div class="feature-section">
+		<h3><?php _e( 'New Analytics Dashboard', 'wp-adpress' );?></h3>
+		<h4><?php _e( 'A full redesign for the Stats','wp-adpress' );?></h4>
+		<div class="float-container">
+			<div class="float-left">
+				<p><?php _e( 'We have rebuilt the Stats Charts from the ground-up to give you a better and dynamic chart.', 'wp-adpress' );?></p>
+				<p><?php _e( 'You can now select date-frames to visualize your Traffic and Clicks.', 'wp-adpress' ); ?></p>
+			</div>
+			<div class="float-right">
+				<img class="float-img" src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/new_page/img_03.png'; ?>" />
+			</div>
+			<div class="float-clear">
+			</div>
 		</div>
-		<div class="float-right">
-			<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/gateways_settings.png'; ?>" />
-		</div>
-		<div class="float-clear">
+
+		<h4><?php _e( 'Google Analytics Integration', 'wp-adpress' );?></h4>
+		<div class="float-container">
+			<div class="float-left">
+				<p><?php _e( 'AdPress integrates now with Google Analytics, so you can tracks stats for your AdPress ads straight from your Analytics account.', 'wp-adpress' );?></p>
+			</div>
+			<div class="float-right">
+				<img class="float-img" src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/new_page/img_04.png'; ?>" />
+			</div>
+			<div class="float-clear">
+			</div>
 		</div>
 	</div>
-
-	<h4><?php _e( 'New gateways under-development', 'wp-adpress' );?></h4>
-<div class="float-container">
-<div class="float-left">
-<p><?php _e( 'We are working on more payment gateways to help you process payments. Currently, we have published <a href="http://codecanyon.net/item/paypal-express-checkout-gateway-for-adpress/9491328">PayPal Express Checkout</a> gateway.', 'wp-adpress' );?></p>
-<p><?php _e( 'But that\'s not all. We\'ll be releasing PayPal Pro, PayPal for Digital Goods and Stripe gateways quite soon.', 'wp-adpress' ); ?></p>
-</div>
-<div class="float-right">
-	<p class="centered">
-	<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/paypal.png'; ?>" />
-	<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/mastercard.png'; ?>" />
-	<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/visa.png'; ?>" />
-	<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/maestro.png'; ?>" />
-	</p>
-	<p class="centered">
-	<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/american-express.png'; ?>" />
-	<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/diners-club.png'; ?>" />
-	<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/skrill-moneybookers.png'; ?>" />
-	<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/webmoney.png'; ?>" />
-	</p>
-</div>
-<div class="float-clear">
-</div>
 </div>
 
-
+<div class="changelog">
+	<div class="feature-section">
+		<h3><?php _e( 'New Addons and Gateways', 'wp-adpress' );?></h3>
+		<div class="float-container">		
+			<div class="float-left">
+				<h4><?php _e( 'Extend your AdPress', 'wp-adpress' );?></h4>
+				<p><?php _e( 'Multiple Addons are now released and available. They cost a small fortune ($9-$15), but can help you extend your AdPress in ways you never thought they were possible. Checkout out the <a href="index.php?page=wpadpress-addons">full collection</a>.', 'wp-adpress' );?></p>	
+			</div>
+			<div class="float-right">
+			</div>
+			<div class="float-clear">
+			</div>
+		</div>
+		<div class="float-container">		
+			<div class="float-left">
+				<h4><?php _e( 'More Payment Options', 'wp-adpress' );?></h4>
+				<p><?php _e( '5 different gateways are now already available to take money from your clients. We are working on 5 more. Stayed tuned!', 'wp-adpress' );?></p>	
+			</div>
+			<div class="float-right">
+				<p class="centered">
+				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/paypal.png'; ?>" />
+				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/mastercard.png'; ?>" />
+				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/visa.png'; ?>" />
+				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/maestro.png'; ?>" />
+				</p>
+				<p class="centered">
+				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/american-express.png'; ?>" />
+				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/diners-club.png'; ?>" />
+				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/skrill-moneybookers.png'; ?>" />
+				<img src="<?php echo ADPRESS_URLPATH . 'admin/welcome/assets/img/webmoney.png'; ?>" />
+				</p>			
+			</div>
+			<div class="float-clear">
+			</div>
+		</div>
+	</div>
 </div>
