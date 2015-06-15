@@ -231,7 +231,6 @@ if ( ! class_exists( 'wp_adpress' ) ) {
 			 */
 			require_once( 'inc/payments/actions.php' );
 			require_once( 'inc/payments/functions.php' );
-			require_once( 'inc/payments/history_table.php' );
 
 			/*
 			 * Gateways Functionality
@@ -251,6 +250,7 @@ if ( ! class_exists( 'wp_adpress' ) ) {
 			require_once( 'inc/addons/manual/addon.php' );
 			require_once( 'inc/addons/paypal/addon.php' );
             require_once( 'inc/addons/stats/addon.php' );
+			require_once( 'inc/addons/purchase-log/addon.php' );
 		}
 
 		/**
