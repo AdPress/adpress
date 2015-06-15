@@ -1,8 +1,5 @@
-TEXTAREA
-{
+.CodeMirror.cm-s-default {
 	height: 250px;
 	width: 650px;
-	font-family: Consolas;
-	font-size: 16px;
-	line-height: 18px;
+	border: 1px solid black;
 }
