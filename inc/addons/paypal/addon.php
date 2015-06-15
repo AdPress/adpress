@@ -21,7 +21,7 @@ function paypal_register_addon( $addons )
 	$addon = array(
 		'id' => 'paypal',
 		'title' => __( 'PayPal', 'wp-adpress' ),
-		'description' => __( 'PayPal', 'wp-adpress' ),
+		'description' => __( 'PayPal Standard Payment Gateway', 'wp-adpress' ),
 		'author' => 'Abid Omar',
 		'version' => '1.0',
 		'basename' => plugin_basename( __FILE__ ),
