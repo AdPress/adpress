@@ -124,42 +124,42 @@ if (!class_exists('wp_adpress_install')) {
 
         /**
          * Flash Ad Default Settings
-         * @var array
-         */
-        static $flash_defaults = array(
-            'ad_loop' => '
-            <li>
-            	<div style="height: @banner_height; width: @banner_width; position: relative;">
-            		<a target="_blank" style="height: @banner_height; width: @banner_width;" href="@url"></a>
-            		<embed style="position: absolute;" type="application/x-shockwave-flash" src="@swf_src" quality="high" wmode="transparent" height="@banner_height" width="@banner_width">
-            	</div>
-            </li>',
-            'ad_css' => '
-            .flash-campaign
-            {
-            	list-style: none;
-            }
+		 * @var array
+		 */
+	static $flash_defaults = array(
+		'ad_loop' => '
+		<li>
+		<div style="height: @banner_height; width: @banner_width; position: relative;">
+		<a target="_blank" style="height: @banner_height; width: @banner_width;" href="@url"></a>
+		<embed style="position: absolute;" type="application/x-shockwave-flash" src="@swf_src" quality="high" wmode="transparent" height="@banner_height" width="@banner_width">
+		</div>
+		</li>',
+'ad_css' => '
+.flash-campaign
+{
+	list-style: none;
+	}
 
-            .flash-campaign li
-            {
-            	display: list-item;
-            	float: left;
-            	padding: 0;
-            	margin: 5px;
-            }
+	.flash-campaign li
+	{
+		display: list-item;
+		float: left;
+		padding: 0;
+		margin: 5px;
+	}
 
-            .flash-campaign li div
-            {
-              position: relative;
-            }
+	.flash-campaign li div
+	{
+		position: relative;
+	}
 
-            .flash-campaign li div a
-            {
-              position: absolute;
-              z-index: 9999;
-              display: block;
-            }'
-        );
+	.flash-campaign li div a
+	{
+		position: absolute;
+		z-index: 9999;
+		display: block;
+	}'
+		);
 
         /**
          * Link Ad Default Settings
