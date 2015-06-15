@@ -384,7 +384,6 @@ if (!class_exists('wp_adpress_admin')) {
             add_settings_section('client_access', 'Client Access', 'wp_adpress_forms::description', 'adpress_settings_form_client', 'Client Access');
             add_settings_field('client_roles', 'Client Roles', 'wp_adpress_forms::roles_check', 'adpress_settings_form_client', 'client_access', array('client_roles', 'adpress_settings'));
             add_settings_field('auto_approve', 'Auto Approve', 'wp_adpress_forms::checkbox', 'adpress_settings_form_client', 'client_access', array('auto_approve', 'adpress_settings'));
-            add_settings_field('client_message', 'Client Message', 'wp_adpress_forms::checkbox', 'adpress_settings_form_client', 'client_access', array('client_message', 'adpress_settings'));
             // -- PayPal Settings
             add_settings_section('paypal_section', 'PayPal Settings', 'wp_adpress_forms::description', 'adpress_settings_form_paypal', 'PayPal Settings');
             add_settings_field('paypal', 'Enable PayPal', 'wp_adpress_forms::checkbox', 'adpress_settings_form_paypal', 'paypal_section', array('paypal', 'adpress_settings'));
