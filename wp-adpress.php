@@ -254,6 +254,7 @@ if ( ! class_exists( 'wp_adpress' ) ) {
             require_once( 'inc/addons/customize/addon.php' );
             require_once( 'inc/addons/export/addon.php' );
             require_once( 'inc/addons/reports/addon.php' );
+            require_once( 'inc/addons/license-checker/addon.php' );
 		}
 
 		/**

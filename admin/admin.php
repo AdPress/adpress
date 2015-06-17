@@ -403,13 +403,6 @@ if (!class_exists('wp_adpress_admin')) {
             add_settings_section('gateways_general_section', 'General Settings', 'wp_adpress_forms::description', 'adpress_gateways_form_general');
             add_settings_field('installed_gateways', 'Payment Gateways', 'wp_adpress_forms::list_gateways', 'adpress_gateways_form_general','gateways_general_section' );
             add_settings_field('default_gateway', 'Default Gateway', 'wp_adpress_forms::select_default_gateway', 'adpress_gateways_form_general','gateways_general_section' );
-
-            // License Settings
-            register_setting('adpress_license_settings', 'adpress_license_settings', 'wp_adpress_forms::validate');
-            add_settings_section('license_section', 'License', 'wp_adpress_forms::description', 'adpress_license_form');
-            add_settings_field('license_username', 'Username', 'wp_adpress_forms::textbox', 'adpress_license_form', 'license_section', array('license_username', 'adpress_license_settings'));
-            add_settings_field('license_key', 'License Key', 'wp_adpress_forms::textbox', 'adpress_license_form', 'license_section', array('license_key', 'adpress_license_settings'));
-
         }
 
         /**
