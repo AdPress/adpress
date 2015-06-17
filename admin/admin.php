@@ -408,24 +408,6 @@ if (!class_exists('wp_adpress_admin')) {
             add_settings_field('installed_gateways', 'Payment Gateways', 'wp_adpress_forms::list_gateways', 'adpress_gateways_form_general','gateways_general_section' );
             add_settings_field('default_gateway', 'Default Gateway', 'wp_adpress_forms::select_default_gateway', 'adpress_gateways_form_general','gateways_general_section' );
 
-            // Image Ad
-            register_setting('adpress_image_settings', 'adpress_image_settings', 'wp_adpress_forms::validate');
-            add_settings_section('image_ad_section', 'Image Ad', 'wp_adpress_forms::description', 'adpress_image_ad_form', 'Image AD');
-            add_settings_field('ad_loop', 'HTML Code', 'wp_adpress_forms::textarea', 'adpress_image_ad_form', 'image_ad_section', array('ad_loop', 'adpress_image_settings'));
-            add_settings_field('ad_css', 'CSS Style', 'wp_adpress_forms::textarea', 'adpress_image_ad_form', 'image_ad_section', array('ad_css', 'adpress_image_settings'));
-
-            // Link Ad
-            register_setting('adpress_link_settings', 'adpress_link_settings', 'wp_adpress_forms::validate');
-            add_settings_section('link_ad_section', 'Link Ad', 'wp_adpress_forms::description', 'adpress_link_ad_form');
-            add_settings_field('ad_loop', 'HTML Code', 'wp_adpress_forms::textarea', 'adpress_link_ad_form', 'link_ad_section', array('ad_loop', 'adpress_link_settings'));
-            add_settings_field('ad_css', 'CSS Style', 'wp_adpress_forms::textarea', 'adpress_link_ad_form', 'link_ad_section', array('ad_css', 'adpress_link_settings'));
-
-            // Flash Ad
-            register_setting('adpress_flash_settings', 'adpress_flash_settings', 'wp_adpress_forms::validate');
-            add_settings_section('flash_ad_section', 'Flash Ad', 'wp_adpress_forms::description', 'adpress_flash_ad_form');
-            add_settings_field('ad_loop', 'HTML Code', 'wp_adpress_forms::textarea', 'adpress_flash_ad_form', 'flash_ad_section', array('ad_loop', 'adpress_flash_settings'));
-            add_settings_field('ad_css', 'CSS Style', 'wp_adpress_forms::textarea', 'adpress_flash_ad_form', 'flash_ad_section', array('ad_css', 'adpress_flash_settings'));
-
             // License Settings
             register_setting('adpress_license_settings', 'adpress_license_settings', 'wp_adpress_forms::validate');
             add_settings_section('license_section', 'License', 'wp_adpress_forms::description', 'adpress_license_form');

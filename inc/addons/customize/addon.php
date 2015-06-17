@@ -43,6 +43,27 @@ function wpad_customize_tabs( $tabs ) {
 	return $tabs;
 }
 
+add_action( 'admin_init', 'wpad_customize_settings' );
+function wpad_customize_settings() {
+	// Image Ad
+	register_setting('adpress_image_settings', 'adpress_image_settings', 'wp_adpress_forms::validate');
+	add_settings_section('image_ad_section', 'Image Ad', 'wp_adpress_forms::description', 'adpress_image_ad_form', 'Image AD');
+	add_settings_field('ad_loop', 'HTML Code', 'wp_adpress_forms::textarea', 'adpress_image_ad_form', 'image_ad_section', array('ad_loop', 'adpress_image_settings'));
+	add_settings_field('ad_css', 'CSS Style', 'wp_adpress_forms::textarea', 'adpress_image_ad_form', 'image_ad_section', array('ad_css', 'adpress_image_settings'));
+
+	// Link Ad
+	register_setting('adpress_link_settings', 'adpress_link_settings', 'wp_adpress_forms::validate');
+	add_settings_section('link_ad_section', 'Link Ad', 'wp_adpress_forms::description', 'adpress_link_ad_form');
+	add_settings_field('ad_loop', 'HTML Code', 'wp_adpress_forms::textarea', 'adpress_link_ad_form', 'link_ad_section', array('ad_loop', 'adpress_link_settings'));
+	add_settings_field('ad_css', 'CSS Style', 'wp_adpress_forms::textarea', 'adpress_link_ad_form', 'link_ad_section', array('ad_css', 'adpress_link_settings'));
+
+	// Flash Ad
+	register_setting('adpress_flash_settings', 'adpress_flash_settings', 'wp_adpress_forms::validate');
+	add_settings_section('flash_ad_section', 'Flash Ad', 'wp_adpress_forms::description', 'adpress_flash_ad_form');
+	add_settings_field('ad_loop', 'HTML Code', 'wp_adpress_forms::textarea', 'adpress_flash_ad_form', 'flash_ad_section', array('ad_loop', 'adpress_flash_settings'));
+	add_settings_field('ad_css', 'CSS Style', 'wp_adpress_forms::textarea', 'adpress_flash_ad_form', 'flash_ad_section', array('ad_css', 'adpress_flash_settings'));
+}
+
 // Display the Tabs
 add_action( 'wp_adpress_settings_tabs_display', 'wpad_customize_tabs_display' ); 
 function wpad_customize_tabs_display ( $tab ) {
