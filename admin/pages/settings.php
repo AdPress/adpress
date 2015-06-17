@@ -15,21 +15,6 @@ if (isset($_GET['action'])) {
 			wp_adpress::display_notice('History Deleted', '<p>History Removed</p>', 'adpress-icon-request_sent');
 		}
 		break;
-	case 'license_save':
-		$options = get_option('adpress_license_settings');
-		if (!isset($options['license_username']) || $options['license_username'] === '') {
-			wp_adpress::add_notification('license_missing', 'AdPress License', 'Please enter <a href="admin.php?page=adpress-settings&tab=license">AdPress license</a> details to enable all of the plugin features and automatic updates.', 'updated');
-			wp_adpress::remove_notification('license_validity');
-			break;
-		}
-		wp_adpress::remove_notification('license_missing');
-		$validity = wp_adpress_license::check_license($options['license_username'], $options['license_key']);
-		if ($validity) {
-			wp_adpress::remove_notification('license_validity');
-		} else {
-			wp_adpress::add_notification('license_validity', 'AdPress License is not valid', 'Your AdPress username and license key are not valid. Please check your <a href="admin.php?page=adpress-settings&tab=license">license information</a>.', 'error');
-		}
-		break;
 	}
 }
 /*

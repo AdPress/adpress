@@ -149,17 +149,6 @@ if (method_exists($current_screen, 'add_help_tab')) {
 				'<h3>' . __('Removing History', 'wp-adpress') . '</h3>' .
 				'<p>' . __('History can consume a huge amount of space in your database after some time. It can be useful to empty the cache to free some space in your database.', 'wp-adpress') . '</p>'
 			));
-			break;	
-		case 'history':
-			$current_screen->add_help_tab(array(
-				'id' => 'history_help_tab',
-				'title' => __('Purchase History', 'wp-adpress' ),
-				'content' => '<h2>' . __('Purchase History', 'wp-adpress') . '</h2>' .
-				'<p>' . __('You find here the history of all Ad purchases and requests. Each Ad request, purchase and expiration (also rejection or cancelation) is recorded. You can clear the History from the General Settings Panel.', 'wp-adpress') . '</p>',
-				));
-			break;
-		case 'import':
-			
 			break;
 		}
 		break;

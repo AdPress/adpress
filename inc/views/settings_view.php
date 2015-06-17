@@ -61,15 +61,6 @@ if (!class_exists('wp_adpress_settings')) {
 				break;
 			case 'gateways':
 				self::gateways_page();
-				break;	
-			case 'history':
-				self::history();
-				break;
-			case 'import':
-				self::import();
-				break;
-			case 'license':
-				self::license();
 				break;
 			}
 
@@ -136,26 +127,6 @@ if (!class_exists('wp_adpress_settings')) {
 
 <?php
 		}
-		/**
-		 * Image Ad Page
-		 */
-		static function image_ad_page()
-		{
-		}
-
-		/**
-		 * Link Ad Page
-		 */
-		static function link_ad_page()
-		{
-		}
-
-		/**
-		 * Flash Ad Page
-		 */
-		static function flash_ad_page()
-		{
-		}
 
 		/**
 		 * History Page
@@ -163,34 +134,6 @@ if (!class_exists('wp_adpress_settings')) {
 		static function history()
 		{
 			wp_adpress_history::generate_view();
-		}
-
-		/**
-		 * Import/Export Page
-		 */
-		static function import()
-		{
-			
-		}
-
-		static function license()
-		{
-?>
-		<form action="options.php" method="POST">
-			<?php settings_fields('adpress_license_settings'); ?>
-			<div class="c-block" style="width: 650px;">
-				<div class="c-head">
-					<?php do_settings_sections('adpress_license_form'); ?>
-				</div>
-				<input type="hidden" name="_wp_http_referer"
-					   value="<?php echo admin_url('admin.php?page=adpress-settings&tab=license&action=license_save'); ?>"/>
-
-				<p class="submit">
-					<input name="Submit" type="submit" class="button-primary"
-						   value="<?php esc_attr_e( 'Save Changes', 'wp-adpress' ); ?>"/>
-				</p>
-		</form>
-<?php
 		}
 	}
 }
