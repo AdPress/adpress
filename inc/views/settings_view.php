@@ -49,26 +49,19 @@ if (!class_exists('wp_adpress_settings')) {
 
 		static function render_pages()
 		{
+			// if no tab is set, set it to default
 			if (!isset($_GET['tab'])) {
 				$_GET['tab'] = 'general';
 			}
+
+			// built-in tabs
 			switch ($_GET['tab']) {
 			case 'general':
-			default:
 				self::general_page();
 				break;
 			case 'gateways':
 				self::gateways_page();
-				break;
-			case 'image_ad':
-				self::image_ad_page();
-				break;
-			case 'link_ad':
-				self::link_ad_page();
-				break;
-			case 'flash_ad':
-				self::flash_ad_page();
-				break;
+				break;	
 			case 'history':
 				self::history();
 				break;
@@ -79,6 +72,9 @@ if (!class_exists('wp_adpress_settings')) {
 				self::license();
 				break;
 			}
+
+			// Extended tabs
+			do_action( 'wp_adpress_settings_tabs_display', $_GET['tab'] );
 		}
 
 		/**
@@ -145,22 +141,6 @@ if (!class_exists('wp_adpress_settings')) {
 		 */
 		static function image_ad_page()
 		{
-?>
-		<form action="options.php" method="POST">
-			<?php settings_fields('adpress_image_settings'); ?>
-			<div class="c-block">
-				<div class="c-head">
-					<?php do_settings_sections('adpress_image_ad_form'); ?>
-				</div>
-				<input type="hidden" name="_wp_http_referer"
-					   value="<?php echo admin_url('admin.php?page=adpress-settings&tab=image_ad'); ?>"/>
-
-				<p class="submit">
-					<input name="Submit" type="submit" class="button-primary"
-						   value="<?php esc_attr_e( 'Save Changes', 'wp-adpress' ); ?>"/>
-				</p>
-		</form>
-<?php
 		}
 
 		/**
@@ -168,22 +148,6 @@ if (!class_exists('wp_adpress_settings')) {
 		 */
 		static function link_ad_page()
 		{
-?>
-		<form action="options.php" method="POST">
-			<?php settings_fields('adpress_link_settings'); ?>
-			<div class="c-block">
-				<div class="c-head">
-					<?php do_settings_sections('adpress_link_ad_form'); ?>
-				</div>
-				<input type="hidden" name="_wp_http_referer"
-					   value="<?php echo admin_url('admin.php?page=adpress-settings&tab=link_ad'); ?>"/>
-
-				<p class="submit">
-					<input name="Submit" type="submit" class="button-primary"
-						   value="<?php esc_attr_e( 'Save Changes', 'wp-adpress' ); ?>"/>
-				</p>
-		</form>
-<?php
 		}
 
 		/**
@@ -191,22 +155,6 @@ if (!class_exists('wp_adpress_settings')) {
 		 */
 		static function flash_ad_page()
 		{
-?>
-		<form action="options.php" method="POST">
-			<?php settings_fields('adpress_flash_settings'); ?>
-			<div class="c-block">
-				<div class="c-head">
-					<?php do_settings_sections('adpress_flash_ad_form'); ?>
-				</div>
-				<input type="hidden" name="_wp_http_referer"
-					   value="<?php echo admin_url('admin.php?page=adpress-settings&tab=flash_ad'); ?>"/>
-
-				<p class="submit">
-					<input name="Submit" type="submit" class="button-primary"
-						   value="<?php esc_attr_e( 'Save Changes', 'wp-adpress' ); ?>"/>
-				</p>
-		</form>
-<?php
 		}
 
 		/**

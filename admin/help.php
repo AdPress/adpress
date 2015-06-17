@@ -149,51 +149,7 @@ if (method_exists($current_screen, 'add_help_tab')) {
 				'<h3>' . __('Removing History', 'wp-adpress') . '</h3>' .
 				'<p>' . __('History can consume a huge amount of space in your database after some time. It can be useful to empty the cache to free some space in your database.', 'wp-adpress') . '</p>'
 			));
-			break;
-		case 'image_ad':
-			$current_screen->add_help_tab(array(
-				'id' => 'image_help_tab1',
-				'title' => __('Image Ad', 'wp-adpress' ),
-				'content' => '<h2>' . __('Image Ad', 'wp-adpress') . '</h2>' .
-				'<p>' . __('You can customize fully how you ads look like. For example, you can add a border to your images Ads. You can also change or add some text or HTML code.', 'wp-adpress') . '</p>'
-			));
-			$current_screen->add_help_tab(array(
-				'id' => 'image_help_tab2',
-				'title' => __('HTML Code', 'wp-adpress'),
-				'content' => '<h2>' . __('HTML Code', 'wp-adpress') . '</h2>' .
-				'<p>' . __('This is the HTML code for each Ad spot. There some variables that the plug-in fills automatically.', 'wp-adpress') . '</p>' .
-				'<li>' . __('<strong>@url</strong> The Ad target URL.', 'wp-adpress') . '</li>' .
-				'<li>' . __('<strong>@image_src</strong> The image URL.', 'wp-adpress') . '</li>'
-			));
-			$current_screen->add_help_tab(array(
-				'id' => 'image_help_tab3',
-				'title' => __('CSS Style', 'wp-adpress'),
-				'content' => '<h2>' . __('CSS Style', 'wp-adpress') . '</h2>' .
-				'<p>' . __('The CSS styles added here will be loaded in every page on your blog. They should be targeted for your Ad Widget. For that purpose, AdPress makes use of the <em>image-campaign</em> class. All your styles should be nested beneath this class to avoid conflicts with other CSS rules.', 'wp-adpress')
-			));
-			break;
-		case 'link_ad':
-			$current_screen->add_help_tab(array(
-				'id' => 'image_help_tab1',
-				'title' => __('Link Ad', 'wp-adpress' ),
-				'content' => '<h2>' . __('Link Ad', 'wp-adpress') . '</h2>' .
-				'<p>' . __('You can customize fully how you link ads look like. For example, you can change how your Ads links look like (color, font...). You can also change or add some text or HTML code.', 'wp-adpress') . '</p>'
-			));
-			$current_screen->add_help_tab(array(
-				'id' => 'image_help_tab2',
-				'title' => __('HTML Code', 'wp-adpress'),
-				'content' => '<h2>' . __('HTML Code', 'wp-adpress') . '</h2>' .
-				'<p>' . __('This is the HTML code for each Ad spot. There some variables that the plug-in fills automatically.', 'wp-adpress') . '</p>' .
-				'<li>' . __('<strong>@url</strong> The Ad target URL.', 'wp-adpress') . '</li>' .
-				'<li>' . __('<strong>@link_text</strong> The link text.', 'wp-adpress') . '</li>'
-			));
-			$current_screen->add_help_tab(array(
-				'id' => 'image_help_tab3',
-				'title' => __('CSS Style', 'wp-adpress'),
-				'content' => '<h2>' . __('CSS Style', 'wp-adpress') . '</h2>' .
-				'<p>' . __('The CSS styles added here will be loaded in every page on your blog. They should be targeted for your Ad Widget. For that purpose, AdPress makes use of the <em>link-campaign</em> class. All your styles should be nested beneath this class to avoid conflicts with other CSS rules.', 'wp-adpress')
-			));
-			break;
+			break;	
 		case 'history':
 			$current_screen->add_help_tab(array(
 				'id' => 'history_help_tab',
