@@ -23,7 +23,7 @@ function stats_register_addon( $addons )
 		'title' => __( 'Stats Extended', 'wp-adpress' ),
 		'description' => __( 'Improved Analytics Dashboard', 'wp-adpress' ),
 		'author' => 'Abid Omar',
-		'version' => '1.0',
+		'version' => 'Native',
 		'basename' => plugin_basename( __FILE__ ),
 		'required' => true,
 	);

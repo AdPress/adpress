@@ -304,7 +304,6 @@ if (!class_exists('wp_adpress_forms')) {
 				'general' => __('General', 'wp-adpress'),
 				'gateways' => __('Gateways', 'wp-adpress'),
 				'history' => __('History', 'wp-adpress'),
-				'import' => __('Import/Export', 'wp-adpress'),
 				//'license' => __('License', 'wp-adpress'),
 			);
 

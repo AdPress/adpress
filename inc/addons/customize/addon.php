@@ -22,7 +22,7 @@ function wpad_customize_register_addon($addons) {
 		'title' => 'Customize',
 		'description' => __('Customize your Image, Link and Flash campaigns.', 'wp-adpress'),
 		'author' => 'Abid Omar',
-		'version' => '1.0',
+		'version' => 'Native',
 		'basename' => plugin_basename(__FILE__),
 		'required' => true,
 	);
@@ -84,7 +84,6 @@ function wp_adpress_customize_styles() {
 }
 
 // Drop-down help
-
 add_action( 'admin_init', 'wpad_customize_help_init' ); 
 function wpad_customize_help_init() {
 	global $adpress_page_settings;

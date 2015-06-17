@@ -23,7 +23,7 @@ function paypal_register_addon( $addons )
 		'title' => __( 'PayPal', 'wp-adpress' ),
 		'description' => __( 'PayPal Standard Payment Gateway', 'wp-adpress' ),
 		'author' => 'Abid Omar',
-		'version' => '1.0',
+		'version' => 'Native',
 		'basename' => plugin_basename( __FILE__ ),
 		'required' => true,
 	);

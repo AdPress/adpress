@@ -22,7 +22,7 @@ function wpad_manual_register_addon($addons) {
 		'title' => 'Manual Payment',
 		'description' => __('Manual Payment Gateway', 'wp-adpress'),
 		'author' => 'Abid Omar',
-		'version' => '1.0',
+		'version' => 'Native',
 		'basename' => plugin_basename(__FILE__),
 		'required' => true,
 	);

@@ -23,7 +23,7 @@ function purchase_log_register_addon( $addons )
 		'title' => __( 'Purchase Log', 'wp-adpress' ),
 		'description' => __( 'A table list of all purchases', 'wp-adpress' ),
 		'author' => 'Abid Omar',
-		'version' => '1.0',
+		'version' => 'Native',
 		'basename' => plugin_basename( __FILE__ ),
 		'required' => true,
 	);

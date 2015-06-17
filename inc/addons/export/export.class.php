@@ -9,11 +9,11 @@ if (!defined('ABSPATH')) {
  * @package Includes
  * @subpackge Settings
  */
-if (!class_exists('wp_adpress_import')) {
+if (!class_exists('wp_adpress_export')) {
     /**
      * Import/Export Class
      */
-    class wp_adpress_import
+    class wp_adpress_export
     {
         /**
          * Message displayed to the user. Null by default
@@ -174,7 +174,7 @@ if (!class_exists('wp_adpress_import')) {
         static function display_message($title, $content, $icon)
         {
             self::$message = '
-        <div class="c-block" style="width: 475px;">
+        <div class="c-block" style="width: 565px;">
                     <div class="c-head">
                         <h3 id="' . $icon . '">' . $title . '</h3>
                     </div>
@@ -219,7 +219,7 @@ $message
             </table>
             <input type="hidden" name="action" value="export" />
             <input type="hidden" name="page" value="adpress-settings" />
-            <input type="hidden" name="tab" value="import" />
+            <input type="hidden" name="tab" value="export" />
             </form>
 </div>
 <div class="c-block" style="width: 565px;">
@@ -242,7 +242,7 @@ $message
             </table>
             <input type="hidden" name="action" value="import" />
             <input type="hidden" name="page" value="adpress-settings" />
-            <input type="hidden" name="tab" value="import" />
+            <input type="hidden" name="tab" value="export" />
             </form>
 </div>
 <div class="c-block" style="width: 565px;">
@@ -260,7 +260,7 @@ $message
             </table>
             <input type="hidden" name="action" value="reset" />
             <input type="hidden" name="page" value="adpress-settings" />
-            <input type="hidden" name="tab" value="import" />
+            <input type="hidden" name="tab" value="export" />
             </form>            
 </div>
 html;

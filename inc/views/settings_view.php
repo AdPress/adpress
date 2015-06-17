@@ -170,7 +170,7 @@ if (!class_exists('wp_adpress_settings')) {
 		 */
 		static function import()
 		{
-			wp_adpress_import::display_page();
+			
 		}
 
 		static function license()
