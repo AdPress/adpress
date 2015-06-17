@@ -185,6 +185,7 @@ if ( ! class_exists( 'wp_adpress' ) ) {
 				require_once( 'admin/forms.php' );
 				require_once( 'admin/admin.php' );
 				require_once( 'admin/mu-admin.php' );
+                require_once( 'admin/pointers.php' );
 				require_once( 'admin/welcome/welcome-class.php' );
                 require_once( 'inc/views/templates/stats.php' );
 				require_once( 'inc/views/campaigns_view.php' );
