@@ -303,8 +303,6 @@ if (!class_exists('wp_adpress_forms')) {
 			$tabs = array(
 				'general' => __('General', 'wp-adpress'),
 				'gateways' => __('Gateways', 'wp-adpress'),
-				'history' => __('History', 'wp-adpress'),
-				//'license' => __('License', 'wp-adpress'),
 			);
 
 			return apply_filters( 'wp_adpress_admin_settings_tabs', $tabs );
