@@ -72,6 +72,23 @@ function wpad_license_help() {
 }
 
 add_action( 'admin_init', function() {
-	$s = get_option( 'adpress_license_settings' );
-	var_dump( wp_adpress_license::check_license( $s['license_username'], $s['license_key'] ) );
+	$license = get_option( 'adpress_license_settings' );
+	$args = array(
+		'body' => array(
+			'adpress_validator' => true,
+			'envato_username' => $license['license_username'],
+			'envato_key' => $license['license_key'],
+		),
+	);
+
+	$response = wp_remote_post( 'http://wpadpress.com', $args );
+
+	if ( is_wp_error( $response ) ) {
+		//something is wrong
+	} else {
+		$body = wp_remote_retrieve_body( $response );
+		if ( $body === '1' ) {
+			// valid license
+		}
+	}
 } );
