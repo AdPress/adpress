@@ -315,6 +315,7 @@ if (!class_exists('wp_adpress_forms')) {
 		 */
 		static function validate($var)
 		{
+			do_action( 'wp_adpress_settings_form_update', $var );
 			return $var;
 		}
 
