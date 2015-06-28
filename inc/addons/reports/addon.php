@@ -40,11 +40,12 @@ function wpad_reports_menu() {
 }
 
 function wpad_reports_loader() {
-	// Purchase Log Reporting
-	require_once( 'tabs/purchase-log/tab.php' );
-	require_once( 'tabs/ads-history/tab.php' );
-	require_once( 'tabs/settings/tab.php' );
+	
 
 	// Ads History Reporting
 	require_once( 'reports.php' );	
 }
+
+	require_once( 'tabs/purchase-log/tab.php' );
+	require_once( 'tabs/ads-history/tab.php' );
+	require_once( 'tabs/settings/tab.php' );

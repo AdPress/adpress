@@ -29,3 +29,7 @@ foreach ($tabs as $tab => $name) {
 <?php
 
 // Display Selected Tab
+do_action( 'wp_adpress_reports_tab', $current );
+
+?>
+</div>
