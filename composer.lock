@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bf0d4591b0692191e462cdb99d04a551",
+    "hash": "7a66172f2a25ef18d9bb652c9c4ed179",
     "packages": [
         {
             "name": "wpplex/wp-autoupdate",
@@ -48,13 +48,57 @@
                 "wordpress"
             ],
             "time": "2015-05-25 16:40:49"
+        },
+        {
+            "name": "wpplex/wp-notify",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wpplex/wp-notify.git",
+                "reference": "28ea42fc1903a89062a719dc9fbade5302afed73"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpplex/wp-notify/zipball/28ea42fc1903a89062a719dc9fbade5302afed73",
+                "reference": "28ea42fc1903a89062a719dc9fbade5302afed73",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "wpplex\\WP_Notify\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Abid Omar",
+                    "email": "contact@omarabid.com",
+                    "homepage": "http://omarabid.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "A small notification class to manage your WordPress Admin Notifications.",
+            "homepage": "http://omarabid.com",
+            "keywords": [
+                "notifications",
+                "wordpress"
+            ],
+            "time": "2015-06-28 14:06:43"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "wpplex/wp-autoupdate": 20
+        "wpplex/wp-autoupdate": 20,
+        "wpplex/wp-notify": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
