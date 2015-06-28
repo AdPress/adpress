@@ -13,6 +13,8 @@ if (!defined('ABSPATH')) {
 	die('-1');
 }
 
+require_once( 'notifications.php' );
+
 // Register the Add-on
 add_filter('adpress_addons', 'wpad_license_register_addon');
 
@@ -71,24 +73,40 @@ function wpad_license_help() {
 	require_once( 'help.php' );
 }
 
-add_action( 'admin_init', function() {
-	$license = get_option( 'adpress_license_settings' );
-	$args = array(
-		'body' => array(
-			'adpress_validator' => true,
-			'envato_username' => $license['license_username'],
-			'envato_key' => $license['license_key'],
-		),
-	);
+add_action( 'wp_adpress_settings_form_update', 'wp_adpress_verify_license_details' );
 
-	$response = wp_remote_post( 'http://wpadpress.com', $args );
+function wp_adpress_verify_license_details( $var ) {
+	if ( isset( $var['license_username'] ) && isset( $var['license_key'] ) ) {
+		// Hide the License Notifcation
+		$notify = new wpplex\WP_Notify\WP_Notify( 'wpad' );
+		$notify->hide_notification( 'mlc' );
 
-	if ( is_wp_error( $response ) ) {
-		//something is wrong
-	} else {
-		$body = wp_remote_retrieve_body( $response );
-		if ( $body === '1' ) {
-			// valid license
+		// Verify the new License
+		$args = array(
+			'body' => array(
+				'adpress_validator' => true,
+				'envato_username' => $var['license_username'],
+				'envato_key' => $var['license_key'],
+			),
+		);
+
+		$response = wp_remote_post( 'http://wpadpress.com', $args );
+
+		if ( is_wp_error( $response ) ) {
+			//something is wrong
+			$notify->display_notification( 'scp' );
+
+		} else {
+			$body = wp_remote_retrieve_body( $response );
+			if ( $body === '1' ) {
+				// valid license
+				$notify->hide_notification( 'ilc' );
+			} else {
+				// not-valid license
+				$notify->display_notification( 'ilc' );
+			}
+			$notify->hide_notification( 'scp' );
 		}
-	}
-} );
+		$notify->hide_notification( 'mlc' );
+	}	
+}
