@@ -8,7 +8,7 @@
  * @package Main
  */
 /*
-  Plugin Name: AdPress
+  Plugin Name: WP AdPress
   Plugin URI: http://wpadpress.com
   Description: AdPress is a fully featured Ads Manager for WordPress with client management, PayPal Integration, analytics and Multi-site support.
   Author: Abid Omar
