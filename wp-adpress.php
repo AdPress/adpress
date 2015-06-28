@@ -196,6 +196,7 @@ if ( ! class_exists( 'wp_adpress' ) ) {
 				require_once( 'inc/views/settings_view.php' );
 				require_once( 'inc/views/ad_view.php' );
 				require_once( 'inc/views/mu/main.php' );
+                require_once( 'inc/notifications.php' );
 			}
 
 
