@@ -32,8 +32,8 @@ $payments_table->prepare_items();
 ?>
 <h2><?php _e( 'Payment Log', 'wp-adpress' ); ?></h2>
         <?php do_action( 'wp_adpress_payments_page_top' ); ?>
-        <form id="edd-payments-filter" method="get" action="<?php echo admin_url( 'admin.php?page=adpress-payments' ); ?>">
-            <input type="hidden" name="page" value="adpress-payments" />
+        <form id="edd-payments-filter" method="get" action="<?php echo admin_url( 'admin.php?page=adpress-reports' ); ?>">
+            <input type="hidden" name="page" value="adpress-reports" />
 
             <?php $payments_table->views() ?>
 

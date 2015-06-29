@@ -15,11 +15,6 @@
 	display: block;
 }
 
-.inside .admin-box .admin-box-inside SELECT, INPUT {
-	display: block;
-	width: 200px;
-}
-
 .inside .column-container {
 	margin-top: 20px;
 }
@@ -44,3 +39,4 @@
 }
 
 /* Payments History Page */
+

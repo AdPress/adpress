@@ -113,9 +113,7 @@ class wp_adpress_Payment_History_Table extends WP_List_Table {
 		$this->base_url = admin_url( 'admin.php?page=adpress-reports' );
 	}
 
-	public function advanced_filters() {
-		//$start_date = isset( $_GET['start-date'] )  ? sanitize_text_field( $_GET['start-date'] ) : null;
-		//$end_date   = isset( $_GET['end-date'] )    ? sanitize_text_field( $_GET['end-date'] )   : null;
+	public function advanced_filters() {	
 		$status     = isset( $_GET['status'] )      ? $_GET['status'] : '';
 ?>
 	<div id="wp-adpress-payment-filters">
