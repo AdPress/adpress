@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
 
 if ( isset( $_GET['view'] ) && 'view-order-details' == $_GET['view'] ) {
 
-    require_once( ADPRESS_ABSPATH . 'admin/pages/payments/view-order-details.php' );
+    require_once( 'view-order-details.php' );
 
 } else {
 
