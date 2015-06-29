@@ -30,7 +30,7 @@ if ( ! class_exists( 'WP_List_Table' ) ) {
 $payments_table = new wp_adpress_Payment_History_Table();
 $payments_table->prepare_items();
 ?>
-<h2><?php _e( 'Payment Log', 'wp-adpress' ); ?></h2>
+<h2><?php _e( 'Payments Log', 'wp-adpress' ); ?></h2>
         <?php do_action( 'wp_adpress_payments_page_top' ); ?>
         <form id="edd-payments-filter" method="get" action="<?php echo admin_url( 'admin.php?page=adpress-reports' ); ?>">
             <input type="hidden" name="page" value="adpress-reports" />

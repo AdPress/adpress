@@ -250,7 +250,6 @@ if ( ! class_exists( 'wp_adpress' ) ) {
 			require_once( 'inc/addons/manual/addon.php' );
 			require_once( 'inc/addons/paypal/addon.php' );
             require_once( 'inc/addons/stats/addon.php' );
-			require_once( 'inc/addons/purchase-log/addon.php' );
             require_once( 'inc/addons/customize/addon.php' );
             require_once( 'inc/addons/export/addon.php' );
             require_once( 'inc/addons/reports/addon.php' );

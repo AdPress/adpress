@@ -298,17 +298,12 @@
 */
 #adpress .icon32 {
 
-    background-repeat: no-repeat;
-    
- 
+    background-repeat: no-repeat; 
+	background-size: 32px 32px;
     display: block;
-
     height: 32px;
-
     width: 40px;
-
     float: left;
-
     margin-bottom: 0px; margin-left: 0px; margin-right: 8px; margin-top: 7px;
 
 }

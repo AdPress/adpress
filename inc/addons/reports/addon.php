@@ -40,10 +40,26 @@ function wpad_reports_menu() {
 }
 
 function wpad_reports_loader() {
-	
-
 	// Ads History Reporting
 	require_once( 'reports.php' );	
+}
+
+// Load CSS and JS files
+add_action( 'admin_print_scripts', 'wp_adpress_reports_scripts' );
+function wp_adpress_reports_scripts() {
+	
+	global $current_screen;
+	if ( $current_screen->id === 'adpress_page_adpress-reports' ) {
+		
+	}
+}
+
+add_action( 'admin_print_styles', 'wp_adpress_reports_styles' );
+function wp_adpress_reports_styles() {
+	global $current_screen;
+	if ( $current_screen->id === 'adpress_page_adpress-reports' ) {
+		wp_enqueue_style( 'wp_adpress_reports', ADPRESS_URLPATH . 'inc/addons/reports/files/css/reports.css' );	
+	}
 }
 
 	require_once( 'tabs/purchase-log/tab.php' );

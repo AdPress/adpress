@@ -2,6 +2,7 @@
 
 function wp_adpress_extended_stats_graph( $ad ) {
 ?>
+	<div id="adpress-icon-analytics" class="icon32"><br></div>
 	<h2><?php _e('Ad Analytics', 'wp-adpress'); ?></h2>
 	<div id="fore-front">
 		<div id="ex-chart" class="c-block">

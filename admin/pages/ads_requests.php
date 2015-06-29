@@ -17,7 +17,7 @@ $ads_running = new wp_adpress_ads_running();
         </div>
         <?php echo $ads_requests->view; ?>
     </div>
-    <div id="adpress-icon-runningads" class="icon32"><br></div><h2><?php _e('Running Ads', 'wp-adpress'); ?></h2>
+    <div id="adpress-icon-runningads" class="icon32"><br></div><h2><?php _e('Ads Running', 'wp-adpress'); ?></h2>
         <div id="running-table">
             <div class="tablenav top">
                 <div class="tablenav-pages">
