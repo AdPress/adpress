@@ -101,5 +101,5 @@ if (isset($_POST['edit_campaign'])) {
     $result = $new_campaign->save();
 }
 wp_adpress::display_log($_POST);
-wp_adpress::display_message('Campaign Saved', 'Campaign Saved', __('<p>You can return to the <a href="admin.php?page=adpress-campaigns">Campaigns page</a> or <a href="admin.php?adpress-inccampaign">add another Campaign</a>.</p>', 'wp-adpress'), 'adpress-icon-campaignsaved', 'adpress-icon-request_sent');
+wp_adpress::display_message('Campaign Saved', 'Campaign Saved', __('<p>You can return to the <a href="admin.php?page=adpress-campaigns">Campaigns page</a> or <a href="admin.php?page=adpress-inccampaign">add another Campaign</a>.</p>', 'wp-adpress'), 'adpress-icon-campaignsaved', 'adpress-icon-request_sent');
 
