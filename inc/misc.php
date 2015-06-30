@@ -51,6 +51,19 @@ function wp_adpress_get_timezone_id() {
 }
 
 /**
+ * Convert a timestamp to AdPress Date Format 
+ * @since 1.1.0
+ * @return int $timestamp Timestamp to convert 
+ */
+function wp_adpress_format_time( $timestamp ) {
+	$date    = strtotime( $timestamp );
+	$settings = get_option( 'adpress_settings' );
+	$formatted   = date_i18n( $settings['time_format'], $date );
+
+	return $formatted;
+}
+	
+/**
  * Get User IP
  *
  * Returns the IP address of the current visitor
