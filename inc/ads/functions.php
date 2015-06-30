@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
  * @return int|bool Ad Slot ID if payment is inserted, false otherwise
  */
 function wp_adpress_insert_adhistory( $ad_data = false ) {
-	if ( ! $ad_data || $ad_data->id ) {
+	if ( ! $ad_data || ! $ad_data->id ) {
 		return false;
 	}
 
@@ -28,7 +28,7 @@ function wp_adpress_insert_adhistory( $ad_data = false ) {
 	$args = array (
 		'post_title'    => __( 'Ad History - ', 'wp-adpress' ) . $ad_data->id,
 		'post_status'   => 'publish',
-		'post_type'     => 'wp_adpress_adhistory',
+		'post_type'     => 'wpad_adshistory',
 	);
 
 	// Insert the Post
@@ -38,7 +38,7 @@ function wp_adpress_insert_adhistory( $ad_data = false ) {
 		update_post_meta( $adhistory, 'wpad_adhistory_adid',    $ad_data->id );
 		update_post_meta( $adhistory, 'wpad_adhistory_approved',      $ad_data->time );
 		update_post_meta( $adhistory, 'wpad_adhistory_expired',   time() );
-		update_post_meta( $adhistory, 'wpad_adhistory_data',      serialize( $ad ) );
+		update_post_meta( $adhistory, 'wpad_adhistory_data',      serialize( $ad_data ) );
 		update_post_meta( $adhistory, 'wpad_adhistory_campaign', serialize( new wp_adpress_campaign( $ad_data->campaign_id ) ) );
 
 		do_action( 'wp_adpress_insert_adhistory', $adhistory, $ad_data );

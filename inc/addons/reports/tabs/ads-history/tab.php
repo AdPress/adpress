@@ -9,3 +9,11 @@ function wpad_reports_ads_history_tab( $tabs ) {
 
 	return $tabs;
 }
+
+add_action( 'wp_adpress_reports_tab', 'wpad_reports_ads_history_body' );
+function wpad_reports_ads_history_body( $tab ) {
+	if ( $tab === 'ads_history' ) {
+		require_once( 'history_table.php' );
+		require_once( 'page.php' );		
+	}	
+}
