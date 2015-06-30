@@ -218,6 +218,11 @@ if ( ! class_exists( 'wp_adpress' ) ) {
 			require_once( 'inc/integration.php' );
             require_once( 'inc/tracker.php' );
 
+            /*
+             * Ads Functionality
+             */
+            require_once( 'inc/ads/functions.php' );
+
 
 			/*
 			 * Checkout Functionality
