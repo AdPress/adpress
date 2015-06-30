@@ -89,8 +89,8 @@ function wp_adpress_adshistory_post_type() {
 
 	// Post Type labels
 	$adshistory_labels = array(
-		'name' 				=> _x('Ads History', 'post type general name', 'wp-adpress' ),
-		'singular_name' 	=> _x('Ad History', 'post type singular name', 'wp-adpress' ),
+		'name' 				=> _x( 'Ads History', 'post type general name', 'wp-adpress' ),
+		'singular_name' 	=> _x( 'Ad History', 'post type singular name', 'wp-adpress' ),
 		'add_new' 			=> __( 'Add New', 'wp-adpress' ),
 		'add_new_item' 		=> __( 'Add New History', 'wp-adpress' ),
 		'edit_item' 		=> __( 'Edit Ad History', 'wp-adpress' ),
@@ -106,7 +106,7 @@ function wp_adpress_adshistory_post_type() {
 
 	// Post Type args
 	$adshistory_args = array(
-		'labels' 			=> apply_filters( 'wp_adpress_adshistory_labels', $adshistory ),
+		'labels' 			=> apply_filters( 'wp_adpress_adshistory_labels', $adshistory_labels ),
 		'public' 			=> defined( 'WP_DEBUG' ) && WP_DEBUG,
 		'query_var' 		=> true,
 		'rewrite' 			=> true,
@@ -116,7 +116,7 @@ function wp_adpress_adshistory_post_type() {
 	);
 
 	// Register the post type
-	register_post_type( 'wp_adpress_adshistory', $adshistory_args );
+	register_post_type( 'wpad_adshistory', $adshistory_args );
 }
 
 add_action( 'init', 'wp_adpress_adshistory_post_type' );
