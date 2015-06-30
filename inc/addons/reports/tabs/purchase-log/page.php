@@ -16,11 +16,8 @@ if (!defined('ABSPATH')) {
 
 
 if ( isset( $_GET['view'] ) && 'view-order-details' == $_GET['view'] ) {
-
     require_once( 'view-order-details.php' );
-
 } else {
-
 // Load WP_List_Table if not loaded
 if ( ! class_exists( 'WP_List_Table' ) ) {
     require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
