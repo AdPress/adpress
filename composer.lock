@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7a66172f2a25ef18d9bb652c9c4ed179",
+    "hash": "3c9649ef96c72a01758070b20bcdb7ce",
     "packages": [
         {
             "name": "wpplex/wp-autoupdate",
@@ -55,12 +55,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpplex/wp-notify.git",
-                "reference": "28ea42fc1903a89062a719dc9fbade5302afed73"
+                "reference": "7bf235e7fe69b9bcda1591cc93559f081f6703a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpplex/wp-notify/zipball/28ea42fc1903a89062a719dc9fbade5302afed73",
-                "reference": "28ea42fc1903a89062a719dc9fbade5302afed73",
+                "url": "https://api.github.com/repos/wpplex/wp-notify/zipball/7bf235e7fe69b9bcda1591cc93559f081f6703a6",
+                "reference": "7bf235e7fe69b9bcda1591cc93559f081f6703a6",
                 "shasum": ""
             },
             "require": {
@@ -90,7 +90,51 @@
                 "notifications",
                 "wordpress"
             ],
-            "time": "2015-06-28 14:06:43"
+            "time": "2015-06-28 14:19:02"
+        },
+        {
+            "name": "wpplex/wp-pointer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wpplex/wp-pointer.git",
+                "reference": "11f4022f59981cb2e7ec66753c4e89ff7b92fcd7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpplex/wp-pointer/zipball/11f4022f59981cb2e7ec66753c4e89ff7b92fcd7",
+                "reference": "11f4022f59981cb2e7ec66753c4e89ff7b92fcd7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "wpplex\\WP_Pointer\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Abid Omar",
+                    "email": "contact@omarabid.com",
+                    "homepage": "http://omarabid.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "Package for registering and using custom WP Help Tooltips.",
+            "homepage": "http://omarabid.com",
+            "keywords": [
+                "pointer",
+                "tooltip",
+                "wordpress"
+            ],
+            "time": "2015-07-01 20:10:30"
         }
     ],
     "packages-dev": [],
@@ -98,7 +142,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "wpplex/wp-autoupdate": 20,
-        "wpplex/wp-notify": 20
+        "wpplex/wp-notify": 20,
+        "wpplex/wp-pointer": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
