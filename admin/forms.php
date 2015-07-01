@@ -212,7 +212,7 @@ if (!class_exists('wp_adpress_forms')) {
 		{
 			$value = $param['value'];
 			$action = $param['action'];
-			echo '<a href="' . $_SERVER['REQUEST_URI'] . '&action=' . $action . '" class="button-secondary">' . $value . '</a>';
+			echo '<a href="' . $_SERVER['REQUEST_URI'] . '&wpad-action=' . $action . '" class="button-secondary">' . $value . '</a>';
 		}
 
 		/**
