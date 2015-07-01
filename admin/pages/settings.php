@@ -3,20 +3,7 @@
 if (!defined('ABSPATH')) {
 	die('-1');
 }
-/*
- * Catch Actions
- */
-if (isset($_GET['action'])) {
-	switch ($_GET['action']) {
-	case 'del_payments_log':
-		break;
-	case 'del_history':
-		if (wp_adpress_history::empty_history()) {
-			wp_adpress::display_notice('History Deleted', '<p>History Removed</p>', 'adpress-icon-request_sent');
-		}
-		break;
-	}
-}
+
 /*
  * Check that user roles settings are changed
  * @return bool

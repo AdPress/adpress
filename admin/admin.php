@@ -393,10 +393,6 @@ if (!class_exists('wp_adpress_admin')) {
             add_settings_field('paypal_username', 'User Name', 'wp_adpress_forms::textbox', 'adpress_settings_form_paypal', 'paypal_section', array('paypal_username', 'adpress_settings'));
             add_settings_field('paypal_password', 'Password', 'wp_adpress_forms::passwordbox', 'adpress_settings_form_paypal', 'paypal_section', array('paypal_password', 'adpress_settings'));
             add_settings_field('paypal_signature', 'Signature', 'wp_adpress_forms::passwordbox', 'adpress_settings_form_paypal', 'paypal_section', array('paypal_signature', 'adpress_settings'));
-            // -- Purchase History
-            add_settings_section('history_section', 'Purchase History', 'wp_adpress_forms::description', 'adpress_settings_form_history', 'History Settings');
-            add_settings_field('history', 'Enable History', 'wp_adpress_forms::checkbox', 'adpress_settings_form_history', 'history_section', array('history', 'adpress_settings'));
-            add_settings_field('history_reset', 'Delete History', 'wp_adpress_forms::button', 'adpress_settings_form_history', 'history_section', array('value' => 'Remove History', 'action' => 'del_history')); 
 
             // Gateways
             register_setting('adpress_gateways_settings', 'adpress_gateways_settings', 'wp_adpress_forms::validate');

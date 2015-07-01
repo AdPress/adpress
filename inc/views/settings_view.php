@@ -76,25 +76,21 @@ if (!class_exists('wp_adpress_settings')) {
 ?>
 		<form action="options.php" method="POST">
 			<?php settings_fields('adpress_settings'); ?>
-			<div class="c-block" style="width: 650px;">
-				<div class="c-head">
-					<?php do_settings_sections('adpress_settings_form_general'); ?>
-				</div>
-				<div class="c-block" style="width: 650px;">
-					<div class="c-head">
-						<?php do_settings_sections('adpress_settings_form_client'); ?>
-					</div>
-						<div class="c-block" style="width: 650px;">
-							<div class="c-head">
-								<?php do_settings_sections('adpress_settings_form_history'); ?>
-							</div>
-							<input type="hidden" name="_wp_http_referer"
-								   value="<?php echo admin_url('admin.php?page=adpress-settings'); ?>"/>
+			<div class="c-block">
+			<div class="c-head">
+				<?php do_settings_sections('adpress_settings_form_general'); ?>
+			</div>
+			<div class="c-block">
+			<div class="c-head">
+				<?php do_settings_sections('adpress_settings_form_client'); ?>
+			</div>	
 
-							<p class="submit">
-								<input name="Submit" type="submit" class="button-primary"
-									   value="<?php esc_attr_e( 'Save Changes', 'wp-adpress' ); ?>"/>
-							</p>
+			<input type="hidden" name="_wp_http_referer" value="<?php echo admin_url('admin.php?page=adpress-settings'); ?>"/>
+
+			<p class="submit">
+				<input name="Submit" type="submit" class="button-primary"
+					   value="<?php esc_attr_e( 'Save Changes', 'wp-adpress' ); ?>"/>
+			</p>
 		</form>
 <?php
 		}
@@ -107,7 +103,7 @@ if (!class_exists('wp_adpress_settings')) {
 <form action="options.php" method="POST">
 <?php settings_fields('adpress_gateways_settings'); ?>
 
-			<div class="c-block" style="width: 650px;">
+			<div class="c-block">
 				<div class="c-head">
 					<?php do_settings_sections('adpress_gateways_form_general'); ?>
 				</div>

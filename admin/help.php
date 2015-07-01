@@ -129,26 +129,6 @@ if (method_exists($current_screen, 'add_help_tab')) {
 				'<li>' . __('<strong>Auto Approve</strong> Disable Ads moderation. Purchased Ads will automatically run.', 'wp-adpress') . '</li>' .
 				'<li>' . __('<strong>Client Message</strong> Enable the client to enter a message when purchasing the form.', 'wp-adpress') . '</li>'
 			));
-			$current_screen->add_help_tab(array(
-				'id' => 'general_help_tab3',
-				'title' => __('PayPal Settings', 'wp-adpress'),
-				'content' => '<h2>' . __('PayPal Settings', 'wp-adpress') . '</h2>' .
-				'<p>' . __('Using the PayPal integration (PayPal ExpressCheckout), Advertisers can pay directly without your intervention when purchasing an Ad. AdPress makes the setup easy to use. You just need to enter your PayPal merchant account information, and set few settings.', 'wp-adpress') . '</p>' .
-				'<h2>' . __('Express Checkout', 'wp-adpress') . '</h2>' .
-				'<p>PayPal Expresscheck is a convenient solution to process payment online. First, make sure you know how <a href="https://merchant.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=merchant/express_checkout">it works</a>. Second, you need to create a business/merchant account to get your account user name, password and signature.' .
-				'<h2>' . __('SandBox mode', 'wp-adpress') . '</h2>' .
-				'<p>' . __('If you are new to PayPal Express Checkout, please sign up for their <a href="https://developer.paypal.com">Sandbox test suite</a> and get used to how PayPal works. PayPal has got a sandbox mode, which is a virtual platform similar to the one running PayPal. Its purpose is to make tests and see how it works before trying in real life. By checking this box, you enable the Sandbox mode.', 'wp-adpress') .
-				'<h2>' . __('Refunds', 'wp-adpress') . '</h2>' .
-				'<p>' . __('AdPress supports refunds. When a purchaser make a purchase and it gets rejected (or cancels it before running), it makes sense to refund the payment. If refunds are enabled, rejecting the Ad will automatically issue the refund.', 'wp-adpress') . '</p>'
-			));
-			$current_screen->add_help_tab(array(
-				'id' => 'general_help_tab4',
-				'title' => __('Purchase History', 'wp-adpress'),
-				'content' => '<h2>' . __('Purchase History', 'wp-adpress') . '</h2>' .
-				'<p>' . __('AdPress can record all the ad purchases. History is enabled by default. The history is accessible through the "History" tab.', 'wp-adpress') . '</p>' .
-				'<h3>' . __('Removing History', 'wp-adpress') . '</h3>' .
-				'<p>' . __('History can consume a huge amount of space in your database after some time. It can be useful to empty the cache to free some space in your database.', 'wp-adpress') . '</p>'
-			));
 			break;
 		}
 		break;
