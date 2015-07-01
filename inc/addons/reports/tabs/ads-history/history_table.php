@@ -68,7 +68,7 @@ class wp_adpress_ads_history_table extends WP_List_Table {
 
 		$this->get_count();
 		$this->process_bulk_action();
-		$this->base_url = admin_url( 'admin.php?page=adpress-reports' );
+		$this->base_url = admin_url( 'admin.php?page=adpress-reports&tab=ads_history' );
 		$this->prepare_items();
 	}
 
@@ -229,7 +229,7 @@ class wp_adpress_ads_history_table extends WP_List_Table {
 	public function column_cb( $payment ) {
 		return sprintf(
 			'<input type="checkbox" name="%1$s[]" value="%2$s" />',
-			'adhistory',
+			'id',
 			$payment->ID
 		);
 	}
@@ -258,7 +258,7 @@ class wp_adpress_ads_history_table extends WP_List_Table {
 	 */
 	public function process_bulk_action() {
 		// Get the Ids
-		$ids    = isset( $_GET['adhistory_id'] ) ? $_GET['adhistory_id'] : false;
+		$ids    = isset( $_GET['id'] ) ? $_GET['id'] : false;
 
 		// Set the action
 		$action = $this->current_action();
@@ -274,7 +274,7 @@ class wp_adpress_ads_history_table extends WP_List_Table {
 
 		foreach ( $ids as $id ) {
 			if ( 'delete' === $this->current_action() ) {
-
+				wp_adpress_delete_adhistory( $id );
 			}
 
 			do_action( 'wp_adpress_adshistory_table_do_bulk_action', $id, $this->current_action() );
