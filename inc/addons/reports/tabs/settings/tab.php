@@ -16,3 +16,12 @@ function wpad_reports_settings_body( $tab ) {
 		require_once( 'page.php' );		
 	}	
 }
+
+add_action( 'admin_init', 'wpad_reports_register_settings' ); 
+function wpad_reports_register_settings() {
+	register_setting( 'wpad_reports_settings', 'wpad_reports_settings' , 'wp_adpress_forms::validate' );
+	add_settings_section('history_section', 'Ads History', 'wp_adpress_forms::description', 'adpress_reports_settings_form_history', 'History Settings');
+	add_settings_field('history', 'Enable History', 'wp_adpress_forms::checkbox', 'adpress_reports_settings_form_history', 'history_section', array('history', 'wpad_reports_settings'));
+	add_settings_field('history_reset', 'Delete History', 'wp_adpress_forms::button', 'adpress_reports_settings_form_history', 'history_section', array( 'value' => 'Remove History', 'action' => 'wpad_reports_remove_history' ) ); 
+
+}
