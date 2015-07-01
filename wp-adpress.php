@@ -182,6 +182,7 @@ if ( ! class_exists( 'wp_adpress' ) ) {
 			 * Admin Dependencies
 			 */
 			if ( is_admin() ) {
+                require_once( 'inc/admin-actions.php' );
 				require_once( 'admin/forms.php' );
 				require_once( 'admin/admin.php' );
 				require_once( 'admin/mu-admin.php' );
