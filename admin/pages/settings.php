@@ -28,6 +28,8 @@ if (isset($_GET['settings-updated'])) {
 }
 ?>
 <div class="wrap" id="adpress">
+<div id="adpress-icon-settings" class="icon32"><br></div>
+<h2><?php _e( 'Settings', 'wp-adpress' ); ?></h2>
 	<h2 class="nav-tab-wrapper">
 <?php
 wp_adpress_settings::render_tabs();

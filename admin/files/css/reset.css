@@ -310,6 +310,12 @@
 	display: inline;
 }
 
+#adpress .icon32 + H2::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
 #adpress-icon-campaigns {
     background-image: url(../img/icons/campaigns.png);
 }

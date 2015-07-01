@@ -1,6 +1,6 @@
 <?php
 
-add_action('admin_enqueue_scripts', 'myHelpPointers');
+//add_action('admin_enqueue_scripts', 'myHelpPointers');
 function myHelpPointers() {
 	require_once( 'class.wp-help-pointers.php' );
 global $current_screen;
