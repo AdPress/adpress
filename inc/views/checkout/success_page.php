@@ -11,8 +11,8 @@ $payment_date = strtotime( $item->post_date );
 }
 ?>
 <div class="wrap" id="adpress">
-	<h2><?php _e( 'Purchase Ad', 'wp-adpress' ); ?></h2>
-	<div class="c-block" style="width:600px"> 
+	<h2><?php _e( 'Successful Purchase', 'wp-adpress' ); ?></h2>
+	<div class="c-block"> 
 		<div class="c-head">
 			<h3 id="adpress-icon-request_sent"><?php _e('Your request is sent', 'wp-adpress'); ?></h3>
 		</div>
@@ -26,7 +26,7 @@ $payment_date = strtotime( $item->post_date );
 		<?php _e('You can now <a href="admin.php?page=adpress-client">purchase more Ads</a> or <a href="admin.php?page=adpress-purchases">check your requests status</a>.', 'wp-adpress'); ?>
 		</p>
 	</div>
-	<div class="c-block" style="width:600px"> 
+	<div class="c-block"> 
 		<div class="c-head">
 			<h3 id="adpress-icon-request_sent"><?php _e('Purchase Details', 'wp-adpress'); ?></h3>
 		</div>

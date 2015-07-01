@@ -16,7 +16,7 @@ die('-1');
 <h2><?php _e( 'Settings', 'wp-adpress' ); ?></h2>
 <form action="options.php" method="POST">
 	<?php settings_fields( 'wpad_reports_settings' ); ?>
-	<div class="c-block" style="width: 650px;">
+	<div class="c-block">
 		<div class="c-head">
 			<?php do_settings_sections( 'adpress_reports_settings_form_history' ); ?>
 		</div>
