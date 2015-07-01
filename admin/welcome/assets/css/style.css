@@ -42,3 +42,13 @@
 	padding: 10px;
 	display: inline-block;
 }
+
+.start-logo {
+	float: left;
+	height: 64px;
+	width: 64px;
+	padding-right: 35px;
+}
+.start-logo + H1 {
+	padding-top: 5px;
+}
