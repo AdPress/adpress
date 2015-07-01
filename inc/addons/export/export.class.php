@@ -174,7 +174,7 @@ if (!class_exists('wp_adpress_export')) {
         static function display_message($title, $content, $icon)
         {
             self::$message = '
-        <div class="c-block" style="width: 565px;">
+        <div class="c-block">
                     <div class="c-head">
                         <h3 id="' . $icon . '">' . $title . '</h3>
                     </div>
@@ -204,7 +204,7 @@ if (!class_exists('wp_adpress_export')) {
 			$message = self::$message;
 			print <<<html
 $message
-<div class="c-block" style="width: 565px;">
+<div class="c-block">
             <div class="c-head">
                 <h3>Export</h3>
             </div>
@@ -222,7 +222,7 @@ $message
             <input type="hidden" name="tab" value="export" />
             </form>
 </div>
-<div class="c-block" style="width: 565px;">
+<div class="c-block">
             <div class="c-head">
                 <h3>Import</h3>
             </div>
@@ -245,7 +245,7 @@ $message
             <input type="hidden" name="tab" value="export" />
             </form>
 </div>
-<div class="c-block" style="width: 565px;">
+<div class="c-block">
             <div class="c-head">
                 <h3>Reset Plug-in</h3>
             </div>

@@ -21,6 +21,7 @@ if ( ! class_exists( 'WP_List_Table' ) ) {
 // Initialize the history table
 $adshistory_table = new wp_adpress_ads_history_table();
 ?>
+<div id="adpress-icon-ads_history" class="icon32"><br></div>
 <h2><?php _e( 'Ads History', 'wp-adpress' ); ?></h2>
         <form id="wp-adpress-adshistory-filter" method="get" action="<?php echo admin_url( 'admin.php?page=adpress-reports' ); ?>">
             <input type="hidden" name="page" value="adpress-reports" />

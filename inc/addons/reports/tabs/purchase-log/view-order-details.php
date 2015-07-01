@@ -38,7 +38,8 @@ if (!$user_info) {
 }
 
 ?>
-<div class="wrap">
+<div class="wrap" id="adpress">
+<div id="adpress-icon-payment_log" class="icon32"><br></div>
 	<h2><?php printf( __( 'Payment #%d', 'wp-adpress' ), $payment_id ); ?></h2>
 	<?php do_action( 'wp_adpress_view_order_details_before', $payment_id ); ?>
 	<form id="wp-adpress-edit-order-form" method="post">

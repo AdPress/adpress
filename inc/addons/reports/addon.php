@@ -58,6 +58,7 @@ add_action( 'admin_print_styles', 'wp_adpress_reports_styles' );
 function wp_adpress_reports_styles() {
 	global $current_screen;
 	if ( $current_screen->id === 'adpress_page_adpress-reports' ) {
+wp_enqueue_style( 'wp_adpress_reset', ADPRESS_URLPATH . 'admin/files/css/reset.css' );	
 		wp_enqueue_style( 'wp_adpress_reports', ADPRESS_URLPATH . 'inc/addons/reports/files/css/reports.css' );	
 	}
 }

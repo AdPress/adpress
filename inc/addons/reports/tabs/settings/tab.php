@@ -9,3 +9,10 @@ function wpad_reports_settings_tab( $tabs ) {
 
 	return $tabs;
 }
+
+add_action( 'wp_adpress_reports_tab', 'wpad_reports_settings_body' );
+function wpad_reports_settings_body( $tab ) {
+	if ( $tab === 'settings' ) {
+		require_once( 'page.php' );		
+	}	
+}

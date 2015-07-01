@@ -231,7 +231,7 @@
 */
 
 #adpress input[type="text"], #adpress input[type="password"] {
-    width: 200px;
+    width: 250px;
 }
 
 #adpress textarea {
@@ -297,15 +297,17 @@
 {{ ICONS }}
 */
 #adpress .icon32 {
-
     background-repeat: no-repeat; 
-	background-size: 32px 32px;
     display: block;
     height: 32px;
-    width: 40px;
-    float: left;
-    margin-bottom: 0px; margin-left: 0px; margin-right: 8px; margin-top: 7px;
+	width: 40px;
+	float: left;
+	background-size: 50%;
+	background-position: center;
+}
 
+#adpress .icon32 + H2 {
+	display: inline;
 }
 
 #adpress-icon-campaigns {
@@ -399,6 +401,11 @@
 #adpress-icon-addons {
     background-image: url(../img/icons/addons.png);
 }
+
+#adpress-icon-settings {
+    background-image: url(../img/icons/settings.png);
+}
+
 /*Info box*/
 P.info
 {

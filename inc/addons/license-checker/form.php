@@ -1,6 +1,6 @@
 <form action="options.php" method="POST">
 		<?php settings_fields('adpress_license_settings'); ?>
-		<div class="c-block" style="width: 650px;">
+		<div class="c-block">
 			<div class="c-head">
 				<?php do_settings_sections('adpress_license_form'); ?>
 			</div>

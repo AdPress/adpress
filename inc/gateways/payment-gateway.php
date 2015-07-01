@@ -91,7 +91,7 @@ abstract class WPAD_Payment_Gateway
 <form action="options.php" method="POST">
 <?php settings_fields('adpress_gateway_' . $this->params['id'] . '_settings'); ?>
 
-			<div class="c-block" style="width: 650px;">
+			<div class="c-block">
 				<div class="c-head">
 					<?php do_settings_sections('adpress_gateway_' . $this->params['id'] . '_form_general'); ?>
 				</div>
