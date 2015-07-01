@@ -46,20 +46,6 @@ if (!class_exists('wp_adpress_install')) {
         );';
 
         /**
-         * History Table schema
-         * @var string SQL Query
-         */
-        private $history_table_sql = '
-        CREATE TABLE %table_name% (
-            id INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-            ad_id INT(3) NOT NULL,
-            approved_at TEXT,
-            expired_at TEXT,
-            ad_info TEXT,
-            campaign_info TEXT
-        );';
-
-        /**
          * Plug-in default settings
          * @var array
          */
@@ -71,9 +57,12 @@ if (!class_exists('wp_adpress_install')) {
             'client_transfer_role' => 'administrator',
             'client_old_role' => '',
             'client_roles' => array('all' => 'on'),
-            'time_format' => 'Y-m-d h:i',
-            'history' => 'on'
+            'time_format' => 'Y-m-d h:i'
         );
+
+		static $reports_defaults = array(
+			'history' => 'on',
+		);
 
 		/**
 		 * List of installed gateways
@@ -128,37 +117,37 @@ if (!class_exists('wp_adpress_install')) {
 		 */
 	static $flash_defaults = array(
 		'ad_loop' => '
-		<li>
-		<div style="height: @banner_height; width: @banner_width; position: relative;">
+<li>
+	<div style="height: @banner_height; width: @banner_width; position: relative;">
 		<a target="_blank" style="height: @banner_height; width: @banner_width;" href="@url"></a>
 		<embed style="position: absolute;" type="application/x-shockwave-flash" src="@swf_src" quality="high" wmode="transparent" height="@banner_height" width="@banner_width">
-		</div>
-		</li>',
+	</div>
+</li>',
 'ad_css' => '
 .flash-campaign
 {
 	list-style: none;
-	}
+}
 
-	.flash-campaign li
-	{
-		display: list-item;
-		float: left;
-		padding: 0;
-		margin: 5px;
-	}
+.flash-campaign li
+{
+	display: list-item;
+	float: left;
+	padding: 0;
+	margin: 5px;
+}
 
-	.flash-campaign li div
-	{
-		position: relative;
-	}
+.flash-campaign li div
+{
+	position: relative;
+}
 
-	.flash-campaign li div a
-	{
-		position: absolute;
-		z-index: 9999;
-		display: block;
-	}'
+.flash-campaign li div a
+{
+	position: absolute;
+	z-index: 9999;
+	display: block;
+}'
 		);
 
         /**
@@ -195,17 +184,18 @@ if (!class_exists('wp_adpress_install')) {
             */
             $this->create_Table('adpress_campaigns', $this->campaigns_table_sql);
             $this->create_Table('adpress_ads', $this->ads_table_sql);
-            $this->create_Table('adpress_history', $this->history_table_sql);
 
             /*
             * Set the Default Settings
             */
             self::$defaults['client_role'] = __( 'administrator', 'wp-adpress' );
             self::$defaults['client_transfer_role'] = __( 'administrator', 'wp-adpress' );
+
             update_option('adpress_settings', self::$defaults);
             update_option('adpress_image_settings', self::$img_defaults);
             update_option('adpress_flash_settings', self::$flash_defaults);
             update_option('adpress_link_settings', self::$link_defaults);
+			update_option( 'wpad_reports_settings', self::$reports_defaults );
 
 			// Gateways Settings
 			$adpress_settings = array (
@@ -219,13 +209,7 @@ if (!class_exists('wp_adpress_install')) {
             /*
             * Set the install option
             */
-            update_option('adpress_install', 'installed');
-
-            /*
-            * Update the user roles
-            */
-            // TODO: Check this line of code
-            //wp_adpress::update_user_roles();
+            update_option('adpress_install', 'installed'); 
         }
 
         /**
@@ -272,9 +256,7 @@ if (!class_exists('wp_adpress_uninstall')) {
             if (self::check_table_exists('adpress_ads')) {
                 self::remove_Table('adpress_ads');
             }
-            if (self::check_table_exists('adpress_history')) {
-                self::remove_Table('adpress_history');
-            }
+           
             /* Remove the plugin Settings */
             delete_option('adpress_settings');
 
