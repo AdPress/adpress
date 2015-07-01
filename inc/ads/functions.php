@@ -24,6 +24,11 @@ function wp_adpress_insert_adhistory( $ad_data = false ) {
 		return false;
 	}
 
+	$reports_settings = get_option( 'wpad_reports_settings' );
+	if ( ! isset( $reports_settings['history'] ) ) {
+		return false;
+	}
+
 	// Post Args
 	$args = array (
 		'post_title'    => __( 'Ad History - ', 'wp-adpress' ) . $ad_data->id,
@@ -88,4 +93,21 @@ function wp_adpress_delete_adhistory( $adhistory_id = 0 ) {
 	wp_delete_post( $adhistory_id, true );
 
 	do_action( 'wp_adpress_delete_adhistory', $adhistory_id );
+}
+
+/**
+ *  Removes all Ads History from the Database
+ *
+ * @since 1.1.0
+ * @return void
+ */
+function wp_adpress_delete_all_adhistory() {
+
+	$posts = get_posts( array( 'post_type' => 'wpad_adshistory', 'numberposts' => -1));
+
+	foreach( $posts as $post ) {
+		wp_delete_post( $post->ID, true );
+	}
+
+	do_action( 'wp_adpress_delete_all_adhistory' );
 }
