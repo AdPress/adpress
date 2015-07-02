@@ -253,7 +253,15 @@ if ( ! class_exists( 'wp_adpress' ) ) {
 			/*
 			 * Required Add-ons
 			 */
-			require_once( 'inc/addons/manual/addon.php' ); 
+			$this->load_addons();
+		}
+
+		private function load_addons() {
+			foreach (new DirectoryIterator( ADPRESS_ABSPATH . 'inc/addons') as $addon) {
+				if( $addon->isDir() && !$addon->isDot() ) {	
+					require_once( ADPRESS_ABSPATH . 'inc/addons/' . $addon . '/addon.php' );
+				}
+			}
 		}
 
 		/**
