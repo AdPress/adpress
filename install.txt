@@ -1,0 +1,5 @@
+How to install AdPress:
+
+1. Through the WordPress interface using the adpress-plugin.zip file
+
+2. Unzip adpress-plugin.zip folder and upload its content using FTP to your "wp-content/plugins" folder
