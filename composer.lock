@@ -98,12 +98,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpplex/wp-pointer.git",
-                "reference": "11f4022f59981cb2e7ec66753c4e89ff7b92fcd7"
+                "reference": "4a79c7272538ab312b638911c6608bbb705b42e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpplex/wp-pointer/zipball/11f4022f59981cb2e7ec66753c4e89ff7b92fcd7",
-                "reference": "11f4022f59981cb2e7ec66753c4e89ff7b92fcd7",
+                "url": "https://api.github.com/repos/wpplex/wp-pointer/zipball/4a79c7272538ab312b638911c6608bbb705b42e9",
+                "reference": "4a79c7272538ab312b638911c6608bbb705b42e9",
                 "shasum": ""
             },
             "require": {
@@ -134,7 +134,7 @@
                 "tooltip",
                 "wordpress"
             ],
-            "time": "2015-07-01 20:10:30"
+            "time": "2015-07-01 20:34:36"
         }
     ],
     "packages-dev": [],
