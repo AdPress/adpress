@@ -13,6 +13,7 @@
 		"grunt-text-replace": "~0.4.0",		
 		"grunt-bump": "~0.3.0",		
 		"grunt-version": "~0.3.1",
+		"grunt-shell": "~1.1.2",				
 		"load-grunt-tasks": "~0.2.0"
 	}
 }

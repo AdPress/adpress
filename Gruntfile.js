@@ -12,7 +12,7 @@ module.exports = function( grunt ) {
 			lang: 'i18n/languages',
 		},
 
-	// Check that textdomain is set
+		// Check that textdomain is set
 		checktextdomain: {
 			options:{
 				text_domain: 'wp-adpress',
@@ -41,7 +41,7 @@ module.exports = function( grunt ) {
 			files: {
 				src: [
 					'**/*.php', // Include all files
-					
+
 					'!node_modules/**', // Exclude node_modules/
 					'!tests/**', // Exclude unit tests/
 					'!bin/**', // Exclude Bin/
@@ -106,14 +106,46 @@ module.exports = function( grunt ) {
 					'!.gitmodules',
 					'!README.md',
 					'!README.txt',
+					'!install.txt',
 					'!composer.json',
 					'!composer.lock'
 				],
 				dest: 'build/<%= pkg.name %>/plugin/'
 			},
-			help: {
-				src: [ 'help/**' ],
+			instructions: {
+				src: [ 'install.txt' ],
 				dest: 'build/<%= pkg.name %>/'
+			}
+		},
+
+		// Shell Commands
+		shell: {
+			options: {
+				execOptions: {
+					maxBuffer: Infinity
+				}
+			},
+			composer_install: {
+				command: function() {
+					var cmd = [
+						'composer install',
+						'composer dumpautoload'
+						].join( '&&' );
+						return cmd;
+				}
+			},
+			lv1_addons: {
+				command: function() {
+					var cmd = [
+						'git archive --remote=git@bitbucket.org:omarabid/wpad-customize.git --prefix=build/adpress/plugin/inc/addons/customize/ HEAD |  tar xvf -',
+						'git archive --remote=git@bitbucket.org:omarabid/wpad-export.git --prefix=build/adpress/plugin/inc/addons/export/ HEAD |  tar xvf -',
+						'git archive --remote=git@bitbucket.org:omarabid/wpad-paypal-standard.git --prefix=build/adpress/plugin/inc/addons/paypal-standard/ HEAD |  tar xvf -',
+						'git archive --remote=git@bitbucket.org:omarabid/wpad-stats.git --prefix=build/adpress/plugin/inc/addons/stats/ HEAD |  tar xvf -',
+						'git archive --remote=git@bitbucket.org:omarabid/wpad-reports.git --prefix=build/adpress/plugin/inc/addons/reports/ HEAD |  tar xvf -',
+						'git archive --remote=git@bitbucket.org:omarabid/wpad-license.git --prefix=build/adpress/plugin/inc/addons/license/ HEAD |  tar xvf -'
+						].join( '&&' );
+						return cmd;
+				}
 			}
 		},
 
@@ -152,6 +184,8 @@ module.exports = function( grunt ) {
 				dest: '<%= pkg.name %>/'
 			}
 		},
+
+		// Release tool
 		bump: {
 			options: {
 				files: [ 'package.json' ],
@@ -171,8 +205,10 @@ module.exports = function( grunt ) {
 		}
 	} );	
 
-	// Register tasks
-	grunt.registerTask( 'default', ['makepot', 'potomo', 'clean', 'copy', 'replace', 'compress'] );
+	// Build Tasks 
+	grunt.registerTask( 'default', [ 'shell:composer_update', 'makepot', 'potomo', 'clean', 'copy', 'replace', 'compress' ] );
+	grunt.registerTask( 'lv1', [ 'shell:composer_update', 'makepot', 'potomo', 'clean', 'copy', 'shell:lv1_addons', 'replace', 'compress' ] );
 
+	// Tooling Tasks
 	grunt.registerTask( 'report', ['checktextdomain'] );
 };
