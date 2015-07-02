@@ -262,7 +262,6 @@ if (!class_exists('wp_adpress_admin')) {
                 wp_enqueue_script('wp_adpress_admin', ADPRESS_URLPATH . 'admin/files/js/admin.js');
                 break;
             case $adpress_page_settings:
-                wp_enqueue_script('textarea_plugin', ADPRESS_URLPATH . 'admin/files/js/plugins/jquery.textarea.js');
                 wp_enqueue_script('wp_adpress_settings', ADPRESS_URLPATH . 'admin/files/js/settings.js');
                 wp_enqueue_script('wp_adpress_admin', ADPRESS_URLPATH . 'admin/files/js/admin.js');
                 break;
@@ -334,7 +333,6 @@ if (!class_exists('wp_adpress_admin')) {
             case $adpress_page_settings:
                 wp_enqueue_style('wp_adpress_reset', ADPRESS_URLPATH . 'admin/files/css/reset.css');
 				wp_enqueue_style('wp_adpress_settings', ADPRESS_URLPATH . 'admin/files/css/settings.css');
-				wp_enqueue_style('codemirror_plugin', ADPRESS_URLPATH . 'admin/files/css/plugins/codemirror.css');
                 break;
             case $adpress_page_addons:
                 wp_enqueue_style('wp_adpress_reset', ADPRESS_URLPATH . 'admin/files/css/reset.css');
