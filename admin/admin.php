@@ -18,7 +18,7 @@ if (!class_exists('wp_adpress_admin')) {
             /*
              * 1. Admin Menu
              */
-            add_action('admin_menu', array(&$this, 'admin_menu'), 10);
+            add_action( 'admin_menu', array(&$this, 'admin_menu') );
 
             /*
              * 2. Load Scripts and Styles
@@ -85,11 +85,11 @@ if (!class_exists('wp_adpress_admin')) {
                 $adpress_page_adsrequests = add_submenu_page('adpress-campaigns', 'AdPress | Ads Requests', 'Ads Requests', 'manage_options', 'adpress-adsrequests', array(&$this, 'menu_router'));
                 add_action("load-$adpress_page_adsrequests", array(&$this, 'help'));
 
+				do_action( 'wp_adpress_admin_menu' );
+
                 $adpress_page_settings = add_submenu_page('adpress-campaigns', 'AdPress | Settings', 'Settings', 'manage_options', 'adpress-settings', array(&$this, 'menu_router'));
                 add_action("load-$adpress_page_settings", array(&$this, 'help'));
 				
-				do_action( 'wp_adpress_admin_settings_menu' );
-
                 $adpress_page_addons = add_submenu_page('adpress-campaigns', 'AdPress | Add-ons', 'Add-ons', 'manage_options', 'adpress-addons', array(&$this, 'menu_router'));
                 add_action("load-$adpress_page_addons", array(&$this, 'help'));
             }
@@ -108,6 +108,9 @@ if (!class_exists('wp_adpress_admin')) {
 
             $adpress_page_purchases = add_submenu_page('adpress-client', 'AdPress | Purchased Ads', 'Purchases', 'adpress_client_menu', 'adpress-purchases', array(&$this, 'menu_router'));
             add_action("load-$adpress_page_purchases", array(&$this, 'help'));
+
+			do_action( 'wp_adpress_client_menu' );
+
             // Independant pages
             $adpress_page_purchase = add_submenu_page('adpress-pages', 'AdPress | Purchase Ad', 'Purchase Ad', 'adpress_client_menu', 'adpress-ad_purchase', array(&$this, 'menu_router'));
             add_action("load-$adpress_page_purchase", array(&$this, 'help'));
