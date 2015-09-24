@@ -206,8 +206,8 @@ module.exports = function( grunt ) {
 	} );	
 
 	// Build Tasks 
-	grunt.registerTask( 'default', [ 'shell:composer_update', 'makepot', 'potomo', 'clean', 'copy', 'replace', 'compress' ] );
-	grunt.registerTask( 'lv1', [ 'shell:composer_update', 'makepot', 'potomo', 'clean', 'copy', 'shell:lv1_addons', 'replace', 'compress' ] );
+	grunt.registerTask( 'default', [ 'shell:composer_install', 'makepot', 'potomo', 'clean', 'copy', 'replace', 'compress' ] );
+	grunt.registerTask( 'lv1', [ 'shell:composer_install', 'makepot', 'potomo', 'clean', 'copy', 'shell:lv1_addons', 'replace', 'compress' ] );
 
 	// Tooling Tasks
 	grunt.registerTask( 'report', ['checktextdomain'] );
