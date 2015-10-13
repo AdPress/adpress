@@ -25,3 +25,11 @@ before_script:
     - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION 
 
 script: phpunit
+
+deploy:
+  provider: releases
+  api_key: "qetYVMxt73ZcoIyYsXDoh9Q9fYT94+IkmXrs0aM1lJm0CGyz9QrP6mXQi1WEfLrvrow6VmNxlOg4FGYLz0llNBtLEBu/fRsPG+lbIJGbZVDHRhT6U5xJcGyQEjOK3mJZfL1mbhHEnjcqTrOMuWGEsLtMfDYOGf6NUfVOCjadQEkcgFPsZy0YkCkhBQJbWsKgz+YnsaccYstACPa3TGap4bGIvLKujDbAqNzqePVTjXRIvI2FmgAVURdYwQidfTR7/E8g54nHYVMX1Gys3H+mET5rNCGQvtgXW8WuAxPrtZb7+csLXeYNgbBQa+ggjW68mF1N8TbNqnEsxP93VukeDHb4PtS/6H3FQlFLvUQGvlvt6wodc2iPgWu3JBkO7OzPY8L56jlSF+BmL2UWcHiEaVjj9rOMpKoAKuSJD+tfZZ1mY36ViL0/gg9WzY7nNEcsIDYP7CkQ/FC3ufOX8u90YmIcUO6rywJI0kKzEjQPXDvvAsDsycvslbOBAzVVkBcr2pGtfHy3Fr+B1WORXYqIzKFSLinAv3j6+LZHHOSlz7eJ3WUIOqAuYayz1tlXk9YA7X4PLBgMr9KCRbQzM5hnfrYG5YO7taV6p2I3HN++GqpaM2CFTvNPta9eWQWMIlHGHjYJudtqIp7X5U8/PjP3AG5CxFM5ZISQ+LW7Ei/bVFo="
+  file: "build/adpress/adpress-plugin.zip"
+  skip_cleanup: true
+  on:
+    tags: true
