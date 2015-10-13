@@ -257,9 +257,9 @@ if ( ! class_exists( 'wp_adpress' ) ) {
 		}
 
 		private function load_addons() {
-			foreach (new DirectoryIterator( ADPRESS_ABSPATH . 'inc/addons') as $addon) {
+			foreach (new DirectoryIterator( ADPRESS_DIR . '/inc/addons') as $addon) {
 				if( $addon->isDir() && !$addon->isDot() ) {	
-					require_once( ADPRESS_ABSPATH . 'inc/addons/' . $addon . '/addon.php' );
+					require_once( ADPRESS_DIR . '/inc/addons/' . $addon . '/addon.php' );
 				}
 			}
 		}
