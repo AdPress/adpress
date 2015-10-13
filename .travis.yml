@@ -1,38 +1,31 @@
 notifications:
   email: false
-
 language: php
-
 php:
-    - 5.3
-    - 5.4
-    - 5.5
-    - 5.6
-    - hhvm 
-
+- 5.3
+- 5.4
+- 5.5
+- 5.6
+- hhvm
 env:
-    - WP_VERSION=latest WP_MULTISITE=0
-    - WP_VERSION=4.3 WP_MULTISITE=0
-    - WP_VERSION=4.2 WP_MULTISITE=0
-
-# disable the default submodule logic
+- WP_VERSION=latest WP_MULTISITE=0
+- WP_VERSION=4.3 WP_MULTISITE=0
+- WP_VERSION=4.2 WP_MULTISITE=0
 git:
   submodules: false
- 
 before_script:
-    - composer self-update
-    - composer install
-    - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION 
-
+- composer self-update
+- composer install
+- bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
 script: phpunit
-
-before_deploy: 
-    - composer self-update
-    - composer install 
-    - npm install
-    - grunt
+before_deploy:
+- composer self-update
+- composer install
+- npm install
+- grunt
 deploy:
   provider: releases
-  api_key: "man3ll3RvKmx7lzDdIcYJWbXWABIZ09TG3KV+CwGJDC4IzzbHKjDKyZZWfCaQLBpT7U7b+UgC+gjWKjeFwRvitCnsal5NdDbIhE9f9LgfWegCUjl3+3ZjeQ0WO8uK3fHV9qJx4iGEZzT/wMpLIRXP1Wdv/mV89kacqRcZCPArX9GJRa589A0se/phQMQbakETF+ZkBX3k99LTzLtTH7s9c7OrIjVBGowZN6/1mIWXYfirrf1j+P1FxIuCyc9ax+MMtUsIoSgdU2387Y4zmsDRIDFHAm7nfQaifJLO564CrCg3wQdKoNcxRTj0ihecZMhIzTFxXP+gmgr3tgTOuib64V3p5s9ZXYcjWKVjuscw+OlvBgUMprYW5/BdnqxQkb7zvlWEQ3ipWmT3/aY8WvVTbbv8yJz/11dhR2yRMpkWuHUWiUNjClhd/3cHOGnskulpvVImts2mbJ3Ff2x+yEWXH/YUHjuw2zaxk42g9429qdqgb++GHME8MHoTP8xr7ZvYC7KY6lNGKt52Q8PG9EMvA31YF9Ayat9EwmpdNwyAZKrvmHTi9EuTioi1Jpf/ERbX4Jclw/LyhhMdN+ljoXyD5+ZWlrxcaB7zOOHJnEoZ3syMTm5cHUjaMeykusgpZlK1NBGa6x72629H/YWtTdV9xvDRtdXWM7FKy5YNmRkJR4="
-  file: "build/adpress/adpress-plugin.zip"
-  skip_cleanup: true 
+  file: build/adpress/adpress-plugin.zip
+  skip_cleanup: true
+  api-key:
+    secure: My65uOM0aeHbWQTwj8TcsAelF7ni/X39KSkfBksJfJkvXX6lNruuBOeu1AplaLsNZ4U6Zhoygnh9upIk22MxbfNNXjO+eCzGruXismPb1XQTlARaNoril1QJdh7x3/6MsWWfNGLq1j4fEN7Xoub9gsIG4esV8AjXm+cxvTLWDsyWfsSOjOrUy47vSoWmqNZKljibRy5Ff29G7pMzqv2FGKPN9YUiDfaLAZgrCUQT0L4miFHRagFvPvWBe22zXwArPTfn6iKYwAHyXRgLLwXvjVCfYiy7P2LuCJbkcGgDMLQZg4RmXG6kxenAhvdrins8BnnyeGVdyZiiFMbvLBTraEhm9moN7FLzO2hnM0fmZoc4dNXzgd1KG0A9UlPCmM4ERz7xPGBpF7LDu0jGxyaeJhnvUlOWbCOIp/mk5jwPaR0DCWEmCJBoqlOa6qgmWJ7j7IzC3Yr2yGaoM7tDnBy9pG4XCoNTOBdJcE6Phm/OJalZ0Abw+alW+0tAYkaWKrV3aTG8GUaFeN+5pZVusZ2L20YehQaSswIyUKoCkPKSbGbMrYi41xQEYIOJI82NkEIYaOzpBHkW2QlGRnEx+kIERUUgIlI7+ANTyORZvN6ovSrdB1efRENgXUcq56SyVhmbAQz3YNNroJ48pOwecDpSrdU9VynTc4oPpfR04x0BvAM=
