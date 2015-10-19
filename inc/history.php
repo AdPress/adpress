@@ -91,7 +91,7 @@ if (!class_exists('wp_adpress_history')) {
 		/**
 		 * Records the history of an Ad
 		 * @global object $wpdb
-		 * @param object $ad
+		 * @param wp_adpress_ad $ad
 		 */
 		static function record_history( $ad )
 		{

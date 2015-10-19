@@ -22,6 +22,9 @@ final class PHP_Merchant_Exception extends Exception {
 	
 	private $other_args;
 	
+	/**
+	 * @param integer $code
+	 */
 	public function __construct( $code, $message_args = array(), $other_args = array() ) {
 		$this->message_args = (array) $message_args;
 		$this->message = vsprintf( self::$messages[$code], $this->message_args );

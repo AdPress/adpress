@@ -28,6 +28,9 @@ class PHP_Merchant_Paypal_IPN
 		$this->url = $test ? self::SANDBOX_URL : self::LIVE_URL;
 	}
 
+	/**
+	 * @return boolean
+	 */
 	public function is_verified() {
 		if ( is_null( $this->verified ) ) {
 			$verifying_data = array( 'cmd' => '_notify-validate' );
@@ -110,6 +113,9 @@ class PHP_Merchant_Paypal_IPN
 		return $this->verified;
 	}
 
+	/**
+	 * @param string $item
+	 */
 	public function get( $item ) {
 		return isset( $this->data[$item] ) ? $this->data[$item] : null;
 	}

@@ -84,7 +84,7 @@ if (!class_exists('wp_adpress_load_style')) {
         /**
          * @param $style_id
          * @param $el
-         * @return mixed|string
+         * @return false|null
          */
         function __construct($style_id, $el)
         {
@@ -166,8 +166,8 @@ if (!class_exists('wp_adpress_load_style')) {
 /**
  * Helper function for the wp_adpress_load_style class
  *
- * @param $style
- * @param $el
+ * @param string $style
+ * @param string $el
  * @return string|wp_adpress_load_style
  */
 function get_style_el($style, $el)

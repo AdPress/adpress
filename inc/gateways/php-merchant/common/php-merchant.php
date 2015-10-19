@@ -107,10 +107,17 @@ abstract class PHP_Merchant {
 		return $this;
 	}
 
+	/**
+	 * @param string $key
+	 */
 	public function get_option( $key ) {
 		return array_key_exists( $key, $this->options ) ? $this->options[ $key ] : null;
 	}
 
+	/**
+	 * @param string $key
+	 * @param string|boolean $value
+	 */
 	public function set_option( $key, $value ) {
 		$this->options[ $key ] = $value;
 		return $this;
@@ -142,7 +149,7 @@ abstract class PHP_Merchant {
 	 * throw a PHP_Merchant_Exception exception
 	 *
 	 * @param array $options Required fields
-	 * @return boolean|void Returns True if a specified field is found
+	 * @return boolean Returns True if a specified field is found
 	 * @since 3.9
 	 */
 	protected function conditional_requires( $options ) {

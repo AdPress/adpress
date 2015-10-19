@@ -150,6 +150,9 @@ No Requests
 			return $html;
 		}
 
+		/**
+		 * @param wp_adpress_campaign $campaign
+		 */
 		static function more_info($ad, $campaign)
 		{
 			$html = '<table class="campaign_info info-table"><tbody>';
@@ -307,6 +310,9 @@ No Ads Running
 			return $html;
 		}
 
+		/**
+		 * @param wp_adpress_campaign $campaign
+		 */
 		private function expire_info($ad, $campaign)
 		{
 			$rm = '';

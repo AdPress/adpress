@@ -225,7 +225,7 @@ form;
 
 	  /**
 	   * @param $roles
-	   * @param $cap
+	   * @param string $cap
 	   */
 	  static function roles_add_cap($roles, $cap)
 	  {
@@ -237,7 +237,7 @@ form;
 
 	  /**
 	   * @param $users
-	   * @param $cap
+	   * @param string $cap
 	   */
 	  static function users_add_cap($users, $cap)
 	  {
@@ -249,7 +249,7 @@ form;
 
 	  /**
 	   * @param $roles
-	   * @param $cap
+	   * @param string $cap
 	   */
 	  static function roles_remove_cap($roles, $cap)
 	  {
@@ -261,7 +261,7 @@ form;
 
 	  /**
 	   * @param $users
-	   * @param $cap
+	   * @param string $cap
 	   */
 	  static function users_remove_cap($users, $cap)
 	  {
@@ -275,8 +275,8 @@ form;
 	   * Filter all roles of the blog based on capabilities
 	   *
 	   * @static
-	   * @param array $include Array of capabilities to include
-	   * @param array $exclude Array of capabilities to exclude
+	   * @param string[] $include Array of capabilities to include
+	   * @param string[] $exclude Array of capabilities to exclude
 	   * @return array
 	   */
 	  static function filter_roles($include, $exclude)
@@ -313,8 +313,8 @@ form;
 	   * Filter all users of the blog based on capabilities
 	   *
 	   * @static
-	   * @param array $include Array of capabilities to include
-	   * @param array $exclude Array of capabilities to exclude
+	   * @param string[] $include Array of capabilities to include
+	   * @param string[] $exclude Array of capabilities to exclude
 	   * @return array
 	   */
 	  static function filter_users($include, $exclude)
@@ -361,7 +361,7 @@ form;
 	  }
 	  /**
 	   * @param $wp_query_obj
-	   * @return bool
+	   * @return false|null
 	   */
 	  static function restrict_ajax_library( $wp_query_obj ) {
 		 global $current_user, $pagenow;
