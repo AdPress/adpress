@@ -502,10 +502,10 @@ if ( ! class_exists( 'wp_adpress' ) ) {
 		/**
 		 * Displays a notification in all of the plugin pages
 		 *
-		 * @param $id string notification unique identifier
-		 * @param $title string title of notification
-		 * @param $content string content of notification
-		 * @param $type string warning|error
+		 * @param string $id string notification unique identifier
+		 * @param string $title string title of notification
+		 * @param string $content string content of notification
+		 * @param string $type string warning|error
 		 */
 		static function add_notification( $id, $title, $content, $type ) {
 			$notifications = get_option( 'adpress_notifications' );

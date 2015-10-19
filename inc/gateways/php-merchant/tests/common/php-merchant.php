@@ -157,6 +157,10 @@ class PHP_Merchant_Bogus extends PHP_Merchant {
 	public function requires( $options ) {
 		parent::requires( $options );
 	}
+
+	/**
+	 * @param string[] $options
+	 */
 	public function conditional_requires( $options ) {
 		parent::conditional_requires( $options );
 	}

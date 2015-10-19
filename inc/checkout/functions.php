@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
  * @since 1.0.0
  * @param array $ad_details
  * @param array $user_info
- * @return bool
+ * @return null|boolean
  */
 function wp_adpress_register_ad( $ad_details, $user_info ) {
 	if ( !is_array( $ad_details ) || !is_array( $user_info ) ) {
@@ -61,7 +61,7 @@ function wp_adpress_get_payment_user_info( $payment_id ) {
 /**
  * Return Ad Details
  *
- * @param integer $payemnt_id Payment ID
+ * @param integer $payment_id Payment ID
  * @return array Ad Details
  */
 function wp_adpress_get_payment_ad_details( $payment_id ) {

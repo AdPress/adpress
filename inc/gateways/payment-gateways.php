@@ -71,7 +71,7 @@ final class WPAD_Payment_Gateways {
 	 * active instances.
 	 *
 	 * @access public
-	 * @param object $gateway Payment Gateway Class Reference
+	 * @param string $gateway Payment Gateway Class Reference
 	 */
 	public static function init_gateway( $gateway_id, $gateway ) {		
 		// Initialize the gateway and add it to the instances array

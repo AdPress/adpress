@@ -15,7 +15,7 @@ class PHP_Merchant_Paypal_Pro extends PHP_Merchant_Paypal
 	/**
 	 * Add the payment details to the PayPal request
 	 *
-	 * @param array $action
+	 * @param string $action
 	 * @return array
 	 * @since 3.9
 	 */
@@ -255,7 +255,7 @@ class PHP_Merchant_Paypal_Pro extends PHP_Merchant_Paypal
 	 * Build the request array
 	 *
 	 * @param string $action
-	 * @param array $options
+	 * @param boolean $options
 	 * @return array
 	 * @since 3.9
 	 */
@@ -293,7 +293,7 @@ class PHP_Merchant_Paypal_Pro extends PHP_Merchant_Paypal
 	 * Add a subline for the HTML variables array
 	 *
 	 * @param string $sub
-	 * @param array $array
+	 * @param array $arr
 	 * @return array
 	 * @since 3.9
 	 */
@@ -384,7 +384,7 @@ class PHP_Merchant_Paypal_Pro extends PHP_Merchant_Paypal
 	 * Gateway impelementation for GetTransactionDetails
 	 *
 	 * @param string $transaction_id Unique identifier of a transaction.
-	 * @return PHP_Merchant_Paypal_Express_Checkout_Response
+	 * @return PHP_Merchant_Paypal_Pro_Response
 	 * @since 3.9
 	 */
 	public function get_transaction_details( $transaction_id ) {

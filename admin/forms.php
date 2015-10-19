@@ -34,7 +34,6 @@ if (!class_exists('wp_adpress_forms')) {
 
 		/**
 		 * Renders a textbox
-		 * @param string $id Option name
 		 */
 		static function textbox($param)
 		{
@@ -49,7 +48,6 @@ if (!class_exists('wp_adpress_forms')) {
 
 		/**
 		 * Renders a Range Element 
-		 * @param string $id Option name
 		 */
 		static function rangebox($param)
 		{
@@ -90,7 +88,6 @@ if (!class_exists('wp_adpress_forms')) {
 
 		/**
 		 * Renders a Checkbox
-		 * @param integer $id
 		 */
 		static function checkbox($param)
 		{
@@ -123,7 +120,6 @@ if (!class_exists('wp_adpress_forms')) {
 
 		/**
 		 * Renders a list checkbox
-		 * @param array $param
 		 */
 		static function list_gateways( ) {
 			// All available Gateways

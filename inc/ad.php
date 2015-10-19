@@ -411,6 +411,7 @@ if (!class_exists('wp_adpress_ad')) {
 
         /**
          * Unregister the Ad
+         * @param string $ref
          */
         public function unregister_ad( $ref = null )
         {
@@ -435,7 +436,7 @@ if (!class_exists('wp_adpress_ad')) {
 
         /**
          * Issue a PayPal Refund
-         * @return bool
+         * @return boolean|null
          */
         public function issue_refund()
         {
@@ -652,6 +653,9 @@ if (!class_exists('wp_adpress_ads')) {
             $ad->save();
         }
 
+        /**
+         * @param integer $id
+         */
         static function load_data($id)
         {
             $ad = new wp_adpress_ad($id);

@@ -154,7 +154,7 @@ abstract class WPAD_Payment_Gateway
 	 * @access public
 	 * @since 1.0
 	 *
-	 * @return mixed False if there's no html defined.
+	 * @return boolean False if there's no html defined.
 	 */
 	public function get_button_html() {
 		return false;

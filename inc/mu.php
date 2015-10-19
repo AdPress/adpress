@@ -37,6 +37,9 @@ if (!class_exists('wp_adpress_mu')) {
             return $status;
         }
 
+        /**
+         * @param string $update
+         */
         public function restrict_admin_panel($update)
         {
             if (function_exists('is_multisite') && is_multisite()) {
