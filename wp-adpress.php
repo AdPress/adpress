@@ -206,7 +206,6 @@ if ( ! class_exists( 'wp_adpress' ) ) {
 			require_once( 'inc/ad.php' );
 			require_once( 'inc/rewrite.php' );
 			require_once( 'inc/widget.php' );
-			require_once( 'inc/paypal.php' );
 			require_once( 'inc/payment.php' );
 			require_once( 'inc/history.php' );
 			require_once( 'inc/mu.php' );

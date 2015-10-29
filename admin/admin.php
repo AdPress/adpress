@@ -60,8 +60,6 @@ if (!class_exists('wp_adpress_admin')) {
             global $adpress_page_purchases;
             global $adpress_page_purchase;
             global $adpress_page_ad;
-            global $adpress_page_paypal;
-            global $adpress_page_register_ad;
             global $adpress_page_payments;
             global $adpress_page_addons;
             global $adpress_page_checkout_success;
@@ -115,9 +113,6 @@ if (!class_exists('wp_adpress_admin')) {
             $adpress_page_purchase = add_submenu_page('adpress-pages', 'AdPress | Purchase Ad', 'Purchase Ad', 'adpress_client_menu', 'adpress-ad_purchase', array(&$this, 'menu_router'));
             add_action("load-$adpress_page_purchase", array(&$this, 'help'));
 
-            $adpress_page_register_ad = add_submenu_page('adpress-pages', 'AdPress | Processing your purchase', 'Payment', 'adpress_client_menu', 'adpress-register_ad', array(&$this, 'menu_router'));
-            $adpress_page_paypal = add_submenu_page('adpress-pages', 'AdPress | Processing your purchase', 'Payment', 'adpress_client_menu', 'adpress-paypal', array(&$this, 'menu_router'));
-
             // Checkout Pages
             $adpress_page_checkout_success = add_submenu_page('adpress-pages', 'AdPress | Checkout | Success', 'Success', 'adpress_client_menu', 'adpress-checkout-success', array(&$this, 'menu_router'));
             add_action("load-$adpress_page_checkout_success", array(&$this, 'help'));
@@ -152,8 +147,6 @@ if (!class_exists('wp_adpress_admin')) {
             global $adpress_page_purchases;
             global $adpress_page_purchase;
             global $adpress_page_ad;
-            global $adpress_page_register_ad;
-            global $adpress_page_paypal;
             global $adpress_page_addons;
             global $adpress_page_checkout_success;
             global $adpress_page_checkout_failure;
@@ -199,12 +192,6 @@ if (!class_exists('wp_adpress_admin')) {
             case $adpress_page_purchase:
                 require_once('pages/client/ad_purchase.php');
                 break;
-            case $adpress_page_register_ad:
-                require_once('pages/client/register_ad.php');
-                break;
-            case $adpress_page_paypal:
-                require_once ('pages/client/paypal.php');
-                break;
             case $adpress_page_checkout_success:
                 require_once ( ADPRESS_ABSPATH . 'inc/views/checkout/success_page.php' );
                 break;
@@ -239,7 +226,6 @@ if (!class_exists('wp_adpress_admin')) {
             global $adpress_page_purchases;
             global $adpress_page_purchase;
             global $adpress_page_ad;
-            global $adpress_page_paypal;
             global $adpress_page_addons;
             global $adpress_page_checkout_success;
             global $adpress_page_checkout_failure;
@@ -257,10 +243,7 @@ if (!class_exists('wp_adpress_admin')) {
                 wp_enqueue_script('wp_adpress_redirect', ADPRESS_URLPATH . 'admin/files/js/redirect.js');
                 wp_enqueue_script('wp_adpress_ad_purchase', ADPRESS_URLPATH . 'admin/files/js/ad_purchase.js');
                 wp_enqueue_media();
-                break;
-            case $adpress_page_paypal:
-                wp_enqueue_script('wp_adpress_redirect', ADPRESS_URLPATH . 'admin/files/js/redirect.js');
-                break;
+                break; 
             case $adpress_page_adsrequests:
                 wp_enqueue_script('wp_adpress_admin', ADPRESS_URLPATH . 'admin/files/js/admin.js');
                 break;
@@ -301,8 +284,6 @@ if (!class_exists('wp_adpress_admin')) {
             global $adpress_page_purchases;
             global $adpress_page_purchase;
             global $adpress_page_ad;
-            global $adpress_page_register_ad;
-            global $adpress_page_paypal;
             global $adpress_page_addons;
             global $adpress_page_checkout_success;
             global $adpress_page_checkout_failure;
@@ -345,12 +326,6 @@ if (!class_exists('wp_adpress_admin')) {
                 wp_enqueue_style('wp_adpress_reset', ADPRESS_URLPATH . 'admin/files/css/reset.css');
                 wp_enqueue_style('wp_adpress_ad_stats', ADPRESS_URLPATH . 'admin/files/css/ad_stats.css');
                 break;
-            case $adpress_page_register_ad:
-                wp_enqueue_style('wp_adpress_reset', ADPRESS_URLPATH . 'admin/files/css/reset.css');
-                break;
-            case $adpress_page_paypal:
-                wp_enqueue_style('wp_adpress_reset', ADPRESS_URLPATH . 'admin/files/css/reset.css');
-                break;
             case $adpress_page_checkout_success:
                 wp_enqueue_style('wp_adpress_reset', ADPRESS_URLPATH . 'admin/files/css/reset.css');
                 wp_enqueue_style('wp_adpress_general', ADPRESS_URLPATH . 'admin/files/css/admin.css');
@@ -386,14 +361,6 @@ if (!class_exists('wp_adpress_admin')) {
             add_settings_section('client_access', 'Client Access', 'wp_adpress_forms::description', 'adpress_settings_form_client', 'Client Access');
             add_settings_field('client_roles', 'Client Roles', 'wp_adpress_forms::roles_check', 'adpress_settings_form_client', 'client_access', array('client_roles', 'adpress_settings'));
             add_settings_field('auto_approve', 'Auto Approve', 'wp_adpress_forms::checkbox', 'adpress_settings_form_client', 'client_access', array('auto_approve', 'adpress_settings'));
-            // -- PayPal Settings
-            add_settings_section('paypal_section', 'PayPal Settings', 'wp_adpress_forms::description', 'adpress_settings_form_paypal', 'PayPal Settings');
-            add_settings_field('paypal', 'Enable PayPal', 'wp_adpress_forms::checkbox', 'adpress_settings_form_paypal', 'paypal_section', array('paypal', 'adpress_settings'));
-            add_settings_field('paypal_testmode', 'SandBox Mode', 'wp_adpress_forms::checkbox', 'adpress_settings_form_paypal', 'paypal_section', array('paypal_testmode', 'adpress_settings'));
-            add_settings_field('paypal_refund', 'Enable Refunds', 'wp_adpress_forms::checkbox', 'adpress_settings_form_paypal', 'paypal_section', array('paypal_refund', 'adpress_settings'));
-            add_settings_field('paypal_username', 'User Name', 'wp_adpress_forms::textbox', 'adpress_settings_form_paypal', 'paypal_section', array('paypal_username', 'adpress_settings'));
-            add_settings_field('paypal_password', 'Password', 'wp_adpress_forms::passwordbox', 'adpress_settings_form_paypal', 'paypal_section', array('paypal_password', 'adpress_settings'));
-            add_settings_field('paypal_signature', 'Signature', 'wp_adpress_forms::passwordbox', 'adpress_settings_form_paypal', 'paypal_section', array('paypal_signature', 'adpress_settings'));
 
             // Gateways
             register_setting('adpress_gateways_settings', 'adpress_gateways_settings', 'wp_adpress_forms::validate');
