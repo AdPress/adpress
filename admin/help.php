@@ -118,7 +118,9 @@ if (method_exists($current_screen, 'add_help_tab')) {
 				'<li>' . __('<strong>Time Format</strong> Refer the <a href="http://php.net/manual/en/function.date.php">PHP Manual</a> to know how the formatting works.', 'wp-adpress') . '</li>' .
 				'<li>' . __('<strong>Admin Bar</strong> Displays a Menu in the WordPress Admin bar. It also notifies when you have new Ad requests.', 'wp-adpress') . '</li>' .
 				'<li>' . __('<strong>Debugging Mode</strong> Enable Errors and variable logging. Enable this if you are tracking a bug or problem.', 'wp-adpress') . '</li>' .
-				'<li>' . __('<strong>Smart Rewrite</strong> Enable Smart permalinks format http://site.com/adpress/xx for Ad links.', 'wp-adpress') . '</li>'
+				'<li>' . __('<strong>Smart Rewrite</strong> Enable Smart permalinks format http://site.com/adpress/xx for Ad links.', 'wp-adpress') . '</li>' .
+				'<li>' . __('<strong>Sandbox Mode</strong> If enabled, your payments will be processed on Sandbox mode (if applicable).', 'wp-adpress') . '</li>' .
+				'<li>' . __('<strong>Edit Active Campaigns</strong> If enabled, you\'ll be able to edit active campaign. Editing active campaigns <strong>might</strong> corrupt your Ads.', 'wp-adpress') . '</li>'
 			));
 			$current_screen->add_help_tab(array(
 				'id' => 'general_help_tab2',
@@ -127,7 +129,22 @@ if (method_exists($current_screen, 'add_help_tab')) {
 				'<p>' . __('To purchase Ads, the users must first register in your WordPress Blog. When they are registered, they get assigned a role. (By default, it\'s subscriber. You should set the role which will have a access the client area. As such, only a particular group can purchase Ads.', 'wp-adpress') . '</p>' .
 				'<li>' . __('<strong>Client Role</strong> Displays all the role in your WordPress setup.', 'wp-adpress') . '</li>' .
 				'<li>' . __('<strong>Auto Approve</strong> Disable Ads moderation. Purchased Ads will automatically run.', 'wp-adpress') . '</li>' .
-				'<li>' . __('<strong>Client Message</strong> Enable the client to enter a message when purchasing the form.', 'wp-adpress') . '</li>'
+				'<li>' . __('<strong>Client Message</strong> Enable the client to enter a message when purchasing the form.', 'wp-adpress') . '</li>'		
+			));
+			break;
+		case 'gateways':
+			$current_screen->add_help_tab(array(
+				'id' => 'gateways_help_tab1',
+				'title' => __('General Settings', 'wp-adpress'),
+				'content' => '<h2>' . __('General Settings', 'wp-adpress') . '</h2>' .
+				'<li>' . __('<strong>Payment Gateways</strong> Select which payment gateways to enable at checkout.', 'wp-adpress') . '</li>' .
+				'<li>' . __('<strong>Default Gateway</strong> Select which payment gateway to be select by default at checkout.', 'wp-adpress') . '</li>' 
+			));
+			$current_screen->add_help_tab(array(
+				'id' => 'gateways_help_tab2',
+				'title' => __('Manual Gateway', 'wp-adpress'),
+				'content' => '<h2>' . __('Manual Gateway', 'wp-adpress') . '</h2>' .
+				'<p>' . __('The manual gateway simply confirms the payment at checkout. It is useful if you are handling payments offline, or by bank account.', 'wp-adpress') . '</p>' 
 			));
 			break;
 		}
@@ -145,7 +162,9 @@ if (method_exists($current_screen, 'add_help_tab')) {
 			'id' => 'adpress_page_addons',
 			'title' => __('Add-ons', 'wp-adpress'),
 			'content' => '<h2>' . __('Add-ons', 'wp-adpress') . '</h2>' .
-			'<p>' . __('Help Text', 'wp-adpress') . '</p>'
+			'<p>' . __('Add-ons extend the functionality of your AdPress plugin.', 'wp-adpress') . '</p>' .
+			'<li>' . __('<strong>Native Add-ons</strong> These add-ons are bundlded with your main AdPress version. They are enabled by default and cannot be disabled.', 'wp-adpress') . '</li>' .
+			'<li>' . __('<strong>Optional Add-ons</strong> These add-ons are uploaded as regular plugins. They are optional and can be deactivated from here without affecting your AdPress plugin.', 'wp-adpress') . '</li>' 
 		));
 		break;
 	case $adpress_page_available:
