@@ -218,6 +218,11 @@ if ( ! class_exists( 'wp_adpress' ) ) {
              */
             require_once( 'inc/ads/functions.php' );
 
+			/*
+			 * Campaign Functionality
+			 */
+			require_once( 'inc/campaigns/functions.php' );
+			require_once( 'inc/campaigns/actions.php' );
 
 			/*
 			 * Checkout Functionality
