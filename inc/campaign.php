@@ -574,42 +574,7 @@ if (!class_exists('wp_adpress_campaigns')) {
     class wp_adpress_campaigns
     {
 
-        /**
-         * Return the name of the campaigns table
-         * @static
-         * @return string
-         */
-        static function campaigns_table()
-        {
-            global $wpdb;
-            return $wpdb->prefix . 'adpress_campaigns';
-        }
-
-        /**
-         * Return the name of the campaigns table
-         * @static
-         * @return string
-         */
-        static function ads_table()
-        {
-            global $wpdb;
-            return $wpdb->prefix . 'adpress_ads';
-        }
-
-        /**
-         * This function returns a unique ID for a new campaign
-         * @return integer new campaign ID
-         */
-        static function new_campaign_id()
-        {
-            global $wpdb;
-            $max_id = $wpdb->get_var('SELECT MAX(id) FROM ' . self::campaigns_table() . ' WHERE id is not null;');
-            if ($max_id === NULL) {
-                return 1;
-            }
-            $new_id = (int)$max_id + 1;
-            return $new_id;
-        }
+        
 
         /**
          * Returns the number of campaigns
@@ -725,9 +690,11 @@ if (!class_exists('wp_adpress_campaigns')) {
          */
         static function empty_campaigns()
         {
+			/*
             global $wpdb;
             $query = $wpdb->query('TRUNCATE TABLE ' . self::campaigns_table() . ';');
             return $query;
+			 */
         }
 
     }
