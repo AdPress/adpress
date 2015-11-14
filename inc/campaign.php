@@ -68,48 +68,12 @@ if ( !class_exists( 'wp_adpress_campaign' ) ) {
             */
             if ($id === null) {
 				// The new way of doing things	
-				$this->id = $this->insert_new_campaign( $settings, $ad_definition );
+				$this->id = wp_adpress_insert_new_campaign( $settings, $ad_definition );
             } else { 
                 // Retrieve Campaign settings from DataBase
                 $this->load_campaign( $id );
             }
-        }
-
-		private function insert_new_campaign( $settings, $ad_definition )
-		{
-			if ( empty ( $settings ) || empty( $ad_definition ) ) {
-				return false;
-			}	
-
-			// Make sure the campaign is inserted with the correct timezone
-			date_default_timezone_set( wp_adpress_get_timezone_id() );
-
-			// Post Args
-			$args = array (
-				'post_title'    => $settings['name'],
-				'post_status'   => 'publish',
-				'post_type'     => 'wp_adpress_campaigns',
-				'post_parent'   =>  null,
-				'post_date'     =>  null,
-				'post_date_gmt' =>  null,
-			);
-
-			// Insert the Campaign Post
-			$campaign = wp_insert_post( $args );
-
-			if ( $campaign ) {
-				update_post_meta( $campaign, 'wpad_campaign_name',        $settings['name'] );
-				update_post_meta( $campaign, 'wpad_campaign_description', $settings['description'] );
-				update_post_meta( $campaign, 'wpad_campaign_state',       $settings['state'] );
-				update_post_meta( $campaign, 'wpad_campaign_settings',    serialize( $settings ) );
-				update_post_meta( $campaign, 'wpad_campaign_addefinition',serialize( $ad_definition ) );
-
-				return $campaign; // return the ID
-			}
-
-			// return false if no campaign is inserted
-			return false;
-		}
+        }	
 
 		public function update_campaign()
 		{
