@@ -95,10 +95,9 @@ if (isset($_POST['edit_campaign'])) {
     $edit_campaign = new wp_adpress_campaign((int)$_POST['edit_campaign']);
     $edit_campaign->settings = $campaign_settings;
     $edit_campaign->ad_definition = $ad_definition;
-    $result = $edit_campaign->save();
+    $edit_campaign->update_campaign();
 } else {
-    $new_campaign = new wp_adpress_campaign(null, $campaign_settings, $ad_definition);
-    $result = $new_campaign->save();
+    $new_campaign = new wp_adpress_campaign( null, $campaign_settings, $ad_definition );
 }
 wp_adpress::display_log($_POST);
 wp_adpress::display_message('Campaign Saved', 'Campaign Saved', __('<p>You can return to the <a href="admin.php?page=adpress-campaigns">Campaigns page</a> or <a href="admin.php?page=adpress-inccampaign">add another Campaign</a>.</p>', 'wp-adpress'), 'adpress-icon-campaignsaved', 'adpress-icon-request_sent');
