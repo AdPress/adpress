@@ -616,10 +616,10 @@ if (!class_exists('wp_adpress_campaigns')) {
          * @return integer Campaign count
          */
         static function campaigns_number()
-        {
-            global $wpdb;
-            $count_id = $wpdb->get_var('SELECT COUNT(id) FROM ' . self::campaigns_table() . ' WHERE id is not null;');
-            return $count_id;
+        {	
+			$count = wp_count_posts( 'wp_adpress_campaigns' );
+
+			return $count->publish;
         }
 
         /**
@@ -641,7 +641,6 @@ if (!class_exists('wp_adpress_campaigns')) {
                     $campaign->remove();
                     break;
             }
-            $campaign->save();
         }
 
         /**
@@ -650,32 +649,37 @@ if (!class_exists('wp_adpress_campaigns')) {
          * @param string $state Possible values are all, active and inactive
          * @return array list of wp_adpress_campaign objects
          */
-        static function list_campaigns($state = 'all')
-        {
-            global $wpdb;
-            // Select Query
-            $query = 'SELECT id FROM ' . self::campaigns_table() . ';';
-            $arr = array();
-            $result = $wpdb->get_col($query);
+		static function list_campaigns($state = 'all')
+		{
+			$args = array(
+				'posts_per_page'   => 0,
+				'orderby'          => 'date',
+				'order'            => 'DESC',
+				'post_type'        => 'wp_adpress_campaigns',
+				'post_status'      => 'publish',
+			);
 
-            // Filtering
-            if (!empty($result)) {
-                for ($i = 0; $i < count($result); $i++) {
-                    $campaign = new wp_adpress_campaign((int)$result[$i]);
-                    switch ($state) {
-                        case 'active':
-                        case 'inactive':
-                            if ($campaign->state() === $state) {
-                                $arr[] = $campaign;
-                            }
-                            break;
-                        case 'all':
-                        default:
-                            $arr[] = $campaign;
-                            break;
-                    }
-                }
-            }
+			$campaigns = get_posts( $args );
+
+			$arr = array();
+
+			// Filtering
+			foreach( $campaigns as $post ) {
+				$campaign = new wp_adpress_campaign( $post->ID );
+				switch ($state) {
+				case 'active':
+				case 'inactive':
+					if ( $campaign->state() === $state ) {
+						$arr[] = $campaign;
+					}
+					break;
+				case 'all':
+				default:
+					$arr[] = $campaign;
+					break;
+				}
+			}
+
             return $arr;
         }
 
