@@ -88,33 +88,53 @@ if ( !class_exists( 'wp_adpress_ad' ) ) {
          * @param array $param Ad parameters
          * @param string $status Ad Status
          */
-        function __construct($id = null, $campaign_id = null, $param = null, $status = 'available')
-        {
-            // Load the ad defintion
-            // TODO: why is this needed? and does it work?
-            $this->load_ad_definition();
-            $this->status = $status;
-
+        function __construct( $id = null, $campaign_id = null, $param = null )
+        { 
             if ($id === null) {
-                // new ad unit
-                $this->id = wp_adpress_ads::new_ad_id();
-                $this->campaign_id = $campaign_id;
-                $this->param = $param;
+				$this->id = $this->insert_new_ad( $campaign_id, $param );
             } else {
-                // load ad unit
-                $this->id = $id;
-                $this->retrieve_ad();
+                $this->load_ad( $id );
             }
         }
 
-        /**
-         * Load the campaign Ad defintion
-         */
-        private function load_ad_definition()
-        {
-            $campaign = new wp_adpress_campaign($this->campaign_id);
-            $this->ad_definition = $campaign->ad_definition;
-        }
+		private function insert_new_ad( $campaign_id, $param )
+		{
+			if ( empty ( $campaign_id ) || empty( $param ) ) {
+				return false;
+			}	
+
+			// Make sure the ad is inserted with the correct timezone
+			date_default_timezone_set( wp_adpress_get_timezone_id() );
+
+			// Post Args
+			$args = array (
+				'post_title'    => $campaign_id,
+				'post_status'   => 'publish',
+				'post_type'     => 'wp_adpress_ads',
+				'post_parent'   =>  $campaign_id,
+				'post_date'     =>  null,
+				'post_date_gmt' =>  null,
+			);
+
+			// Insert the Ad Post
+			$ad = wp_insert_post( $args );
+
+			if ( $ad ) {
+				update_post_meta( $ad, 'wpad_ad_campaignid',        $campaign_id );
+				update_post_meta( $ad, 'wpad_ad_param', 			serialize( $param ) );
+
+				return $ad; // return the ID
+			}
+
+			// return false if no campaign is inserted
+			return false;
+
+		}
+
+		private function load_ad( $id )
+		{
+
+		}
 
         /**
          * Load the Ad object from the database
