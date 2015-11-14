@@ -1,7 +1,7 @@
 <?php
 // Don't load directly
-if (!defined('ABSPATH')) {
-    die('-1');
+if ( !defined( 'ABSPATH' ) ) {
+    die( '-1' );
 }
 /**
  * Ad Sub-Package
@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
  * @subpackage Ad
  */
 
-if (!class_exists('wp_adpress_ad')) {
+if ( !class_exists( 'wp_adpress_ad' ) ) {
     /**
      * Ad Class
      *

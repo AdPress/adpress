@@ -1,7 +1,7 @@
 <?php
 // Don't load directly
-if (!defined('ABSPATH')) {
-    die('-1');
+if ( !defined( 'ABSPATH' ) ) {
+    die( '-1' );
 }
 
 /**
@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
  * @subpackage Campaign
  */
 
-if (!class_exists('wp_adpress_campaign')) {
+if ( !class_exists( 'wp_adpress_campaign' ) ) {
     /**
      * Campaign Class
      *
@@ -61,7 +61,7 @@ if (!class_exists('wp_adpress_campaign')) {
          * @param array $settings Campaign Settings
          * @param array $ad_definition Campaign Ad definition
          */
-        function __construct($id = null, $settings = array(), $ad_definition = array('number' => 0))
+        function __construct( $id = null, $settings = array(), $ad_definition = array( 'number' => 0 ) )
         {
             /*
             * Creates a new Campaign if no id is provided
