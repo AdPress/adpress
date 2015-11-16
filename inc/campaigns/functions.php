@@ -58,6 +58,10 @@ function wp_adpress_insert_new_campaign ( $settings, $ad_definition ) {
  * @since 1.2.0 
  */
 function wp_adpress_get_campaign( $id ) {
+	// Check if the campaign exists
+	if ( ! wp_adpress_post_exists( $id ) ) {
+		return false;
+	}
 	// Campaign Settings
 	$settings = get_post_meta( $id, 'wpad_campaign_settings', true );
 	$settings = unserialize( $settings );
