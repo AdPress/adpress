@@ -123,3 +123,15 @@ function wp_adpress_sandbox_mode() {
 function wp_adpress_die() {
 	exit;
 }
+
+/**
+ * Determines if a post, identified by the specified ID, exist
+ * within the WordPress database.
+ *
+ * @param    int    $id    The ID of the post to check
+ * @return   bool          True if the post exists; otherwise, false.
+ * @since    1.2.0
+ */
+function wp_adpress_post_exists( $id ) {
+  return is_string( get_post_status( $id ) );
+}
