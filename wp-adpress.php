@@ -214,13 +214,34 @@ if ( ! class_exists( 'wp_adpress' ) ) {
             require_once( 'inc/tracker.php' );
 
             /*
+             * Ad Types Functionality
+             */
+            require_once( 'inc/adtypes/adtype.class.php' );
+            require_once( 'inc/adtypes/adtype-collection.class.php' );
+            require_once( 'inc/adtypes/functions.php' );
+            require_once( 'inc/adtypes/actions.php' );
+
+            /*
+             * Contracts Functionality
+             */
+            require_once( 'inc/contracts/contract.class.php' );
+            require_once( 'inc/contracts/contract-collection.class.php' );
+            require_once( 'inc/contracts/functions.php' );
+            require_once( 'inc/contracts/actions.php' );
+
+            /*
              * Ads Functionality
              */
+            require_once( 'inc/ads/ad.class.php' );
+            require_once( 'inc/ads/ad-collection.class.php' );
             require_once( 'inc/ads/functions.php' );
+            require_once( 'inc/ads/actions.php' );
 
 			/*
-			 * Campaign Functionality
+			 * Campaigns Functionality
 			 */
+            require_once( 'inc/campaigns/campaign.class.php' );
+			require_once( 'inc/campaigns/campaign-collection.class.php' );
 			require_once( 'inc/campaigns/functions.php' );
 			require_once( 'inc/campaigns/actions.php' );
 
