@@ -6,7 +6,7 @@
  * @version     1.2.0
  * @package     Inc/Abstracts
  */
-abstract class WPAD_Posts_API 
+abstract class WPAD_Post_API 
 {
 	/**
 	 * The post ID.
