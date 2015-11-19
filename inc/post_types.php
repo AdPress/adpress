@@ -14,13 +14,13 @@ if ( !defined('ABSPATH') ) {
 }
 
 /**
- * Payments post type
+ * Payments custom post type
  *
  */
 function wp_adpress_payment_post_type() {
 
 	// Post Type labels
-	$payment_labels = array(
+	$labels = array(
 		'name' 				=> _x('Payments', 'post type general name', 'wp-adpress' ),
 		'singular_name' 	=> _x('Payment', 'post type singular name', 'wp-adpress' ),
 		'add_new' 			=> __( 'Add New', 'wp-adpress' ),
@@ -37,8 +37,8 @@ function wp_adpress_payment_post_type() {
 	);
 
 	// Post Type args
-	$payment_args = array(
-		'labels' 			=> apply_filters( 'wp_adpress_payment_labels', $payment_labels ),
+	$args = array(
+		'labels' 			=> apply_filters( 'wp_adpress_payment_labels', $labels ),
 		'public' 			=> defined( 'WP_DEBUG' ) && WP_DEBUG,
 		'query_var' 		=> true,
 		'rewrite' 			=> true,
@@ -76,7 +76,7 @@ register_post_status( 'cancelled', array(
 	)  );
 
 	// Register the post type
-	register_post_type( 'wp_adpress_payments', $payment_args );
+	register_post_type( 'wp_adpress_payments', $args );
 }
 
 add_action('init', 'wp_adpress_payment_post_type');
@@ -88,7 +88,7 @@ add_action('init', 'wp_adpress_payment_post_type');
 function wp_adpress_adshistory_post_type() {
 
 	// Post Type labels
-	$adshistory_labels = array(
+	$labels = array(
 		'name' 				=> _x( 'Ads History', 'post type general name', 'wp-adpress' ),
 		'singular_name' 	=> _x( 'Ad History', 'post type singular name', 'wp-adpress' ),
 		'add_new' 			=> __( 'Add New', 'wp-adpress' ),
@@ -105,8 +105,8 @@ function wp_adpress_adshistory_post_type() {
 	);
 
 	// Post Type args
-	$adshistory_args = array(
-		'labels' 			=> apply_filters( 'wp_adpress_adshistory_labels', $adshistory_labels ),
+	$args = array(
+		'labels' 			=> apply_filters( 'wp_adpress_adshistory_labels', $labels ),
 		'public' 			=> defined( 'WP_DEBUG' ) && WP_DEBUG,
 		'query_var' 		=> true,
 		'rewrite' 			=> true,
@@ -116,19 +116,19 @@ function wp_adpress_adshistory_post_type() {
 	);
 
 	// Register the post type
-	register_post_type( 'wpad_adshistory', $adshistory_args );
+	register_post_type( 'wpad_adshistory', $args );
 }
 
 add_action( 'init', 'wp_adpress_adshistory_post_type' );
 
 /**
- * Campaigns post type
+ * Campaigns custom post type
  *
  */
 function wp_adpress_campaigns_post_type() {
 
 	// Post Type labels
-	$campaigns_labels = array(
+	$labels = array(
 		'name' 				=> _x( 'Campaigns', 'post type general name', 'wp-adpress' ),
 		'singular_name' 	=> _x( 'Campaign', 'post type singular name', 'wp-adpress' ),
 		'add_new' 			=> __( 'Add New', 'wp-adpress' ),
@@ -145,8 +145,8 @@ function wp_adpress_campaigns_post_type() {
 	);
 
 	// Post Type args
-	$campaigns_args = array(
-		'labels' 			=> apply_filters( 'wp_adpress_payment_labels', $campaigns_labels ),
+	$args = array(
+		'labels' 			=> apply_filters( 'wp_adpress_campaigns_labels', $labels ),
 		'public' 			=> defined( 'WP_DEBUG' ) && WP_DEBUG,
 		'query_var' 		=> false,
 		'rewrite' 			=> false,
@@ -156,7 +156,7 @@ function wp_adpress_campaigns_post_type() {
 	);
 
 	// Register the post type
-	register_post_type( 'wp_adpress_campaigns', $campaigns_args );
+	register_post_type( 'wp_adpress_campaigns', $args );
 }
 
 add_action('init', 'wp_adpress_campaigns_post_type');
@@ -168,7 +168,7 @@ add_action('init', 'wp_adpress_campaigns_post_type');
 function wp_adpress_ads_post_type() {
 
 	// Post Type labels
-	$ads_labels = array(
+	$labels = array(
 		'name' 				=> _x( 'Ads', 'post type general name', 'wp-adpress' ),
 		'singular_name' 	=> _x( 'Ads', 'post type singular name', 'wp-adpress' ),
 		'add_new' 			=> __( 'Add New', 'wp-adpress' ),
@@ -185,8 +185,8 @@ function wp_adpress_ads_post_type() {
 	);
 
 	// Post Type args
-	$ads_args = array(
-		'labels' 			=> apply_filters( 'wp_adpress_payment_labels', $ads_labels ),
+	$args = array(
+		'labels' 			=> apply_filters( 'wp_adpress_ads_labels', $labels ),
 		'public' 			=> defined( 'WP_DEBUG' ) && WP_DEBUG,
 		'query_var' 		=> false,
 		'rewrite' 			=> false,
@@ -196,7 +196,7 @@ function wp_adpress_ads_post_type() {
 	);
 
 	// Register the post type
-	register_post_type( 'wp_adpress_ads', $ads_args );
+	register_post_type( 'wp_adpress_ads', $args );
 }
 
 add_action('init', 'wp_adpress_ads_post_type');
