@@ -55,7 +55,7 @@ abstract class WPAD_Post_API
 	 * @param mixed $default
 	 * @return mixed
 	 */
-	public function __get( $key, $default = '' ) {
+	public function __get( $key ) {
 		// post must exist first
 		if ( $this->exists() ) {
 			return false;
