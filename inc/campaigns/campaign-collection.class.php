@@ -14,6 +14,6 @@ if ( !defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
-final class WPAD_Campaings_Collection {
+final class WPAD_Campaing_Collection {
 
 }

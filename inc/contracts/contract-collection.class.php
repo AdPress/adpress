@@ -11,6 +11,6 @@ if ( !defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
-final class WPAD_Contracts_Collection {
+final class WPAD_Contract_Collection {
 
 }

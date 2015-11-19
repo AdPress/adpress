@@ -11,6 +11,6 @@ if ( !defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
-final class WPAD_Ad_Type_Collection {
+final class WPAD_Adtype_Collection {
 
 }

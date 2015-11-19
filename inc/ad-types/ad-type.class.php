@@ -13,7 +13,7 @@ if ( !defined( 'ABSPATH') ) {
 	die( '-1' );
 }
 
-abstract class WPAD_Ad_Type extends WPAD_Post_API
+abstract class WPAD_Adtype extends WPAD_Post_API
 {
 	/**
 	 * Post Type id
