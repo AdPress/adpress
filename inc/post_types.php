@@ -200,3 +200,43 @@ function wp_adpress_ads_post_type() {
 }
 
 add_action('init', 'wp_adpress_ads_post_type');
+
+/**
+ * Ad Types post type
+ *
+ */
+function wp_adpress_adtypes_post_type() {
+
+	// Post Type labels
+	$labels = array(
+		'name' 				=> _x( 'Ad Types', 'post type general name', 'wp-adpress' ),
+		'singular_name' 	=> _x( 'Types', 'post type singular name', 'wp-adpress' ),
+		'add_new' 			=> __( 'Add New', 'wp-adpress' ),
+		'add_new_item' 		=> __( 'Add New Ad Type', 'wp-adpress' ),
+		'edit_item' 		=> __( 'Edit Ad Type', 'wp-adpress' ),
+		'new_item' 			=> __( 'New Ad Type', 'wp-adpress' ),
+		'all_items' 		=> __( 'All Ad Types', 'wp-adpress' ),
+		'view_item' 		=> __( 'View Ad Type', 'wp-adpress' ),
+		'search_items' 		=> __( 'Search Ad Types', 'wp-adpress' ),
+		'not_found' 		=> __( 'No Ad Types found', 'wp-adpress' ),
+		'not_found_in_trash'=> __( 'No Ad Types found in Trash', 'wp-adpress' ),
+		'parent_item_colon' => '',
+		'menu_name' 		=> __( 'AdPress Ad Types', 'wp-adpress' ),
+	);
+
+	// Post Type args
+	$args = array(
+		'labels' 			=> apply_filters( 'wp_adpress_adtypes_labels', $labels ),
+		'public' 			=> defined( 'WP_DEBUG' ) && WP_DEBUG,
+		'query_var' 		=> false,
+		'rewrite' 			=> false,
+		'map_meta_cap'      => true,
+		'supports' 			=> array( 'title' ),
+		'can_export'		=> true,
+	);
+
+	// Register the post type
+	register_post_type( 'wp_adpress_adtypes', $args );
+}
+
+add_action('init', 'wp_adpress_adtypes_post_type');
