@@ -13,7 +13,12 @@ if ( !defined( 'ABSPATH') ) {
 	die( '-1' );
 }
 
-abstract class WPAD_Contract
+abstract class WPAD_Contract extends WPAD_Post_API
 {
-
+	/**
+	 * Post Type id
+	 *
+	 * @var string
+	 */
+	public $post_type = 'wp_adpress_contracts';
 }

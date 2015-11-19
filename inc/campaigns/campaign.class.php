@@ -15,65 +15,13 @@ if ( !defined( 'ABSPATH') ) {
 	die( '-1' );
 }
 
-abstract class WPAD_Campaign
-{
+abstract class WPAD_Campaign extends WPAD_Post_API
+{	
 	/**
-	 * Campaign Id
+	 * Post Type id
 	 *
-	 * @access public
-	 * @var int
-	 */
-	public $id;
-
-	/**
-	 * Campaign Name
-	 *
-	 * @access public
 	 * @var string
 	 */
-	public $name;
+	public $post_type = 'wp_adpress_campaigns';
 
-	/**
-	 * Campaign Description
-	 *
-	 * @access public
-	 * @var string
-	 */
-	public $description;
-
-	/**
-	 * Campaign Status (Active/Inactive)
-	 *
-	 * @access public
-	 * @var string
-	 */
-	public $status;
-
-	/**
-	 * Campaign Linked Ad Type
-	 *
-	 * @access public
-	 * @var WPAD_Ad_Type
-	 */
-	public $ad_type;
-
-	/**
-	 * Campaign Linked Contract
-	 *
-	 * @access public
-	 * @var WPAD_Contract
-	 */
-	public $contract;
-
-	/**
-	 * Campaign Configuration
-	 *
-	 * @access public
-	 * @var array
-	 */
-	public $config = array();
-
-	public function __construct( $id = 0 ) {
-
-	}	
 }

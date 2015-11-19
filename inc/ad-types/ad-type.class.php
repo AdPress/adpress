@@ -13,7 +13,13 @@ if ( !defined( 'ABSPATH') ) {
 	die( '-1' );
 }
 
-abstract class WPAD_Ad_Type
+abstract class WPAD_Ad_Type extends WPAD_Post_API
 {
+	/**
+	 * Post Type id
+	 *
+	 * @var string
+	 */
+	public $post_type = 'wp_adpress_adtypes';
 
 }
