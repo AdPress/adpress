@@ -173,6 +173,11 @@ if ( ! class_exists( 'wp_adpress' ) ) {
              */
             require_once( 'vendor/autoload.php' );
 
+            /*
+             * Abstract Classes
+             */
+            require_once( 'inc/abstracts/post-api.class.php' );
+
 			/*
 			 * Admin Dependencies
 			 */
